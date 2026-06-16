@@ -125,8 +125,16 @@ def hoja_habitos(wb):
             c=ws.cell(row=r,column=j); c.border=BORDER; c.alignment=CENTER
 
 # ============================================================ NOTAS
-MATERIAS=[("Diseno Estructural (PROYECTO)",4),("Materia obligatoria 1",3),("Materia obligatoria 2",3),
-          ("Materia obligatoria 3",3),("Materia optativa 1",2),("Materia optativa 2",2)]
+# (Materia, creditos, [(evaluacion, % peso), ...])  -- creditos editables
+MATERIAS_DATA=[
+    ("Diseno Estructural",4,[("Parcial 1",20),("Parcial 2",20),("Parcial 3",20),("Primera entrega proyecto",10),("Entrega final proyecto",30)]),
+    ("Uitoto",3,[("Mito",30),("Talleres grupales",30),("Propuesta final",40)]),
+    ("PEPI",3,[("Parcial 1",20),("Talleres",40),("Quices",10),("Proyecto",30)]),
+    ("Saneamiento Ambiental",3,[("Proyecto",40),("Talleres",35),("Quices",15),("Participacion",10)]),
+    ("Alcantarillados",3,[("Informe de salida",20),("Planes de gobierno",10),("Parcial 1",20),("Parcial 2",20),("Proyecto",30)]),
+    ("Fundamentos de Construccion",3,[("Parcial 1",25),("Parcial 2",25),("Proyecto 1",20),("Talleres",30)]),
+]
+MATERIAS=[(n,c) for n,c,_ in MATERIAS_DATA]
 N_EVAL=7; BLOCK=N_EVAL+9
 def _bs(i): return 3+i*BLOCK
 def _def(i): return f"D{_bs(i)+N_EVAL+4}"
@@ -173,9 +181,14 @@ def hoja_calculadora(wb):
         for j,t in enumerate(["Evaluacion","% (peso)","Nota (0-5)","Aporte"],1):
             hc=ws.cell(row=s+1,column=j,value=t); hc.font=Font(bold=True); hc.fill=PatternFill("solid",fgColor=CLARO)
             hc.alignment=CENTER; hc.border=BORDER
-        ev0=s+2
+        ev0=s+2; evals=MATERIAS_DATA[i][2]
         for k in range(N_EVAL):
-            r=ev0+k; ws.cell(row=r,column=1,value=f"Eval {k+1}").alignment=LEFT
+            r=ev0+k
+            if k<len(evals):
+                ws.cell(row=r,column=1,value=evals[k][0]).alignment=LEFT
+                ws.cell(row=r,column=2,value=evals[k][1]).alignment=CENTER
+            else:
+                ws.cell(row=r,column=1,value=f"Eval {k+1}").alignment=LEFT
             ws.cell(row=r,column=4,value=f"=IFERROR(B{r}*C{r}/100,0)").alignment=CENTER
             for j in range(1,5): ws.cell(row=r,column=j).border=BORDER
         evN=ev0+N_EVAL-1
@@ -203,8 +216,11 @@ def hoja_entregas(wb):
         head(ws,2,j,t,w)
     r0=3; rN=r0+24
     ejemplos=[
-        ("Diseno Estructural","Entrega parcial del proyecto","Proyecto",30,"","Pendiente"),
-        ("Diseno Estructural","Sustentacion final","Proyecto",40,"","Pendiente"),
+        ("Diseno Estructural","Parcial 1","Parcial",20,"","Pendiente"),
+        ("Diseno Estructural","Parcial 2","Parcial",20,"","Pendiente"),
+        ("Diseno Estructural","Parcial 3","Parcial",20,"","Pendiente"),
+        ("Diseno Estructural","Primera entrega proyecto","Proyecto",10,"","Pendiente"),
+        ("Diseno Estructural","Entrega final proyecto","Proyecto",30,"","Pendiente"),
     ]
     for i,(mat,ent,tip,pc,fec,est) in enumerate(ejemplos):
         r=r0+i
