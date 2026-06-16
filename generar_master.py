@@ -127,7 +127,7 @@ def hoja_habitos(wb):
 # ============================================================ NOTAS
 # (Materia, creditos, [(evaluacion, % peso), ...])  -- creditos editables
 MATERIAS_DATA=[
-    ("Diseno Estructural",4,[("Parcial 1",20),("Parcial 2",20),("Parcial 3",20),("Primera entrega proyecto",10),("Entrega final proyecto",30)]),
+    ("Diseno Estructural",3,[("Parcial 1",20),("Parcial 2",20),("Parcial 3",20),("Primera entrega proyecto",10),("Entrega final proyecto",30)]),
     ("Uitoto",3,[("Mito",30),("Talleres grupales",30),("Propuesta final",40)]),
     ("PEPI",3,[("Parcial 1",20),("Talleres",40),("Quices",10),("Proyecto",30)]),
     ("Saneamiento Ambiental",3,[("Proyecto",40),("Talleres",35),("Quices",15),("Participacion",10)]),
@@ -260,21 +260,36 @@ def hoja_entregas(wb):
 
 def hoja_carrera(wb):
     ws=wb.create_sheet("PAPA Carrera")
-    titulo(ws,"A1","PROMEDIO ACUMULADO DE CARRERA (PAPA)","D1",color=NAVY)
-    for j,(t,w) in enumerate([("Semestre",12),("Creditos",12),("Promedio semestre",18),("Aporte",12)],1): head(ws,3,j,t,w)
-    first=4
-    for s in range(1,10):
-        r=first+s-1; ws.cell(row=r,column=1,value=f"Sem {s}").alignment=CENTER
-        if s==9: ws.cell(row=r,column=3,value="='Resumen Semestre'!C10")
-        ws.cell(row=r,column=4,value=f"=IFERROR(B{r}*C{r},0)").alignment=CENTER
-        for j in range(1,5): ws.cell(row=r,column=j).border=BORDER
-    last=first+8; tr=last+1
-    ws.cell(row=tr,column=1,value="PAPA CARRERA").font=Font(bold=True)
-    ws.cell(row=tr,column=2,value=f"=SUM(B{first}:B{last})").alignment=CENTER
-    pc=ws.cell(row=tr,column=3,value=f"=IFERROR(ROUND(SUMPRODUCT(B{first}:B{last},C{first}:C{last})/SUM(B{first}:B{last}),2),0)")
-    pc.font=Font(bold=True,size=12,color="1B5E20"); pc.alignment=CENTER
-    for j in range(1,4): ws.cell(row=tr,column=j).fill=PatternFill("solid",fgColor=CLARO); ws.cell(row=tr,column=j).border=BORDER
-    ws.cell(row=tr+2,column=1,value="Llena creditos y promedio de semestres 1-8. El Sem 9 se calcula solo.").font=Font(italic=True,size=9)
+    titulo(ws,"A1","PAPA - actual y PROYECTADO tras este semestre","D1",color=NAVY)
+    ws.column_dimensions["A"].width=42; ws.column_dimensions["B"].width=16
+    filas=[
+        ("PAPA actual (antes de este semestre)",4.2,"0.00"),
+        ("% de avance actual",0.817,"0.0%"),
+        ("Creditos totales del plan (editable)",180,"0"),
+        ("Creditos ya cursados (calculado)","=ROUND(B4*B5,0)","0"),
+        ("Promedio de ESTE semestre (de tus notas)","='Resumen Semestre'!C10","0.00"),
+        ("Creditos de este semestre","='Resumen Semestre'!B10","0"),
+        ("PAPA PROYECTADO al terminar el semestre","=IFERROR(ROUND((B3*B6+B7*B8)/(B6+B8),2),0)","0.00"),
+        ("Nuevo % de avance","=IFERROR(ROUND((B6+B8)/B5,3),0)","0.0%"),
+    ]
+    r=3
+    for lab,val,fmt in filas:
+        l=ws.cell(row=r,column=1,value=lab); l.border=BORDER; l.alignment=LEFT
+        v=ws.cell(row=r,column=2,value=val); v.border=BORDER; v.alignment=CENTER; v.number_format=fmt
+        if lab.startswith("PAPA PROYECTADO"):
+            v.font=Font(bold=True,size=12,color="1B5E20"); l.font=Font(bold=True)
+            v.fill=PatternFill("solid",fgColor=VERDE); l.fill=PatternFill("solid",fgColor=CLARO)
+        r+=1
+    # Tabla de sensibilidad: como te quedaria el PAPA segun el promedio del semestre
+    r+=1
+    ws.cell(row=r,column=1,value="SI tu promedio del semestre es...").font=Font(bold=True)
+    ws.cell(row=r,column=2,value="...tu PAPA quedaria").font=Font(bold=True); r+=1
+    for s in [3.0,3.5,4.0,4.2,4.5,5.0]:
+        ws.cell(row=r,column=1,value=s).alignment=CENTER; ws.cell(row=r,column=1).number_format="0.0"; ws.cell(row=r,column=1).border=BORDER
+        v=ws.cell(row=r,column=2,value=f"=IFERROR(ROUND((B3*B6+{s}*B8)/(B6+B8),2),0)"); v.alignment=CENTER; v.number_format="0.00"; v.border=BORDER
+        r+=1
+    ws.cell(row=r+1,column=1,value="Todas tus materias tienen 3 creditos -> el promedio del semestre = promedio simple de las 6 notas.").font=Font(italic=True,size=9)
+    ws.cell(row=r+2,column=1,value="Ajusta 'Creditos totales del plan' si conoces el numero exacto de tu pensum (UNAL Ing. Civil ~180).").font=Font(italic=True,size=9)
 
 def hoja_prioridades(wb):
     ws=wb.create_sheet("Prioridades")
