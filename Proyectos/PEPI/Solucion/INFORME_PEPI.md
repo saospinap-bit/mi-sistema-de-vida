@@ -30,6 +30,10 @@ La inversión total (**CAPEX**) asciende a **COP 14.000 MM**, financiada en un *
 
 **Problema central:** Deficiente prestación del servicio de acueducto en el municipio de El Progreso.
 
+![Árbol de Problemas](arbol_problemas.png)
+
+<details><summary>Ver también como diagrama interactivo (mermaid)</summary>
+
 ```mermaid
 flowchart TB
     %% CONSECUENCIAS (arriba)
@@ -69,11 +73,17 @@ flowchart TB
     C4 --> EF
 ```
 
+</details>
+
 ---
 
 ## 3. Árbol de Objetivos
 
 **Objetivo central:** Mejorar la prestación del servicio de acueducto en el municipio de El Progreso.
+
+![Árbol de Objetivos](arbol_objetivos.png)
+
+<details><summary>Ver también como diagrama interactivo (mermaid)</summary>
 
 ```mermaid
 flowchart TB
@@ -113,6 +123,8 @@ flowchart TB
     F3 --> FF
     F4 --> FF
 ```
+
+</details>
 
 ---
 

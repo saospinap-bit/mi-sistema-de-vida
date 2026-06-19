@@ -4,8 +4,9 @@ Genera el informe PEPI en formato Word (.docx) a partir de los datos del proyect
 Requiere: python-docx
 Ejecutar:  python3 generar_word.py  -> crea INFORME_PEPI.docx
 """
+import os
 from docx import Document
-from docx.shared import Pt, RGBColor
+from docx.shared import Pt, RGBColor, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml.ns import qn
@@ -126,55 +127,26 @@ add_table(
      ["TIR del inversionista", "24,78 %"]],
     col_align=["left", "right"])
 
+def add_image_centered(path, width_inches=6.3):
+    if os.path.exists(path):
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = p.add_run()
+        run.add_picture(path, width=Inches(width_inches))
+    else:
+        para("[No se encontro la imagen: " + path + ". Ejecuta generar_arboles.py]", italic=True, size=9)
+
 # 2. ARBOL DE PROBLEMAS
 h1("2. Árbol de Problemas")
-para("Problema central: Deficiente prestación del servicio de acueducto en el municipio de El Progreso.")
-h2("Efecto final")
-para("Bajo desarrollo social y económico del municipio.")
-h2("Consecuencias (efectos)")
-for x in ["Aumento de enfermedades de origen hídrico (EDA).",
-          "Sobrecostos por compra de agua en carrotanques.",
-          "Baja calidad de vida y deterioro económico local.",
-          "Pérdida de credibilidad institucional del prestador."]:
-    doc.add_paragraph(x, style="List Bullet")
-h2("Problema central")
-para("Deficiente prestación del servicio de acueducto en el municipio de El Progreso.")
-h2("Causas")
-causas = [
-    ("PTAP obsoleta y sobrecargada", "Equipos al final de su vida útil."),
-    ("Altas pérdidas técnicas y comerciales (IANC 48 %)", "Conexiones fraudulentas y fugas no detectadas."),
-    ("Redes antiguas y sin sectorización", "Falta de inversión histórica en infraestructura."),
-    ("Baja micromedición y cartera morosa", "Débil gestión comercial del prestador."),
-]
-for c, sub_c in causas:
-    p = doc.add_paragraph(style="List Bullet")
-    p.add_run(c).bold = True
-    doc.add_paragraph("Causa raíz: " + sub_c, style="List Bullet 2")
+para("Problema central: Deficiente prestación del servicio de acueducto en el municipio de El Progreso. "
+     "Los efectos (consecuencias) se ubican en la parte superior y las causas en la parte inferior.")
+add_image_centered("arbol_problemas.png")
 
 # 3. ARBOL DE OBJETIVOS
 h1("3. Árbol de Objetivos")
-para("Objetivo central: Mejorar la prestación del servicio de acueducto en el municipio de El Progreso.")
-h2("Fin último")
-para("Mayor desarrollo social y económico del municipio.")
-h2("Fines")
-for x in ["Reducción de enfermedades de origen hídrico.",
-          "Eliminación del gasto en carrotanques.",
-          "Mejora de la calidad de vida y reactivación económica.",
-          "Fortalecimiento institucional del prestador."]:
-    doc.add_paragraph(x, style="List Bullet")
-h2("Objetivo central")
-para("Mejorar la prestación del servicio de acueducto en el municipio de El Progreso.")
-h2("Medios")
-medios = [
-    ("Construir una nueva PTAP de 120 L/s", "Equipos modernos y eficientes."),
-    ("Reducir el IANC del 48 % al 25 %", "Programa de detección de fugas y control de fraude."),
-    ("Rehabilitar y sectorizar las redes", "Plan de inversiones plurianual financiado."),
-    ("Instalar micromedición y mejorar el recaudo", "Gestión comercial fortalecida."),
-]
-for m, sub_m in medios:
-    p = doc.add_paragraph(style="List Bullet")
-    p.add_run(m).bold = True
-    doc.add_paragraph("Medio fundamental: " + sub_m, style="List Bullet 2")
+para("Objetivo central: Mejorar la prestación del servicio de acueducto en el municipio de El Progreso. "
+     "Es el espejo en positivo del árbol de problemas: cada causa se convierte en un medio y cada efecto en un fin.")
+add_image_centered("arbol_objetivos.png")
 
 # 4. MML
 h1("4. Matriz de Marco Lógico (MML)")
