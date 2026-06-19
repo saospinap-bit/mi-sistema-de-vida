@@ -1,15 +1,25 @@
-# 🧱 Fundamentos de Construcción — Proyecto 1
+# 🧱 Fundamentos de Construcción — Proyecto Final
+## Presupuesto General de Obra — CDI Tesalia (Huila), Módulo 1 (Obra Gris)
 
-## Qué subir aquí
-- [ ] Enunciado del proyecto
-- [ ] Rúbrica / porcentajes
-- [ ] Material de clase / guías
-- [ ] Avances que tengas
+La carpeta está dividida en dos:
 
-## Datos clave
-- Tema del proyecto: ____________________
-- Entregables exigidos: ____________________
-- Fecha de entrega: ____________________
+### 📥 `Insumos/` — lo que entregó el profesor / lo que aportaste
+- `TERMINOS DE REFERENCIA PROYECTO FINAL FC - G3.pdf` — enunciado.
+- `PRESUPUESTO DE OBRA proyecto final -FC - G3.xlsx` — formato base de presupuesto.
+- `FORMATO MEMORIAS DE CÁLCULO.xlsx` — formato base de memorias (3 APU de referencia).
+- `ARQUITECTONICOS / ESTRUCTURAL / MAMPOSTERIA / PLANTA - ADOQUIN ... .dwg` — planos.
 
-## Cómo te ayudo
-Estructura del trabajo, contenido técnico, cantidades/presupuesto si aplica, redacción y sustentación.
+### 📤 `Solucion/` — lo que se desarrolló (entregables)
+- `PRESUPUESTO CDI TESALIA - MODULO 1 (obra gris).xlsx` — **entregable principal** (INSUMOS, APU, PRESUPUESTO con AIU, AIU, CANTIDADES, CARTILLA HIERROS, PROGRAMACION). Libro programado, con valores visibles.
+- `MEMORIAS DE CALCULO - CDI TESALIA MODULO 1.xlsx` — memorias en el formato exigido (21 hojas).
+- `CARTILLA DE HIERROS - despiece CDI TESALIA.xlsx` — **despiece detallado del acero** (marca, diámetro, figura, longitud, cantidad, peso) tipo DLNET.
+- `PROGRAMACION CDI TESALIA (abrir en MS Project).xml` — **archivo que MS Project abre directamente** (actividades, duración, predecesoras, costo y recursos).
+- `COMO SE CALCULO TODO - metodologia.md` — **explica cómo se calculó cada cantidad, el acero, los APU y el total.**
+- `GUIA DEL PROYECTO - sustentacion.md` — qué es cada entregable y cómo defenderlo.
+- `PASO A PASO - como usar y entregar.md` — guía desde cero para terminar y entregar.
+
+### Resultado del presupuesto
+- **Costo directo:** $171.252.378
+- **Costo total (con AIU + IVA):** **$200.279.656** (≈ $926.000/m² de obra gris, precios 2026).
+
+> ⚠️ Antes de entregar: revisa la mampostería/columnas/excavaciones contra los planos y, si tu profe lo exige, reemplaza precios por cotizaciones formales. Ver `Solucion/PASO A PASO ...`.
