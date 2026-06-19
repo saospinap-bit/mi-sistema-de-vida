@@ -10,8 +10,10 @@ La carpeta está dividida en dos:
 - `ARQUITECTONICOS / ESTRUCTURAL / MAMPOSTERIA / PLANTA - ADOQUIN ... .dwg` — planos.
 
 ### 📤 `Solucion/` — lo que se desarrolló (entregables)
-- `PRESUPUESTO CDI TESALIA - MODULO 1 (obra gris).xlsx` — **entregable principal** (INSUMOS, APU, PRESUPUESTO con AIU, AIU, CANTIDADES, CARTILLA HIERROS, PROGRAMACION). Libro programado.
+- `PRESUPUESTO CDI TESALIA - MODULO 1 (obra gris).xlsx` — **entregable principal** (INSUMOS, APU, PRESUPUESTO con AIU, AIU, CANTIDADES, CARTILLA HIERROS, PROGRAMACION). Libro programado, con valores visibles.
 - `MEMORIAS DE CALCULO - CDI TESALIA MODULO 1.xlsx` — memorias en el formato exigido (21 hojas).
+- `CARTILLA DE HIERROS - despiece CDI TESALIA.xlsx` — **despiece detallado del acero** (marca, diámetro, figura, longitud, cantidad, peso) tipo DLNET.
+- `PROGRAMACION CDI TESALIA (abrir en MS Project).xml` — **archivo que MS Project abre directamente** (actividades, duración, predecesoras, costo y recursos).
 - `COMO SE CALCULO TODO - metodologia.md` — **explica cómo se calculó cada cantidad, el acero, los APU y el total.**
 - `GUIA DEL PROYECTO - sustentacion.md` — qué es cada entregable y cómo defenderlo.
 - `PASO A PASO - como usar y entregar.md` — guía desde cero para terminar y entregar.

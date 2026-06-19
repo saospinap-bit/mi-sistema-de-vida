@@ -110,17 +110,17 @@ Estas las calculé de los planos, pero son las más sensibles. Si tienes tiempo,
 
 ## PASO 7 — Armar la PROGRAMACIÓN en Microsoft Project
 
-Este es el entregable 2.6. Ya tienes la tabla lista en la hoja **PROGRAMACION**. Para pasarla a MS Project:
+Este es el entregable 2.6. **Ya te dejé el archivo listo:** `PROGRAMACION CDI TESALIA (abrir en MS Project).xml`.
 
-1. Abre **Microsoft Project** (si no lo tienes, pídelo prestado o usa la versión de prueba; tu universidad suele tener licencia).
-2. En la primera columna **"Nombre de tarea"**, escribe (o copia/pega) las 16 actividades de la hoja PROGRAMACION.
-3. En la columna **"Duración"**, escribe los días de cada una (ej: 4 días, 3 días...).
-4. En la columna **"Predecesoras"**, escribe el número de la tarea de la que depende (ya te lo di: ej. la tarea 6 depende de "4,5").
-5. MS Project dibuja solo el **diagrama de Gantt** (las barras) y te marca la **ruta crítica**.
-6. (Opcional avanzado) En cada tarea, pestaña "Recursos", agrega la mano de obra y equipo del APU. Esto es lo que pide el punto 2.6 ("registrar los recursos").
-7. Guarda como `.mpp` y también exporta a PDF para adjuntar.
+**Forma fácil (recomendada):**
+1. Abre **Microsoft Project**.
+2. **Archivo → Abrir → Examinar**, cambia el tipo de archivo a "XML" y selecciona `PROGRAMACION CDI TESALIA (abrir en MS Project).xml`.
+3. MS Project carga solo las 16 actividades con su **duración, predecesoras, costo y notas de recursos**, y dibuja el **diagrama de Gantt** y la **ruta crítica**.
+4. Revisa, agrega los nombres del grupo y guarda como `.mpp`. Exporta a PDF para adjuntar.
 
-> Si no consigues MS Project, dímelo y te armo la programación en un formato alterno (Excel con Gantt) para que no pierdas ese punto.
+**Si prefieres hacerlo a mano** (o el XML te da problema): usa la hoja **PROGRAMACION** del Excel y escribe las actividades, duraciones y predecesoras manualmente en MS Project.
+
+> La obra gris programada va del **13-jul-2026 al 24-sep-2026** (con la secuencia lógica de actividades).
 
 ---
 
