@@ -31,7 +31,7 @@ Tienes **2 archivos de Excel** y **2 guías** (esta y la de sustentación). Vamo
    - `MEMORIAS DE CALCULO - CDI TESALIA MODULO 1.xlsx`
 4. Ábrelos con **Microsoft Excel** (no con el visor del navegador, para que calcule bien).
 
-> 💡 Si al abrir ves los totales en $0 o vacíos: ve a la pestaña **Fórmulas → Calcular ahora** (o presiona **F9**). Ya quedó configurado para que calcule solo, pero por si acaso.
+> 💡 El archivo ya trae los totales calculados y visibles. Además está programado: si cambias un precio en INSUMOS y no se actualiza solo, ve a **Fórmulas → Calcular ahora** (o **F9**).
 
 ---
 
