@@ -1,27 +1,23 @@
 # 🧱 Fundamentos de Construcción — Proyecto Final
-
 ## Presupuesto General de Obra — CDI Tesalia (Huila), Módulo 1 (Obra Gris)
 
-### Datos clave
-- **Tema:** Presupuesto general de obra para la etapa de obra gris del Módulo 1 (Centro de Desarrollo Infantil, Tesalia–Huila).
-- **Entregables exigidos:** Presupuesto, APUs, cantidades de obra, lista de insumos, cartilla de hierros, programación (MS Project), memorias de cálculo y formato Excel programado.
-- **Fecha de entrega:** viernes 10 de julio de 2026 (vía correo).
-- **Máx. integrantes:** 5.
+La carpeta está dividida en dos:
 
-### Archivos de la carpeta
+### 📥 `Insumos/` — lo que entregó el profesor / lo que aportaste
+- `TERMINOS DE REFERENCIA PROYECTO FINAL FC - G3.pdf` — enunciado.
+- `PRESUPUESTO DE OBRA proyecto final -FC - G3.xlsx` — formato base de presupuesto.
+- `FORMATO MEMORIAS DE CÁLCULO.xlsx` — formato base de memorias (3 APU de referencia).
+- `ARQUITECTONICOS / ESTRUCTURAL / MAMPOSTERIA / PLANTA - ADOQUIN ... .dwg` — planos.
 
-| Archivo | Contenido |
-|---------|-----------|
-| `PRESUPUESTO CDI TESALIA - MODULO 1 (obra gris).xlsx` | **Entregable principal**: hojas PORTADA, INSUMOS, APU (19), PRESUPUESTO jerárquico con AIU, AIU (justificación), CANTIDADES, CARTILLA HIERROS, PROGRAMACION. Libro programado con fórmulas. |
-| `MEMORIAS DE CALCULO - CDI TESALIA MODULO 1.xlsx` | Memorias de cálculo en el formato exigido (21 hojas, una por actividad). |
-| `GUIA DEL PROYECTO - sustentacion.md` | **Léeme**: explica cada entregable, el AIU, de dónde sale cada cantidad y qué ajustar antes de entregar. |
-| `TERMINOS DE REFERENCIA PROYECTO FINAL FC - G3.pdf` | Enunciado original. |
-| `PRESUPUESTO DE OBRA proyecto final -FC - G3.xlsx` | Formato de presupuesto base entregado por el profesor. |
-| `FORMATO MEMORIAS DE CÁLCULO.xlsx` | Formato de memorias base (3 APUs de referencia). |
-| `*.dwg` | Planos arquitectónico, estructural, mampostería y adoquín. |
+### 📤 `Solucion/` — lo que se desarrolló (entregables)
+- `PRESUPUESTO CDI TESALIA - MODULO 1 (obra gris).xlsx` — **entregable principal** (INSUMOS, APU, PRESUPUESTO con AIU, AIU, CANTIDADES, CARTILLA HIERROS, PROGRAMACION). Libro programado.
+- `MEMORIAS DE CALCULO - CDI TESALIA MODULO 1.xlsx` — memorias en el formato exigido (21 hojas).
+- `COMO SE CALCULO TODO - metodologia.md` — **explica cómo se calculó cada cantidad, el acero, los APU y el total.**
+- `GUIA DEL PROYECTO - sustentacion.md` — qué es cada entregable y cómo defenderlo.
+- `PASO A PASO - como usar y entregar.md` — guía desde cero para terminar y entregar.
 
-### Resumen del presupuesto
+### Resultado del presupuesto
 - **Costo directo:** $171.252.378
-- **AIU (8% + 3% + 5%) + IVA s/utilidad** → **Costo total: $200.279.656** (≈ $926.000/m² de obra gris, precios 2026).
+- **Costo total (con AIU + IVA):** **$200.279.656** (≈ $926.000/m² de obra gris, precios 2026).
 
-> ⚠️ Antes de entregar: reemplazar los precios de la hoja INSUMOS por cotizaciones reales y verificar mampostería/columnas/excavaciones contra los planos. Ver la sección 7 de la guía.
+> ⚠️ Antes de entregar: revisa la mampostería/columnas/excavaciones contra los planos y, si tu profe lo exige, reemplaza precios por cotizaciones formales. Ver `Solucion/PASO A PASO ...`.
