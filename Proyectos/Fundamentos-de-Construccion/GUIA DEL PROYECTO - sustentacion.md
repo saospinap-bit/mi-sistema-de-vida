@@ -45,14 +45,14 @@ Leyendo los planos se confirma que el "Módulo 1 - Colegio" es en realidad un **
 
 | Concepto | Valor (COP) |
 |---|---|
-| **TOTAL COSTO DIRECTO** | **$164.100.466** |
-| Administración (A) 8% | $13.128.037 |
-| Imprevistos (I) 3% | $4.923.014 |
-| Utilidad (U) 5% | $8.205.023 |
-| IVA 19% sobre la utilidad | $1.558.954 |
-| **COSTO TOTAL DE OBRA** | **$191.915.495** |
+| **TOTAL COSTO DIRECTO** | **$171.252.378** |
+| Administración (A) 8% | $13.700.190 |
+| Imprevistos (I) 3% | $5.137.571 |
+| Utilidad (U) 5% | $8.562.619 |
+| IVA 19% sobre la utilidad | $1.626.898 |
+| **COSTO TOTAL DE OBRA** | **$200.279.656** |
 
-➡️ Equivale a **≈ $888.000 / m²** de obra gris (área ≈ 216 m²), un valor coherente con el mercado colombiano.
+➡️ Equivale a **≈ $926.000 / m²** de obra gris (área ≈ 216 m²), un valor coherente con el mercado colombiano 2026.
 
 ---
 
@@ -104,7 +104,7 @@ Para que quede **perfecto**, verifica estos puntos contra los planos (están se�
 1. **Sección real de columnas.** Asumí 0.40×0.40 m; el plano muestra también stubs de 0.50×0.50. Confírmalo en el despiece de columnas y ajusta el ítem 4.1.1 y su acero.
 2. **Mampostería (5.1.1, 5.1.2, 5.1.4).** La longitud de muros (173.6 m) y la altura (2.90 m) son una estimación de perímetro + particiones, porque el plano de mampostería tiene muchas vistas superpuestas. **Mide los muros reales** y ajusta; es el ítem más pesado del presupuesto.
 3. **Movimientos de tierra (2.1.x).** Las profundidades de excavación y espesores de relleno son supuestos de ingeniería (0.55 m, 0.15 m, 0.20 m); ajústalos al perfil de cimentación real.
-4. **Precios (hoja INSUMOS).** Son valores de referencia 2025 tipo Construdata. El enunciado recomienda no inventarlos: **consigue 2–3 cotizaciones reales** (en Tesalia/Neiva) y reemplaza los precios; todo se recalcula solo.
+4. **Precios (hoja INSUMOS).** Ya están actualizados a **valores de mercado 2026 con su fuente citada** (Argos, Homecenter, ferreterías, Construdata, SMLMV 2026). Si tu profe exige **cotizaciones formales con membrete**, pide 2–3 a proveedores de Tesalia/Neiva y reemplaza el precio en la hoja INSUMOS; todo se recalcula solo. (En la guía PASO A PASO te explico exactamente cómo pedirlas.)
 5. **Geotextil:** el presupuesto pide **NT 1600**; los planos mencionan un tejido 2100T. Dejé NT 1600 (lo que pide el formato). Solo tenlo presente.
 
 ---

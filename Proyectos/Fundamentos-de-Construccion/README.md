@@ -21,7 +21,7 @@
 | `*.dwg` | Planos arquitectónico, estructural, mampostería y adoquín. |
 
 ### Resumen del presupuesto
-- **Costo directo:** $164.100.466
-- **AIU (8% + 3% + 5%) + IVA s/utilidad** → **Costo total: $191.915.495** (≈ $888.000/m² de obra gris).
+- **Costo directo:** $171.252.378
+- **AIU (8% + 3% + 5%) + IVA s/utilidad** → **Costo total: $200.279.656** (≈ $926.000/m² de obra gris, precios 2026).
 
 > ⚠️ Antes de entregar: reemplazar los precios de la hoja INSUMOS por cotizaciones reales y verificar mampostería/columnas/excavaciones contra los planos. Ver la sección 7 de la guía.
