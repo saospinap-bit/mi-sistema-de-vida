@@ -1,117 +1,77 @@
-# Cómo se calculó todo — Metodología del Proyecto PEPI
+# Cómo se calculó todo — Metodología (Proyecto PEPI · Acueducto de Tadó, Chocó)
 
-Este documento explica, paso a paso, cómo se construyó cada parte del informe para que puedas **sustentarlo y defenderlo** o **adaptarlo** a otro proyecto.
+Este documento explica, paso a paso, cómo se construyó cada parte del informe, **con fuentes reales**, para que puedas sustentarlo o adaptarlo.
 
-> Proyecto desarrollado: **Construcción de PTAP (120 L/s) + ampliación del sistema de acueducto** del municipio de El Progreso. Es un proyecto de ejemplo coherente con la guía del PDF (que solo lista entregables, no un caso concreto).
-
----
-
-## 1. Punto de partida: la guía del PDF
-
-El archivo `PROYECTO PEPI.pdf` (en la raíz de la carpeta) **no es un enunciado**, sino una **lista de entregables**. Pide 8 componentes:
-
-1. Resumen ejecutivo (máx. 1 página)
-2. Árbol de problemas (1 gráfica)
-3. Árbol de objetivos (1 gráfica)
-4. Matriz de Marco Lógico (MML) — 4 filas y 4 columnas
-5. Solución de ingeniería (máx. 1 página)
-6. Análisis financiero: CAPEX/OPEX, Deuda+Equity, WACC, TIR, VPN, flujos (proyecto, banco, inversionista)
-7. Matriz de 20 riesgos calificados
-8. Intervención de 10 riesgos (5 ambientales) + recalificación
-
-Informe máximo de 10 páginas.
+> Caso: **optimización y ampliación del acueducto de Tadó (Chocó)**. Municipio real; los datos de población, geografía y normativa son reales (ver fuentes al final).
 
 ---
 
-## 2. Las secciones cualitativas (1 a 5, 7 y 8)
+## 1. La guía (PDF) y los entregables
 
-Estas se redactaron a partir de un **caso realista de acueducto**:
+El `PROYECTO PEPI.pdf` lista los entregables: resumen ejecutivo, árbol de problemas, árbol de objetivos, MML, solución de ingeniería, análisis financiero (CAPEX/OPEX, Deuda+Equity, WACC, TIR, VPN, flujos), matriz de 20 riesgos e intervención de 10 (5 ambientales). Informe máx. 10 páginas.
 
-- **Árbol de problemas/objetivos:** se parte de un problema central ("deficiente prestación del servicio de acueducto") y se derivan **causas** (PTAP obsoleta, pérdidas IANC 48 %, redes viejas) y **consecuencias** (enfermedades, sobrecostos). El árbol de objetivos es el "espejo en positivo" del de problemas (cada causa → un medio, cada consecuencia → un fin).
-- **MML:** se llenó la matriz 4×4 (Fin, Propósito, Componentes, Actividades) × (Resumen, Indicadores, Medios de verificación, Supuestos). Los indicadores son los típicos del sector agua: cobertura, continuidad, IRCA (calidad), IANC (pérdidas).
-- **Riesgos:** se listaron 20 riesgos reales del sector (financieros, ambientales, operativos, sociales). Cada uno se califica con **Probabilidad (P) × Impacto (I)**, ambos de 1 a 5. El producto P×I da el nivel: Bajo (1–6), Medio (8–12), Alto (15–25).
-- **Intervención:** se eligieron los 10 más críticos (asegurando que 5 fueran ambientales) y se definió una medida de control para cada uno, recalificando el riesgo **residual** (la P y/o la I bajan tras aplicar la medida).
+## 2. Datos del municipio (REALES — DANE)
 
----
+- Población total 2025 (proyección DANE): **20.476 hab**.
+- **Cabecera urbana: 11.917 hab** (es la que sirve el acueducto urbano).
+- Altitud **75 m s. n. m.**; río **San Juan**; clima de selva tropical húmeda (de los más lluviosos del mundo); economía minera (oro/platino).
 
-## 3. El análisis financiero (el corazón numérico)
+## 3. Caudal de diseño — Resolución 0330 de 2017 (RAS)
 
-Aquí está la parte importante: **nada se inventó "a mano"**. Todo se calculó con el script `modelo_financiero.py`, lo que garantiza que WACC, TIR, VPN y los tres flujos sean **matemáticamente consistentes** entre sí.
+1. **Proyección de población** a 25 años (horizonte de diseño), método geométrico con tasa 0,8 %:
+   `Pf = 11.917 × (1 + 0,008)^25 = 14.544 hab`.
+2. **Dotación neta**: 140 L/hab·día (altitud < 1.000 m, Art. 43 de la Res 0330).
+3. **Pérdidas** máximas admisibles 25 % → **dotación bruta** = 140 / (1 − 0,25) = **186,7 L/hab·día**.
+4. **Caudal medio diario** `Qmd = dotación bruta × población / 86.400 = 31,4 L/s`.
+5. **Caudal máximo diario** `QMD = Qmd × k₁ (1,30) = 40,8 L/s` → **es el caudal de diseño de la PTAP**.
+6. **Caudal máximo horario** `QMH = QMD × k₂ (1,60) = 65,4 L/s` → diseño de redes.
+7. Se adopta una **PTAP de 45 L/s** (holgura sobre el QMD).
 
-### 3.1 Supuestos de entrada (los que puedes cambiar)
+## 4. CAPEX — Presupuesto de obra
 
-| Variable | Valor usado | Significado |
-|---|---|---|
-| `CAPEX` | 14.000 (COP MM) | Inversión total inicial |
-| `PCT_DEUDA` / `PCT_EQUITY` | 60 % / 40 % | Estructura de financiación |
-| `KD` | 12,5 % | Costo de la deuda (interés del crédito) |
-| `KE` | 15,5 % | Costo del equity (rentabilidad exigida por el inversionista) |
-| `TASA_IMPUESTOS` | 35 % | Impuesto de renta |
-| `PLAZO_DEUDA` | 10 años | Años para pagar el crédito |
-| `INGRESO_ANIO1` | 5.200 | Ingreso por tarifa el primer año |
-| `OPEX_ANIO1` | 2.350 | Costo de operación el primer año |
-| `HORIZONTE` | 20 años | Periodo de evaluación |
+Se arma un **presupuesto por capítulos** (captación, aducción, PTAP, tanque, bombeo, redes, micromedición, estudios) que suma **COP 13.470 MM**. Los precios son **de referencia de mercado** (con sobrecosto por la logística del Chocó) y **deben validarse con un APU (Análisis de Precios Unitarios)** actualizado y la lista de precios regional. Esto se dice explícitamente en la Sección 10 del informe (transparencia).
 
-### 3.2 WACC (Costo Promedio Ponderado de Capital)
+## 5. Estructura financiera y WACC
 
-Fórmula:
+- Realidad de los acueductos municipales pequeños y pobres: se cofinancian casi en su totalidad con **recursos públicos no reembolsables** (SGR, PDA, SGP, cooperación). Caso base: **90 % aporte público / 5 % deuda / 5 % equity**.
+- **WACC** sobre el capital remunerado (deuda+equity, 50/50):
+  `WACC = 0,5×Ke + 0,5×Kd×(1−t) = 0,5×0,14 + 0,5×0,11×0,65 = 10,58 %`.
+- Coherente con el orden de magnitud de la **tasa de descuento regulatoria de la CRA** (Res CRA 943 de 2021).
 
-> **WACC = (E/V)·Ke + (D/V)·Kd·(1 − t)**
+## 6. Flujos, VPN y TIR (tres ópticas)
 
-Reemplazando:
+- **Flujo del Proyecto (FCLP)** = EBIT×(1−t) + Depreciación; se descuenta al WACC.
+- **Flujo del Inversionista (FCLA)** = (EBIT − intereses)×(1−t) + Depreciación − abono de capital; se descuenta al Ke.
+- **Flujo del Banco** = desembolsa la deuda y recibe la cuota fija (sistema francés).
+- Se calculan **VPN** (trae los flujos a hoy) y **TIR** (tasa que hace VPN = 0; en el código por bisección).
 
-> WACC = (0,40 × 0,155) + (0,60 × 0,125 × (1 − 0,35)) = 0,0620 + 0,04875 = **11,07 %**
+**Resultados (Python y Excel coinciden):**
 
-El `(1 − t)` aplica el **escudo fiscal**: los intereses de la deuda son deducibles de impuestos, por eso la deuda "cuesta menos" en términos netos.
+| Óptica | VPN (COP MM) | TIR | Lectura |
+|---|---:|---:|---|
+| Proyecto "puro" (@WACC 10,58 %) | −10.523 | −1,58 % | No rentable solo con tarifas (típico) |
+| Inversionista (@Ke 14 %) | +1.064 | 30,2 % | Viable con 90 % de aporte público |
 
-### 3.3 Tabla de amortización de la deuda
+## 7. Evaluación socioeconómica (lo que justifica la inversión pública)
 
-La deuda (8.400) se paga con **cuota fija (sistema francés)** durante 10 años. La cuota se calcula con:
+Con la **tasa social de descuento del DNP (9 %)** y beneficios sociales (ahorro de los hogares en agua, reducción de costos en salud por EDA/vectores, tiempo):
+- **VPN económico = +COP 5.123 MM**, **TIRE = 13,7 %**, **B/C = 1,18**.
+- Conclusión: aunque no sea rentable financieramente por sí solo, **es socialmente rentable** → se justifica la cofinanciación pública.
 
-> Cuota = P · i / (1 − (1 + i)^(−n)) = 8.400 × 0,125 / (1 − 1,125^(−10)) = **1.517,2 COP MM/año**
+## 8. Análisis de sensibilidad
 
-Cada año, parte de la cuota es **interés** (decreciente) y parte es **abono a capital** (creciente). Esto alimenta los flujos.
+Se varió el % de aporte público (70 %–95 %): el inversionista pasa de inviable (TIR 7,5 % con 70 %) a muy atractivo (TIR 66 % con 95 %). **Punto de equilibrio ≈ 81 % de aporte público**.
 
-### 3.4 Los tres flujos de caja
+## 9. Recalcular todo si cambias supuestos
 
-- **Flujo del Proyecto (FCLP):** mide la rentabilidad de la inversión *sin importar cómo se financie*.
-  `FCLP = EBIT × (1 − t) + Depreciación`. Se descuenta al **WACC**.
-- **Flujo del Inversionista (FCLA):** lo que le queda al dueño del equity *después* de pagarle al banco.
-  `FCLA = Utilidad neta + Depreciación − Abono a capital`. Se descuenta al **Ke**.
-- **Flujo del Banco:** entrega 8.400 en el año 0 y recibe la cuota fija 10 años. Su rentabilidad es el Kd (12,5 %).
-
-### 3.5 VPN y TIR
-
-- **VPN (Valor Presente Neto):** se traen todos los flujos futuros a "hoy" con la tasa de descuento y se restan de la inversión. Si VPN > 0, el proyecto crea valor.
-- **TIR (Tasa Interna de Retorno):** es la tasa que hace VPN = 0. En el script se calcula por **bisección** (un método numérico robusto). Si TIR > tasa de descuento, el proyecto es viable.
-
----
-
-## 4. Resultados obtenidos
-
-| Indicador | Valor | Lectura |
-|---|---|---|
-| **WACC** | 11,07 % | Costo de financiar el proyecto |
-| **VPN proyecto** | COP 8.376 MM | > 0 → crea valor |
-| **TIR proyecto** | 18,13 % | > WACC (11,07 %) → viable |
-| **VPN inversionista** | COP 4.698 MM | > 0 → atractivo para el dueño |
-| **TIR inversionista** | 24,78 % | > Ke (15,5 %) → viable |
-
-**Conclusión financiera:** el proyecto es viable por ambas ópticas, y el apalancamiento (usar deuda) sube la rentabilidad del inversionista del 18,13 % al 24,78 %.
-
----
-
-## 5. Cómo recalcular todo si cambias los supuestos
-
-1. Abre `modelo_financiero.py` y edita los valores de la sección de parámetros (CAPEX, tasas, ingresos, etc.).
-2. Ejecuta:
+1. Edita `modelo_financiero.py` (o la hoja **Supuestos** del Excel) y ejecuta:
    ```bash
    python3 modelo_financiero.py
-   ```
-   Esto imprime los nuevos indicadores y regenera `resultados_modelo.csv`.
-3. Actualiza los números en `INFORME_PEPI.md` y, si quieres el Word nuevo:
-   ```bash
+   python3 generar_excel.py
+   python3 generar_arboles.py
    python3 generar_word.py
    ```
+2. El Excel tiene **fórmulas vivas**: cambia un supuesto y todo se recalcula.
 
-Así, si tu profesor pide otros valores o un proyecto distinto, solo cambias las entradas y todo se recalcula solo.
+## 10. Fuentes
+DANE (CNPV 2018 y proyecciones), Resolución 0330 de 2017, Resolución 2115 de 2007, Resolución CRA 943 de 2021, Ley 142 de 1994, tasa social de descuento del DNP, Decreto 1072 de 2015 y NSR-10. Ver Sección 10 del informe para el detalle y las notas de transparencia.

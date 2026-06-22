@@ -1,157 +1,87 @@
-# Proyecto PEPI — Construcción de PTAP y Ampliación del Sistema de Acueducto del Municipio de El Progreso
+# Proyecto PEPI — Optimización y ampliación del sistema de acueducto del municipio de Tadó (Chocó)
 
 > **Informe de Preparación y Evaluación de Proyectos de Ingeniería (PEPI)**
 > Cifras monetarias en millones de pesos colombianos (COP MM) salvo indicación contraria.
+> Todos los datos, parámetros de diseño y fuentes se relacionan en la **Sección 10 (Fuentes)**.
 
 ---
 
 ## 1. Resumen Ejecutivo
 
-El municipio de **El Progreso** (≈18.000 habitantes, con proyección a 25.000 en 20 años) presenta un déficit crónico en la prestación del servicio de acueducto: cobertura del 78 %, índice de agua no contabilizada (IANC) del 48 % y una planta de tratamiento obsoleta que opera por encima de su capacidad de diseño, lo que genera intermitencia en el suministro y riesgo sanitario.
+El municipio de **Tadó (Chocó)** se ubica en la zona del **Alto San Juan**, sobre la margen izquierda del **río San Juan** (y a la derecha del río Mungarrá), a 75 m s. n. m., en una de las regiones **más lluviosas del planeta** (clima de selva tropical húmeda). Según el DANE (CNPV 2018 y proyecciones), tiene **20.476 habitantes** (proyección 2025), de los cuales **11.917 residen en la cabecera municipal**. Es un municipio con altos índices de pobreza (NBI), economía minera (oro y platino) y un déficit histórico en agua potable y saneamiento.
 
-El proyecto consiste en la **construcción de una nueva Planta de Tratamiento de Agua Potable (PTAP) de 120 L/s**, la **ampliación y rehabilitación de las redes de aducción, conducción y distribución**, la incorporación de **estaciones de bombeo, tanques de almacenamiento y micromedición**. El objetivo central es **garantizar agua potable continua (24 h) y de calidad** al 98 % de la población, reduciendo el IANC al 25 % y eliminando los racionamientos.
+El proyecto consiste en la **construcción de una nueva Planta de Tratamiento de Agua Potable (PTAP) de 45 L/s** y la **optimización integral del sistema** (captación robusta sobre el río San Juan, aducción, almacenamiento, redes de distribución sectorizadas y micromedición) para la cabecera de Tadó. El **objetivo central** es garantizar agua potable **continua (24 h)** y de calidad (IRCA < 5 %, Resolución 2115 de 2007), reducir el índice de agua no contabilizada (IANC) a la meta del 25 % (Resolución 0330 de 2017) y elevar la cobertura cercana al 100 %.
 
-La inversión total (**CAPEX**) asciende a **COP 14.000 MM**, financiada en un **60 % con deuda** (banca de desarrollo / FINDETER) y **40 % con equity** (operador especializado + municipio). Con un **WACC de 11,07 %**, el proyecto presenta un **VPN de COP 8.376 MM** y una **TIR del 18,13 %** a nivel de proyecto; desde la óptica del inversionista la **TIR es 24,78 %** con un **VPN de COP 4.698 MM** descontado al costo de equity (15,5 %). Los indicadores confirman que el proyecto es **financiera y económicamente viable**, además de socialmente prioritario por su impacto en salud pública y calidad de vida.
+El **caudal de diseño** se calculó según la **Resolución 0330 de 2017 (RAS)** para un horizonte de 25 años: caudal máximo diario **QMD = 40,8 L/s** (capacidad PTAP adoptada de 45 L/s). La **inversión total (CAPEX)** asciende a **COP 13.470 MM**, estructurada de forma realista para un municipio de altísima pobreza como Tadó: **90 % con aporte público no reembolsable** (Sistema General de Regalías / Plan Departamental de Agua / SGP / cooperación), **5 % deuda** y **5 % equity**.
 
-| Indicador | Valor |
-|---|---|
-| Horizonte de evaluación | 20 años |
-| CAPEX | COP 14.000 MM |
-| Estructura Deuda / Equity | 60 % / 40 % |
-| WACC | 11,07 % |
-| VPN del proyecto (@WACC) | COP 8.376 MM |
-| TIR del proyecto | 18,13 % |
-| VPN del inversionista (@Ke) | COP 4.698 MM |
-| TIR del inversionista | 24,78 % |
+**Resultado de la evaluación (doble óptica):**
+
+| Evaluación | Indicador | Resultado | Interpretación |
+|---|---|---|---|
+| **Financiera del proyecto "puro"** | VPN @WACC 10,58 % | **−COP 10.523 MM** | No es rentable solo con tarifas (típico de acueductos pequeños) |
+| **Financiera del inversionista** (con cofinanciación) | TIR / VPN @Ke 14 % | **30,2 % / +COP 1.064 MM** | Viable con 90 % de aporte público |
+| **Socioeconómica** | VPN @tasa social 9 % (DNP) / B/C | **+COP 5.123 MM / 1,18** | Altamente justificado socialmente |
+
+**Conclusión:** el proyecto **no se sostiene con tarifas por sí solo** —algo normal y esperado en municipios pequeños y con alta pobreza— pero es **socialmente muy rentable** y **financieramente viable cuando se cofinancia mayoritariamente con recursos públicos**, que es exactamente el mecanismo con el que el Estado y la cooperación internacional han intervenido el acueducto de Tadó.
 
 ---
 
 ## 2. Árbol de Problemas
 
-**Problema central:** Deficiente prestación del servicio de acueducto en el municipio de El Progreso.
+**Problema central:** Deficiente prestación del servicio de acueducto en la cabecera de Tadó (Chocó). Los efectos (consecuencias) se ubican arriba y las causas abajo.
 
 ![Árbol de Problemas](arbol_problemas.png)
-
-<details><summary>Ver también como diagrama interactivo (mermaid)</summary>
-
-```mermaid
-flowchart TB
-    %% CONSECUENCIAS (arriba)
-    C1["Aumento de enfermedades de origen hidrico (EDA)"]
-    C2["Sobrecostos por compra de agua en carrotanques"]
-    C3["Baja calidad de vida y deterioro economico local"]
-    C4["Perdida de credibilidad institucional del prestador"]
-    EF["EFECTO FINAL: Bajo desarrollo social y economico del municipio"]
-
-    %% PROBLEMA CENTRAL
-    P["PROBLEMA CENTRAL:<br/>Deficiente prestacion del servicio de acueducto<br/>en el municipio de El Progreso"]
-
-    %% CAUSAS (abajo)
-    CA1["PTAP obsoleta y sobrecargada"]
-    CA2["Altas perdidas tecnicas y comerciales (IANC 48%)"]
-    CA3["Redes antiguas y sin sectorizacion"]
-    CA4["Baja micromedicion y cartera morosa"]
-    CA1a["Equipos al final de su vida util"]
-    CA2a["Conexiones fraudulentas y fugas no detectadas"]
-    CA3a["Falta de inversion historica en infraestructura"]
-
-    CA1 --> P
-    CA2 --> P
-    CA3 --> P
-    CA4 --> P
-    CA1a --> CA1
-    CA2a --> CA2
-    CA3a --> CA3
-
-    P --> C1
-    P --> C2
-    P --> C3
-    P --> C4
-    C1 --> EF
-    C2 --> EF
-    C3 --> EF
-    C4 --> EF
-```
-
-</details>
 
 ---
 
 ## 3. Árbol de Objetivos
 
-**Objetivo central:** Mejorar la prestación del servicio de acueducto en el municipio de El Progreso.
+**Objetivo central:** Mejorar la prestación del servicio de acueducto en Tadó. Es el espejo positivo del árbol de problemas: cada causa se transforma en un medio y cada efecto en un fin.
 
 ![Árbol de Objetivos](arbol_objetivos.png)
-
-<details><summary>Ver también como diagrama interactivo (mermaid)</summary>
-
-```mermaid
-flowchart TB
-    %% FINES (arriba)
-    F1["Reduccion de enfermedades de origen hidrico"]
-    F2["Eliminacion del gasto en carrotanques"]
-    F3["Mejora de la calidad de vida y reactivacion economica"]
-    F4["Fortalecimiento institucional del prestador"]
-    FF["FIN ULTIMO: Mayor desarrollo social y economico del municipio"]
-
-    %% OBJETIVO CENTRAL
-    O["OBJETIVO CENTRAL:<br/>Mejorar la prestacion del servicio de acueducto<br/>en el municipio de El Progreso"]
-
-    %% MEDIOS (abajo)
-    M1["Construir una nueva PTAP de 120 L/s"]
-    M2["Reducir el IANC del 48% al 25%"]
-    M3["Rehabilitar y sectorizar las redes"]
-    M4["Instalar micromedicion y mejorar el recaudo"]
-    M1a["Equipos modernos y eficientes"]
-    M2a["Programa de deteccion de fugas y control de fraude"]
-    M3a["Plan de inversiones plurianual financiado"]
-
-    M1 --> O
-    M2 --> O
-    M3 --> O
-    M4 --> O
-    M1a --> M1
-    M2a --> M2
-    M3a --> M3
-
-    O --> F1
-    O --> F2
-    O --> F3
-    O --> F4
-    F1 --> FF
-    F2 --> FF
-    F3 --> FF
-    F4 --> FF
-```
-
-</details>
 
 ---
 
 ## 4. Matriz de Marco Lógico (MML)
 
-| Nivel | Resumen narrativo | Indicadores verificables | Medios de verificación | Supuestos |
+| Nivel | Resumen narrativo | Indicadores | Medios de verificación | Supuestos |
 |---|---|---|---|---|
-| **FIN** | Contribuir al desarrollo social y económico del municipio mejorando las condiciones de salud pública. | Reducción del 40 % en casos de EDA a 3 años; aumento del IDM municipal. | Reportes de la Secretaría de Salud; estadísticas DANE/SIVIGILA. | Estabilidad política y mantenimiento de la inversión social del municipio. |
-| **PROPÓSITO** | Garantizar un servicio de acueducto continuo (24 h), con calidad y cobertura del 98 %. | Cobertura ≥ 98 %; continuidad 24 h; IRCA < 5 % (agua apta); IANC ≤ 25 %. | Informes SUI–SSPD; reportes de calidad IRCA; auditorías al prestador. | La población se conecta y paga la tarifa; no hay variaciones regulatorias adversas. |
-| **COMPONENTES** | 1) PTAP de 120 L/s en operación. 2) Redes ampliadas/sectorizadas. 3) Micromedición instalada. 4) Estaciones de bombeo y tanques. | PTAP operando a capacidad; X km de red renovada; N° de micromedidores instalados. | Actas de recibo de obra; pruebas de funcionamiento; inventario de activos. | Disponibilidad de predios y permisos; suministro eléctrico estable. |
-| **ACTIVIDADES** | Estudios y diseños; gestión predial y ambiental; construcción civil y montaje; suministro e instalación de equipos y medidores; puesta en marcha. | Avance físico (%) vs. cronograma; ejecución presupuestal CAPEX COP 14.000 MM. | Informes de interventoría; cortes de obra; estados financieros del proyecto. | Cierre financiero (deuda + equity); condiciones climáticas y de orden público normales. |
+| **FIN** | Contribuir al desarrollo social y económico de Tadó mejorando la salud pública. | Reducción de morbilidad por EDA y enfermedades vectoriales a 3 años; mejora del IDM. | SIVIGILA; Secretaría de Salud del Chocó; DANE. | Continuidad de la política social y mantenimiento de la inversión. |
+| **PROPÓSITO** | Garantizar servicio de acueducto continuo (24 h), con calidad y cobertura cercana al 100 % en la cabecera. | Continuidad 24 h; IRCA < 5 % (Res 2115/2007); IANC ≤ 25 % (Res 0330/2017); cobertura ≥ 98 %. | Informes SUI–SSPD; reportes IRCA del INS; auditorías al prestador. | La población se conecta y paga la tarifa regulada (CRA). |
+| **COMPONENTES** | 1) PTAP de 45 L/s operando. 2) Captación y aducción confiables. 3) Redes sectorizadas. 4) Micromedición instalada. | PTAP a capacidad (QMD 40,8 L/s); km de red renovada; N° de micromedidores. | Actas de recibo de obra; pruebas de funcionamiento; inventario de activos. | Disponibilidad de predios, permisos ambientales (CODECHOCÓ) y energía. |
+| **ACTIVIDADES** | Estudios y diseños; gestión predial/ambiental; construcción y montaje; suministro de equipos y medidores; puesta en marcha. | Avance físico vs. cronograma; ejecución del CAPEX de COP 13.470 MM. | Informes de interventoría; cortes de obra; estados financieros. | Cierre financiero (aporte público + deuda + equity); logística y orden público manejables. |
 
 ---
 
 ## 5. Solución de Ingeniería Propuesta
 
-La solución integral comprende cuatro frentes técnicos:
+**1. Captación y pretratamiento.** El **río San Juan** presenta alta turbiedad por las lluvias extremas y arrastra sedimentos y **mercurio de la minería de oro**. Se proyecta una **bocatoma reforzada con desarenador y pretratamiento**, con monitoreo de calidad del agua cruda (incluido mercurio).
 
-**1. Planta de Tratamiento de Agua Potable (PTAP) – 120 L/s.** Planta convencional de tipo compacto-modular con procesos de **coagulación, floculación, sedimentación de alta tasa, filtración rápida y desinfección por cloración**, dimensionada para el caudal máximo diario proyectado a 20 años. Incluye sistema de dosificación automatizado y laboratorio de control de calidad para garantizar un IRCA inferior al 5 % (agua apta para consumo humano según Resolución 2115 de 2007).
+**2. Aducción y conducción.** Línea de aducción/conducción (≈ 4 km) en tubería **PVC/HD**, con diámetros calculados por **Hazen-Williams** para garantizar presiones y minimizar pérdidas.
 
-**2. Aducción y conducción.** Renovación de la línea de aducción desde la bocatoma y conducción a presión hasta los tanques de almacenamiento, con tubería en PVC/HD de diámetros calculados hidráulicamente (ecuación de Hazen-Williams) para minimizar pérdidas de carga y garantizar presiones de servicio.
+**3. PTAP de 45 L/s.** Planta convencional **compacta-modular**: coagulación, floculación, sedimentación de alta tasa, **filtración rápida** y **desinfección por cloración**, con dosificación automatizada y **laboratorio de control de calidad** para asegurar **IRCA < 5 %** (Resolución 2115 de 2007). La capacidad de 45 L/s cubre el **QMD de diseño de 40,8 L/s** con margen.
 
-**3. Almacenamiento, bombeo y distribución.** Construcción de **tanques de almacenamiento** con capacidad equivalente al 30 % del volumen diario, **estaciones de bombeo** con bombas de alta eficiencia y variadores de frecuencia, y **sectorización de la red de distribución** en distritos hidráulicos para control de presiones y reducción de pérdidas.
+**4. Almacenamiento, bombeo y distribución.** **Tanque de 1.000 m³**, **estación de bombeo** con bombas de alta eficiencia y variadores, y **sectorización** de la red en distritos hidráulicos para control de presiones y reducción de pérdidas.
 
-**4. Reducción de pérdidas y micromedición.** Instalación masiva de **micromedidores**, macromedición por sector, y un programa permanente de **detección de fugas y control de conexiones fraudulentas**, para bajar el IANC del 48 % al 25 %.
+**5. Reducción de pérdidas y micromedición.** Instalación de **~3.700 micromedidores** y macromedición por sector, con programa permanente de **detección de fugas y control de fraude** para alcanzar **IANC ≤ 25 %** (Res 0330/2017).
 
-Esta configuración asegura **continuidad 24 h, presión adecuada y calidad normativa**, con un diseño escalable que acompaña el crecimiento poblacional durante el horizonte del proyecto.
+### 5.1 Cálculo del caudal de diseño (Resolución 0330 de 2017)
+
+| Parámetro | Valor | Base / fuente |
+|---|---:|---|
+| Población urbana 2025 (cabecera) | 11.917 hab | DANE CNPV 2018 + proyección |
+| Tasa de crecimiento adoptada | 0,8 % anual | Método geométrico (proyección urbana) |
+| Horizonte de diseño | 25 años | Res 0330/2017 |
+| **Población de diseño (año 25)** | **14.544 hab** | Proyección |
+| Dotación neta (altitud 75 m < 1.000 m) | 140 L/hab·día | Res 0330/2017, Art. 43 |
+| Pérdidas máximas admisibles | 25 % | Res 0330/2017 |
+| Dotación bruta = 140/(1−0,25) | 186,7 L/hab·día | Cálculo |
+| Coef. máximo diario (k₁) | 1,30 | Res 0330/2017 |
+| Coef. máximo horario (k₂) | 1,60 | Res 0330/2017 |
+| Caudal medio diario (Q_md) | 31,4 L/s | Q_md = dotación bruta × pob / 86.400 |
+| **Caudal máximo diario (QMD = Q_md·k₁)** | **40,8 L/s** | **Diseño de la PTAP** |
+| Caudal máximo horario (QMH = QMD·k₂) | 65,4 L/s | Diseño de redes |
+| **Capacidad PTAP adoptada** | **45 L/s** | Con holgura sobre QMD |
 
 ---
 
@@ -159,119 +89,137 @@ Esta configuración asegura **continuidad 24 h, presión adecuada y calidad norm
 
 ### 6.1 Estructura de Inversión y Costos (CAPEX / OPEX)
 
-**CAPEX — Inversión inicial: COP 14.000 MM** (año 0)
+**CAPEX — Presupuesto de obra por capítulos: COP 13.470 MM** (año 0). Los valores son **precios de referencia de mercado** (con sobrecostos por la logística del Chocó) y deben validarse con un **Análisis de Precios Unitarios (APU)** actualizado. *(Ver nota de la Sección 10.)*
 
-| Componente | COP MM | % |
-|---|---:|---:|
-| PTAP (obra civil + equipos) | 6.300 | 45,0 % |
-| Ampliación red de aducción y conducción | 2.800 | 20,0 % |
-| Estaciones de bombeo y tanques de almacenamiento | 2.100 | 15,0 % |
-| Redes de distribución y micromedición | 1.900 | 13,6 % |
-| Estudios, diseños e interventoría | 900 | 6,4 % |
-| **Total CAPEX** | **14.000** | **100 %** |
+| # | Capítulo | COP MM | % |
+|---:|---|---:|---:|
+| 1 | Preliminares y obras provisionales | 350 | 2,6 % |
+| 2 | Captación (bocatoma río San Juan) + desarenador | 950 | 7,1 % |
+| 3 | Aducción y conducción (PVC/HD ≈ 4 km) | 1.900 | 14,1 % |
+| 4 | PTAP compacta 45 L/s (civil + equipos + dosificación + laboratorio) | 3.800 | 28,2 % |
+| 5 | Tanque de almacenamiento (1.000 m³) | 1.200 | 8,9 % |
+| 6 | Estación de bombeo (bombas + variadores) | 750 | 5,6 % |
+| 7 | Redes de distribución y sectorización | 2.700 | 20,0 % |
+| 8 | Micromedición (~3.700 medidores) + macromedición | 720 | 5,3 % |
+| 9 | Estudios, diseños e interventoría | 1.100 | 8,2 % |
+| | **TOTAL CAPEX** | **13.470** | **100 %** |
 
-**OPEX — Costos de operación (año 1): COP 2.350 MM**, con crecimiento del 4 % anual. Incluye energía de bombeo, productos químicos, personal de operación, mantenimiento de equipos y redes, y costos administrativos/comerciales.
+**OPEX (año 1): COP 1.050 MM**, con crecimiento del 4 % anual (energía de bombeo, productos químicos, personal, mantenimiento y costos administrativos/comerciales).
 
-**Ingresos:** tarifa de acueducto (cargo fijo + consumo). Ingreso año 1 = **COP 5.200 MM**, con crecimiento del 4,5 % anual por aumento de cobertura, recuperación de cartera y crecimiento poblacional.
+**Ingresos (año 1): COP 1.142 MM.** Base: ~3.400 suscriptores con factura media de **COP 28.000/mes** (estratos bajos, con subsidios de la Ley 142 de 1994). Crecen por aumento de suscriptores (1,2 %/año) y ajuste tarifario (3,5 %/año).
 
-### 6.2 Estructura de Deuda + Equity
+### 6.2 Estructura de Deuda + Equity (y aporte público)
 
 | Fuente | Monto (COP MM) | Participación | Costo |
 |---|---:|---:|---:|
-| Deuda (banca de desarrollo / FINDETER) | 8.400 | 60 % | Kd = 12,5 % |
-| Equity (operador + municipio) | 5.600 | 40 % | Ke = 15,5 % |
-| **Total** | **14.000** | **100 %** | — |
+| Aporte público no reembolsable (SGR / PDA / SGP / cooperación) | 12.123 | 90 % | — (no exige retorno) |
+| Deuda (FINDETER / banca de desarrollo) | 674 | 5 % | Kd = 11 % |
+| Equity (operador especializado + municipio) | 674 | 5 % | Ke = 14 % |
+| **Total** | **13.470** | **100 %** | — |
 
-La deuda se amortiza por el **sistema francés (cuota fija)** a **10 años**, con una cuota anual de **COP 1.517,2 MM**. La tasa de impuesto de renta aplicada es del **35 %**.
+La deuda se amortiza por **sistema francés** a 12 años. Tasa de impuesto de renta del 35 %. El **90 % de aporte público** es realista: el acueducto real de Tadó fue intervenido con recursos del Estado y de la cooperación internacional.
 
-### 6.3 Cálculo del WACC (Costo Promedio Ponderado de Capital)
+### 6.3 Cálculo del WACC
 
-$$WACC = \frac{E}{V}\,K_e + \frac{D}{V}\,K_d\,(1 - t)$$
+El aporte público no exige retorno, por lo que el WACC se calcula sobre el **capital remunerado** (deuda + equity, proporción 50/50):
 
-$$WACC = (0{,}40 \times 0{,}155) + (0{,}60 \times 0{,}125 \times (1 - 0{,}35))$$
+$$WACC = (0{,}5 \times 0{,}14) + (0{,}5 \times 0{,}11 \times (1-0{,}35)) = \mathbf{10{,}58\,\%}$$
 
-$$WACC = 0{,}0620 + 0{,}04875 = \mathbf{0{,}1108 \approx 11{,}07\,\%}$$
+Coherente con el orden de magnitud de la tasa de descuento regulatoria que la **CRA** define para el sector (Resolución CRA 943 de 2021).
 
 ### 6.4 Indicadores de Rentabilidad — VPN y TIR
 
 | Óptica | Tasa de descuento | VPN (COP MM) | TIR | Criterio |
 |---|---:|---:|---:|---|
-| **Proyecto (FCLP)** | WACC = 11,07 % | **8.376** | **18,13 %** | TIR > WACC → **viable** |
-| **Inversionista (FCLA)** | Ke = 15,5 % | **4.698** | **24,78 %** | TIR > Ke → **viable** |
+| **Proyecto "puro"** (sobre CAPEX total) | WACC = 10,58 % | **−10.523** | −1,58 % | TIR < WACC → **no rentable solo** |
+| **Inversionista** (equity, con cofinanciación) | Ke = 14 % | **+1.064** | **30,2 %** | TIR > Ke → **viable** |
+| **Socioeconómica** | Tasa social = 9 % (DNP) | **+5.123** | 13,7 % | B/C = 1,18 → **socialmente viable** |
 
-Ambos VPN son positivos y ambas TIR superan su respectiva tasa de descuento, por lo que el proyecto **crea valor** tanto a nivel de proyecto como para el accionista. El apalancamiento financiero mejora la rentabilidad del inversionista (24,78 % vs. 18,13 %) gracias al escudo fiscal de los intereses y al menor costo relativo de la deuda.
+### 6.5 Análisis de sensibilidad — % de aporte público vs viabilidad del inversionista
 
-### 6.5 Flujos de Caja (Proyecto, Inversionistas y Banco)
+| Aporte público | Equity (COP MM) | TIR inversionista | VPN inversionista (COP MM) |
+|---:|---:|---:|---:|
+| 70 % | 2.021 | 7,5 % | −1.236 |
+| 80 % | 1.347 | 13,4 % | −86 |
+| 85 % | 1.010 | 18,9 % | +489 |
+| **90 % (caso base)** | **673** | **30,2 %** | **+1.064** |
+| 95 % | 337 | 66,0 % | +1.639 |
+
+El punto de equilibrio (TIR = Ke) está cerca del **81 % de aporte público**. Dada la pobreza de Tadó, un aporte ≥ 90 % es lo realista.
+
+### 6.6 Flujos de Caja (Proyecto, Inversionistas y Banco)
 
 Cifras en COP MM. *(FC = Flujo de Caja)*
 
-| Año | Ingresos | OPEX | EBITDA | Interés | Amort. deuda | FC Proyecto | FC Inversionista | FC Banco |
+| Año | Ingresos | OPEX | EBITDA | Interés | Amort. | FC Proyecto | FC Inversionista | FC Banco |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 0 | — | — | — | — | — | **-14.000** | **-5.600** | **+8.400** |
-| 1 | 5.200 | 2.350 | 2.850 | 1.050 | 467 | 2.098 | 948 | -1.517 |
-| 2 | 5.434 | 2.444 | 2.990 | 992 | 526 | 2.188 | 1.018 | -1.517 |
-| 3 | 5.679 | 2.542 | 3.137 | 926 | 591 | 2.284 | 1.091 | -1.517 |
-| 4 | 5.934 | 2.643 | 3.291 | 852 | 665 | 2.384 | 1.165 | -1.517 |
-| 5 | 6.201 | 2.749 | 3.452 | 769 | 748 | 2.489 | 1.241 | -1.517 |
-| 6 | 6.480 | 2.859 | 3.621 | 675 | 842 | 2.599 | 1.318 | -1.517 |
-| 7 | 6.772 | 2.973 | 3.798 | 570 | 947 | 2.714 | 1.396 | -1.517 |
-| 8 | 7.076 | 3.092 | 3.984 | 452 | 1.066 | 2.835 | 1.475 | -1.517 |
-| 9 | 7.395 | 3.216 | 4.179 | 318 | 1.199 | 2.961 | 1.555 | -1.517 |
-| 10 | 7.728 | 3.345 | 4.383 | 169 | 1.349 | 3.094 | 1.636 | -1.517 |
-| 11 | 8.075 | 3.479 | 4.597 | 0 | 0 | 3.233 | 3.233 | 0 |
-| 12 | 8.439 | 3.618 | 4.821 | 0 | 0 | 3.379 | 3.379 | 0 |
-| 13 | 8.819 | 3.762 | 5.056 | 0 | 0 | 3.532 | 3.532 | 0 |
-| 14 | 9.215 | 3.913 | 5.302 | 0 | 0 | 3.692 | 3.692 | 0 |
-| 15 | 9.630 | 4.069 | 5.561 | 0 | 0 | 3.859 | 3.859 | 0 |
-| 16 | 10.063 | 4.232 | 5.831 | 0 | 0 | 4.035 | 4.035 | 0 |
-| 17 | 10.516 | 4.402 | 6.115 | 0 | 0 | 4.220 | 4.220 | 0 |
-| 18 | 10.990 | 4.578 | 6.412 | 0 | 0 | 4.413 | 4.413 | 0 |
-| 19 | 11.484 | 4.761 | 6.723 | 0 | 0 | 4.615 | 4.615 | 0 |
-| 20 | 12.001 | 4.951 | 7.050 | 0 | 0 | 4.827 | 4.827 | 0 |
+| 0 | — | — | — | — | — | **−13.470** | **−674** | **+674** |
+| 1 | 1.142 | 1.050 | 92 | 74 | 30 | 249 | 171 | −104 |
+| 2 | 1.197 | 1.092 | 105 | 71 | 33 | 257 | 178 | −104 |
+| 3 | 1.253 | 1.136 | 118 | 67 | 37 | 265 | 185 | −104 |
+| 4 | 1.313 | 1.181 | 132 | 63 | 41 | 274 | 193 | −104 |
+| 5 | 1.375 | 1.228 | 147 | 59 | 45 | 284 | 201 | −104 |
+| 6 | 1.440 | 1.277 | 163 | 54 | 50 | 294 | 209 | −104 |
+| 7 | 1.508 | 1.329 | 180 | 48 | 55 | 306 | 219 | −104 |
+| 8 | 1.580 | 1.382 | 198 | 42 | 62 | 317 | 228 | −104 |
+| 9 | 1.655 | 1.437 | 218 | 35 | 68 | 330 | 239 | −104 |
+| 10 | 1.733 | 1.494 | 239 | 28 | 76 | 344 | 250 | −104 |
+| 11 | 1.816 | 1.554 | 261 | 20 | 84 | 358 | 262 | −104 |
+| 12 | 1.902 | 1.616 | 285 | 10 | 93 | 374 | 274 | −104 |
+| 13 | 1.992 | 1.681 | 311 | 0 | 0 | 391 | 391 | 0 |
+| 14 | 2.086 | 1.748 | 338 | 0 | 0 | 408 | 408 | 0 |
+| 15 | 2.185 | 1.818 | 367 | 0 | 0 | 427 | 427 | 0 |
+| 16 | 2.289 | 1.891 | 398 | 0 | 0 | 447 | 447 | 0 |
+| 17 | 2.397 | 1.967 | 431 | 0 | 0 | 469 | 469 | 0 |
+| 18 | 2.511 | 2.045 | 466 | 0 | 0 | 491 | 491 | 0 |
+| 19 | 2.630 | 2.127 | 503 | 0 | 0 | 516 | 516 | 0 |
+| 20 | 2.755 | 2.212 | 543 | 0 | 0 | 541 | 541 | 0 |
+| 21 | 2.886 | 2.301 | 585 | 0 | 0 | 569 | 569 | 0 |
+| 22 | 3.022 | 2.393 | 630 | 0 | 0 | 598 | 598 | 0 |
+| 23 | 3.166 | 2.488 | 677 | 0 | 0 | 629 | 629 | 0 |
+| 24 | 3.316 | 2.588 | 728 | 0 | 0 | 662 | 662 | 0 |
+| 25 | 3.473 | 2.691 | 782 | 0 | 0 | 697 | 697 | 0 |
 
-- **Flujo del Proyecto (FCLP):** mide la rentabilidad de la inversión total independientemente de cómo se financie. Se descuenta al **WACC**.
-- **Flujo del Inversionista (FCLA):** flujo que queda para el accionista después de pagar intereses y amortizar deuda. Se descuenta al **Ke**.
-- **Flujo del Banco:** desembolsa COP 8.400 MM en el año 0 y recibe la cuota fija (intereses + capital) durante 10 años. Su TIR equivale a Kd = 12,5 %.
+- **FC del Proyecto:** mide la inversión total (CAPEX 13.470), descontado al WACC.
+- **FC del Inversionista:** invierte solo el equity (674); el aporte público financia el 90 % del CAPEX. Descontado al Ke.
+- **FC del Banco:** desembolsa 674 en el año 0 y recibe la cuota fija (≈ 104 MM/año) durante 12 años (TIR = Kd = 11 %).
 
-> Los flujos y los indicadores fueron calculados con el script `modelo_financiero.py` y exportados a `resultados_modelo.csv`.
+> Flujos e indicadores calculados con `modelo_financiero.py`; el modelo completo con fórmulas vivas está en `MODELO FINANCIERO PEPI.xlsx` (verificado: ambos coinciden).
 
 ---
 
 ## 7. Matriz de Riesgos (20 riesgos)
 
-**Escala:** Probabilidad (P) y Severidad/Impacto (I) de 1 a 5. **Nivel de riesgo = P × I.**
-Clasificación: **Bajo (1–6)** · **Medio (8–12)** · **Alto (15–25)**.
+**Escala:** Probabilidad (P) e Impacto (I) de 1 a 5. **Nivel = P × I.** Clasificación: **Bajo (1–6)** · **Medio (8–12)** · **Alto (15–25)**.
 
 | # | Riesgo | Tipo | P | I | P×I | Nivel |
 |---:|---|---|:--:|:--:|:--:|---|
-| 1 | Sobrecostos en la construcción (mayor cantidad de obra) | Financiero | 4 | 4 | 16 | Alto |
+| 1 | Sobrecostos en la construcción | Financiero | 4 | 4 | 16 | Alto |
 | 2 | Retrasos en el cronograma de obra | Operativo | 4 | 3 | 12 | Medio |
 | 3 | Demoras en la gestión predial y servidumbres | Legal | 3 | 4 | 12 | Medio |
-| 4 | Variación en la tasa de cambio (equipos importados) | Financiero | 3 | 3 | 9 | Medio |
+| 4 | Insuficiencia o retraso del aporte público (SGR/PDA) | Financiero | 3 | 5 | 15 | Alto |
 | 5 | Incremento de tasas de interés de la deuda | Financiero | 3 | 4 | 12 | Medio |
-| 6 | Recaudo tarifario inferior al proyectado (cartera) | Comercial | 4 | 4 | 16 | Alto |
+| 6 | Recaudo tarifario inferior al proyectado | Comercial | 4 | 4 | 16 | Alto |
 | 7 | Cambios regulatorios en el marco tarifario (CRA) | Regulatorio | 2 | 4 | 8 | Medio |
-| 8 | Contaminación de la fuente de captación | Ambiental | 3 | 5 | 15 | Alto |
-| 9 | Reducción del caudal de la fuente (sequía/cambio climático) | Ambiental | 3 | 5 | 15 | Alto |
+| 8 | Alta turbiedad/contaminación (mercurio) del río San Juan | Ambiental | 4 | 5 | 20 | Alto |
+| 9 | Inundaciones por lluvias extremas (Chocó) | Ambiental | 4 | 4 | 16 | Alto |
 | 10 | Inadecuada disposición de lodos de la PTAP | Ambiental | 3 | 4 | 12 | Medio |
-| 11 | Vertimiento de aguas de lavado sin tratamiento | Ambiental | 3 | 4 | 12 | Medio |
+| 11 | Vertimiento de aguas de lavado de filtros sin tratar | Ambiental | 3 | 4 | 12 | Medio |
 | 12 | Afectación de fauna/flora en zona de obras | Ambiental | 2 | 3 | 6 | Bajo |
 | 13 | Fallas o paradas de equipos de bombeo | Operativo | 3 | 3 | 9 | Medio |
 | 14 | Interrupción del suministro eléctrico | Operativo | 3 | 4 | 12 | Medio |
 | 15 | Accidentes laborales en obra | SST | 3 | 4 | 12 | Medio |
-| 16 | Oposición o conflicto con la comunidad | Social | 3 | 3 | 9 | Medio |
-| 17 | Vandalismo o robo de infraestructura/medidores | Seguridad | 3 | 2 | 6 | Bajo |
+| 16 | Dificultad logística y de acceso (transporte de materiales) | Operativo | 4 | 3 | 12 | Medio |
+| 17 | Orden público en la región | Social | 3 | 4 | 12 | Medio |
 | 18 | Errores en estudios y diseños técnicos | Técnico | 2 | 4 | 8 | Medio |
 | 19 | Incumplimiento del contratista (calidad/abandono) | Contractual | 2 | 4 | 8 | Medio |
 | 20 | Inflación de costos operativos por encima de lo previsto | Financiero | 3 | 3 | 9 | Medio |
 
-**Resumen:** 4 riesgos Altos, 14 Medios y 2 Bajos. Los riesgos Altos se concentran en sobrecostos, recaudo y los factores ambientales de la fuente.
+**Resumen:** 5 riesgos Altos, 13 Medios y 2 Bajos. Los Altos se concentran en sobrecostos, dependencia del aporte público, recaudo y los factores ambientales propios del Chocó (turbiedad y mercurio del San Juan, inundaciones por lluvias extremas).
 
 ---
 
 ## 8. Intervención de 10 Riesgos (5 ambientales) y Recalificación
-
-Para cada riesgo se define la **medida de intervención** y se realiza la **recalificación** del nivel residual (después de aplicar el control).
 
 > Se intervienen los 10 riesgos prioritarios; **los riesgos 8, 9, 10, 11 y 12 son de tipo ambiental** (5 ambientales, según lo exigido).
 
@@ -279,43 +227,62 @@ Para cada riesgo se define la **medida de intervención** y se realiza la **reca
 
 | # | Riesgo | Tipo | Intervención propuesta |
 |---:|---|---|---|
-| 1 | Sobrecostos de construcción | Financiero | Contrato a precio global fijo (EPC), presupuesto con contingencia del 10 % y control de cambios estricto por interventoría. |
-| 6 | Bajo recaudo tarifario | Comercial | Campañas de cultura de pago, financiación de cartera, corte por mora y micromedición masiva para facturar consumo real. |
-| 5 | Alza de tasas de interés | Financiero | Cobertura con tasa fija / contrato de cobertura (SWAP) en el cierre financiero. |
-| 8 | Contaminación de la fuente | **Ambiental** | Protección y reforestación de la ronda hídrica, monitoreo permanente de calidad del agua cruda y barreras de captación. |
-| 9 | Reducción de caudal (sequía) | **Ambiental** | Fuente alterna de respaldo, tanques de regulación, programa de uso eficiente del agua (PUEAA) y reuso. |
-| 10 | Disposición de lodos | **Ambiental** | Lechos de secado y deshidratación de lodos, con disposición final autorizada y aprovechamiento agrícola cuando aplique. |
-| 11 | Vertimiento de aguas de lavado | **Ambiental** | Recirculación de aguas de lavado de filtros y tratamiento previo antes de vertimiento, con permiso ambiental (CAR). |
-| 12 | Afectación de fauna/flora | **Ambiental** | Plan de Manejo Ambiental (PMA), compensación forestal y obras en franjas previamente intervenidas. |
-| 14 | Interrupción eléctrica | Operativo | Planta eléctrica de respaldo (grupo electrógeno) y contrato de energía con respaldo dual. |
-| 15 | Accidentes laborales | SST | Sistema de Gestión SST (Decreto 1072), capacitación, EPP y permisos de trabajo de alto riesgo. |
+| 1 | Sobrecostos de construcción | Financiero | Contrato a precio global fijo (EPC), contingencia del 10 % y control de cambios por interventoría. |
+| 6 | Bajo recaudo tarifario | Comercial | Cultura de pago, esquema de subsidios/contribuciones (Ley 142), corte por mora y micromedición masiva. |
+| 4 | Insuficiencia del aporte público | Financiero | Cierre financiero antes del inicio; convenios con SGR/PDA y cooperación internacional. |
+| 8 | Turbiedad/mercurio del río San Juan | **Ambiental** | Bocatoma con desarenador, **pretratamiento**, y **monitoreo permanente de mercurio** y calidad del agua cruda. |
+| 9 | Inundaciones por lluvias extremas | **Ambiental** | Obras **elevadas**, diseño hidrológico, sistemas de drenaje y plan de contingencia ante crecientes. |
+| 10 | Disposición de lodos | **Ambiental** | Lechos de secado y deshidratación, con disposición final autorizada por CODECHOCÓ. |
+| 11 | Vertimiento de aguas de lavado | **Ambiental** | Recirculación de aguas de lavado de filtros y tratamiento previo, con permiso de vertimientos. |
+| 12 | Afectación de fauna/flora | **Ambiental** | Plan de Manejo Ambiental (PMA), compensación forestal y obras en franjas intervenidas. |
+| 16 | Dificultad logística y de acceso | Operativo | Plan logístico, acopio anticipado de materiales y cronograma con holguras por temporada de lluvias. |
+| 15 | Accidentes laborales | SST | Sistema de Gestión SST (Decreto 1072 de 2015), capacitación, EPP y permisos de trabajo de alto riesgo. |
 
 ### 8.2 Matriz de recalificación (riesgo residual)
 
-| # | Riesgo | Tipo | P inicial | I inicial | P×I inicial | Nivel inicial | P residual | I residual | P×I residual | Nivel residual |
-|---:|---|---|:--:|:--:|:--:|---|:--:|:--:|:--:|---|
-| 1 | Sobrecostos de construcción | Financiero | 4 | 4 | 16 | Alto | 2 | 3 | 6 | Bajo |
-| 6 | Bajo recaudo tarifario | Comercial | 4 | 4 | 16 | Alto | 2 | 3 | 6 | Bajo |
-| 5 | Alza de tasas de interés | Financiero | 3 | 4 | 12 | Medio | 1 | 3 | 3 | Bajo |
-| 8 | Contaminación de la fuente | **Ambiental** | 3 | 5 | 15 | Alto | 2 | 4 | 8 | Medio |
-| 9 | Reducción de caudal (sequía) | **Ambiental** | 3 | 5 | 15 | Alto | 2 | 4 | 8 | Medio |
-| 10 | Disposición de lodos | **Ambiental** | 3 | 4 | 12 | Medio | 1 | 3 | 3 | Bajo |
-| 11 | Vertimiento aguas de lavado | **Ambiental** | 3 | 4 | 12 | Medio | 1 | 3 | 3 | Bajo |
-| 12 | Afectación fauna/flora | **Ambiental** | 2 | 3 | 6 | Bajo | 1 | 2 | 2 | Bajo |
-| 14 | Interrupción eléctrica | Operativo | 3 | 4 | 12 | Medio | 1 | 4 | 4 | Bajo |
-| 15 | Accidentes laborales | SST | 3 | 4 | 12 | Medio | 1 | 4 | 4 | Bajo |
+| # | Riesgo | Tipo | P×I inicial | Nivel inicial | P×I residual | Nivel residual |
+|---:|---|---|:--:|:--:|:--:|:--:|
+| 1 | Sobrecostos de construcción | Financiero | 16 | Alto | 6 | Bajo |
+| 6 | Bajo recaudo tarifario | Comercial | 16 | Alto | 6 | Bajo |
+| 4 | Insuficiencia del aporte público | Financiero | 15 | Alto | 6 | Bajo |
+| 8 | Turbiedad/mercurio río San Juan | **Ambiental** | 20 | Alto | 8 | Medio |
+| 9 | Inundaciones lluvias extremas | **Ambiental** | 16 | Alto | 6 | Bajo |
+| 10 | Disposición de lodos | **Ambiental** | 12 | Medio | 3 | Bajo |
+| 11 | Vertimiento aguas de lavado | **Ambiental** | 12 | Medio | 3 | Bajo |
+| 12 | Afectación fauna/flora | **Ambiental** | 6 | Bajo | 2 | Bajo |
+| 16 | Dificultad logística/acceso | Operativo | 12 | Medio | 4 | Bajo |
+| 15 | Accidentes laborales | SST | 12 | Medio | 4 | Bajo |
 
-**Efecto de las intervenciones:** los 4 riesgos Altos intervenidos descienden a Medio o Bajo, y la mayoría de los Medios pasan a Bajo. Las medidas ambientales (riesgos 8 a 12) reducen significativamente la exposición, aunque los riesgos asociados a la fuente (8 y 9) permanecen en nivel **Medio** por depender de factores climáticos externos, por lo que requieren **monitoreo y planes de contingencia permanentes**.
+**Efecto de las intervenciones:** los riesgos Altos descienden a Medio o Bajo. El riesgo de turbiedad/mercurio del río San Juan (8) permanece en nivel **Medio** por depender de la minería aguas arriba, por lo que exige **monitoreo permanente** y articulación con la autoridad ambiental.
 
 ---
 
 ## 9. Conclusiones
 
-1. El proyecto resuelve una necesidad básica insatisfecha de alto impacto en salud pública y desarrollo local.
-2. Es **financieramente viable**: VPN positivo y TIR superior al costo de capital tanto a nivel de proyecto (18,13 % vs. WACC 11,07 %) como de inversionista (24,78 % vs. Ke 15,5 %).
-3. El apalancamiento 60/40 es adecuado y mejora la rentabilidad del accionista sin comprometer el servicio de la deuda (cobertura holgada del EBITDA frente a la cuota).
-4. La gestión de riesgos —en especial los ambientales— es determinante; con las intervenciones propuestas el perfil de riesgo del proyecto se reduce a niveles mayoritariamente bajos.
+1. El proyecto resuelve una necesidad básica insatisfecha de altísimo impacto en salud pública y desarrollo en Tadó, uno de los municipios más pobres del país.
+2. **No es financieramente rentable por sí solo** (VPN del proyecto puro −COP 10.523 MM), lo cual es **normal y esperado** en acueductos municipales pequeños y de alta pobreza.
+3. **Es financieramente viable para el inversionista** cuando se cofinancia mayoritariamente con recursos públicos (con 90 % de aporte: TIR 30,2 % > Ke 14 %); el punto de equilibrio está cerca del 81 % de aporte público.
+4. **Es socialmente muy rentable** (VPN económico +COP 5.123 MM, B/C 1,18 a la tasa social del DNP), lo que justifica plenamente la inversión pública vía SGR/PDA/SGP/cooperación.
+5. La gestión de riesgos —en especial los ambientales propios del Chocó (turbiedad y mercurio del río San Juan, inundaciones por lluvias extremas)— es determinante y reduce el perfil de riesgo a niveles mayoritariamente bajos.
 
 ---
 
-*Anexos en esta carpeta: `modelo_financiero.py` (modelo de cálculo) y `resultados_modelo.csv` (resultados y flujos detallados).*
+## 10. Fuentes y notas de transparencia
+
+**Datos reales (verificables):**
+- **Población y geografía de Tadó:** DANE — Censo Nacional de Población y Vivienda (CNPV) 2018 y proyecciones de población; ficha municipal de Tadó (Chocó). Población total 2025: 20.476 hab; cabecera: 11.917 hab; altitud 75 m s. n. m.; río San Juan y río Mungarrá; clima de selva tropical húmeda (lluvias extremas); economía minera (oro y platino).
+- **Antecedente del proyecto:** el acueducto de Tadó ha sido intervenido con recursos del Estado (MinVivienda) y de la cooperación internacional, con metas de continuidad 24 h y cobertura cercana al 98 %.
+
+**Normativa y metodología (citadas):**
+- **Resolución 0330 de 2017 (RAS):** dotación neta (140 L/hab·día para altitud < 1.000 m), pérdidas máximas (25 %), coeficientes k₁ y k₂, horizonte de diseño y caudales.
+- **Resolución 2115 de 2007:** calidad del agua para consumo humano (IRCA).
+- **Resolución CRA 943 de 2021:** marco tarifario y tasa de descuento regulatoria del sector acueducto/alcantarillado.
+- **Ley 142 de 1994:** régimen de servicios públicos domiciliarios (subsidios y contribuciones).
+- **Tasa social de descuento (9 %):** DNP, metodología de evaluación de proyectos de inversión pública (MGA).
+- **Decreto 1072 de 2015** (SG-SST) y **NSR-10** (diseño sismorresistente) para la matriz de intervención.
+
+**Estimaciones (a validar con fuentes oficiales del proyecto):**
+- ⚠️ El **déficit específico del acueducto** (cobertura e IANC actuales), el **CAPEX por capítulos**, las **tarifas** y el **OPEX** son **estimaciones de orden de magnitud** con precios de referencia de mercado (con sobrecosto por la logística del Chocó). Para un estudio definitivo deben reemplazarse por: el **Plan de Desarrollo Municipal** de Tadó, datos del **SUI – Superservicios**, el **Plan Departamental de Agua (PDA) del Chocó** y un **APU (Análisis de Precios Unitarios)** actualizado con lista de precios regional.
+- La tasa de crecimiento poblacional (0,8 %) es una hipótesis de diseño; debe ajustarse al método que mejor se acomode a las series del DANE para Tadó.
+
+*Anexos en esta carpeta: `modelo_financiero.py`, `MODELO FINANCIERO PEPI.xlsx`, `resultados_modelo.csv`, `arbol_problemas.png`, `arbol_objetivos.png`.*
