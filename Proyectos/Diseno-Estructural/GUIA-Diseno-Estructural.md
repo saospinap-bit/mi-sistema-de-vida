@@ -1,7 +1,7 @@
 # 🏗️ Guía: Diseño de Viguetas, Vigas y Riostras (NSR-10 / ACI 318)
 
 > Material de estudio para entender el método y aplicarlo a TU proyecto.
-> Acompaña a la herramienta `Herramienta-Diseno-Viguetas-Vigas.xlsx`.
+> Acompaña a la herramienta `Herramienta-Diseno-Estructural.xlsx` (10 hojas: una por elemento).
 > Unidades SI: f'c, fy en MPa · dimensiones en mm · Mu/Tu en kN·m · Vu en kN · As en mm².
 
 ---
@@ -103,3 +103,50 @@ Elementos transversales que arriostran las viguetas. Diseño simple:
 - Los resultados clave salen resaltados (verde = acero adoptado, amarillo = resultado/decisión).
 
 > Esta es tu **herramienta propia** que exige el proyecto. Entiéndela: en la sustentación pueden pedirte explicar cualquier celda.
+
+
+
+---
+
+# 🧩 APARTADOS ADICIONALES (herramienta completa)
+
+> La herramienta `Herramienta-Diseno-Estructural.xlsx` ahora tiene **un apartado (hoja) por elemento**: Losa, Viguetas, Vigas, Riostras, Escaleras, Columnas, Cimentación y Muros. Llenas azul (geometría) y amarillo (momentos/fuerzas) y todo se verifica solo.
+
+## 5) LOSA (nervada)
+- **Espesor mínimo** `h ≥ Ln/factor` (C.9.5).
+- **Acero de retracción y temperatura** en la loseta: `As = 0.0018·b·hf` con separación `≤ min(5·hf, 450 mm)`.
+- Los nervios se diseñan como **viguetas**.
+
+## 6) ESCALERAS (losa inclinada de 1 dirección)
+1. **Cargas:** peso de la losa inclinada `24·t/cos θ` + escalones `24·(CH/2)` + acabados; viva ≈ 3 kN/m² (residencial).
+2. `wu = 1.2D + 1.6L`
+3. `Mu = wu·Ln²/8` (o /10 si es continua).
+4. Flexión por metro de ancho → `As`, con `As,min = 0.0018·b·t` y separación `≤ min(3t, 450)`.
+5. Espesor: `t ≥ Ln/20`.
+
+## 7) COLUMNAS (flexo-compresión)
+- **Acero:** cuantía `0.01 ≤ ρ ≤ 0.06`; `Ast = ρ·Ag`.
+- **Cota axial pura:** `φPn,max = φ·0.80·(0.85·f'c·(Ag−Ast)+fy·Ast)`, φ=0.65 (estribos).
+- **Esbeltez:** `k·Lu/r` con `r=0.3h`; si `≤ 22` es columna corta; si no, hay que **magnificar momentos**.
+- **Estribos:** `s ≤ min(16·db, 48·db_estr, b, h)`; en zona de confinamiento (DES) `so ≤ min(6·db, 150)`.
+- ⚠️ Para `P + Mx + My` combinados se usa el **diagrama de interacción P-M**. La hoja te da acero, cota axial, esbeltez y estribos.
+
+## 8) CIMENTACIÓN (zapata aislada)
+1. **Tamaño:** `Área = P_servicio/q_adm` → lado `B = √Área` (tu suelo Santa Marta: q_adm ≈ 150 kN/m²).
+2. `qu = Pu/B²`
+3. **Cortante unidireccional** a `d` de la cara: `Vu1 ≤ φ·0.17√f'c·B·d`.
+4. **Punzonamiento** a `d/2`: `Vu2 ≤ φ·0.33√f'c·bo·d`.
+5. **Flexión** en la cara: `Mu = qu·B·volado²/2` → `As` (con `As,min = 0.0018·B·h`).
+6. El espesor `h` suele gobernarlo el **punzonamiento**.
+
+## 9) MUROS ESTRUCTURALES (cortante en el plano)
+- `φVn = φ·(αc·√f'c + ρt·fy)·Acv`, con `Acv = lw·tw`, `ρt ≥ 0.0025`.
+- `αc = 0.25` si `hw/lw ≤ 1.5`; `0.17` si `≥ 2.0`.
+- Tope: `Vn ≤ 0.83·√f'c·Acv`.
+
+---
+
+### ✅ Ejemplos verificados (con los valores por defecto)
+- **Cimentación:** P=1100 kN, q_adm=150 → **B = 2.75 m**, qu = 198 kN/m².
+- **Columna:** 400×400, ρ=2% → Ast=3200 mm² (**12 #6**), φPn,max = **2639 kN** ≥ Pu=1500 ✓, esbeltez 21.7 < 22 (corta).
+- **Escalera:** garganta 150 mm, CH/H=175/280 → wu=14.2 kN/m², **Mu = 21.8 kN·m/m**.
