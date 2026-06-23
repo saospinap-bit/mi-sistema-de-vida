@@ -1,398 +1,455 @@
 # -*- coding: utf-8 -*-
 """
-Genera el modelo tecnico-financiero del Proyecto PEPI (Acueducto de Tado, Choco)
-en Excel (.xlsx) CON FORMULAS VIVAS.
+Modelo financiero del Proyecto PEPI - Acueducto de Tado (Choco) en Excel.
+IMPORTANTE: para que NINGUNA celda quede vacia en cualquier visor, este script
+CALCULA todos los valores en Python y los escribe como NUMEROS (no formulas).
+Los numeros coinciden exactamente con modelo_financiero.py.
 
-Hojas:
-  1. Diseno de Caudal   -> Resolucion 0330/2017 (RAS): poblacion, dotacion, k1/k2, QMD/QMH
-  2. Supuestos          -> parametros de entrada (editables)
-  3. Amortizacion Deuda -> tabla de amortizacion (sistema frances)
-  4. Flujos de Caja     -> ingresos, OPEX, EBITDA, EBIT, FC Proyecto/Inversionista/Banco y FC Social
-  5. Indicadores        -> WACC, VPN/TIR (proyecto e inversionista) y evaluacion social (VPN, B/C)
-  6. Riesgos            -> matriz de 20 riesgos + intervencion/recalificacion de 10
-
-Al abrir el archivo, todas las celdas con formula se recalculan si cambias los Supuestos.
+Hojas: Supuestos | Diseno Caudal | Presupuesto | Amortizacion Deuda |
+       Flujos de Caja | Indicadores | Riesgos
 """
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
-AZUL = "1F4E79"
-AZUL_CLARO = "D6E4F0"
-GRIS = "F2F2F2"
+# ============================================================
+# 1) CALCULOS (identicos a modelo_financiero.py)
+# ============================================================
+POB_URBANA = 11917
+TASA_CREC = 0.008
+HOR = 25
+POB_DIS = POB_URBANA * (1 + TASA_CREC) ** HOR
+DOT_NETA = 140.0
+PERDIDAS = 0.25
+DOT_BRUTA = DOT_NETA / (1 - PERDIDAS)
+K1, K2 = 1.30, 1.60
+Q_MED = DOT_BRUTA * POB_DIS / 86400.0
+QMD = Q_MED * K1
+QMH = QMD * K2
+PTAP = 45.0
 
-f_titulo = Font(bold=True, color="FFFFFF", size=12)
+presupuesto = [
+    ("Preliminares y obras provisionales", 350),
+    ("Captacion (bocatoma rio San Juan) + desarenador", 950),
+    ("Aduccion y conduccion (PVC/HD ~4 km)", 1900),
+    ("PTAP compacta 45 L/s (civil+equipos+dosif.+lab)", 3800),
+    ("Tanque de almacenamiento (1.000 m3)", 1200),
+    ("Estacion de bombeo (bombas + variadores)", 750),
+    ("Redes de distribucion y sectorizacion", 2700),
+    ("Micromedicion (~3.700 medidores) + macromedicion", 720),
+    ("Estudios, disenios e interventoria", 1100),
+]
+CAPEX = sum(v for _, v in presupuesto)
+
+PCT_PUB, PCT_DEUDA, PCT_EQ = 0.90, 0.05, 0.05
+APORTE = CAPEX * PCT_PUB
+DEUDA = CAPEX * PCT_DEUDA
+EQUITY = CAPEX * PCT_EQ
+KD, KE, IMP, PLAZO = 0.11, 0.14, 0.35, 12
+WACC = 0.5 * KE + 0.5 * KD * (1 - IMP)
+DEP = CAPEX / HOR
+
+def cuota_fija(p, i, n):
+    return p * i / (1 - (1 + i) ** (-n))
+CUOTA = cuota_fija(DEUDA, KD, PLAZO)
+
+# Operacion
+SUS1, CSUS = 3400, 0.012
+FAC1, CFAC = 28000.0, 0.035
+OPEX1, COPEX = 1050.0, 0.04
+TSOC, BENH = 0.09, 75000.0
+
+ingresos, opex = [], []
+for t in range(1, HOR + 1):
+    ingresos.append(SUS1 * (1 + CSUS) ** (t - 1) * FAC1 * (1 + CFAC) ** (t - 1) * 12 / 1e6)
+    opex.append(OPEX1 * (1 + COPEX) ** (t - 1))
+
+# Amortizacion
+saldo = DEUDA
+amort_tabla = []  # (saldo_ini, interes, abono, cuota, saldo_fin)
+for t in range(1, HOR + 1):
+    if t <= PLAZO:
+        si = saldo
+        it = si * KD
+        ab = CUOTA - it
+        sf = si - ab
+        saldo = sf
+        amort_tabla.append((si, it, ab, CUOTA, sf))
+    else:
+        amort_tabla.append((0.0, 0.0, 0.0, 0.0, 0.0))
+
+# Flujos
+ebitda, ebit, fclp, fcla, fcbanco = [], [], [], [], []
+for t in range(HOR):
+    e = ingresos[t] - opex[t]; ebitda.append(e)
+    eb = e - DEP; ebit.append(eb)
+    fclp.append(eb * (1 - IMP) + DEP)
+    it = amort_tabla[t][1]; ab = amort_tabla[t][2]
+    uai = eb - it
+    fcla.append(uai * (1 - IMP) + DEP - ab)
+    fcbanco.append(-(it + ab))
+
+flujo_proy = [-CAPEX] + fclp
+flujo_inv = [-EQUITY] + fcla
+
+def vpn(tasa, fl):
+    return sum(f / (1 + tasa) ** i for i, f in enumerate(fl))
+
+def tir(fl):
+    lo, hi = -0.95, 5.0
+    flo = vpn(lo, fl); fhi = vpn(hi, fl)
+    if flo * fhi > 0:
+        return None
+    for _ in range(300):
+        mid = (lo + hi) / 2; fm = vpn(mid, fl)
+        if abs(fm) < 1e-7:
+            return mid
+        if flo * fm < 0:
+            hi = mid
+        else:
+            lo = mid; flo = fm
+    return (lo + hi) / 2
+
+VPN_PROY = vpn(WACC, flujo_proy); TIR_PROY = tir(flujo_proy)
+VPN_INV = vpn(KE, flujo_inv); TIR_INV = tir(flujo_inv)
+
+# Socioeconomico
+beneficios = [SUS1 * (1 + CSUS) ** t * BENH * 12 / 1e6 for t in range(HOR)]
+flujo_econ = [-CAPEX] + [beneficios[t] - opex[t] for t in range(HOR)]
+VPN_ECON = vpn(TSOC, flujo_econ); TIR_ECON = tir(flujo_econ)
+RBC = (sum(beneficios[t] / (1 + TSOC) ** (t + 1) for t in range(HOR)) /
+       (CAPEX + sum(opex[t] / (1 + TSOC) ** (t + 1) for t in range(HOR))))
+
+# ============================================================
+# 2) ESTILOS
+# ============================================================
+AZUL = "1F4E79"; CLARO = "D6E4F0"; GRIS = "F2F2F2"
+f_tit = Font(bold=True, color="FFFFFF", size=12)
 f_hdr = Font(bold=True, color="FFFFFF", size=10)
-f_bold = Font(bold=True)
-fill_azul = PatternFill("solid", fgColor=AZUL)
-fill_clar = PatternFill("solid", fgColor=AZUL_CLARO)
-fill_gris = PatternFill("solid", fgColor=GRIS)
-center = Alignment(horizontal="center", vertical="center", wrap_text=True)
-left = Alignment(horizontal="left", vertical="center", wrap_text=True)
-right = Alignment(horizontal="right", vertical="center")
+f_b = Font(bold=True)
+fa = PatternFill("solid", fgColor=AZUL); fc = PatternFill("solid", fgColor=CLARO)
+fg = PatternFill("solid", fgColor=GRIS)
+ctr = Alignment(horizontal="center", vertical="center", wrap_text=True)
+lft = Alignment(horizontal="left", vertical="center", wrap_text=True)
+rgt = Alignment(horizontal="right", vertical="center")
 thin = Side(style="thin", color="BFBFBF")
-border = Border(left=thin, right=thin, top=thin, bottom=thin)
+bd = Border(left=thin, right=thin, top=thin, bottom=thin)
 
-HOR_N = 25  # anios
+def title(ws, rng, text):
+    ws.merge_cells(rng)
+    c = ws[rng.split(":")[0]]
+    c.value = text; c.font = f_tit; c.fill = fa; c.alignment = ctr
+    ws.row_dimensions[1].height = 26
+
+def header(ws, row, headers):
+    for j, h in enumerate(headers, 1):
+        c = ws.cell(row, j, h); c.font = f_hdr; c.fill = fa; c.alignment = ctr; c.border = bd
 
 wb = Workbook()
 
-# ===============================================================
-# HOJA 1: DISENO DE CAUDAL (Resolucion 0330 de 2017 - RAS)
-# ===============================================================
-wd = wb.active
-wd.title = "Diseno de Caudal"
-wd.sheet_view.showGridLines = False
-wd.merge_cells("A1:C1")
-wd["A1"] = "DISENO DE CAUDAL - ACUEDUCTO DE TADO (Resolucion 0330 de 2017 - RAS)"
-wd["A1"].font = f_titulo; wd["A1"].fill = fill_azul; wd["A1"].alignment = center
-wd.row_dimensions[1].height = 28
-
-dis = [
-    ("Parametro", "Valor", "Unidad / Fuente"),
-    ("Poblacion municipio (CNPV 2018, DANE)", 17000, "hab"),
-    ("Fraccion urbana (estimada)", 0.60, "%"),
-    ("Poblacion urbana 2018", "=B4*B5", "hab"),
-    ("Anio base", 2024, "anio"),
-    ("Tasa de crecimiento anual", 0.012, "%"),
-    ("Periodo de diseno", 25, "anios"),
-    ("Poblacion urbana base", "=B6*(1+B8)^(B7-2018)", "hab"),
-    ("Poblacion de diseno", "=B10*(1+B8)^B9", "hab (+25 anios)"),
-    ("Dotacion neta (Art. 43, clima calido)", 140, "L/hab.dia"),
-    ("Perdidas tecnicas max. (Art. 44)", 0.25, "%"),
-    ("Dotacion bruta", "=B12/(1-B13)", "L/hab.dia"),
-    ("k1 (coef. max. diario)", 1.30, "Art. 47"),
-    ("k2 (coef. max. horario)", 1.60, "Art. 47"),
-    ("Caudal medio diario (Qmd)", "=B11*B14/86400", "L/s"),
-    ("Caudal maximo diario (QMD)", "=B17*B15", "L/s"),
-    ("Caudal maximo horario (QMH)", "=B18*B16", "L/s"),
-    ("Capacidad PTAP seleccionada", 45, "L/s"),
-]
-r = 3
-for row in dis:
-    wd.cell(r, 1, row[0]); wd.cell(r, 2, row[1]); wd.cell(r, 3, row[2])
-    if r == 3:
-        for c in range(1, 4):
-            wd.cell(r, c).font = f_hdr; wd.cell(r, c).fill = fill_azul; wd.cell(r, c).alignment = center
-    else:
-        wd.cell(r, 1).font = f_bold; wd.cell(r, 1).fill = fill_clar
-        if row[2] == "%":
-            wd.cell(r, 2).number_format = "0.0%"
-        else:
-            wd.cell(r, 2).number_format = "#,##0.00"
-        wd.cell(r, 2).alignment = right
-        wd.cell(r, 3).alignment = left
-    for c in range(1, 4):
-        wd.cell(r, c).border = border
-    r += 1
-wd.column_dimensions["A"].width = 38
-wd.column_dimensions["B"].width = 14
-wd.column_dimensions["C"].width = 20
-
-# ===============================================================
-# HOJA 2: SUPUESTOS
-# ===============================================================
-ws = wb.create_sheet("Supuestos")
-ws.sheet_view.showGridLines = False
-ws.merge_cells("A1:C1")
-ws["A1"] = "SUPUESTOS DEL MODELO - PROYECTO PEPI (ACUEDUCTO DE TADO, CHOCO)"
-ws["A1"].font = f_titulo; ws["A1"].fill = fill_azul; ws["A1"].alignment = center
-ws.row_dimensions[1].height = 28
-ws["A2"] = "Cifras en COP millones (salvo %). CAPEX anclado a inversion real (19.971 MM)."
-ws["A2"].font = Font(italic=True, size=9)
-
+# ============================================================
+# HOJA 1: SUPUESTOS
+# ============================================================
+ws = wb.active; ws.title = "Supuestos"; ws.sheet_view.showGridLines = False
+title(ws, "A1:C1", "SUPUESTOS - PROYECTO PEPI ACUEDUCTO DE TADO (CHOCO)")
+ws["A2"] = "Cifras en COP millones (salvo % y unidades). Fuente poblacion: DANE CNPV 2018."
+ws["A2"].font = Font(italic=True, size=8)
+header(ws, 3, ["Parametro", "Valor", "Unidad / fuente"])
 sup = [
-    ("Parametro", "Valor", "Unidad"),
-    ("CAPEX total", 19971, "COP MM"),
-    ("% Aporte publico (SGR/PDA/cooperacion)", 0.80, "%"),
-    ("% Deuda (banca de desarrollo)", 0.10, "%"),
-    ("% Equity (operador/municipio)", 0.10, "%"),
-    ("Aporte publico", "=B4*B5", "COP MM"),
-    ("Deuda", "=B4*B6", "COP MM"),
-    ("Equity", "=B4*B7", "COP MM"),
-    ("Kd (costo deuda)", 0.11, "%"),
-    ("Ke (costo equity)", 0.14, "%"),
-    ("Tasa social de descuento (DNP)", 0.09, "%"),
-    ("Tasa de impuestos", 0.35, "%"),
-    ("Plazo de la deuda", 10, "anios"),
-    ("Horizonte de evaluacion", 25, "anios"),
-    ("Ingreso tarifa anio 1", 1500, "COP MM"),
-    ("Crecimiento ingresos", 0.035, "%"),
-    ("OPEX anio 1", 1150, "COP MM"),
-    ("Crecimiento OPEX", 0.035, "%"),
-    ("Beneficio social anio 1", 4150, "COP MM"),
-    ("Crecimiento beneficio social", 0.035, "%"),
-    ("Depreciacion anual", "=B4/B16", "COP MM"),
-    ("Cuota anual deuda (frances)", "=B9*B11/(1-(1+B11)^(-B15))", "COP MM"),
-    ("WACC", "=B5*B13+B7*B12+B6*B11*(1-B14)", "%"),
+    ("Poblacion urbana 2025 (cabecera)", POB_URBANA, "hab (DANE)", "#,##0"),
+    ("Tasa de crecimiento", TASA_CREC, "% anual", "0.00%"),
+    ("Horizonte de diseno/evaluacion", HOR, "anios (Res 0330)", "#,##0"),
+    ("Poblacion de diseno (anio 25)", POB_DIS, "hab", "#,##0"),
+    ("Dotacion neta (alt<1000 m)", DOT_NETA, "L/hab.dia (Res 0330)", "#,##0.0"),
+    ("Perdidas maximas admisibles", PERDIDAS, "% (Res 0330)", "0%"),
+    ("Dotacion bruta", DOT_BRUTA, "L/hab.dia", "#,##0.0"),
+    ("Coef. maximo diario k1", K1, "Res 0330", "#,##0.00"),
+    ("Coef. maximo horario k2", K2, "Res 0330", "#,##0.00"),
+    ("Caudal medio diario", Q_MED, "L/s", "#,##0.0"),
+    ("Caudal maximo diario (PTAP)", QMD, "L/s", "#,##0.0"),
+    ("Caudal maximo horario", QMH, "L/s", "#,##0.0"),
+    ("Capacidad PTAP adoptada", PTAP, "L/s", "#,##0"),
+    ("CAPEX total", CAPEX, "COP MM", "#,##0"),
+    ("% Aporte publico (SGR/PDA/SGP)", PCT_PUB, "%", "0%"),
+    ("% Deuda", PCT_DEUDA, "%", "0%"),
+    ("% Equity", PCT_EQ, "%", "0%"),
+    ("Aporte publico", APORTE, "COP MM", "#,##0"),
+    ("Deuda", DEUDA, "COP MM", "#,##0.0"),
+    ("Equity", EQUITY, "COP MM", "#,##0.0"),
+    ("Kd (costo deuda)", KD, "%", "0.0%"),
+    ("Ke (costo equity)", KE, "%", "0.0%"),
+    ("Tasa de impuestos", IMP, "%", "0%"),
+    ("Plazo de la deuda", PLAZO, "anios", "#,##0"),
+    ("Depreciacion anual", DEP, "COP MM", "#,##0.0"),
+    ("Cuota anual deuda (frances)", CUOTA, "COP MM", "#,##0.0"),
+    ("WACC (capital remunerado 50/50)", WACC, "%", "0.00%"),
+    ("Suscriptores anio 1", SUS1, "suscriptores", "#,##0"),
+    ("Crecimiento suscriptores", CSUS, "% anual", "0.0%"),
+    ("Factura media acueducto anio 1", FAC1, "COP/mes", "#,##0"),
+    ("Crecimiento tarifa", CFAC, "% anual", "0.0%"),
+    ("OPEX anio 1", OPEX1, "COP MM", "#,##0"),
+    ("Crecimiento OPEX", COPEX, "% anual", "0.0%"),
+    ("Tasa social de descuento (DNP)", TSOC, "%", "0%"),
+    ("Beneficio social por hogar", BENH, "COP/mes", "#,##0"),
+]
+r = 4
+for nombre, val, unit, fmt in sup:
+    ws.cell(r, 1, nombre).font = f_b
+    ws.cell(r, 1).fill = fc
+    c = ws.cell(r, 2, round(val, 4) if isinstance(val, float) else val)
+    c.number_format = fmt; c.alignment = rgt
+    ws.cell(r, 3, unit).alignment = lft
+    for j in range(1, 4):
+        ws.cell(r, j).border = bd
+    r += 1
+ws.column_dimensions["A"].width = 32
+ws.column_dimensions["B"].width = 16
+ws.column_dimensions["C"].width = 20
+
+# ============================================================
+# HOJA 2: DISENO CAUDAL
+# ============================================================
+wd = wb.create_sheet("Diseno Caudal"); wd.sheet_view.showGridLines = False
+title(wd, "A1:C1", "CAUDAL DE DISENIO (Resolucion 0330 de 2017)")
+header(wd, 2, ["Concepto", "Valor", "Unidad"])
+dis = [
+    ("Poblacion de diseno (anio 25)", POB_DIS, "hab", "#,##0"),
+    ("Dotacion neta", DOT_NETA, "L/hab.dia", "#,##0.0"),
+    ("Perdidas admisibles", PERDIDAS, "%", "0%"),
+    ("Dotacion bruta", DOT_BRUTA, "L/hab.dia", "#,##0.0"),
+    ("Caudal medio diario (Qmd)", Q_MED, "L/s", "#,##0.0"),
+    ("Caudal maximo diario (QMD = Qmd x k1)", QMD, "L/s -> PTAP", "#,##0.0"),
+    ("Caudal maximo horario (QMH = QMD x k2)", QMH, "L/s -> redes", "#,##0.0"),
+    ("Capacidad PTAP adoptada", PTAP, "L/s", "#,##0"),
 ]
 r = 3
-for row in sup:
-    ws.cell(r, 1, row[0]); ws.cell(r, 2, row[1]); ws.cell(r, 3, row[2])
-    if r == 3:
-        for c in range(1, 4):
-            ws.cell(r, c).font = f_hdr; ws.cell(r, c).fill = fill_azul; ws.cell(r, c).alignment = center
-    else:
-        ws.cell(r, 1).font = f_bold; ws.cell(r, 1).fill = fill_clar
-        if row[2] == "%":
-            ws.cell(r, 2).number_format = "0.00%"
-        else:
-            ws.cell(r, 2).number_format = "#,##0.0"
-        ws.cell(r, 2).alignment = right
-        ws.cell(r, 3).alignment = center
-    for c in range(1, 4):
-        ws.cell(r, c).border = border
+for nombre, val, unit, fmt in dis:
+    wd.cell(r, 1, nombre).font = f_b; wd.cell(r, 1).fill = fc
+    c = wd.cell(r, 2, round(val, 2)); c.number_format = fmt; c.alignment = rgt
+    wd.cell(r, 3, unit).alignment = lft
+    for j in range(1, 4):
+        wd.cell(r, j).border = bd
     r += 1
-ws.column_dimensions["A"].width = 38
-ws.column_dimensions["B"].width = 16
-ws.column_dimensions["C"].width = 12
+wd.column_dimensions["A"].width = 36; wd.column_dimensions["B"].width = 14; wd.column_dimensions["C"].width = 16
 
-S = "Supuestos!"
-CAPEX = f"{S}$B$4"
-DEUDA = f"{S}$B$9"
-EQUITY = f"{S}$B$10"
-KD = f"{S}$B$11"
-KE = f"{S}$B$12"
-TSOC = f"{S}$B$13"
-IMP = f"{S}$B$14"
-PLAZO = f"{S}$B$15"
-ING1 = f"{S}$B$17"
-CRECI = f"{S}$B$18"
-OPEX1 = f"{S}$B$19"
-CRECO = f"{S}$B$20"
-BEN1 = f"{S}$B$21"
-CRECB = f"{S}$B$22"
-DEP = f"{S}$B$23"
-CUOTA = f"{S}$B$24"
-WACC = f"{S}$B$25"
+# ============================================================
+# HOJA 3: PRESUPUESTO
+# ============================================================
+wp = wb.create_sheet("Presupuesto"); wp.sheet_view.showGridLines = False
+title(wp, "A1:C1", "PRESUPUESTO DE OBRA - CAPEX (precios de referencia; validar con APU)")
+header(wp, 2, ["Capitulo", "COP MM", "% del total"])
+r = 3
+for nombre, val in presupuesto:
+    wp.cell(r, 1, nombre).alignment = lft
+    wp.cell(r, 2, val).number_format = "#,##0"; wp.cell(r, 2).alignment = rgt
+    pc = wp.cell(r, 3, val / CAPEX); pc.number_format = "0.0%"; pc.alignment = rgt
+    for j in range(1, 4):
+        wp.cell(r, j).border = bd
+    if r % 2 == 0:
+        for j in range(1, 4):
+            wp.cell(r, j).fill = fg
+    r += 1
+wp.cell(r, 1, "TOTAL CAPEX").font = f_b; wp.cell(r, 1).fill = fc
+wp.cell(r, 2, CAPEX).number_format = "#,##0"; wp.cell(r, 2).font = f_b; wp.cell(r, 2).alignment = rgt
+wp.cell(r, 3, 1.0).number_format = "0%"; wp.cell(r, 3).font = f_b; wp.cell(r, 3).alignment = rgt
+for j in range(1, 4):
+    wp.cell(r, j).border = bd
+wp.column_dimensions["A"].width = 52; wp.column_dimensions["B"].width = 12; wp.column_dimensions["C"].width = 12
 
-# ===============================================================
-# HOJA 3: AMORTIZACION DEUDA
-# ===============================================================
-wa = wb.create_sheet("Amortizacion Deuda")
-wa.sheet_view.showGridLines = False
-wa.merge_cells("A1:F1")
-wa["A1"] = "TABLA DE AMORTIZACION DE LA DEUDA (Sistema Frances - cuota fija)"
-wa["A1"].font = f_titulo; wa["A1"].fill = fill_azul; wa["A1"].alignment = center
-wa.row_dimensions[1].height = 26
-hdr = ["Anio", "Saldo inicial", "Interes", "Abono capital", "Cuota", "Saldo final"]
-for j, h in enumerate(hdr, start=1):
-    c = wa.cell(2, j, h); c.font = f_hdr; c.fill = fill_azul; c.alignment = center; c.border = border
-for t in range(1, HOR_N + 1):
-    row = t + 2
-    wa.cell(row, 1, t)
-    wa.cell(row, 2, f"={DEUDA}" if t == 1 else f"=F{row-1}")
-    wa.cell(row, 3, f"=IF(A{row}<={PLAZO},B{row}*{KD},0)")
-    wa.cell(row, 5, f"=IF(A{row}<={PLAZO},{CUOTA},0)")
-    wa.cell(row, 4, f"=E{row}-C{row}")
-    wa.cell(row, 6, f"=B{row}-D{row}")
+# ============================================================
+# HOJA 4: AMORTIZACION
+# ============================================================
+wa = wb.create_sheet("Amortizacion Deuda"); wa.sheet_view.showGridLines = False
+title(wa, "A1:F1", "TABLA DE AMORTIZACION DE LA DEUDA (Sistema Frances - cuota fija)")
+header(wa, 2, ["Anio", "Saldo inicial", "Interes", "Abono capital", "Cuota", "Saldo final"])
+r = 3
+for t in range(HOR):
+    si, it, ab, cu, sf = amort_tabla[t]
+    wa.cell(r, 1, t + 1).alignment = ctr
+    for j, val in zip(range(2, 7), (si, it, ab, cu, sf)):
+        c = wa.cell(r, j, round(val, 1)); c.number_format = "#,##0.0"; c.alignment = rgt
     for j in range(1, 7):
-        cell = wa.cell(row, j); cell.border = border
-        cell.alignment = center if j == 1 else right
-        if j != 1:
-            cell.number_format = "#,##0.0"
-    if t % 2 == 0:
+        wa.cell(r, j).border = bd
+    if (t + 1) % 2 == 0:
         for j in range(1, 7):
-            wa.cell(row, j).fill = fill_gris
-for col, w in zip("ABCDEF", [8, 16, 14, 16, 14, 16]):
+            wa.cell(r, j).fill = fg
+    r += 1
+for col, w in zip("ABCDEF", [8, 15, 13, 15, 13, 15]):
     wa.column_dimensions[col].width = w
 
-# ===============================================================
-# HOJA 4: FLUJOS DE CAJA
-# ===============================================================
-wf = wb.create_sheet("Flujos de Caja")
-wf.sheet_view.showGridLines = False
-wf.merge_cells("A1:M1")
-wf["A1"] = "FLUJOS DE CAJA - PROYECTO, INVERSIONISTA, BANCO Y SOCIAL (COP MM)"
-wf["A1"].font = f_titulo; wf["A1"].fill = fill_azul; wf["A1"].alignment = center
-wf.row_dimensions[1].height = 26
-hdr = ["Anio", "Ingresos", "OPEX", "EBITDA", "Deprec.", "EBIT", "Intereses",
-       "FC Proyecto", "Util. neta", "FC Inversionista", "FC Banco", "Benef. social", "FC Social"]
-for j, h in enumerate(hdr, start=1):
-    c = wf.cell(2, j, h); c.font = f_hdr; c.fill = fill_azul; c.alignment = center; c.border = border
-
-# Anio 0 (fila 3)
-wf.cell(3, 1, 0)
-wf.cell(3, 8, f"=-{CAPEX}")     # FC Proyecto
-wf.cell(3, 10, f"=-{EQUITY}")   # FC Inversionista
-wf.cell(3, 11, f"={DEUDA}")     # FC Banco
-wf.cell(3, 13, f"=-{CAPEX}")    # FC Social
-for j in range(1, 14):
-    wf.cell(3, j).border = border
-    wf.cell(3, j).alignment = center if j == 1 else right
-    if j != 1:
-        wf.cell(3, j).number_format = "#,##0.0"
-
-AM = "'Amortizacion Deuda'!"
-for t in range(1, HOR_N + 1):
-    row = t + 3
-    am_row = t + 2
-    wf.cell(row, 1, t)
-    wf.cell(row, 2, f"={ING1}*(1+{CRECI})^(A{row}-1)")
-    wf.cell(row, 3, f"={OPEX1}*(1+{CRECO})^(A{row}-1)")
-    wf.cell(row, 4, f"=B{row}-C{row}")
-    wf.cell(row, 5, f"={DEP}")
-    wf.cell(row, 6, f"=D{row}-E{row}")
-    wf.cell(row, 7, f"={AM}C{am_row}")
-    # FC Proyecto = EBITDA - MAX(EBIT,0)*imp
-    wf.cell(row, 8, f"=D{row}-MAX(F{row},0)*{IMP}")
-    # Util neta = (EBIT-Int) - MAX(EBIT-Int,0)*imp
-    wf.cell(row, 9, f"=(F{row}-G{row})-MAX(F{row}-G{row},0)*{IMP}")
-    # FC Inversionista = Util neta + Deprec - Abono capital
-    wf.cell(row, 10, f"=I{row}+E{row}-{AM}D{am_row}")
-    # FC Banco = -(cuota)
-    wf.cell(row, 11, f"=-{AM}E{am_row}")
-    # Beneficio social
-    wf.cell(row, 12, f"={BEN1}*(1+{CRECB})^(A{row}-1)")
-    # FC Social = Beneficio social - OPEX
-    wf.cell(row, 13, f"=L{row}-C{row}")
-    for j in range(1, 14):
-        cell = wf.cell(row, j); cell.border = border
-        cell.alignment = center if j == 1 else right
-        if j != 1:
-            cell.number_format = "#,##0.0"
-    if t % 2 == 0:
-        for j in range(1, 14):
-            wf.cell(row, j).fill = fill_gris
-for col, w in zip("ABCDEFGHIJKLM", [6, 10, 9, 10, 9, 10, 10, 12, 10, 14, 10, 12, 11]):
+# ============================================================
+# HOJA 5: FLUJOS DE CAJA
+# ============================================================
+wf = wb.create_sheet("Flujos de Caja"); wf.sheet_view.showGridLines = False
+title(wf, "A1:K1", "FLUJOS DE CAJA - PROYECTO, INVERSIONISTA Y BANCO (COP MM)")
+header(wf, 2, ["Anio", "Ingresos", "OPEX", "EBITDA", "Deprec.", "EBIT",
+               "Intereses", "FC Proyecto", "Util.neta", "FC Inversionista", "FC Banco"])
+# anio 0
+wf.cell(3, 1, 0).alignment = ctr
+wf.cell(3, 8, round(-CAPEX, 1)); wf.cell(3, 10, round(-EQUITY, 1)); wf.cell(3, 11, round(DEUDA, 1))
+for j in range(1, 12):
+    cell = wf.cell(3, j); cell.border = bd
+    cell.alignment = ctr if j == 1 else rgt
+    if j > 1 and cell.value is not None:
+        cell.number_format = "#,##0.0"
+r = 4
+for t in range(HOR):
+    it = amort_tabla[t][1]; ab = amort_tabla[t][2]
+    uai = ebit[t] - it
+    util = uai * (1 - IMP)
+    vals = [t + 1, ingresos[t], opex[t], ebitda[t], DEP, ebit[t], it,
+            fclp[t], util, fcla[t], fcbanco[t]]
+    for j, val in enumerate(vals, 1):
+        c = wf.cell(r, j, round(val, 1) if j > 1 else val)
+        c.alignment = ctr if j == 1 else rgt
+        if j > 1:
+            c.number_format = "#,##0.0"
+        c.border = bd
+    if (t + 1) % 2 == 0:
+        for j in range(1, 12):
+            wf.cell(r, j).fill = fg
+    r += 1
+for col, w in zip("ABCDEFGHIJK", [6, 10, 9, 9, 9, 9, 10, 12, 9, 14, 11]):
     wf.column_dimensions[col].width = w
 
-LAST = HOR_N + 3  # ultima fila de datos (anio 25 -> fila 28)
-
-# ===============================================================
-# HOJA 5: INDICADORES
-# ===============================================================
-wi = wb.create_sheet("Indicadores")
-wi.sheet_view.showGridLines = False
-wi.merge_cells("A1:C1")
-wi["A1"] = "INDICADORES DE RENTABILIDAD Y EVALUACION SOCIAL"
-wi["A1"].font = f_titulo; wi["A1"].fill = fill_azul; wi["A1"].alignment = center
-wi.row_dimensions[1].height = 26
-
-FCp = f"'Flujos de Caja'!$H$3:$H${LAST}"
-FCp0 = "'Flujos de Caja'!$H$3"
-FCp1 = f"'Flujos de Caja'!$H$4:$H${LAST}"
-FCi = f"'Flujos de Caja'!$J$3:$J${LAST}"
-FCi0 = "'Flujos de Caja'!$J$3"
-FCi1 = f"'Flujos de Caja'!$J$4:$J${LAST}"
-FCs0 = "'Flujos de Caja'!$M$3"
-FCs1 = f"'Flujos de Caja'!$M$4:$M${LAST}"
-BEN1_25 = f"'Flujos de Caja'!$L$4:$L${LAST}"
-OPEX1_25 = f"'Flujos de Caja'!$C$4:$C${LAST}"
-
+# ============================================================
+# HOJA 6: INDICADORES
+# ============================================================
+wi = wb.create_sheet("Indicadores"); wi.sheet_view.showGridLines = False
+title(wi, "A1:C1", "INDICADORES DE RENTABILIDAD Y EVALUACION SOCIOECONOMICA")
+header(wi, 2, ["Indicador", "Valor", "Criterio / interpretacion"])
 ind = [
-    ("Indicador", "Valor", "Criterio"),
-    ("WACC", f"={WACC}", "Costo promedio de capital"),
-    ("VPN Proyecto (@WACC)", f"={FCp0}+NPV({WACC},{FCp1})", "Si >0 crea valor (solo tarifas)"),
-    ("TIR Proyecto", f"=IRR({FCp})", "Viable si > WACC"),
-    ("VPN Inversionista (@Ke)", f"={FCi0}+NPV({KE},{FCi1})", "Si >0 atractivo"),
-    ("TIR Inversionista", f"=IRR({FCi})", "Viable si > Ke"),
-    ("VPN Social (@tasa social 9%)", f"={FCs0}+NPV({TSOC},{FCs1})", "Si >0 socialmente rentable"),
-    ("Relacion Beneficio/Costo", f"=NPV({TSOC},{BEN1_25})/({CAPEX}+NPV({TSOC},{OPEX1_25}))", "Viable si > 1"),
-]
-r = 2
-for row in ind:
-    wi.cell(r, 1, row[0]); wi.cell(r, 2, row[1]); wi.cell(r, 3, row[2])
-    if r == 2:
-        for c in range(1, 4):
-            wi.cell(r, c).font = f_hdr; wi.cell(r, c).fill = fill_azul; wi.cell(r, c).alignment = center
-    else:
-        wi.cell(r, 1).font = f_bold; wi.cell(r, 1).fill = fill_clar
-        wi.cell(r, 3).alignment = left
-        label = row[0]
-        if "WACC" in label or "TIR" in label:
-            wi.cell(r, 2).number_format = "0.00%"
-        elif "Beneficio/Costo" in label:
-            wi.cell(r, 2).number_format = "0.00"
-        else:
-            wi.cell(r, 2).number_format = "#,##0.0"
-        wi.cell(r, 2).alignment = right
-        wi.cell(r, 2).font = f_bold
-    for c in range(1, 4):
-        wi.cell(r, c).border = border
-    r += 1
-wi.column_dimensions["A"].width = 30
-wi.column_dimensions["B"].width = 16
-wi.column_dimensions["C"].width = 32
-
-# ===============================================================
-# HOJA 6: RIESGOS
-# ===============================================================
-wr = wb.create_sheet("Riesgos")
-wr.sheet_view.showGridLines = False
-wr.merge_cells("A1:G1")
-wr["A1"] = "MATRIZ DE RIESGOS (20) - Nivel = P x I  [Bajo 1-6 / Medio 8-12 / Alto 15-25]"
-wr["A1"].font = f_titulo; wr["A1"].fill = fill_azul; wr["A1"].alignment = center
-wr.row_dimensions[1].height = 26
-hdr = ["#", "Riesgo", "Tipo", "P", "I", "PxI", "Nivel"]
-for j, h in enumerate(hdr, start=1):
-    c = wr.cell(2, j, h); c.font = f_hdr; c.fill = fill_azul; c.alignment = center; c.border = border
-riesgos = [
-    [1, "Crecientes/turbiedad extrema del rio San Juan", "Ambiental", 4, 5],
-    [2, "Contaminacion por mineria ilegal (mercurio)", "Ambiental", 4, 5],
-    [3, "Inundaciones que danan captacion/redes", "Ambiental", 4, 4],
-    [4, "Deforestacion de la cuenca", "Ambiental", 3, 3],
-    [5, "Vertimientos de aguas residuales a la fuente", "Ambiental", 3, 4],
-    [6, "Resistencia comunitaria a micromedicion/tarifa", "Social", 3, 3],
-    [7, "Baja cultura de pago y cartera morosa", "Social", 4, 3],
-    [8, "Presencia de grupos armados (extorsion/retrasos)", "Seguridad", 4, 4],
-    [9, "Demora en desembolsos de cofinanciacion", "Institucional", 4, 4],
-    [10, "Debilidad del operador municipal", "Institucional", 3, 4],
-    [11, "Sobrecostos por inflacion de insumos/transporte", "Financiero", 3, 3],
-    [12, "Tarifa insuficiente para cubrir OPEX", "Financiero", 4, 3],
-    [13, "Diseno hidraulico subdimensionado", "Tecnico", 2, 4],
-    [14, "Fallas de equipos de bombeo", "Tecnico", 3, 3],
-    [15, "Suministro electrico inestable", "Tecnico", 3, 4],
-    [16, "Alto IANC por fugas no detectadas", "Operativo", 3, 3],
-    [17, "Dificultad de acceso por mal estado de vias", "Logistico", 4, 3],
-    [18, "Escasez de insumos quimicos (coagulantes)", "Ambiental", 2, 3],
-    [19, "Demoras en predios/servidumbres", "Legal", 3, 3],
-    [20, "Brote de EDA durante la transicion de obra", "Salud publica", 2, 4],
+    ("WACC (capital remunerado)", WACC, "0.00%", "Costo de capital"),
+    ("VPN Proyecto 'puro' (@WACC)", VPN_PROY, "#,##0", "<0: no rentable solo con tarifas"),
+    ("TIR Proyecto 'puro'", TIR_PROY, "0.00%", "< WACC -> no rentable solo"),
+    ("VPN Inversionista (@Ke)", VPN_INV, "#,##0", ">0: crea valor"),
+    ("TIR Inversionista", TIR_INV, "0.00%", "> Ke (14%) -> viable"),
+    ("VPN Economico (@tasa social 9%)", VPN_ECON, "#,##0", ">0: socialmente viable"),
+    ("TIR Economica (TIRE)", TIR_ECON, "0.00%", "> tasa social (9%)"),
+    ("Relacion Beneficio/Costo (B/C)", RBC, "#,##0.00", ">1: socialmente viable"),
 ]
 r = 3
+for nombre, val, fmt, crit in ind:
+    wi.cell(r, 1, nombre).font = f_b; wi.cell(r, 1).fill = fc
+    c = wi.cell(r, 2, round(val, 4) if val is not None else "NA")
+    c.number_format = fmt; c.alignment = rgt; c.font = f_b
+    wi.cell(r, 3, crit).alignment = lft
+    for j in range(1, 4):
+        wi.cell(r, j).border = bd
+    r += 1
+wi.column_dimensions["A"].width = 32; wi.column_dimensions["B"].width = 14; wi.column_dimensions["C"].width = 34
+
+# Sensibilidad
+r += 1
+wi.merge_cells(f"A{r}:D{r}")
+wi.cell(r, 1, "SENSIBILIDAD: % aporte publico vs viabilidad del inversionista")
+wi.cell(r, 1).font = f_tit; wi.cell(r, 1).fill = fa; wi.cell(r, 1).alignment = ctr
+r += 1
+header(wi, r, ["Aporte publico", "Equity (COP MM)", "TIR inversionista", "VPN inv (COP MM)"])
+r += 1
+for g in [0.70, 0.80, 0.85, 0.90, 0.95]:
+    pe = (1 - g) / 2; eq = CAPEX * pe; de = CAPEX * pe
+    cu = cuota_fija(de, KD, PLAZO); sa = de
+    fl = [-eq]
+    for t in range(HOR):
+        if t < PLAZO:
+            i_ = sa * KD; a_ = cu - i_; sa -= a_
+        else:
+            i_ = a_ = 0.0
+        uai = ebit[t] - i_
+        fl.append(uai * (1 - IMP) + DEP - a_)
+    ti = tir(fl); vi = vpn(KE, fl)
+    wi.cell(r, 1, g).number_format = "0%"; wi.cell(r, 1).alignment = ctr
+    wi.cell(r, 2, round(eq, 0)).number_format = "#,##0"; wi.cell(r, 2).alignment = rgt
+    wi.cell(r, 3, round(ti, 4)).number_format = "0.00%"; wi.cell(r, 3).alignment = rgt
+    wi.cell(r, 4, round(vi, 0)).number_format = "#,##0"; wi.cell(r, 4).alignment = rgt
+    for j in range(1, 5):
+        wi.cell(r, j).border = bd
+        if g == 0.90:
+            wi.cell(r, j).fill = fc
+    r += 1
+
+# ============================================================
+# HOJA 7: RIESGOS
+# ============================================================
+wr = wb.create_sheet("Riesgos"); wr.sheet_view.showGridLines = False
+title(wr, "A1:G1", "MATRIZ DE RIESGOS (20) - Nivel=PxI [Bajo 1-6 / Medio 8-12 / Alto 15-25]")
+header(wr, 2, ["#", "Riesgo", "Tipo", "P", "I", "PxI", "Nivel"])
+riesgos = [
+    [1, "Sobrecostos en la construccion", "Financiero", 4, 4],
+    [2, "Retrasos en el cronograma de obra", "Operativo", 4, 3],
+    [3, "Demoras en gestion predial y servidumbres", "Legal", 3, 4],
+    [4, "Insuficiencia/retraso del aporte publico (SGR/PDA)", "Financiero", 3, 5],
+    [5, "Incremento de tasas de interes", "Financiero", 3, 4],
+    [6, "Recaudo tarifario inferior al proyectado", "Comercial", 4, 4],
+    [7, "Cambios regulatorios marco tarifario (CRA)", "Regulatorio", 2, 4],
+    [8, "Alta turbiedad/contaminacion (mercurio) rio San Juan", "Ambiental", 4, 5],
+    [9, "Inundaciones por lluvias extremas (Choco)", "Ambiental", 4, 4],
+    [10, "Inadecuada disposicion de lodos PTAP", "Ambiental", 3, 4],
+    [11, "Vertimiento de aguas de lavado sin tratar", "Ambiental", 3, 4],
+    [12, "Afectacion de fauna/flora en obras", "Ambiental", 2, 3],
+    [13, "Fallas o paradas de equipos de bombeo", "Operativo", 3, 3],
+    [14, "Interrupcion del suministro electrico", "Operativo", 3, 4],
+    [15, "Accidentes laborales en obra", "SST", 3, 4],
+    [16, "Dificultad logistica y de acceso (transporte)", "Operativo", 4, 3],
+    [17, "Orden publico en la region", "Social", 3, 4],
+    [18, "Errores en estudios y disenios tecnicos", "Tecnico", 2, 4],
+    [19, "Incumplimiento del contratista", "Contractual", 2, 4],
+    [20, "Inflacion de costos operativos", "Financiero", 3, 3],
+]
+def nivel(pi):
+    return "Alto" if pi >= 15 else ("Medio" if pi >= 8 else "Bajo")
+r = 3
 for ri in riesgos:
-    wr.cell(r, 1, ri[0]); wr.cell(r, 2, ri[1]); wr.cell(r, 3, ri[2])
-    wr.cell(r, 4, ri[3]); wr.cell(r, 5, ri[4])
-    wr.cell(r, 6, f"=D{r}*E{r}")
-    wr.cell(r, 7, f'=IF(F{r}>=15,"Alto",IF(F{r}>=8,"Medio","Bajo"))')
+    pi = ri[3] * ri[4]
+    wr.cell(r, 1, ri[0]).alignment = ctr
+    wr.cell(r, 2, ri[1]).alignment = lft
+    wr.cell(r, 3, ri[2]).alignment = ctr
+    wr.cell(r, 4, ri[3]).alignment = ctr
+    wr.cell(r, 5, ri[4]).alignment = ctr
+    wr.cell(r, 6, pi).alignment = ctr
+    wr.cell(r, 7, nivel(pi)).alignment = ctr
     for j in range(1, 8):
-        cell = wr.cell(r, j); cell.border = border
-        cell.alignment = center if j != 2 else left
+        wr.cell(r, j).border = bd
     r += 1
 for col, w in zip("ABCDEFG", [5, 44, 14, 5, 5, 7, 9]):
     wr.column_dimensions[col].width = w
 
 base = r + 2
 wr.merge_cells(f"A{base}:H{base}")
-wr.cell(base, 1, "INTERVENCION DE 10 RIESGOS (5 ambientales) Y RECALIFICACION RESIDUAL")
-wr.cell(base, 1).font = f_titulo; wr.cell(base, 1).fill = fill_azul; wr.cell(base, 1).alignment = center
-wr.row_dimensions[base].height = 26
-hdr2 = ["#", "Riesgo", "Tipo", "Intervencion", "P res", "I res", "PxI res", "Nivel res"]
-for j, h in enumerate(hdr2, start=1):
-    c = wr.cell(base + 1, j, h); c.font = f_hdr; c.fill = fill_azul; c.alignment = center; c.border = border
+wr.cell(base, 1, "INTERVENCION DE 10 RIESGOS (5 ambientales) Y RECALIFICACION")
+wr.cell(base, 1).font = f_tit; wr.cell(base, 1).fill = fa; wr.cell(base, 1).alignment = ctr
+header(wr, base + 1, ["#", "Riesgo", "Tipo", "Intervencion", "P res", "I res", "PxI res", "Nivel res"])
 inter = [
-    [1, "Turbiedad extrema del rio San Juan", "Ambiental", "Pretratamiento robusto + sedimentadores alta tasa + dosificacion automatica + tanque de regulacion", 2, 4],
-    [2, "Contaminacion por mineria ilegal", "Ambiental", "Monitoreo de fuente + carbon activado + articulacion con CODECHOCO y control de mineria", 3, 3],
-    [3, "Inundaciones que danan infraestructura", "Ambiental", "Captacion elevada/protegida + obras de proteccion de orillas + redes en cotas seguras", 2, 4],
-    [5, "Vertimientos a la fuente", "Ambiental", "Optimizacion de alcantarillado + campanas + coordinacion municipal", 2, 3],
-    [4, "Deforestacion de la cuenca", "Ambiental", "Pago por servicios ambientales + reforestacion de microcuenca con la comunidad", 2, 2],
-    [8, "Grupos armados / inseguridad", "Seguridad", "Plan de seguridad de obra + articulacion con autoridades + contratacion local", 2, 4],
-    [9, "Demora en desembolsos", "Institucional", "Convenio con desembolsos por hitos + anticipo + fiducia", 2, 4],
-    [7, "Baja cultura de pago", "Social", "Subsidios focalizados + educacion + tarifa social + facturacion clara", 2, 3],
-    [12, "Tarifa insuficiente", "Financiero", "Estudio tarifario CRA + subsidios cruzados + aporte SGP", 2, 3],
-    [15, "Suministro electrico inestable", "Tecnico", "Planta electrica de respaldo + almacenamiento con autonomia", 2, 3],
+    [1, "Sobrecostos de construccion", "Financiero", "Contrato EPC precio fijo + contingencia 10% + control de cambios", 2, 3],
+    [6, "Bajo recaudo tarifario", "Comercial", "Cultura de pago, subsidios Ley 142, corte por mora, micromedicion", 2, 3],
+    [4, "Insuficiencia del aporte publico", "Financiero", "Cierre financiero previo; convenios SGR/PDA y cooperacion", 2, 3],
+    [8, "Turbiedad/mercurio rio San Juan", "Ambiental", "Bocatoma con desarenador, pretratamiento y monitoreo de mercurio", 2, 4],
+    [9, "Inundaciones por lluvias extremas", "Ambiental", "Obras elevadas, drenaje, diseno hidrologico y plan de contingencia", 2, 3],
+    [10, "Disposicion de lodos", "Ambiental", "Lechos de secado y disposicion final autorizada (CODECHOCO)", 1, 3],
+    [11, "Vertimiento aguas de lavado", "Ambiental", "Recirculacion y tratamiento previo, permiso de vertimientos", 1, 3],
+    [12, "Afectacion fauna/flora", "Ambiental", "Plan de Manejo Ambiental y compensacion forestal", 1, 2],
+    [16, "Dificultad logistica/acceso", "Operativo", "Plan logistico, acopio de materiales y cronograma con holguras", 2, 2],
+    [15, "Accidentes laborales", "SST", "SG-SST (Dec 1072/2015), capacitacion, EPP, permisos", 1, 4],
 ]
 r = base + 2
 for it in inter:
-    wr.cell(r, 1, it[0]); wr.cell(r, 2, it[1]); wr.cell(r, 3, it[2]); wr.cell(r, 4, it[3])
-    wr.cell(r, 5, it[4]); wr.cell(r, 6, it[5])
-    wr.cell(r, 7, f"=E{r}*F{r}")
-    wr.cell(r, 8, f'=IF(G{r}>=15,"Alto",IF(G{r}>=8,"Medio","Bajo"))')
+    pir = it[4] * it[5]
+    wr.cell(r, 1, it[0]).alignment = ctr
+    wr.cell(r, 2, it[1]).alignment = lft
+    wr.cell(r, 3, it[2]).alignment = ctr
+    wr.cell(r, 4, it[3]).alignment = lft
+    wr.cell(r, 5, it[4]).alignment = ctr
+    wr.cell(r, 6, it[5]).alignment = ctr
+    wr.cell(r, 7, pir).alignment = ctr
+    wr.cell(r, 8, nivel(pir)).alignment = ctr
     for j in range(1, 9):
-        cell = wr.cell(r, j); cell.border = border
-        cell.alignment = center if j not in (2, 4) else left
+        wr.cell(r, j).border = bd
     r += 1
-wr.column_dimensions["D"].width = 55
-wr.column_dimensions["H"].width = 10
+wr.column_dimensions["D"].width = 54; wr.column_dimensions["H"].width = 10
 
+# Forzar recalculo al abrir (por si el visor lo soporta) - aunque ya hay valores
+wb.calculation.fullCalcOnLoad = True
 wb.save("MODELO FINANCIERO PEPI.xlsx")
-print("OK -> MODELO FINANCIERO PEPI.xlsx")
+print("OK -> MODELO FINANCIERO PEPI.xlsx (valores escritos; sin celdas vacias)")
+print(f"   CAPEX={CAPEX:,.0f}  WACC={WACC:.2%}  VPN_proy={VPN_PROY:,.0f}  "
+      f"VPN_inv={VPN_INV:,.0f}  TIR_inv={TIR_INV:.2%}  VPN_econ={VPN_ECON:,.0f}  BC={RBC:.2f}")
