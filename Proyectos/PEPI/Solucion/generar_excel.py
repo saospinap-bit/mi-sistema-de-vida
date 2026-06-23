@@ -394,5 +394,110 @@ for it in inter:
 wr.column_dimensions["D"].width = 55
 wr.column_dimensions["H"].width = 10
 
-wb.save("MODELO FINANCIERO PEPI.xlsx")
-print("OK -> MODELO FINANCIERO PEPI.xlsx")
+# Forzar recalculo total al abrir (Excel/LibreOffice)
+wb.calculation.calcMode = "auto"
+wb.calculation.fullCalcOnLoad = True
+
+ARCHIVO = "MODELO FINANCIERO PEPI.xlsx"
+wb.save(ARCHIVO)
+
+
+# ===============================================================
+# POST-PROCESO: incrustar el VALOR CALCULADO de cada formula
+# (cache <v>) para que se vea bien en CUALQUIER visor, incluso
+# los que no recalculan (GitHub, Google Sheets en solo lectura).
+# Se conservan las formulas; solo se agrega el valor en cache.
+# ===============================================================
+def incrustar_valores_cache(path):
+    import warnings, re, zipfile, shutil, os
+    warnings.filterwarnings("ignore")
+    try:
+        import formulas
+    except ImportError:
+        print("AVISO: libreria 'formulas' no disponible; no se cachearon valores.")
+        return
+    from xml.sax.saxutils import escape
+
+    # 1) Calcular todas las formulas
+    xl = formulas.ExcelModel().loads(path).finish()
+    sol = xl.calculate()
+    valores = {}  # (SHEET_UPPER, CELL_UPPER) -> valor escalar
+    for k, v in sol.items():
+        m = re.search(r"\]([^'\]]+)'?!([A-Z]+\d+)$", k.upper())
+        if not m:
+            continue
+        sheet, cell = m.group(1).strip("'"), m.group(2)
+        val = v.value
+        try:
+            val = val[0, 0]
+        except Exception:
+            try:
+                val = val[0]
+            except Exception:
+                pass
+        valores[(sheet, cell)] = val
+
+    # 2) Mapear nombre de hoja -> archivo sheetN.xml
+    from openpyxl import load_workbook
+    wb2 = load_workbook(path, read_only=True)
+    nombres = wb2.sheetnames
+    wb2.close()
+    # el orden de sheetN.xml coincide con el orden de workbook.xml (openpyxl los crea asi)
+    sheet_files = {}  # SHEET_UPPER -> xl/worksheets/sheetN.xml
+    for idx, nombre in enumerate(nombres, start=1):
+        sheet_files[nombre.upper()] = f"xl/worksheets/sheet{idx}.xml"
+
+    # 3) Reescribir el zip patcheando el XML de cada hoja
+    tmp = path + ".tmp"
+    zin = zipfile.ZipFile(path, "r")
+    zout = zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED)
+    file_to_sheet = {v: k for k, v in sheet_files.items()}
+    cell_re = re.compile(r'(<c\b[^>]*\br="([A-Z]+\d+)"[^>]*>)(.*?)(</c>)', re.DOTALL)
+
+    def es_texto(val):
+        return isinstance(val, str)
+
+    for item in zin.infolist():
+        data = zin.read(item.filename)
+        if item.filename in file_to_sheet:
+            sheet_upper = file_to_sheet[item.filename]
+            text = data.decode("utf-8")
+
+            def repl(mm):
+                apertura, ref, interior, cierre = mm.group(1), mm.group(2), mm.group(3), mm.group(4)
+                if "<f" not in interior:               # no es formula -> no tocar
+                    return mm.group(0)
+                if "<v>" in interior or "<v/>" in interior:  # ya tiene valor
+                    return mm.group(0)
+                val = valores.get((sheet_upper, ref))
+                if val is None:
+                    return mm.group(0)
+                if es_texto(val):
+                    # marcar la celda como string: t="str"
+                    if ' t="' not in apertura:
+                        apertura = apertura[:-1] + ' t="str">'
+                    vstr = escape(str(val))
+                else:
+                    try:
+                        f = float(val)
+                    except (TypeError, ValueError):
+                        return mm.group(0)
+                    vstr = repr(round(f, 6))
+                # insertar <v> justo despues del </f>
+                if "</f>" in interior:
+                    nuevo = interior.replace("</f>", "</f><v>" + vstr + "</v>", 1)
+                else:
+                    nuevo = interior + "<v>" + vstr + "</v>"
+                return apertura + nuevo + cierre
+
+            text = cell_re.sub(repl, text)
+            data = text.encode("utf-8")
+        zout.writestr(item, data)
+    zin.close()
+    zout.close()
+    shutil.move(tmp, path)
+    print("OK -> valores cacheados incrustados (formulas conservadas)")
+
+
+incrustar_valores_cache(ARCHIVO)
+print("OK -> " + ARCHIVO)
