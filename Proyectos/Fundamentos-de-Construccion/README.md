@@ -18,6 +18,10 @@ La carpeta está dividida en dos:
 - `GUIA DEL PROYECTO - sustentacion.md` — qué es cada entregable y cómo defenderlo.
 - `PASO A PASO - como usar y entregar.md` — guía desde cero para terminar y entregar.
 
+### 📝 Formatos ORIGINALES del profesor, ya diligenciados
+- `PRESUPUESTO DE OBRA -FC- G3 (DILIGENCIADO).xlsx` — la **plantilla del profesor** con cantidad, valor unitario, valor total, AIU y costo total ($200.279.207).
+- `MEMORIAS DE CALCULO -FORMATO PROFESOR- DILIGENCIADO.xlsx` — el **formato de memorias del profesor** diligenciado (19 hojas, conservando sus 3 ejemplos).
+
 ### Resultado del presupuesto
 - **Costo directo:** $171.252.378
 - **Costo total (con AIU + IVA):** **$200.279.656** (≈ $926.000/m² de obra gris, precios 2026).
