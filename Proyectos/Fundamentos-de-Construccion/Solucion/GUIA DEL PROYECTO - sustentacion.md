@@ -32,9 +32,9 @@ El enunciado pide el **presupuesto general de obra** para la etapa de **obra gri
 Leyendo los planos se confirma que el "Módulo 1 - Colegio" es en realidad un **Centro de Desarrollo Infantil (CDI) en el municipio de Tesalia (Huila)** — por eso la hoja original se llamaba *PRESUPUESTO TESALIA*. Es una **edificación pública de un piso**.
 
 **Sistema estructural (extraído de los planos):**
-- **Cimentación:** zapatas aisladas 1.20×1.20×0.40 m + **vigas de cimentación 0.40×0.45 m** en concreto 3000 psi, sobre solado de 1500 psi y colchón granular con geotextil.
-- **Retícula de ejes:** **A, B** (separación 7.70 m) × **1, 2, 3, 3', 4** (longitud total ≈ 19.80 m) → **10 columnas**.
-- **Columnas:** 0.40×0.40 m, refuerzo **2#6 + 2#7** con estribos #2 c/0.20, hasta nivel **N+4.90**.
+- **Cimentación:** zapatas aisladas Z-1 2.30×2.30 y Z-2 2.15×2.15 (×0.40) + **vigas de cimentación 0.40×0.45 m** en concreto 3000 psi, sobre solado de 1500 psi y colchón granular con geotextil.
+- **Retícula de ejes:** **A, B** (separación 7.70 m) × **1, 2, 3, 3', 4** (largo 19.80 m); columnas en ejes 1-4 → **8 columnas**.
+- **Columnas:** 8 columnas (4 de 0.50×0.50 + 4 de 0.40×0.40), refuerzo **2#6 + 2#7** con estribos #2 c/0.20, hasta nivel **N+4.90**.
 - **Vigas de cubierta:** 0.40×0.50 m. **Placa de cubierta:** losa aligerada e=0.08 con viguetas 0.20×0.40.
 - **Contrapiso:** placa e=0.10. **Mampostería:** bloque No.4 confinada con columnetas en bloque No.5 + pañete 1:4.
 - **Acero:** fy = 4200 kg/cm² (= 420 MPa = 60.000 psi).
@@ -45,14 +45,14 @@ Leyendo los planos se confirma que el "Módulo 1 - Colegio" es en realidad un **
 
 | Concepto | Valor (COP) |
 |---|---|
-| **TOTAL COSTO DIRECTO** | **$186.652.600** |
-| Administración (A) 8% | $14.932.208 |
-| Imprevistos (I) 3% | $5.599.578 |
-| Utilidad (U) 5% | $9.332.630 |
-| IVA 19% sobre la utilidad | $1.773.200 |
-| **COSTO TOTAL DE OBRA** | **$218.289.802** |
+| **TOTAL COSTO DIRECTO** | **$184.633.102** |
+| Administración (A) 8% | $14.770.648 |
+| Imprevistos (I) 3% | $5.538.993 |
+| Utilidad (U) 5% | $9.231.655 |
+| IVA 19% sobre la utilidad | $1.754.014 |
+| **COSTO TOTAL DE OBRA** | **$215.927.970** |
 
-➡️ Equivale a **≈ $1.010.000 / m²** de obra gris (área ≈ 216 m²), un valor coherente con el mercado colombiano 2026.
+➡️ Equivale a **≈ $999.000 / m²** de obra gris (área ≈ 216 m²), un valor coherente con el mercado colombiano 2026.
 
 ---
 
@@ -91,7 +91,7 @@ Las cantidades se midieron **de los planos** y se calcularon con fórmulas geom�
 
 - **Contrapiso (4.3.1):** 9.85 × 21.95 × 0.10 = **21.62 m³**.
 - **Vigas de cimentación (2.2.1):** (2 vigas × 19.80) + (5 vigas × 7.30) = 76.10 m × 0.40 × 0.45 = **13.70 m³**.
-- **Columnas (4.1.1):** 10 × 0.40 × 0.40 × 4.90 = **7.84 m³**.
+- **Columnas (4.1.1):** 4×0.50² + 4×0.40², × 4.90 = **8.04 m³**.
 - **Adoquín (8.1.1):** suma de 9 áreas = **115.30 m²**.
 - **Acero (2.3.1, 4.7.1, 4.8.1, 5.2.1):** se despieza por barras según el refuerzo de cada elemento (ver CARTILLA HIERROS), con pesos por diámetro y +10% por desperdicio y traslapos.
 
@@ -102,7 +102,7 @@ Las cantidades se midieron **de los planos** y se calcularon con fórmulas geom�
 Para que quede **perfecto**, verifica estos puntos contra los planos (están señalados porque dependen de medidas finas o de precios locales):
 
 1. **Sección real de columnas.** Asumí 0.40×0.40 m; el plano muestra también stubs de 0.50×0.50. Confírmalo en el despiece de columnas y ajusta el ítem 4.1.1 y su acero.
-2. **Mampostería (5.1.1, 5.1.2, 5.1.4).** La longitud de muros (173.6 m) y la altura (2.90 m) son una estimación de perímetro + particiones, porque el plano de mampostería tiene muchas vistas superpuestas. **Mide los muros reales** y ajusta; es el ítem más pesado del presupuesto.
+2. **Mampostería (5.1.1, 5.1.2, 5.1.4).** La longitud de muros (173.6 m) y la altura (3.00 m) son una estimación de perímetro + particiones, porque el plano de mampostería tiene muchas vistas superpuestas. **Mide los muros reales** y ajusta; es el ítem más pesado del presupuesto.
 3. **Movimientos de tierra (2.1.x).** Ya usan los datos del plano: desplante **1.5 m** y colchón granular **0.30 m**. (Excavación a máquina = plataforma + zanjas a 1.5 m.)
 4. **Precios (hoja INSUMOS).** Ya están actualizados a **valores de mercado 2026 con su fuente citada** (Argos, Homecenter, ferreterías, Construdata, SMLMV 2026). Si tu profe exige **cotizaciones formales con membrete**, pide 2–3 a proveedores de Tesalia/Neiva y reemplaza el precio en la hoja INSUMOS; todo se recalcula solo. (En la guía PASO A PASO te explico exactamente cómo pedirlas.)
 5. **Geotextil:** el presupuesto pide **NT 1600**; los planos mencionan un tejido 2100T. Dejé NT 1600 (lo que pide el formato). Solo tenlo presente.

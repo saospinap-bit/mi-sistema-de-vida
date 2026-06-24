@@ -44,7 +44,7 @@ Abriendo los planos DWG (convertidos a datos), leí estos valores **escritos en 
 | Sección viga cubierta | **0.40 × 0.50 m** | rótulos "VG-1 40x50"… |
 | Sección columna | **~0.40 × 0.40 m** | despiece de columnas |
 | Altura de columna | hasta **N+4.90 m** | nivel de la placa de cubierta |
-| Zapatas | **1.20×1.20×0.40 m** | rótulo "ZAPATA 120x120x40cm" |
+| Zapatas | **Z-1 2.30×2.30 y Z-2 2.15×2.15 (×0.40)** | rótulo "ZAPATA 120x120x40cm" |
 | Refuerzo columnas | **2#6 + 2#7**, estribo #2 c/0.20 | despiece "2#6+2#7 L=5.95" |
 | Refuerzo vigas | 3#6+3#5 / 2#6+2#7, estribos #3 | callouts "3#6L=...", "36E#3..." |
 | Espesor placa cubierta | **0.08 m** | "PLACA … LOSA ALIGERADA e: 0.08m" |
@@ -66,9 +66,9 @@ Las vigas forman una cuadrícula. Sumé su **longitud total**:
 ### Solado (ítem 2.2.2) → 38.05 m²
 Es la capa delgada bajo las vigas: 76.10 m × 0.50 m de ancho = **38.05 m²**
 
-### Columnas – concreto (ítem 4.1.1) → 7.84 m³
-- N° de columnas = ejes A,B (2) × ejes 1,2,3,3',4 (5) = **10 columnas**
-- Volumen = 10 × 0.40 × 0.40 × 4.90 (alto) = **7.84 m³**
+### Columnas – concreto (ítem 4.1.1) → 8.04 m³
+- N° de columnas = ejes A,B (2) × ejes 1,2,3,3',4 (5) = **8 columnas**
+- Volumen = 4×0.50² + 4×0.40², × 4.90 = **8.04 m³** (hay 2 tamaños de columna)
 
 ### Vigas de cubierta – concreto (ítem 4.2.1) → 15.22 m³
 Misma cuadrícula (76.10 m) pero sección 0.40 × 0.50:
@@ -101,10 +101,10 @@ La malla 8 mm cada 0.15 m pesa **5.27 kg/m²** (cálculo de tabla):
 
 | Ítem | Valor | Origen |
 |---|---|---|
-| 5.1.1 Muros (m²) | 402.75 | 🟨 173.6 m de muro × 2.90 m alto × 0.80 (descuento puertas/ventanas) — **medir corrida en CAD** |
-| 5.1.2 Columnetas (ml) | 336.4 | 🟦 una **cada 1.5 m** (del plano de columnetas) × altura |
-| 5.1.4 Pañete (m²) | 261.79 | 🟨 65% del área de muro |
-| 2.1.1 Excav. máquina (m³) | 162.29 | 🟦 desplante **1.5 m** (del plano) → plataforma + zanjas |
+| 5.1.1 Muros (m²) | 416.64 | 🟨 173.6 m de muro × 3.00 m alto × 0.80 (descuento puertas/ventanas) — **medir corrida en CAD** |
+| 5.1.2 Columnetas (ml) | 348.0 | 🟦 una **cada 1.5 m** (del plano de columnetas) × altura |
+| 5.1.4 Pañete (m²) | 270.82 | 🟨 65% del área de muro |
+| 2.1.1 Excav. máquina (m³) | 112.12 | 🟦 desplante **1.5 m** (del plano) → plataforma + zanjas |
 | 2.1.2 Subbase (m³) | 64.86 | 🟦 colchón granular **0.30 m** (del plano) × área |
 
 > El plano **sí traía** la profundidad de excavación (*"desplante mínimo 1.5 m a partir de piso"*) y el colchón granular (*"mínimo 0.30 m"*); por eso ya no son supuestos. El único que aún conviene medir en CAD es el **corrido de muros** (5.1.1).

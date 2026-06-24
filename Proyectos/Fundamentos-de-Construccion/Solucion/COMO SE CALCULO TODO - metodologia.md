@@ -39,10 +39,10 @@ Los planos venían en `.dwg` (AutoCAD 2018). El procedimiento fue:
 |---|---|---|
 | Proyecto | CDI (jardín infantil) en Tesalia, Huila | rótulo estructural |
 | Ejes (retícula) | A, B (separados 7.70 m) × 1, 2, 3, 3', 4 (largo 19.80 m) | planta columnas |
-| Columnas | 10, sección 0.40×0.40 m, refuerzo 2#6+2#7, hasta N+4.90 | despiece columnas |
+| Columnas | 8 (4 de 0.50×0.50 + 4 de 0.40×0.40), refuerzo 2#6+2#7, hasta N+4.90 | despiece columnas |
 | Vigas cimentación | 0.40×0.45 m (VC-1..4, VC-A, VC-B) | planta cimentación |
 | Vigas cubierta | 0.40×0.50 m (VG-1..7) | planta cubierta |
-| Zapatas | 1.20×1.20×0.40 m, concreto 3000 psi | detalle zapata |
+| Zapatas | Z-1 2.30×2.30 y Z-2 2.15×2.15 (×0.40), concreto 3000 psi | detalle zapata |
 | Placa contrapiso | área 216.20 m² (9.85×21.95), e=0.10 | memoria/arquitectónico |
 | Placa cubierta | losa aligerada e=0.08, viguetas 0.20×0.40, área 135.20 m² | planta cubierta |
 | Adoquín | 9 áreas que suman 115.30 m² | planta adoquín |
@@ -61,7 +61,7 @@ Depende de la **unidad** de la actividad:
 | **m²** (área) | largo × ancho | una placa de 9.85×21.95 = 216.2 m² |
 | **ml** (metro lineal) | solo el largo | 50 m de columneta |
 | **kg** (acero) | longitud de varilla × peso por metro | ver sección 5 |
-| **und** (unidad) | conteo | 10 columnas |
+| **und** (unidad) | conteo | 8 columnas |
 
 Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. Para las vigas hay que tener cuidado de **no contar dos veces** los cruces (por eso a las vigas transversales les resté el ancho de la viga longitudinal: "luz libre").
 
@@ -74,13 +74,13 @@ Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. 
 ### CAPÍTULO 2 — CIMENTACIÓN
 
 **2.1.1 Excavación a máquina (m³)** = plataforma + zanjas de cimentación al desplante de **1.5 m** (dato del plano: *"nivel de desplante mínimo 1.5 m a partir de piso"*)
-`(216.20 × 0.55) + (76.10 × 0.60 × 0.95) = 118.91 + 43.38 = 162.29 m³`
+`(4×2.30² + 4×2.15²)×1.5 (pozos zapatas) + (58.5×0.60×1.5) (zanjas) = 59.48 + 52.65 = 112.12 m³`
 
 **2.1.2 Relleno subbase granular B-400 (m³)** = colchón granular de **0.30 m** (plano: *"mínimo 0.30 m"*) × área
 `216.20 × 0.30 = 64.86 m³`
 
 **2.1.3 Excavación manual (m³)** = afinado del fondo de las zanjas
-`76.10 m × 0.60 × 0.15 = 6.85 m³`
+`(39.65 pozos + 35.10 zanjas) × 0.10 = 7.48 m³`
 
 **2.1.4 Relleno recebo común (m³)** = área × espesor de nivelación
 `9.85 × 21.95 × 0.20 = 43.24 m³`
@@ -101,7 +101,7 @@ Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. 
 ### CAPÍTULO 4 — ESTRUCTURA
 
 **4.1.1 Columnas – concreto (m³)** = N° columnas × sección × altura
-`10 × 0.40 × 0.40 × 4.90 = 7.84 m³`
+`4×(0.50×0.50) + 4×(0.40×0.40), × 4.90 = (1.00+0.64)×4.90 = 8.04 m³`
 
 **4.2.1 Vigas de cubierta – concreto (m³)** = longitud × sección (mismo grid)
 `76.10 × 0.40 × 0.50 = 15.22 m³`
@@ -112,23 +112,23 @@ Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. 
 **4.3.3 Placa aligerada cubierta (m²)** = área de cubierta = `135.20 m²` (7.30×18.52)
 
 **4.6.1 Malla contrapiso (kg)** → sección 5 = **1.252,5 kg**
-**4.7.1 Acero columnas (kg)** → sección 5 = **791,8 kg**
+**4.7.1 Acero columnas (kg)** → 8 columnas = **644,2 kg**
 **4.8.1 Acero vigas cubierta (kg)** → sección 5 = **1.757,7 kg**
 **4.9.1 Malla placa cubierta (kg)** → sección 5 = **783,3 kg**
 
 ### CAPÍTULO 5 — MAMPOSTERÍA
 
 **5.1.1 Muros bloque No.4 (m²)** = longitud de muro × altura − vanos
-`173.60 m × 2.90 m × 0.80 (descuento 20% de puertas/ventanas) = 402.75 m²`
+`173.60 m × 3.00 m × 0.80 (descuento 20% de puertas/ventanas) = 416.64 m²`
 (173.6 m = perímetro exterior ≈ 63.6 m + particiones interiores ≈ 110 m. **Este es el dato a verificar midiendo el plano de mampostería.**)
 
 **5.1.2 Columneta No.5 (ml)** = N° columnetas × altura
-`(173.60 / 1.5) ≈ 116 columnetas × 2.90 m = 336.4 ml`
+`(173.60 / 1.5) ≈ 116 columnetas × 3.00 m = 348.0 ml`
 (El plano de columnetas indica **una cada 1.5 m**, sección 0.20×0.15, refuerzo 2 Ø 1/2".)
 (Se pone una columneta cada ≈3 m de muro, en esquinas e intersecciones.)
 
 **5.1.4 Pañete impermeabilizado (m²)** = 65% del área de muro (fachadas + zonas húmedas)
-`402.75 × 0.65 = 261.79 m²`
+`416.64 × 0.65 = 270.82 m²`
 
 **5.2.1 Acero mampostería confinada (kg)** → sección 5 = **1.031,7 kg**
 
@@ -143,25 +143,25 @@ Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. 
 
 | Ítem | Descripción | Und | Cantidad |
 |---|---|---|---|
-| 2.1.1 | Excavación máquina | m³ | 162.29 |
+| 2.1.1 | Excavación máquina | m³ | 112.12 |
 | 2.1.2 | Relleno subbase B-400 | m³ | 64.86 |
-| 2.1.3 | Excavación manual | m³ | 6.85 |
+| 2.1.3 | Excavación manual | m³ | 7.48 |
 | 2.1.4 | Relleno recebo | m³ | 43.24 |
 | 2.1.6 | Geotextil NT 1600 | m² | 216.20 |
 | 2.2.1 | Vigas cimentación concreto | m³ | 13.70 |
 | 2.2.2 | Solado 1500 psi | m² | 38.05 |
 | 2.3.1 | Acero vigas cimentación | kg | 1.302,6 |
-| 4.1.1 | Columnas concreto | m³ | 7.84 |
+| 4.1.1 | Columnas concreto | m³ | 8.04 |
 | 4.2.1 | Vigas cubierta concreto | m³ | 15.22 |
 | 4.3.1 | Contrapiso concreto | m³ | 21.62 |
 | 4.3.3 | Placa aligerada cubierta | m² | 135.20 |
 | 4.6.1 | Malla contrapiso | kg | 1.252,5 |
-| 4.7.1 | Acero columnas | kg | 791,8 |
+| 4.7.1 | Acero columnas | kg | 644,2 |
 | 4.8.1 | Acero vigas cubierta | kg | 1.757,7 |
 | 4.9.1 | Malla placa cubierta | kg | 783,3 |
-| 5.1.1 | Muros bloque No.4 | m² | 402.75 |
-| 5.1.2 | Columneta No.5 | ml | 336.4 |
-| 5.1.4 | Pañete impermeabilizado | m² | 261.79 |
+| 5.1.1 | Muros bloque No.4 | m² | 416.64 |
+| 5.1.2 | Columneta No.5 | ml | 348.0 |
+| 5.1.4 | Pañete impermeabilizado | m² | 270.82 |
 | 5.2.1 | Acero mampostería | kg | 1.031,7 |
 | 8.1.1 | Adoquín | m² | 115.30 |
 
@@ -199,7 +199,7 @@ Longitud total de vigas = 76.10 m; sección 0.40×0.45; refuerzo 3#6 + 3#5, estr
 - **Subtotal = 864.6 + 319.6 = 1.184,2 kg**
 - **+10% = 1.302,6 kg** ✅
 
-Lo mismo se hizo para columnas (791,8 kg), vigas de cubierta (1.757,7 kg) y columnetas (1.031,7 kg). Ver hoja **CARTILLA HIERROS** del Excel.
+Lo mismo se hizo para columnas (644,2 kg), vigas de cubierta (1.757,7 kg) y columnetas (1.031,7 kg). Ver hoja **CARTILLA HIERROS** del Excel.
 
 ### Mallas electrosoldadas (ítems 4.6.1 y 4.9.1)
 La malla 8 mm @0.15 en ambos sentidos pesa **5.27 kg/m²**:
@@ -251,14 +251,14 @@ Así se hicieron los **19 APU**. La mano de obra (oficial $145.000/día, ayudant
 ## 8. Cómo se calcula el total (costo directo → AIU → total)
 
 1. **Costo directo** = suma de (cantidad × precio unitario) de las 21 líneas (los 19 ítems).
-   → **$186.652.600**
+   → **$184.633.102**
 2. **AIU** (sobre el costo directo):
-   - Administración 8% = $14.932.208
-   - Imprevistos 3% = $5.599.578
-   - Utilidad 5% = $9.332.630
-3. **IVA 19% sobre la utilidad** (obra pública, Art. 462-1 E.T.) = $1.773.200
-4. **COSTO TOTAL** = costo directo + A + I + U + IVA = **$218.289.802**
-   → ÷ 216 m² ≈ **$1.010.000/m²** de obra gris (valor coherente con el mercado).
+   - Administración 8% = $14.770.648
+   - Imprevistos 3% = $5.538.993
+   - Utilidad 5% = $9.231.655
+3. **IVA 19% sobre la utilidad** (obra pública, Art. 462-1 E.T.) = $1.754.014
+4. **COSTO TOTAL** = costo directo + A + I + U + IVA = **$215.927.970**
+   → ÷ 216 m² ≈ **$999.000/m²** de obra gris (valor coherente con el mercado).
 
 ---
 

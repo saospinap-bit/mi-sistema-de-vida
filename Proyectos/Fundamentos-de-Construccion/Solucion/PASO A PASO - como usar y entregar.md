@@ -100,8 +100,8 @@ Igual en **PRESUPUESTO**: el "Valor unitario" de cada ítem dice `=APU!$F$53`, o
 
 Estas las calculé de los planos, pero son las más sensibles. Si tienes tiempo, ábrelas en AutoCAD/visor y compara (no es obligatorio, pero suma):
 
-1. **Mampostería (muros)** — hoja CANTIDADES, ítem 5.1.1. Usé 173.6 m de muro × 2.90 m de alto. Si mides los muros del plano de mampostería y dan distinto, cambia el número en la hoja **CANTIDADES** (columna CANTIDAD del ítem 5.1.1).
-2. **Columnas (4.1.1)** — asumí 10 columnas de 0.40×0.40. Verifica en el plano estructural.
+1. **Mampostería (muros)** — hoja CANTIDADES, ítem 5.1.1. Usé 173.6 m de muro × 3.00 m de alto. Si mides los muros del plano de mampostería y dan distinto, cambia el número en la hoja **CANTIDADES** (columna CANTIDAD del ítem 5.1.1).
+2. **Columnas (4.1.1)** — asumí 8 columnas de 0.40×0.40. Verifica en el plano estructural.
 3. **Excavaciones (2.1.1 a 2.1.4)** — usé profundidades típicas. Si el plano de cimentación tiene otras, ajústalas.
 
 > ⚠️ Si cambias una cantidad, hazlo en la hoja **PRESUPUESTO** (columna D, "CANTIDAD") **o** en CANTIDADES y luego cópiala al presupuesto. El total se recalcula solo.
@@ -158,7 +158,7 @@ Te van a preguntar. Respuestas listas:
 - **"¿De dónde los precios?"** → "Precios de mercado 2026 con fuente citada en la hoja INSUMOS (Argos, ferreterías, Construdata, SMLMV 2026)."
 - **"¿Qué es un APU?"** → "Análisis de Precio Unitario: el costo de hacer **una unidad** de una actividad (1 m³, 1 m², 1 kg), sumando material + mano de obra + equipo + herramienta menor."
 - **"¿Qué incluye la obra gris?"** → "La estructura: cimentación, columnas, vigas, placas, mampostería y pisos en obra negra. No incluye acabados finos, pintura, enchapes, instalaciones terminadas."
-- **"¿Cuánto cuesta el proyecto?"** → "Costo directo $186.7 millones; con AIU e IVA, **$218.3 millones** (≈ $1.010.000/m² de obra gris)."
+- **"¿Cuánto cuesta el proyecto?"** → "Costo directo $184.6 millones; con AIU e IVA, **$215.9 millones** (≈ $999.000/m² de obra gris)."
 
 ---
 

@@ -53,8 +53,8 @@
 <Type>1</Type><Manual>0</Manual><Active>1</Active>
 <Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Start>2026-07-16T08:00:00</Start><Finish>2026-07-21T17:00:00</Finish>
-<FixedCost>9402677</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
-<Cost>9402677</Cost>
+<FixedCost>6495952</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<Cost>6495952</Cost>
 <Notes>Recursos (APU): Retroexcavadora, volqueta, ayudante  | Items: 2.1.1</Notes>
 <PredecessorLink><PredecessorUID>1</PredecessorUID><Type>1</Type></PredecessorLink>
 </Task>
@@ -63,8 +63,8 @@
 <Type>1</Type><Manual>0</Manual><Active>1</Active>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Start>2026-07-22T08:00:00</Start><Finish>2026-07-24T17:00:00</Finish>
-<FixedCost>508612</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
-<Cost>508612</Cost>
+<FixedCost>555390</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<Cost>555390</Cost>
 <Notes>Recursos (APU): Ayudantes  | Items: 2.1.3</Notes>
 <PredecessorLink><PredecessorUID>2</PredecessorUID><Type>1</Type></PredecessorLink>
 </Task>
@@ -124,8 +124,8 @@
 <Type>1</Type><Manual>0</Manual><Active>1</Active>
 <Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Start>2026-08-05T08:00:00</Start><Finish>2026-08-12T17:00:00</Finish>
-<FixedCost>11940426</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
-<Cost>11940426</Cost>
+<FixedCost>11078994</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<Cost>11078994</Cost>
 <Notes>Recursos (APU): Cuadrilla concreto, formaleta, figurado  | Items: 4.1.1, 4.7.1</Notes>
 <PredecessorLink><PredecessorUID>6</PredecessorUID><Type>1</Type></PredecessorLink>
 </Task>
@@ -164,8 +164,8 @@
 <Type>1</Type><Manual>0</Manual><Active>1</Active>
 <Duration>PT80H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Start>2026-08-18T08:00:00</Start><Finish>2026-08-31T17:00:00</Finish>
-<FixedCost>24706699</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
-<Cost>24706699</Cost>
+<FixedCost>25558781</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<Cost>25558781</Cost>
 <Notes>Recursos (APU): Cuadrilla mamposteria  | Items: 5.1.1</Notes>
 <PredecessorLink><PredecessorUID>10</PredecessorUID><Type>1</Type></PredecessorLink>
 </Task>
@@ -174,8 +174,8 @@
 <Type>1</Type><Manual>0</Manual><Active>1</Active>
 <Duration>PT40H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Start>2026-09-01T08:00:00</Start><Finish>2026-09-07T17:00:00</Finish>
-<FixedCost>18356265</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
-<Cost>18356265</Cost>
+<FixedCost>18988713</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<Cost>18988713</Cost>
 <Notes>Recursos (APU): Cuadrilla, figurado  | Items: 5.1.2, 5.2.1</Notes>
 <PredecessorLink><PredecessorUID>13</PredecessorUID><Type>1</Type></PredecessorLink>
 </Task>
@@ -184,8 +184,8 @@
 <Type>1</Type><Manual>0</Manual><Active>1</Active>
 <Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Start>2026-09-08T08:00:00</Start><Finish>2026-09-17T17:00:00</Finish>
-<FixedCost>6301285</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
-<Cost>6301285</Cost>
+<FixedCost>6518637</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<Cost>6518637</Cost>
 <Notes>Recursos (APU): Cuadrilla panete  | Items: 5.1.4</Notes>
 <PredecessorLink><PredecessorUID>14</PredecessorUID><Type>1</Type></PredecessorLink>
 </Task>
