@@ -73,15 +73,14 @@ Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. 
 
 ### CAPÍTULO 2 — CIMENTACIÓN
 
-**2.1.1 Excavación a máquina (m³)** = área de la plataforma × profundidad
-`9.85 × 21.95 × 0.55 = 118.91 m³`
-(Se excava toda la huella del edificio 0.55 m hasta el nivel de cimentación.)
+**2.1.1 Excavación a máquina (m³)** = plataforma + zanjas de cimentación al desplante de **1.5 m** (dato del plano: *"nivel de desplante mínimo 1.5 m a partir de piso"*)
+`(216.20 × 0.55) + (76.10 × 0.60 × 0.95) = 118.91 + 43.38 = 162.29 m³`
 
-**2.1.2 Relleno subbase granular B-400 (m³)** = área × espesor de capa
-`9.85 × 21.95 × 0.15 = 32.43 m³`
+**2.1.2 Relleno subbase granular B-400 (m³)** = colchón granular de **0.30 m** (plano: *"mínimo 0.30 m"*) × área
+`216.20 × 0.30 = 64.86 m³`
 
-**2.1.3 Excavación manual (m³)** = afinado de las zanjas de las vigas
-`L_vigas (76.10 m) × 0.40 × 0.40 = 12.18 m³`
+**2.1.3 Excavación manual (m³)** = afinado del fondo de las zanjas
+`76.10 m × 0.60 × 0.15 = 6.85 m³`
 
 **2.1.4 Relleno recebo común (m³)** = área × espesor de nivelación
 `9.85 × 21.95 × 0.20 = 43.24 m³`
@@ -124,13 +123,14 @@ Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. 
 (173.6 m = perímetro exterior ≈ 63.6 m + particiones interiores ≈ 110 m. **Este es el dato a verificar midiendo el plano de mampostería.**)
 
 **5.1.2 Columneta No.5 (ml)** = N° columnetas × altura
-`(173.60 / 3) ≈ 58 columnetas × 2.90 m = 168.2 ml`
+`(173.60 / 1.5) ≈ 116 columnetas × 2.90 m = 336.4 ml`
+(El plano de columnetas indica **una cada 1.5 m**, sección 0.20×0.15, refuerzo 2 Ø 1/2".)
 (Se pone una columneta cada ≈3 m de muro, en esquinas e intersecciones.)
 
 **5.1.4 Pañete impermeabilizado (m²)** = 65% del área de muro (fachadas + zonas húmedas)
 `402.75 × 0.65 = 261.79 m²`
 
-**5.2.1 Acero mampostería confinada (kg)** → sección 5 = **530,1 kg**
+**5.2.1 Acero mampostería confinada (kg)** → sección 5 = **1.031,7 kg**
 
 ### CAPÍTULO 8 — PISOS
 
@@ -143,9 +143,9 @@ Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. 
 
 | Ítem | Descripción | Und | Cantidad |
 |---|---|---|---|
-| 2.1.1 | Excavación máquina | m³ | 118.91 |
-| 2.1.2 | Relleno subbase B-400 | m³ | 32.43 |
-| 2.1.3 | Excavación manual | m³ | 12.18 |
+| 2.1.1 | Excavación máquina | m³ | 162.29 |
+| 2.1.2 | Relleno subbase B-400 | m³ | 64.86 |
+| 2.1.3 | Excavación manual | m³ | 6.85 |
 | 2.1.4 | Relleno recebo | m³ | 43.24 |
 | 2.1.6 | Geotextil NT 1600 | m² | 216.20 |
 | 2.2.1 | Vigas cimentación concreto | m³ | 13.70 |
@@ -160,9 +160,9 @@ Todo el truco es identificar bien las dimensiones en el plano y multiplicarlas. 
 | 4.8.1 | Acero vigas cubierta | kg | 1.757,7 |
 | 4.9.1 | Malla placa cubierta | kg | 783,3 |
 | 5.1.1 | Muros bloque No.4 | m² | 402.75 |
-| 5.1.2 | Columneta No.5 | ml | 168.2 |
+| 5.1.2 | Columneta No.5 | ml | 336.4 |
 | 5.1.4 | Pañete impermeabilizado | m² | 261.79 |
-| 5.2.1 | Acero mampostería | kg | 530,1 |
+| 5.2.1 | Acero mampostería | kg | 1.031,7 |
 | 8.1.1 | Adoquín | m² | 115.30 |
 
 ---
@@ -199,7 +199,7 @@ Longitud total de vigas = 76.10 m; sección 0.40×0.45; refuerzo 3#6 + 3#5, estr
 - **Subtotal = 864.6 + 319.6 = 1.184,2 kg**
 - **+10% = 1.302,6 kg** ✅
 
-Lo mismo se hizo para columnas (791,8 kg), vigas de cubierta (1.757,7 kg) y columnetas (530,1 kg). Ver hoja **CARTILLA HIERROS** del Excel.
+Lo mismo se hizo para columnas (791,8 kg), vigas de cubierta (1.757,7 kg) y columnetas (1.031,7 kg). Ver hoja **CARTILLA HIERROS** del Excel.
 
 ### Mallas electrosoldadas (ítems 4.6.1 y 4.9.1)
 La malla 8 mm @0.15 en ambos sentidos pesa **5.27 kg/m²**:
@@ -251,14 +251,14 @@ Así se hicieron los **19 APU**. La mano de obra (oficial $145.000/día, ayudant
 ## 8. Cómo se calcula el total (costo directo → AIU → total)
 
 1. **Costo directo** = suma de (cantidad × precio unitario) de las 21 líneas (los 19 ítems).
-   → **$171.252.378**
+   → **$186.652.600**
 2. **AIU** (sobre el costo directo):
-   - Administración 8% = $13.700.190
-   - Imprevistos 3% = $5.137.571
-   - Utilidad 5% = $8.562.619
-3. **IVA 19% sobre la utilidad** (obra pública, Art. 462-1 E.T.) = $1.626.898
-4. **COSTO TOTAL** = costo directo + A + I + U + IVA = **$200.279.656**
-   → ÷ 216 m² ≈ **$926.000/m²** de obra gris (valor coherente con el mercado).
+   - Administración 8% = $14.932.208
+   - Imprevistos 3% = $5.599.578
+   - Utilidad 5% = $9.332.630
+3. **IVA 19% sobre la utilidad** (obra pública, Art. 462-1 E.T.) = $1.773.200
+4. **COSTO TOTAL** = costo directo + A + I + U + IVA = **$218.289.802**
+   → ÷ 216 m² ≈ **$1.010.000/m²** de obra gris (valor coherente con el mercado).
 
 ---
 

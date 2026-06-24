@@ -19,11 +19,11 @@ La carpeta está dividida en dos:
 - `PASO A PASO - como usar y entregar.md` — guía desde cero para terminar y entregar.
 
 ### 📝 Formatos ORIGINALES del profesor, ya diligenciados
-- `PRESUPUESTO DE OBRA -FC- G3 (DILIGENCIADO).xlsx` — la **plantilla del profesor** con cantidad, valor unitario, valor total, AIU y costo total ($200.279.207).
+- `PRESUPUESTO DE OBRA -FC- G3 (DILIGENCIADO).xlsx` — la **plantilla del profesor** con cantidad, valor unitario, valor total, AIU y costo total ($218.289.802).
 - `MEMORIAS DE CALCULO -FORMATO PROFESOR- DILIGENCIADO.xlsx` — el **formato de memorias del profesor** diligenciado (19 hojas, conservando sus 3 ejemplos).
 
 ### Resultado del presupuesto
-- **Costo directo:** $171.252.378
-- **Costo total (con AIU + IVA):** **$200.279.656** (≈ $926.000/m² de obra gris, precios 2026).
+- **Costo directo:** $186.652.600
+- **Costo total (con AIU + IVA):** **$218.289.802** (≈ $1.010.000/m² de obra gris, precios 2026).
 
 > ⚠️ Antes de entregar: revisa la mampostería/columnas/excavaciones contra los planos y, si tu profe lo exige, reemplaza precios por cotizaciones formales. Ver `Solucion/PASO A PASO ...`.

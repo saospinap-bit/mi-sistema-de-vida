@@ -99,15 +99,15 @@ La malla 8 mm cada 0.15 m pesa **5.27 kg/m²** (cálculo de tabla):
 
 ## 5. Lo que es SUPUESTO (confírmalo en CAD) 🟨
 
-Estos dependen de medidas que el DWG no deja leer limpio (muchas vistas encimadas):
-
-| Ítem | Valor | Supuesto |
+| Ítem | Valor | Origen |
 |---|---|---|
-| 5.1.1 Muros (m²) | 402.75 | 173.6 m de muro × 2.90 m alto × 0.80 (descuento de puertas/ventanas) |
-| 5.1.2 Columnetas (ml) | 168.2 | una cada 3 m de muro × altura |
-| 5.1.4 Pañete (m²) | 261.79 | 65% del área de muro |
-| 2.1.1 Excav. máquina (m³) | 118.91 | 216.20 m² × 0.55 m de profundidad |
-| 2.1.2 Subbase (m³) | 32.43 | 216.20 m² × 0.15 m |
+| 5.1.1 Muros (m²) | 402.75 | 🟨 173.6 m de muro × 2.90 m alto × 0.80 (descuento puertas/ventanas) — **medir corrida en CAD** |
+| 5.1.2 Columnetas (ml) | 336.4 | 🟦 una **cada 1.5 m** (del plano de columnetas) × altura |
+| 5.1.4 Pañete (m²) | 261.79 | 🟨 65% del área de muro |
+| 2.1.1 Excav. máquina (m³) | 162.29 | 🟦 desplante **1.5 m** (del plano) → plataforma + zanjas |
+| 2.1.2 Subbase (m³) | 64.86 | 🟦 colchón granular **0.30 m** (del plano) × área |
+
+> El plano **sí traía** la profundidad de excavación (*"desplante mínimo 1.5 m a partir de piso"*) y el colchón granular (*"mínimo 0.30 m"*); por eso ya no son supuestos. El único que aún conviene medir en CAD es el **corrido de muros** (5.1.1).
 | 2.1.4 Relleno (m³) | 43.24 | 216.20 m² × 0.20 m |
 
 > El único realmente importante de confirmar es el **corrido de muros** (5.1.1): mídelo en la planta de mampostería y reemplázalo; columnetas y pañete se ajustan solos con la proporción.
@@ -124,6 +124,6 @@ Estos dependen de medidas que el DWG no deja leer limpio (muchas vistas encimada
 0.40x0.45 etc ──► RÓTULOS de secciones del plano
 2#6+2#7 etc   ──► DESPIECE de acero del plano
 0.560.. kg/m  ──► TABLA estándar de pesos de varilla
-0.55/0.15 m   ──► SUPUESTO de ingeniería (verificar)
-173.6 m muro  ──► SUPUESTO (medir en CAD)
+0.30/1.5 m   ──► del PLANO (colchón 0.30 m, desplante 1.5 m)
+173.6 m muro  ──► SUPUESTO (medir corrida en CAD)
 ```

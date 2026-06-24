@@ -158,7 +158,7 @@ Te van a preguntar. Respuestas listas:
 - **"¿De dónde los precios?"** → "Precios de mercado 2026 con fuente citada en la hoja INSUMOS (Argos, ferreterías, Construdata, SMLMV 2026)."
 - **"¿Qué es un APU?"** → "Análisis de Precio Unitario: el costo de hacer **una unidad** de una actividad (1 m³, 1 m², 1 kg), sumando material + mano de obra + equipo + herramienta menor."
 - **"¿Qué incluye la obra gris?"** → "La estructura: cimentación, columnas, vigas, placas, mampostería y pisos en obra negra. No incluye acabados finos, pintura, enchapes, instalaciones terminadas."
-- **"¿Cuánto cuesta el proyecto?"** → "Costo directo $171.2 millones; con AIU e IVA, **$200.3 millones** (≈ $926.000/m² de obra gris)."
+- **"¿Cuánto cuesta el proyecto?"** → "Costo directo $186.7 millones; con AIU e IVA, **$218.3 millones** (≈ $1.010.000/m² de obra gris)."
 
 ---
 
