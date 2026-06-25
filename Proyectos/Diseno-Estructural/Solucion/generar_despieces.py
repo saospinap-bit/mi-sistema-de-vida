@@ -59,6 +59,25 @@ def dim_horizontal(msp, x1, x2, y, text, off=140, h=70):
     add_text(msp, text, (x1 + x2) / 2, yl + 55, h, layer="COTAS", align="CENTER")
 
 
+def scale_bar(msp, x, y, total_m=2.0, seg=0.5):
+    """Barra de escala grafica (en mm, 1:1). Segmentos de 'seg' metros."""
+    n = int(round(total_m / seg))
+    seg_mm = seg * 1000.0
+    h = 60
+    for i in range(n):
+        x0 = x + i * seg_mm
+        layer = "ROTULO" if i % 2 == 0 else "TEXTO"
+        msp.add_lwpolyline([(x0, y), (x0 + seg_mm, y), (x0 + seg_mm, y - h),
+                            (x0, y - h), (x0, y)],
+                           dxfattribs={"layer": "COTAS", "closed": True})
+        if i % 2 == 0:
+            # relleno simbolico con hatch alternado: dibujamos diagonal
+            msp.add_line((x0, y - h), (x0 + seg_mm, y), dxfattribs={"layer": "COTAS"})
+        add_text(msp, f"{i*seg:.1f}", x0, y - h - 70, 55, layer="COTAS", align="CENTER")
+    add_text(msp, f"{total_m:.1f} m", x + n * seg_mm, y - h - 70, 55, layer="COTAS", align="CENTER")
+    add_text(msp, "ESCALA GRAFICA (m)", x, y + 70, 60, layer="TEXTO", align="LEFT")
+
+
 def title_block(msp, x, y, w, lines):
     """Cuadro de notas/rotulo."""
     hrow = 220
@@ -255,6 +274,8 @@ def build_vigas():
              0, 1400, 160, layer="ROTULO")
     add_text(msp, "f'c=28 MPa  fy=420 MPa   Acero long. Nº 5 (db=15.9)   Estribos Nº 3 (db=9.5) 2 ramas, gancho 135",
              0, 1180, 80, layer="TEXTO")
+    add_text(msp, "DIBUJO EN MILIMETROS (1:1).  ESCALA DE IMPRESION SUGERIDA 1:25",
+             0, 1050, 75, layer="ROTULO")
     groups = [
         dict(tag="VC-1", n_sup=4, n_inf=3, Mneg=77, Mpos=58, Vu=70, tors="SI", Ats=0.0),
         dict(tag="VC-2", n_sup=6, n_inf=5, Mneg=118, Mpos=101, Vu=86, tors="SI", Ats=0.0),
@@ -277,6 +298,7 @@ def build_vigas():
         ("5. Gancho sismico de estribo a 135 grados, extension 6db>=75 mm. Gancho de barra 90: 12db.", False),
         ("6. Disenado por capacidad (DMO): V de diseno = max(Vu, Ve).", False),
     ])
+    scale_bar(msp, 0, dy - 1900)
     out = "Proyectos/Diseno-Estructural/Solucion/Despiece-Vigas-VC.dxf"
     doc.saveas(out); print("OK", out)
 
@@ -287,6 +309,8 @@ def build_riostras():
              0, 1400, 160, layer="ROTULO")
     add_text(msp, "f'c=28 MPa  fy=420 MPa   Acero long. Nº 5 (db=15.9)   Estribos Nº 3 (db=9.5) 2 ramas, gancho 135",
              0, 1180, 80, layer="TEXTO")
+    add_text(msp, "DIBUJO EN MILIMETROS (1:1).  ESCALA DE IMPRESION SUGERIDA 1:25",
+             0, 1050, 75, layer="ROTULO")
     groups = [
         dict(tag="VR-1", n_sup=5, n_inf=4, Mneg=100, Mpos=74, Vu=104, tors="SI", Ats=0.56),
         dict(tag="VR-2", n_sup=6, n_inf=5, Mneg=135, Mpos=98, Vu=133, tors="SI", Ats=0.27),
@@ -310,6 +334,7 @@ def build_riostras():
         ("5. VR-1, VR-2 y VR-4 requieren refuerzo por torsion (estribo cerrado + acero longitudinal adicional).", False),
         ("6. Disenado por capacidad (DMO): V de diseno = max(Vu, Ve).", False),
     ])
+    scale_bar(msp, 0, dy - 1900)
     out = "Proyectos/Diseno-Estructural/Solucion/Despiece-Riostras-VR.dxf"
     doc.saveas(out); print("OK", out)
 
@@ -320,6 +345,8 @@ def build_viguetas():
              0, 1100, 150, layer="ROTULO")
     add_text(msp, "f'c=28 MPa  fy=420 MPa   Acero Nº 4 (db=12.7)   Sin estribos (Vu < phi 1.1 Vc)",
              0, 920, 75, layer="TEXTO")
+    add_text(msp, "DIBUJO EN MILIMETROS (1:1).  ESCALA DE IMPRESION SUGERIDA 1:25",
+             0, 800, 70, layer="ROTULO")
     # grupos de luz (se muestran los de entrepiso; cubierta mismo refuerzo 2Nº4)
     groups = [
         dict(tag="VT-1  L=1.85 m", Ln=1.85, Mneg=3.1, Mpos=2.2, Vu=9.6, bf=462),
@@ -342,6 +369,7 @@ def build_viguetas():
         ("5. Las viguetas de cubierta llevan el mismo refuerzo (2 Nº4); las solicitaciones de", False),
         ("   gravedad son similares (wu cubierta=10.6 vs entrepiso=9.06 kN/m).", False),
     ])
+    scale_bar(msp, 0, dy - 1900)
     out = "Proyectos/Diseno-Estructural/Solucion/Despiece-Viguetas.dxf"
     doc.saveas(out); print("OK", out)
 
