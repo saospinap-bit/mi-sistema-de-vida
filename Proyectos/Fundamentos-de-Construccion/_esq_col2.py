@@ -7,8 +7,8 @@ import os
 
 fig, axs = plt.subplots(1, 2, figsize=(8, 5))
 datos = [
-    (axs[0], 0.40, 4.70, "COLUMNA TIPO 1\n0.40 x 0.40\nh = 4.70 m\n4 unidades\n(ejes 1A,1B,3'B,4A)\nrefuerzo 6#6", "#7a7a7a"),
-    (axs[1], 0.50, 4.90, "COLUMNA TIPO 2\n0.50 x 0.50\nh = 4.90 m\n4 unidades\n(ejes 2A,2B,3A,3B)\nrefuerzo 4#6+4#7", "#5a6a7a"),
+    (axs[0], 0.40, 4.75, "COLUMNA TIPO 1\n0.40 x 0.40\nh = 4.75 m\n4 unidades\n(ejes 1A,1B,3'B,4A)\nrefuerzo 6#6", "#7a7a7a"),
+    (axs[1], 0.50, 4.95, "COLUMNA TIPO 2\n0.50 x 0.50\nh = 4.95 m\n4 unidades\n(ejes 2A,2B,3A,3B)\nrefuerzo 4#6+4#7", "#5a6a7a"),
 ]
 for ax, b, h, txt, col in datos:
     ax.add_patch(Rectangle((0, 0), b, h, facecolor=col, edgecolor="k"))
