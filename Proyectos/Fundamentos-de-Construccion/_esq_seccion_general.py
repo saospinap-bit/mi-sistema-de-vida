@@ -13,7 +13,7 @@ capas = [
     (0.00, -0.05, "#f0e6d2", "Acabado de piso", "acabado"),
     (-0.05, -0.15, "#8c8c8c", "PLACA de contrapiso  e=0.10  (malla 150x150x5.0)", "item 4.3.1"),
     (-0.15, -0.45, "#c9c9c9", "SUB-BASE granular  e=0.30", "item 2.1.2  (corregir a 0.30)"),
-    (-0.45, -0.65, "#d2a679", "RECEBO / relleno de nivelacion  e=0.20", "item 2.1.4"),
+    (-0.45, -0.65, "#d2a679", "RECEBO (relleno sobre vigas - va aparte)  e=0.20", "item 2.1.4"),
     (-0.65, -1.10, "#9e9e9e", "VIGA de cimentacion  0.40x0.45", "item 2.2.1"),
     (-1.10, -1.50, "#7a7a7a", "ZAPATA  H=0.40  (Z-1 2.30 / Z-2 2.15)", "cuadro zapatas"),
     (-1.50, -1.55, "#7fbf7f", "Solado de limpieza  e=0.05", "item 2.2.2"),
@@ -43,12 +43,12 @@ for y, txt in niveles.items():
     ax.plot([xL-0.4, xR], [y, y], color="red", lw=0.8, ls=(0,(4,3)))
     ax.text(xL-0.5, y, txt, ha="right", va="center", fontsize=8.5, color="red")
 
-# Cota total del paquete de piso (reemplazo) 0.00 -> -0.65
-ax.annotate("", xy=(xR+3.5, 0.0), xytext=(xR+3.5, -0.65), arrowprops=dict(arrowstyle="<->", color="green", lw=1.4))
-ax.text(xR+3.7, -0.325, "EXCAVACION\nMASIVA (2.1.1)\n= 0.60-0.65 m", ha="left", va="center", fontsize=9, color="green", fontweight="bold")
-# Cota excavacion profunda zapata
-ax.annotate("", xy=(xR+3.5, -0.65), xytext=(xR+3.5, -1.55), arrowprops=dict(arrowstyle="<->", color="purple", lw=1.4))
-ax.text(xR+3.7, -1.10, "EXCAVACION\nprofunda zapata\n(hasta -1.55 m)", ha="left", va="center", fontsize=9, color="purple", fontweight="bold")
+# Cota excavacion masiva = solo placa + sub-base (0.40 m)
+ax.annotate("", xy=(xR+3.5, -0.05), xytext=(xR+3.5, -0.45), arrowprops=dict(arrowstyle="<->", color="green", lw=1.4))
+ax.text(xR+3.7, -0.25, "EXCAVACION\nMASIVA (2.1.1)\n= 0.40 m\n(sub-base+placa)", ha="left", va="center", fontsize=9, color="green", fontweight="bold")
+# Cota excavacion manual/profunda (desde -0.45 hacia abajo)
+ax.annotate("", xy=(xR+3.5, -0.45), xytext=(xR+3.5, -1.55), arrowprops=dict(arrowstyle="<->", color="purple", lw=1.4))
+ax.text(xR+3.7, -1.0, "EXCAVACION\nmanual (2.1.3)\nvigas y zapatas\n(desde -0.45)", ha="left", va="center", fontsize=9, color="purple", fontweight="bold")
 
 ax.set_xlim(-4.2, 17.5)
 ax.set_ylim(-1.9, 0.35)

@@ -133,7 +133,7 @@ par("4.2  Valores CORREGIDOS (no coincidían con el plano)", bold=True, color=RO
 tb = doc.add_table(rows=1, cols=3); tb.style="Light Grid Accent 1"
 for i,tx in enumerate(["Ítem","Antes (Excel)","Ahora (según plano)"]): tb.rows[0].cells[i].text=tx
 for a,b,c in [
-    ("2.1.1 Excavación masiva","prof. 0.55 m","0.60 m (recebo 0.20 + sub-base 0.30 + placa 0.10)"),
+    ("2.1.1 Excavación masiva","prof. 0.55 m","0.40 m (sub-base 0.30 + placa 0.10; el recebo va aparte)"),
     ("2.1.2 Sub-base","e = 0.15 m","e = 0.30 m (el detalle dice 'SUB-BASE 30 cm')"),
     ("2.1.3 Excavación manual","solo zanjas 0.40 prof.","zanjas 0.45 + fosos de 8 zapatas hasta −1.55"),
     ("2.2.2 Solado","solo bajo vigas (38.05)","+ solado bajo 8 zapatas = 77.70 m²"),
@@ -199,12 +199,11 @@ par("Todo el capítulo 2 se apoya en un único sistema de niveles. El siguiente 
 add_img("esq_seccion_general.png", 16, "Corte lógico de la cimentación con niveles reales (desde N ±0.00).")
 par("")
 item_block("2. Cimentación","2.1.1","Excavación a máquina conglomerado 0–2 m (incl. retiro)","M3",
-    "Figura 3.1 + corte lógico.",
+    "Figura 3.1 + detalle de losa de contrapiso.",
     [("Ancho = 9.85 m / Largo = 21.95 m","Huella del módulo (POR CONFIRMAR en DWG)."),
-     ("Alto = 0.60 m","Profundidad de la excavación masiva = recebo 0.20 + sub-base 0.30 + placa 0.10 (paquete de reemplazo bajo la placa, hasta −0.65).")],
-    "V = 9.85 × 0.60 × 21.95 × 1","129.72 m³",
-    obs="CORREGIDO: 0.55 → 0.60 m (el 0.55 no cuadraba). Huella 9.85×21.95 aún por confirmar en DWG.",
-    scheme="esq_capas_placa.png", scheme_cap="Esquema 1. Corte del sistema de piso.")
+     ("Alto = 0.40 m","= sub-base 0.30 + placa 0.10 (el paquete de piso que muestra el detalle de la losa). El recebo NO se suma aquí: es un relleno que va en otra parte (backfill sobre las vigas).")],
+    "V = 9.85 × 0.40 × 21.95 × 1","86.48 m³",
+    obs="CORREGIDO: 0.60 → 0.40 m. El detalle de la losa solo muestra sub-base 0.30 + placa 0.10. El recebo (2.1.4) es relleno aparte, no capa bajo la placa.")
 item_block("2. Cimentación","2.1.2","Relleno granular sub-base B-400","M3",
     "Figura 3.1 + detalle de losa de contrapiso.",
     [("Ancho = 9.85 / Largo = 21.95","Huella del módulo (POR CONFIRMAR)."),
@@ -352,7 +351,7 @@ item_block("8. Pisos","8.1.1","Adoquín en concreto 0.20×0.10×0.06 m (suminist
 doc.add_page_break()
 h("6. Resumen de cantidades de obra (corregido)", 1)
 resumen = [
-    ("2.1.1","Excavación a máquina 0–2 m","M3","129.72","CORREGIDO / huella"),
+    ("2.1.1","Excavación a máquina 0–2 m","M3","86.48","CORREGIDO / huella"),
     ("2.1.2","Relleno sub-base B-400","M3","64.86","CORREGIDO / huella"),
     ("2.1.3","Excavación manual (zanjas + zapatas)","M3","49.38","CORREGIDO"),
     ("2.1.4","Relleno común (recebo)","M3","43.24","por confirmar huella"),
