@@ -133,6 +133,12 @@ par("4.2  Valores CORREGIDOS (no coincidían con el plano)", bold=True, color=RO
 tb = doc.add_table(rows=1, cols=3); tb.style="Light Grid Accent 1"
 for i,tx in enumerate(["Ítem","Antes (Excel)","Ahora (según plano)"]): tb.rows[0].cells[i].text=tx
 for a,b,c in [
+    ("2.1.1 Excavación masiva","prof. 0.55 m","0.60 m (recebo 0.20 + sub-base 0.30 + placa 0.10)"),
+    ("2.1.2 Sub-base","e = 0.15 m","e = 0.30 m (el detalle dice 'SUB-BASE 30 cm')"),
+    ("2.1.3 Excavación manual","solo zanjas 0.40 prof.","zanjas 0.45 + fosos de 8 zapatas hasta −1.55"),
+    ("2.2.2 Solado","solo bajo vigas (38.05)","+ solado bajo 8 zapatas = 77.70 m²"),
+    ("2.2.3 Zapatas concreto","no existía","AGREGADO: 4×Z-1 + 4×Z-2 = 15.86 m³"),
+    ("2.3.2 Acero zapatas","no existía","AGREGADO (estimación): ≈668.6 kg"),
     ("4.1.1 Columnas","10 col de 0.40×0.40, h=4.90","8 col en 2 tipos: 4×(0.40×0.40, h=4.70) + 4×(0.50×0.50, h=4.90)"),
     ("4.3.3.1 Placa cubierta","M2 pero fórmula con espesor","Área de losa = 7.30 × 18.52 (Alto=1)"),
     ("4.3.3.1 Viguetas","0.20 × 0.32","0.20 × 0.40 (el plano dice 20×40)"),
@@ -152,7 +158,7 @@ par("")
 
 par("4.4  Otras observaciones técnicas", bold=True, color=AZUL, space_after=2)
 bullet("Los planos especifican concreto de 4000 psi (280 kg/cm²), mientras que el presupuesto y la memoria usan 3000 psi. Verificar con el profesor cuál rige.")
-bullet("El plano tiene zapatas aisladas (Z-1 2.30×2.30×0.40 y Z-2 2.15×2.15×0.40), pero la memoria/presupuesto no incluye ítem de concreto ni de acero de zapatas. Si el alcance lo exige, deben agregarse.")
+bullet("El plano tiene 8 zapatas aisladas (4 Z-1 2.30×2.30×0.40 bajo las columnas de 0.50, y 4 Z-2 2.15×2.15×0.40 bajo las de 0.40). YA SE AGREGARON a la memoria (ítems 2.2.3 concreto y 2.3.2 acero); falta crear esas dos líneas en el presupuesto.")
 par("")
 
 par("Evidencia de las correcciones (recortes ampliados de los planos):", bold=True, space_after=4)
@@ -186,22 +192,32 @@ def item_block(cap, code, title, unit, plano_caption, dims, formula, resultado, 
 HUELLA_OBS = "La huella 9.85×21.95 no está acotada en los PDF; confirmar en el DWG y pegar el pantallazo de la cota."
 
 h("Capítulo 2 – Cimentación", 2)
+par("Todo el capítulo 2 se apoya en un único sistema de niveles. El siguiente corte muestra "
+    "cómo encajan las capas (el fondo de cada una es el techo de la siguiente), verificado con "
+    "los tres detalles del plano: losa de contrapiso, planta de cimentación (NE −1.10) y detalle "
+    "de zapata (desplante −1.50).", space_after=4)
+add_img("esq_seccion_general.png", 16, "Corte lógico de la cimentación con niveles reales (desde N ±0.00).")
+par("")
 item_block("2. Cimentación","2.1.1","Excavación a máquina conglomerado 0–2 m (incl. retiro)","M3",
-    "Figura 3.1 + Esquema 1.",
+    "Figura 3.1 + corte lógico.",
     [("Ancho = 9.85 m / Largo = 21.95 m","Huella del módulo (POR CONFIRMAR en DWG)."),
-     ("Alto = 0.55 m","Profundidad de la excavación masiva (0.20 recebo + 0.15 subbase + 0.10 placa + solado ≈ 0.55).")],
-    "V = 9.85 × 0.55 × 21.95 × 1","118.92 m³", obs=HUELLA_OBS,
+     ("Alto = 0.60 m","Profundidad de la excavación masiva = recebo 0.20 + sub-base 0.30 + placa 0.10 (paquete de reemplazo bajo la placa, hasta −0.65).")],
+    "V = 9.85 × 0.60 × 21.95 × 1","129.72 m³",
+    obs="CORREGIDO: 0.55 → 0.60 m (el 0.55 no cuadraba). Huella 9.85×21.95 aún por confirmar en DWG.",
     scheme="esq_capas_placa.png", scheme_cap="Esquema 1. Corte del sistema de piso.")
 item_block("2. Cimentación","2.1.2","Relleno granular sub-base B-400","M3",
-    "Figura 3.1 + Esquema 1.",
+    "Figura 3.1 + detalle de losa de contrapiso.",
     [("Ancho = 9.85 / Largo = 21.95","Huella del módulo (POR CONFIRMAR)."),
-     ("Alto = 0.15 m","Espesor de la sub-base granular.")],
-    "V = 9.85 × 0.15 × 21.95 × 1","32.44 m³", obs=HUELLA_OBS)
+     ("Alto = 0.30 m","Espesor de la sub-base. El detalle dice 'SUB-BASE DE 30 cm' y 'Mínimo 0.30m'.")],
+    "V = 9.85 × 0.30 × 21.95 × 1","64.86 m³",
+    obs="CORREGIDO: 0.15 → 0.30 m (lo dice el detalle de la losa).")
 item_block("2. Cimentación","2.1.3","Excavación manual material común 0–2 m","M3",
-    "Figura 3.1 (zanjas de vigas VC).",
-    [("Long.: 0.40×0.40×19.80, cant. 2","Zanjas en ejes A y B (0.40 ancho, 0.40 prof., 19.80 largo)."),
-     ("Transv.: 0.40×0.40×7.30, cant. 5","5 ejes, luz 7.30 m.")],
-    "V = (0.40×0.40×19.80×2)+(0.40×0.40×7.30×5) = 6.34 + 5.84","12.18 m³")
+    "Figura 3.1 (vigas VC y zapatas) + detalle de zapata.",
+    [("Zanjas de vigas: 0.40×0.45×19.80 (×2) y ×7.30 (×5)","Zanjas para las vigas de cimentación, de −0.65 a −1.10 (0.45 = alto de la viga)."),
+     ("Fosos Z-1: 2.30×2.30, prof 0.90, ×4","Zapatas grandes, de −0.65 a −1.55 (desplante)."),
+     ("Fosos Z-2: 2.15×2.15, prof 0.90, ×4","Zapatas pequeñas, misma profundidad.")],
+    "V = 7.13 + 6.57 (zanjas) + 19.04 + 16.64 (zapatas)","49.38 m³",
+    obs="CORREGIDO: la excavación manual va por debajo del nivel masivo (−0.65). Incluye las zanjas de vigas (0.45 m) y los fosos de las 8 zapatas hasta el desplante (−1.55). Estimación sin descontar solapes (conservador).")
 item_block("2. Cimentación","2.1.4","Relleno material común (recebo)","M3",
     "Figura 3.1 + Esquema 1.",
     [("Ancho = 9.85 / Largo = 21.95","Huella (POR CONFIRMAR)."),
@@ -220,11 +236,19 @@ item_block("2. Cimentación","2.2.1","Vigas de cimentación concreto 3000 psi","
     "V = (0.40×0.45×19.80×2)+(0.40×0.45×7.30×5) = 7.13 + 6.57","13.70 m³",
     scheme="esq_viga_cim.png", scheme_cap="Esquema 3. Sección de viga de cimentación 0.40×0.45.")
 item_block("2. Cimentación","2.2.2","Concreto 1500 psi solado e=0.05","M2",
-    "Figura 3.1 + Esquema 3.",
-    [("Ancho = 0.50 m","10 cm más ancho que la viga (a cada lado)."),
-     ("Long. 19.80×2 y 7.30×5","Mismo desarrollo de las vigas."),
+    "Figura 3.1 + detalle de zapata (solado de limpieza).",
+    [("Bajo vigas: 0.50 × long. (19.80×2 y 7.30×5)","Solado 10 cm más ancho que la viga."),
+     ("Bajo zapatas: Z-1 2.30×2.30 ×4 y Z-2 2.15×2.15 ×4","El detalle de zapata muestra solado de limpieza bajo cada zapata."),
      ("Alto = 1","Se mide por área.")],
-    "A = (0.50×1×19.80×2)+(0.50×1×7.30×5) = 19.80 + 18.25","38.05 m²")
+    "A = 38.05 (vigas) + 39.65 (zapatas)","77.70 m²",
+    obs="AGREGADO: solado también bajo las 8 zapatas (antes solo bajo vigas).")
+item_block("2. Cimentación","2.2.3","Zapatas concreto 3000 psi","M3",
+    "Figura 3.1 (cuadro de zapatas) + detalle de zapata.",
+    [("Z-1: 2.30×2.30×0.40, ×4","Zapatas bajo columnas 0.50×0.50 (ejes 2A,3A,2B,3B)."),
+     ("Z-2: 2.15×2.15×0.40, ×4","Zapatas bajo columnas 0.40×0.40 (ejes 1A,4A,1B,4B)."),
+     ("H = 0.40 m","Altura de zapata del cuadro de zapatas.")],
+    "V = (2.30²×0.40×4) + (2.15²×0.40×4) = 8.46 + 7.40","15.86 m³",
+    obs="AGREGADO: las zapatas estaban en el plano pero no en la memoria. Falta agregar la línea 2.2.3 al presupuesto.")
 item_block("2. Refuerzos / Acero","2.3.1","Acero figurado vigas de cimentación","KG",
     "Figura 3.1 (despiece de vigas).",
     [("3#6 + 3#5 longitudinal","Despiece de las vigas de cimentación."),
@@ -233,6 +257,12 @@ item_block("2. Refuerzos / Acero","2.3.1","Acero figurado vigas de cimentación"
      ("+10 %","Desperdicio y traslapos.")],
     "864.6 kg (long.) + 319.6 kg (estribos) = 1 184.2 kg × 1.10","1 302.6 kg",
     obs="El valor exacto debe salir de la cartilla de hierros (DLNET).")
+item_block("2. Refuerzos / Acero","2.3.2","Acero figurado zapatas","KG",
+    "Figura 3.1 (cuadro de zapatas: #5 @0.20 ambos sentidos).",
+    [("Z-1 (×4) y Z-2 (×4)","Parrilla #5 @0.20 en ambas direcciones (del cuadro de zapatas)."),
+     ("+10 %","Desperdicio y traslapos.")],
+    "≈ 327.8 kg (Z-1) + 280.0 kg (Z-2) = 607.8 kg × 1.10","≈ 668.6 kg (estimación)",
+    obs="AGREGADO (estimación): el peso exacto sale de la cartilla de hierros. Falta la línea 2.3.2 en el presupuesto.")
 
 doc.add_page_break()
 h("Capítulo 4 – Estructura en concreto", 2)
@@ -322,14 +352,16 @@ item_block("8. Pisos","8.1.1","Adoquín en concreto 0.20×0.10×0.06 m (suminist
 doc.add_page_break()
 h("6. Resumen de cantidades de obra (corregido)", 1)
 resumen = [
-    ("2.1.1","Excavación a máquina 0–2 m","M3","118.92","por confirmar huella"),
-    ("2.1.2","Relleno sub-base B-400","M3","32.44","por confirmar huella"),
-    ("2.1.3","Excavación manual","M3","12.18","verificado"),
+    ("2.1.1","Excavación a máquina 0–2 m","M3","129.72","CORREGIDO / huella"),
+    ("2.1.2","Relleno sub-base B-400","M3","64.86","CORREGIDO / huella"),
+    ("2.1.3","Excavación manual (zanjas + zapatas)","M3","49.38","CORREGIDO"),
     ("2.1.4","Relleno común (recebo)","M3","43.24","por confirmar huella"),
     ("2.1.6","Geotextil NT 1600","M2","216.21","por confirmar huella"),
     ("2.2.1","Vigas de cimentación 3000 psi","M3","13.70","verificado"),
-    ("2.2.2","Solado 1500 psi e=0.05","M2","38.05","verificado"),
+    ("2.2.2","Solado 1500 psi e=0.05","M2","77.70","CORREGIDO (+ zapatas)"),
+    ("2.2.3","Zapatas concreto 3000 psi","M3","15.86","AGREGADO"),
     ("2.3.1","Acero vigas de cimentación","KG","1 302.6","cartilla"),
+    ("2.3.2","Acero zapatas","KG","≈668.6","AGREGADO / cartilla"),
     ("4.1.1","Columnas 3000 psi (8 und, 2 tipos)","M3","7.91","CORREGIDO"),
     ("4.2.1","Vigas de cubierta 3000 psi","M3","15.22","verificado"),
     ("4.3.1","Placa de contrapiso","M3","21.62","por confirmar huella"),
