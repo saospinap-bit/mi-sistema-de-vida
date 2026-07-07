@@ -97,7 +97,30 @@ for a,b,c in [
     for cc in row: cc.paragraphs[0].runs[0].font.size = Pt(10)
 par("")
 par("Las dimensiones se leen de los planos; por eso el formato pide la «IMAGEN/REFERENCIA» "
-    "(el pantallazo del plano donde se ve la cota usada).", space_after=4)
+    "(el pantallazo del plano donde se ve la cota usada).", space_after=8)
+
+par("2.1  Cómo se calcula el ACERO (por peso)", bold=True, color=AZUL, space_after=2)
+par("El acero se paga por kilogramos. El método es: para cada elemento se leen del DESPIECE "
+    "el número, el calibre y la longitud de cada barra; se suma la longitud total de cada "
+    "calibre y se multiplica por su masa lineal (kg/m). Al final se añade 10 % por desperdicio "
+    "y traslapos:", space_after=4)
+p=doc.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+rr=p.add_run("kg = Σ [ Longitud total de cada calibre (m) × masa (kg/m) ] × 1.10")
+rr.bold=True; rr.font.size=Pt(12.5); rr.font.color.rgb=AZUL
+par("Masa lineal de la varilla (tabla de cantidad de varillas por tonelada):", space_after=4)
+tb = doc.add_table(rows=1, cols=4); tb.style="Light Grid Accent 1"; tb.alignment=WD_TABLE_ALIGNMENT.CENTER
+for i,tx in enumerate(["Barra","Pulg.","mm","Masa (kg/m)"]): tb.rows[0].cells[i].text=tx
+for a,b,c,d in [
+    ("N°2","1/4\"","6.4","0.250"),("N°3","3/8\"","9.5","0.560"),("N°4","1/2\"","12.7","0.994"),
+    ("N°5","5/8\"","15.9","1.552"),("N°6","3/4\"","19.1","2.235"),("N°7","7/8\"","22.2","3.042"),
+    ("N°8","1\"","25.4","3.973"),
+]:
+    row=tb.add_row().cells; row[0].text=a; row[1].text=b; row[2].text=c; row[3].text=d
+    for cc in row:
+        for rn in cc.paragraphs[0].runs: rn.font.size=Pt(9.5)
+par("Ejemplo (columnas Tipo 1): 4 columnas × 6 barras N°6 × 5.85 m = 140.4 m de N°6; "
+    "140.4 × 2.235 kg/m = 313.8 kg solo en el longitudinal de ese tipo.",
+    size=10, italic=True, color=GRIS, space_after=6)
 
 # ===================== 3. PLANOS =====================
 h("3. Planos de soporte", 1)
@@ -249,19 +272,22 @@ item_block("2. Cimentación","2.2.3","Zapatas concreto 3000 psi","M3",
     "V = (2.30²×0.40×4) + (2.15²×0.40×4) = 8.46 + 7.40","15.86 m³",
     obs="AGREGADO: las zapatas estaban en el plano pero no en la memoria. Falta agregar la línea 2.2.3 al presupuesto.")
 item_block("2. Refuerzos / Acero","2.3.1","Acero figurado vigas de cimentación","KG",
-    "Figura 3.1 (despiece de vigas).",
-    [("3#6 + 3#5 longitudinal","Despiece de las vigas de cimentación."),
-     ("Estribos #3 c/0.20","Del plano."),
-     ("Peso lineal","#6=2.235 ; #5=1.552 ; #3=0.559 kg/m."),
+    "Figura 3.1 (despiece de vigas VC-1..4, 3', A, B).",
+    [("Longitudinal #6 = 236.7 m","3#6 por viga (VC-1..4, 3') + VC-A/B: 3#6 L=7.60 y 7.40; L de cada barra del despiece."),
+     ("Longitudinal #5 = 276.2 m","3#5 por viga transversal + VC-A/B: 3#5, 2#5, 1#5 (bastones); L del despiece."),
+     ("Estribos #3 = 565.6 m","Transversales: 5×36 estribos L=1.58; longitudinales: 2×89 estribos L=1.58."),
+     ("Peso lineal (kg/m)","#6=2.235 ; #5=1.552 ; #3=0.560 (tabla de masas de varilla)."),
      ("+10 %","Desperdicio y traslapos.")],
-    "864.6 kg (long.) + 319.6 kg (estribos) = 1 184.2 kg × 1.10","1 302.6 kg",
-    obs="El valor exacto debe salir de la cartilla de hierros (DLNET).")
+    "Long: 236.7×2.235 + 276.2×1.552 = 957.7 kg ; Estribos: 565.6×0.560 = 316.8 kg ; (957.7+316.8) × 1.10","1 401.9 kg",
+    obs="RECALCULADO por peso con la tabla de masas (L de cada calibre × kg/m + 10%). VC-3 se asume igual a VC-2.")
 item_block("2. Refuerzos / Acero","2.3.2","Acero figurado zapatas","KG",
     "Figura 3.1 (cuadro de zapatas: #5 @0.20 ambos sentidos).",
-    [("Z-1 (×4) y Z-2 (×4)","Parrilla #5 @0.20 en ambas direcciones (del cuadro de zapatas)."),
+    [("Z-1 (×4) 2.30×2.30","Parrilla #5 @0.20 en 2 sentidos. n=lado/0.20+1=12 barras/sentido; L=lado−0.15=2.15 m."),
+     ("Z-2 (×4) 2.15×2.15","Parrilla #5 @0.20 en 2 sentidos. n=11 barras/sentido; L=2.00 m."),
+     ("Peso lineal #5 = 1.552 kg/m","Tabla de masas de varilla."),
      ("+10 %","Desperdicio y traslapos.")],
-    "≈ 327.8 kg (Z-1) + 280.0 kg (Z-2) = 607.8 kg × 1.10","≈ 668.6 kg (estimación)",
-    obs="AGREGADO (estimación): el peso exacto sale de la cartilla de hierros. Falta la línea 2.3.2 en el presupuesto.")
+    "382.4 m de #5 × 1.552 = 593.5 kg × 1.10","652.8 kg",
+    obs="RECALCULADO por peso con la tabla de masas. Confirmar lados exactos de zapata en el DWG. Falta la línea 2.3.2 en el presupuesto.")
 
 doc.add_page_break()
 h("Capítulo 4 – Estructura en concreto", 2)
@@ -294,19 +320,23 @@ item_block("4. Estructura","4.3.3.1","Placa de cubierta aligerada","M2",
     obs="CORREGIDO: item por M2 → área de losa (antes multiplicaba por el espesor). Viguetas 0.20×0.40 (no 0.20×0.32).",
     scheme="esq_cubierta.png", scheme_cap="Esquema 5. Placa de cubierta aligerada y viguetas.")
 item_block("4. Refuerzos / Acero","4.7.1","Acero figurado columnas","KG",
-    "Figura 3.2 y recortes del despiece.",
-    [("Tipo 1: 4 col × 6#6, L=5.85","Refuerzo longitudinal columnas 0.40×0.40."),
-     ("Tipo 2: 4 col × (4#6+4#7), L=5.95","Refuerzo longitudinal columnas 0.50×0.50."),
-     ("Estribos + 10 %","Confinamiento y desperdicio.")],
-    "Estimación con +10 % (ver cartilla de hierros)","≈ 791.8 kg (recalcular en cartilla)",
-    obs="CORREGIDO en descripción: el refuerzo difiere por tipo (Tipo1 6#6; Tipo2 4#6+4#7) y son 8 columnas. El kg exacto sale de la cartilla de hierros (DLNET).")
-item_block("4. Refuerzos / Acero","4.8.1","Acero figurado vigas de cubierta","KG",
-    "Figura 3.3 (despiece de vigas).",
-    [("2#6 + 2#7 + 2#6 longitudinal","Despiece de las vigas de cubierta."),
-     ("Estribos #3 c/0.15","Del plano."),
+    "Figura 3.2 y recortes del despiece (crop_col_det1 y det2).",
+    [("Tipo 1 (×4): 6#6 L=5.85","Longitudinal 0.40×0.40 → 4×6×5.85 = 140.4 m de #6."),
+     ("Tipo 2 (×4): 4#6+4#7 L=5.95","Longitudinal 0.50×0.50 → 95.2 m de #6 y 95.2 m de #7."),
+     ("Estribos #3 = 762.7 m","T1: 42 est. L=1.48 + 42 grapas L=0.54; T2: 42 est. L=1.88 + 42 grapas L=0.64; ×4 c/tipo."),
+     ("Peso lineal (kg/m)","#6=2.235 ; #7=3.042 ; #3=0.560 (tabla de masas)."),
      ("+10 %","Desperdicio y traslapos.")],
-    "1 143.3 kg (long.) + 454.6 kg (estribos) = 1 597.9 kg × 1.10","1 757.7 kg",
-    obs="Valor exacto desde la cartilla de hierros.")
+    "Long: 235.6×2.235 + 95.2×3.042 = 816.2 kg ; Estribos: 762.7×0.560 = 427.1 kg ; (816.2+427.1) × 1.10","1 367.6 kg",
+    obs="RECALCULADO por peso con la tabla de masas. Antes era una estimación (≈791.8 kg); ahora se cuenta cada barra del despiece (6#6 en T1; 4#6+4#7 en T2) más estribos y grapas.")
+item_block("4. Refuerzos / Acero","4.8.1","Acero figurado vigas de cubierta","KG",
+    "Figura 3.3 (despiece VG-1..4 y VG-6/VG-7).",
+    [("Longitudinal #5 = 252.8 m","Bastones y corridos #5 de VG-1..4 (2#5) y VG-6/7 (3#5); L del despiece."),
+     ("Longitudinal #6 = 196.6 m","2#6 en VG-1..4 y 3#6 en VG-6/7; L del despiece."),
+     ("Estribos #3 = 1 102.1 m","Transversales: 4×73 est. L=1.68; longitudinales: 2×182 est. L=1.68."),
+     ("Peso lineal (kg/m)","#5=1.552 ; #6=2.235 ; #3=0.560 (tabla de masas)."),
+     ("+10 %","Desperdicio y traslapos.")],
+    "Long: 252.8×1.552 + 196.6×2.235 = 831.7 kg ; Estribos: 1102.1×0.560 = 617.2 kg ; (831.7+617.2) × 1.10","1 593.8 kg",
+    obs="RECALCULADO por peso con la tabla de masas. NO incluye las viguetas de la placa aligerada (6 uds 0.20×0.40 con #4 y estribos #3 ≈ 1 689 kg): esas se contabilizan con la placa de cubierta si el APU lo pide.")
 
 doc.add_page_break()
 h("Capítulo 5 – Mampostería", 2)
@@ -331,12 +361,13 @@ item_block("5. Mampostería","5.1.4","Pañete liso impermeabilizado 1:4","M2",
      ("Factor = 65 %","Porcentaje del área de muro que lleva pañete.")],
     "A = 402.75 × 1 × 0.65 × 1","261.79 m²")
 item_block("5. Refuerzos / Acero","5.2.1","Acero mampostería confinada","KG",
-    "Figura 3.4 (despiece de confinamiento).",
-    [("4#3 longitudinal","Columnetas y vigas de confinamiento."),
-     ("Estribos #2 c/0.20","Del detalle."),
+    "Figura 3.4 (detalle de columneta y viga cinta V2).",
+    [("Columnetas 2#4 (0.20×0.15)","Del detalle de columneta: 2 N°4 verticales + estribo N°3 c/0.20. Estimado 24 uds h=2.70."),
+     ("Cinta V2: 2#3 + gancho N°2 (1/4\") c/0.30","Del detalle de viga cinta. Estimado 70 m de cinta."),
+     ("Peso lineal (kg/m)","#4=0.994 ; #3=0.560 ; #2=0.250 (tabla de masas)."),
      ("+10 %","Desperdicio.")],
-    "376.8 kg (long.) + 105.1 kg (estribos) = 481.9 kg × 1.10","530.1 kg",
-    obs="Valor exacto desde la cartilla de hierros.")
+    "Long: 207.2 kg ; Estribos+ganchos: 133.3 kg ; (207.2+133.3) × 1.10","374.6 kg (estimación)",
+    obs="ESTIMACIÓN por peso con la tabla de masas usando el detalle real (columneta 2#4+est.#3; cinta 2#3+gancho#2). Las cantidades (n° de columnetas y metros de cinta) deben confirmarse en el plano de mampostería FC3.")
 
 doc.add_page_break()
 h("Capítulo 8 – Pisos", 2)
@@ -359,18 +390,18 @@ resumen = [
     ("2.2.1","Vigas de cimentación 3000 psi","M3","13.70","verificado"),
     ("2.2.2","Solado 1500 psi e=0.05","M2","77.70","CORREGIDO (+ zapatas)"),
     ("2.2.3","Zapatas concreto 3000 psi","M3","15.86","AGREGADO"),
-    ("2.3.1","Acero vigas de cimentación","KG","1 302.6","cartilla"),
-    ("2.3.2","Acero zapatas","KG","≈668.6","AGREGADO / cartilla"),
+    ("2.3.1","Acero vigas de cimentación","KG","1 401.9","RECALCULADO (tabla masas)"),
+    ("2.3.2","Acero zapatas","KG","652.8","AGREGADO / RECALCULADO"),
     ("4.1.1","Columnas 3000 psi (8 und, 2 tipos)","M3","7.99","CORREGIDO"),
     ("4.2.1","Vigas de cubierta 3000 psi","M3","15.22","verificado"),
     ("4.3.1","Placa de contrapiso","M3","21.62","por confirmar huella"),
     ("4.3.3.1","Placa de cubierta aligerada","M2","135.20","CORREGIDO"),
-    ("4.7.1","Acero columnas","KG","≈791.8","cartilla / CORREGIDO"),
-    ("4.8.1","Acero vigas de cubierta","KG","1 757.7","cartilla"),
+    ("4.7.1","Acero columnas","KG","1 367.6","RECALCULADO (tabla masas)"),
+    ("4.8.1","Acero vigas de cubierta","KG","1 593.8","RECALCULADO (tabla masas)"),
     ("5.1.1","Muros bloque No.4","M2","402.75","por confirmar L"),
     ("5.1.2","Columneta de confinamiento","ML","168.20","por confirmar cant."),
     ("5.1.4","Pañete liso impermeabilizado","M2","261.79","verificado"),
-    ("5.2.1","Acero mampostería confinada","KG","530.1","cartilla"),
+    ("5.2.1","Acero mampostería confinada","KG","374.6","RECALCULADO (estimación)"),
     ("8.1.1","Adoquín en concreto","M2","115.30","por confirmar áreas"),
 ]
 tb = doc.add_table(rows=1, cols=5); tb.style="Medium Shading 1 Accent 1"
