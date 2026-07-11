@@ -10,19 +10,16 @@ Este documento acompaña al archivo **`Parcial Project 2 - RESUELTO.xml`** (form
 4. Acepta importar como **proyecto nuevo**. Verás el Gantt, la Hoja de recursos y las asignaciones ya cargadas.
 5. Verifica el total en **Proyecto → Información del proyecto → Estadísticas**: debe dar **≈ $39.080.104**.
 
-> **Nota importante sobre cómo quedaron cargados los costos en el archivo.**
-> Al importar desde XML, MS Project **no respeta el costo de los recursos tipo *Costo/Material***
-> (los importa en $0). Para que el **total quede exacto**, en este archivo:
-> - **Materiales + Costos** (equipos, herramienta, andamios…) se cargaron como **Costo fijo**
->   (columna *Costo fijo* de cada actividad). MS Project siempre suma el Costo fijo.
-> - **Mano de obra** quedó como recurso de **Trabajo** (tasa × horas), conservando el
->   **factor multiplicador**.
+> **Cómo quedó la Hoja de recursos.**
+> Todos los recursos están con su tipo real (igual que el APU):
+> - **Material** (Puntilla, concreto, acero, bloque…) con su **Tasa** = *V. Unitario*.
+> - **Costo** (herramienta menor, equipos, andamios, volquetas…) con acumulación *Prorrateo*.
+> - **Trabajo** (mano de obra) con su **Tasa/hora** = *V. Unitario* y el **factor multiplicador**
+>   como % de unidades.
 >
-> Así, **Costo de cada tarea = Costo fijo (materiales+costos) + mano de obra = valor del ítem**.
-> El detalle de cada material/costo (itemizado) está en el Excel `FORMATO ... - RESUELTO.xlsx`
-> (TABLA PROJECT). Si tu profesor exige ver los materiales como *recursos* en la Hoja de
-> recursos de Project, la forma confiable es ingresarlos a mano dentro de MS Project usando
-> los valores de la sección 3 (al teclear los datos, Project sí calcula bien).
+> Cada recurso está asignado a su actividad con la cantidad/costo del APU, replicando la
+> estructura del archivo original (los materiales llevan *unidades = Cant. Total* y
+> *trabajo = Cant. Total* en horas). El total del proyecto = **$39.080.102**.
 
 ## 2. Metodología usada (la del formato del profesor)
 

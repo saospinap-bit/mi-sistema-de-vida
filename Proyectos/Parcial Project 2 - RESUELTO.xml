@@ -39,7 +39,7 @@
     <MoveCompletedEndsForward>0</MoveCompletedEndsForward>
     <BaselineForEarnedValue>0</BaselineForEarnedValue>
     <AutoAddNewResourcesAndTasks>1</AutoAddNewResourcesAndTasks>
-    <CurrentDate>2026-07-11T02:34:07</CurrentDate>
+    <CurrentDate>2026-07-11T03:27:43</CurrentDate>
     <MicrosoftProjectServerURL>1</MicrosoftProjectServerURL>
     <Autolink>1</Autolink>
     <NewTaskStartDate>0</NewTaskStartDate>
@@ -217,7 +217,7 @@
             <ID>3</ID>
             <Name>Inicio del proyecto</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.1.1</WBS>
@@ -248,15 +248,13 @@
             <HideBar>0</HideBar>
             <Rollup>0</Rollup>
             <EarnedValueMethod>0</EarnedValueMethod>
-            <ManualStart>2026-07-06T08:00:00</ManualStart>
-            <ManualFinish>2026-07-06T08:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>4</UID>
             <ID>4</ID>
             <Name>localización y replanteo</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.1.2</WBS>
@@ -278,7 +276,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>10900454</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT16H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -296,8 +293,6 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-07-06T08:00:00</ManualStart>
-            <ManualFinish>2026-07-07T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>5</UID>
@@ -340,7 +335,7 @@
             <ID>6</ID>
             <Name>Excavación en tierra a mano, no incluye retiro</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.1</WBS>
@@ -362,7 +357,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>994974</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT16H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -380,15 +374,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-07-08T08:00:00</ManualStart>
-            <ManualFinish>2026-07-09T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>7</UID>
             <ID>7</ID>
             <Name>Retiro material sobrante</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.2</WBS>
@@ -410,7 +402,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>5802375</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -428,15 +419,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-07-10T08:00:00</ManualStart>
-            <ManualFinish>2026-07-10T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>8</UID>
             <ID>8</ID>
             <Name>Solado e=0.05m</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.3</WBS>
@@ -458,7 +447,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>39729325</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT32H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -476,15 +464,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-07-13T08:00:00</ManualStart>
-            <ManualFinish>2026-07-16T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>9</UID>
             <ID>9</ID>
             <Name>Relleno y compactación cimientos material importado solado e=0.05 m</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.4</WBS>
@@ -506,7 +492,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>15563600</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT24H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -524,15 +509,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-07-17T08:00:00</ManualStart>
-            <ManualFinish>2026-07-21T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>10</UID>
             <ID>10</ID>
             <Name>Figurado y armada acero 60000 psi vaciado zapatas en concreto de 3000 psi</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.5</WBS>
@@ -554,7 +537,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>215191439</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT48H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -572,15 +554,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-07-22T08:00:00</ManualStart>
-            <ManualFinish>2026-07-29T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>11</UID>
             <ID>11</ID>
             <Name>Viga de cimentación de 3000 psi (0.25x0.25)</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.6</WBS>
@@ -602,7 +582,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>145570369</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -620,15 +599,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-07-30T08:00:00</ManualStart>
-            <ManualFinish>2026-07-30T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>12</UID>
             <ID>12</ID>
             <Name>Losa de contrapiso en concreto 3000 psi, e=0.1m</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.7</WBS>
@@ -650,7 +627,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>362822400</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -668,8 +644,6 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-07-31T08:00:00</ManualStart>
-            <ManualFinish>2026-07-31T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>13</UID>
@@ -712,7 +686,7 @@
             <ID>14</ID>
             <Name>Figurado y armada acero de Columnas primer piso</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.3.1</WBS>
@@ -734,7 +708,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>117493559</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT32H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -752,15 +725,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-08-03T08:00:00</ManualStart>
-            <ManualFinish>2026-08-06T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>15</UID>
             <ID>15</ID>
             <Name>Encofrado y vaciado columnas primer piso</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.3.2</WBS>
@@ -782,7 +753,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>101839036</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT32H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -800,15 +770,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-08-07T08:00:00</ManualStart>
-            <ManualFinish>2026-08-12T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>16</UID>
             <ID>16</ID>
             <Name>Figurado y armada acero losa entrepiso</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.3.3</WBS>
@@ -830,7 +798,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>66043088</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT16H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -848,15 +815,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-08-13T08:00:00</ManualStart>
-            <ManualFinish>2026-08-14T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>17</UID>
             <ID>17</ID>
             <Name>Losa de entrepiso concreto de 3000 psi e=0.05m incluye encofrado</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.3.4</WBS>
@@ -878,7 +843,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>296245780</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT80H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -896,8 +860,6 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-08-17T08:00:00</ManualStart>
-            <ManualFinish>2026-08-28T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>18</UID>
@@ -940,7 +902,7 @@
             <ID>19</ID>
             <Name>Muro en bloque cerámico (0.15x0.13x0.24)</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.4.1</WBS>
@@ -962,7 +924,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>447432585</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT64H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -980,15 +941,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-08-31T08:00:00</ManualStart>
-            <ManualFinish>2026-09-09T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>20</UID>
             <ID>20</ID>
             <Name>Pañete en interiores primer piso, e=0.02 m, 1:3</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.4.2</WBS>
@@ -1010,7 +969,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>223449298</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT48H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -1028,8 +986,6 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-09-10T08:00:00</ManualStart>
-            <ManualFinish>2026-09-17T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>21</UID>
@@ -1072,7 +1028,7 @@
             <ID>22</ID>
             <Name>Suministro e instalación Perfil cajón HR C 120X60 mm - 1.5 mm C.16</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.1</WBS>
@@ -1094,7 +1050,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>325427826</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT24H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -1112,15 +1067,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-09-18T08:00:00</ManualStart>
-            <ManualFinish>2026-09-22T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>23</UID>
             <ID>23</ID>
             <Name>Suministro e instalación de lámina Policarbonato Alveolar 8mm</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.2</WBS>
@@ -1142,7 +1095,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>329883977</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT48H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -1160,15 +1112,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-09-23T08:00:00</ManualStart>
-            <ManualFinish>2026-09-30T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>24</UID>
             <ID>24</ID>
             <Name>Suministro e instalación de canaletas</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.3</WBS>
@@ -1190,7 +1140,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>90711762</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -1208,15 +1157,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-10-01T08:00:00</ManualStart>
-            <ManualFinish>2026-10-01T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>25</UID>
             <ID>25</ID>
             <Name>Bajante aguas lluvias</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.4</WBS>
@@ -1238,7 +1185,6 @@
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
-            <FixedCost>43635144</FixedCost>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
             <ConstraintType>0</ConstraintType>
@@ -1256,15 +1202,13 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-10-02T08:00:00</ManualStart>
-            <ManualFinish>2026-10-02T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>26</UID>
             <ID>26</ID>
             <Name>Final del proyecto</Name>
             <Active>1</Active>
-            <Manual>1</Manual>
+            <Manual>0</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.5</WBS>
@@ -1302,25 +1246,24 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
-            <ManualStart>2026-10-05T08:00:00</ManualStart>
-            <ManualFinish>2026-10-05T08:00:00</ManualFinish>
         </Task>
     </Tasks>
     <Resources>
         <Resource>
             <UID>1</UID>
             <ID>1</ID>
-            <Name>Mano de obra cuadrilla topografica</Name>
-            <Type>1</Type>
+            <Name>Puntilla 2" 1/2 a 3" 1/2</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
             <Start>2026-07-06T08:00:00</Start>
-            <Finish>2026-07-07T17:00:00</Finish>
+            <Finish>2026-07-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>25904.41</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>2100</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
@@ -1330,17 +1273,18 @@
         <Resource>
             <UID>2</UID>
             <ID>2</ID>
-            <Name>Mano de obra cuadrilla aa</Name>
-            <Type>1</Type>
+            <Name>Madera medio cerco</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-07-08T08:00:00</Start>
-            <Finish>2026-08-14T17:00:00</Finish>
+            <Start>2026-07-06T08:00:00</Start>
+            <Finish>2026-07-07T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>15527.06</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>3900</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
@@ -1350,56 +1294,59 @@
         <Resource>
             <UID>3</UID>
             <ID>3</ID>
-            <Name>Mano de obra albeñeleria 1A</Name>
-            <Type>1</Type>
+            <Name>Herramienta menor</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-07-17T08:00:00</Start>
-            <Finish>2026-07-21T17:00:00</Finish>
+            <Start>2026-07-06T08:00:00</Start>
+            <Finish>2026-07-07T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>6500</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
             <UID>4</UID>
             <ID>4</ID>
-            <Name>Mano de obra cuadrilla aa 2+1</Name>
-            <Type>1</Type>
+            <Name>Equipo topografico precision</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-07-30T08:00:00</Start>
-            <Finish>2026-08-12T17:00:00</Finish>
+            <Start>2026-07-06T08:00:00</Start>
+            <Finish>2026-07-07T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>20839.2</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
             <UID>5</UID>
             <ID>5</ID>
-            <Name>Mano de obra albañeleria 3a 1o</Name>
+            <Name>Mano de obra cuadrilla topografica</Name>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-07-31T08:00:00</Start>
-            <Finish>2026-07-31T17:00:00</Finish>
+            <Start>2026-07-06T08:00:00</Start>
+            <Finish>2026-07-07T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>28600</StandardRate>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>25904.41</StandardRate>
             <StandardRateFormat>2</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
@@ -1410,36 +1357,38 @@
         <Resource>
             <UID>6</UID>
             <ID>6</ID>
-            <Name>mano de obra cuadrilla aa 3+1</Name>
-            <Type>1</Type>
+            <Name>Herramienta menor 2</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-08-17T08:00:00</Start>
-            <Finish>2026-08-28T17:00:00</Finish>
+            <Start>2026-07-08T08:00:00</Start>
+            <Finish>2026-07-09T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>26151.34</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
             <UID>7</UID>
             <ID>7</ID>
-            <Name>mano de obra cuadrilla aa 5</Name>
+            <Name>Mano de obra cuadrilla aa</Name>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-08-31T08:00:00</Start>
-            <Finish>2026-09-09T17:00:00</Finish>
+            <Start>2026-07-08T08:00:00</Start>
+            <Finish>2026-08-14T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>11587.15</StandardRate>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>15527.06</StandardRate>
             <StandardRateFormat>2</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
@@ -1450,77 +1399,81 @@
         <Resource>
             <UID>8</UID>
             <ID>8</ID>
-            <Name>mano de obra cuadrilla aa 6</Name>
-            <Type>1</Type>
+            <Name>Escombrera</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-09-10T08:00:00</Start>
-            <Finish>2026-09-17T17:00:00</Finish>
+            <Start>2026-07-10T08:00:00</Start>
+            <Finish>2026-07-10T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>15527.06</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
             <UID>9</UID>
             <ID>9</ID>
-            <Name>Mano obra albañilería 2 ayudante</Name>
-            <Type>1</Type>
+            <Name>volqueta</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-09-18T08:00:00</Start>
-            <Finish>2026-09-22T17:00:00</Finish>
+            <Start>2026-07-10T08:00:00</Start>
+            <Finish>2026-07-10T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>10624.8</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
             <UID>10</UID>
             <ID>10</ID>
-            <Name>Mano obra carp.taller ayudante‑1 ofi</Name>
-            <Type>1</Type>
+            <Name>Herramienta menor 3</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-09-18T08:00:00</Start>
-            <Finish>2026-09-22T17:00:00</Finish>
+            <Start>2026-07-10T08:00:00</Start>
+            <Finish>2026-07-10T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>23369.89</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
             <UID>11</UID>
             <ID>11</ID>
-            <Name>Mano obra pintura 1 ayudante‑1 ofi</Name>
-            <Type>1</Type>
+            <Name>Mezcla de concreto pobre de 3000psi</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-09-18T08:00:00</Start>
-            <Finish>2026-09-22T17:00:00</Finish>
+            <Start>2026-07-13T08:00:00</Start>
+            <Finish>2026-07-16T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>17323.9</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>277197.13</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
@@ -1530,37 +1483,39 @@
         <Resource>
             <UID>12</UID>
             <ID>12</ID>
-            <Name>Mano obra albañilería 2 ayudante‑1 ofi</Name>
-            <Type>1</Type>
+            <Name>Herramienta menor 4</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-09-23T08:00:00</Start>
-            <Finish>2026-09-30T17:00:00</Finish>
+            <Start>2026-07-13T08:00:00</Start>
+            <Finish>2026-07-16T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>20839.2</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
             <UID>13</UID>
             <ID>13</ID>
-            <Name>Mano obra albañilería 3 ayudante‑1 oficina</Name>
-            <Type>1</Type>
+            <Name>Material de rio sucio-tierra</Name>
+            <Type>0</Type>
             <IsNull>0</IsNull>
             <MaxUnits>1</MaxUnits>
             <PeakUnits>1</PeakUnits>
             <OverAllocated>0</OverAllocated>
-            <Start>2026-10-01T08:00:00</Start>
-            <Finish>2026-10-01T17:00:00</Finish>
+            <Start>2026-07-17T08:00:00</Start>
+            <Finish>2026-07-21T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>26151.34</StandardRate>
-            <StandardRateFormat>2</StandardRateFormat>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>8000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
@@ -1570,6 +1525,1413 @@
         <Resource>
             <UID>14</UID>
             <ID>14</ID>
+            <Name>Mano de obra albeñeleria 1A</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-17T08:00:00</Start>
+            <Finish>2026-07-21T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>6500</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>15</UID>
+            <ID>15</ID>
+            <Name>Pison</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-17T08:00:00</Start>
+            <Finish>2026-07-21T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>16</UID>
+            <ID>16</ID>
+            <Name>Volqueta transporte petreos 1-10 km</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-17T08:00:00</Start>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>17</UID>
+            <ID>17</ID>
+            <Name>Acero de 420 Mpa</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-22T08:00:00</Start>
+            <Finish>2026-08-14T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>2083.33</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>18</UID>
+            <ID>18</ID>
+            <Name>Alambre negro</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-22T08:00:00</Start>
+            <Finish>2026-08-14T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>3500</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>19</UID>
+            <ID>19</ID>
+            <Name>Segueta sin marco</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-22T08:00:00</Start>
+            <Finish>2026-08-14T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>3522</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>20</UID>
+            <ID>20</ID>
+            <Name>Herramienta menor 5</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-22T08:00:00</Start>
+            <Finish>2026-07-29T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>21</UID>
+            <ID>21</ID>
+            <Name>Tabla 1x 10 x 300 otobo</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-30T08:00:00</Start>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>10600</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>22</UID>
+            <ID>22</ID>
+            <Name>Vareta 2" x 2" x 3m otobo</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-30T08:00:00</Start>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>3200</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>23</UID>
+            <ID>23</ID>
+            <Name>Mezcla concreto 3000 psi</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-30T08:00:00</Start>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>337000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>24</UID>
+            <ID>24</ID>
+            <Name>Mano de obra cuadrilla aa 2+1</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-30T08:00:00</Start>
+            <Finish>2026-08-12T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>20839.2</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>25</UID>
+            <ID>25</ID>
+            <Name>vibrador electrico</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-30T08:00:00</Start>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>26</UID>
+            <ID>26</ID>
+            <Name>Herramienta menor 6</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-30T08:00:00</Start>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>27</UID>
+            <ID>27</ID>
+            <Name>Puntilla 2"</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-31T08:00:00</Start>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>2000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>28</UID>
+            <ID>28</ID>
+            <Name>Tabla 1 x 10 x 300</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-31T08:00:00</Start>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>8500</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>29</UID>
+            <ID>29</ID>
+            <Name>Mezcla de concreto 1:2:3 21 Mpa</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-31T08:00:00</Start>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>337000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>30</UID>
+            <ID>30</ID>
+            <Name>Mano de obra albañeleria 3a 1o</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-31T08:00:00</Start>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>28600</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>31</UID>
+            <ID>31</ID>
+            <Name>Herramienta menor 7</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-07-31T08:00:00</Start>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>32</UID>
+            <ID>32</ID>
+            <Name>Herramienta menor 8</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-03T08:00:00</Start>
+            <Finish>2026-08-06T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>33</UID>
+            <ID>33</ID>
+            <Name>Mezcla concreto de 3000 psi</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-07T08:00:00</Start>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>337000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>34</UID>
+            <ID>34</ID>
+            <Name>formaleta</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-07T08:00:00</Start>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>35</UID>
+            <ID>35</ID>
+            <Name>andamios</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-07T08:00:00</Start>
+            <Finish>2026-08-12T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>36</UID>
+            <ID>36</ID>
+            <Name>Herramienta menor 9</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-07T08:00:00</Start>
+            <Finish>2026-08-12T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>37</UID>
+            <ID>37</ID>
+            <Name>Herramienta menor 10</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-13T08:00:00</Start>
+            <Finish>2026-08-14T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>38</UID>
+            <ID>38</ID>
+            <Name>Caseton de guadua</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-17T08:00:00</Start>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>9726.49</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>39</UID>
+            <ID>39</ID>
+            <Name>Andamio</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-17T08:00:00</Start>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>40</UID>
+            <ID>40</ID>
+            <Name>Herramienta menor 11</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-17T08:00:00</Start>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>41</UID>
+            <ID>41</ID>
+            <Name>mano de obra cuadrilla aa 3+1</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-17T08:00:00</Start>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>26151.34</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>42</UID>
+            <ID>42</ID>
+            <Name>Impermeable sika imprimante</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-31T08:00:00</Start>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>6200</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>43</UID>
+            <ID>43</ID>
+            <Name>Bloque ceramico</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-31T08:00:00</Start>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>680</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>44</UID>
+            <ID>44</ID>
+            <Name>Mortero de pega 1:4</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-31T08:00:00</Start>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>312000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>45</UID>
+            <ID>45</ID>
+            <Name>Herramienta menor 12</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-31T08:00:00</Start>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>46</UID>
+            <ID>46</ID>
+            <Name>Mezcla grouting 3000psi</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-31T08:00:00</Start>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>337000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>47</UID>
+            <ID>47</ID>
+            <Name>mano de obra cuadrilla aa 5</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-08-31T08:00:00</Start>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>11587.15</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>48</UID>
+            <ID>48</ID>
+            <Name>mano de obra cuadrilla aa 6</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-10T08:00:00</Start>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>15527.06</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>49</UID>
+            <ID>49</ID>
+            <Name>Herramienta menor 13</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-10T08:00:00</Start>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>50</UID>
+            <ID>50</ID>
+            <Name>Volqueta transporte materiales petreos</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-10T08:00:00</Start>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>51</UID>
+            <ID>51</ID>
+            <Name>Thinner</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>15500</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>52</UID>
+            <ID>52</ID>
+            <Name>Anticorrosivo rojo</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>24000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>53</UID>
+            <ID>53</ID>
+            <Name>Soldadura 6011 x 1/8”</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>8100</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>54</UID>
+            <ID>54</ID>
+            <Name>Perfil hr c120mmx60mm‑1.5</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>56900</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>55</UID>
+            <ID>55</ID>
+            <Name>Mano obra albañilería 2 ayudante</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>10624.8</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>56</UID>
+            <ID>56</ID>
+            <Name>Mano obra carp.taller ayudante‑1 ofi</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>23369.89</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>57</UID>
+            <ID>57</ID>
+            <Name>Mano obra pintura 1 ayudante‑1 ofi</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>17323.9</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>58</UID>
+            <ID>58</ID>
+            <Name>Pulidora con piedra o disco</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>59</UID>
+            <ID>59</ID>
+            <Name>Soldador eléctrico</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>60</UID>
+            <ID>60</ID>
+            <Name>Oxicorte (oxígeno‑acetileno)</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>61</UID>
+            <ID>61</ID>
+            <Name>Andamio metálico tubular</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>62</UID>
+            <ID>62</ID>
+            <Name>Herramienta menor 14</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-18T08:00:00</Start>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>63</UID>
+            <ID>63</ID>
+            <Name>Torn autoge. 3/4x‑3/16</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-23T08:00:00</Start>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>252</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>64</UID>
+            <ID>64</ID>
+            <Name>Lámina policarbonato 8 mm</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-23T08:00:00</Start>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>552900</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>65</UID>
+            <ID>65</ID>
+            <Name>Remate u 6x2010 mm policarb</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-23T08:00:00</Start>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>8750</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>66</UID>
+            <ID>66</ID>
+            <Name>Silicona transparent. 11 oz</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-23T08:00:00</Start>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>8900</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>67</UID>
+            <ID>67</ID>
+            <Name>Cinta aluminio industrial</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-23T08:00:00</Start>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>61000</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>68</UID>
+            <ID>68</ID>
+            <Name>Mano obra albañilería 2 ayudante‑1 ofi</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-23T08:00:00</Start>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>20839.2</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>69</UID>
+            <ID>69</ID>
+            <Name>Herramienta menor 15</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-23T08:00:00</Start>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>70</UID>
+            <ID>70</ID>
+            <Name>Cruceta andamio</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-09-23T08:00:00</Start>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>71</UID>
+            <ID>71</ID>
+            <Name>Igas gris (sellante) 5 kg</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-01T08:00:00</Start>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>13100</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>72</UID>
+            <ID>72</ID>
+            <Name>Canaleta 43 de 4.00</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-01T08:00:00</Start>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>115810</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>73</UID>
+            <ID>73</ID>
+            <Name>Torn met. Canaleta 43</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-01T08:00:00</Start>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>2600</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>74</UID>
+            <ID>74</ID>
+            <Name>Mano obra albañilería 3 ayudante‑1 oficina</Name>
+            <Type>1</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-01T08:00:00</Start>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>26151.34</StandardRate>
+            <StandardRateFormat>2</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>75</UID>
+            <ID>75</ID>
+            <Name>Herramienta menor 16</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-01T08:00:00</Start>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>76</UID>
+            <ID>76</ID>
+            <Name>Bajante pvc cuadrado</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-02T08:00:00</Start>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>63896</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>77</UID>
+            <ID>77</ID>
+            <Name>Bajante pvc soporte</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-02T08:00:00</Start>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>2700</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>78</UID>
+            <ID>78</ID>
+            <Name>Soldadura pvc 1/4 gls</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-02T08:00:00</Start>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>78400</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>79</UID>
+            <ID>79</ID>
+            <Name>Torn p/mad 1 x 6</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-02T08:00:00</Start>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>29</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>80</UID>
+            <ID>80</ID>
+            <Name>Limpiador pvc 760‑g 1/4 gl</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-02T08:00:00</Start>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRate>38400</StandardRate>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsBudget>0</IsBudget>
+        </Resource>
+        <Resource>
+            <UID>81</UID>
+            <ID>81</ID>
             <Name>Mano obra albañilería 1 ayudante‑1 ofi</Name>
             <Type>1</Type>
             <IsNull>0</IsNull>
@@ -1579,6 +2941,7 @@
             <Start>2026-10-02T08:00:00</Start>
             <Finish>2026-10-02T17:00:00</Finish>
             <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
             <StandardRate>15527.06</StandardRate>
             <StandardRateFormat>2</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
@@ -1587,287 +2950,1530 @@
             <IsEnterprise>0</IsEnterprise>
             <IsBudget>0</IsBudget>
         </Resource>
+        <Resource>
+            <UID>82</UID>
+            <ID>82</ID>
+            <Name>Herramienta menor 17</Name>
+            <Type>0</Type>
+            <IsNull>0</IsNull>
+            <MaxUnits>1</MaxUnits>
+            <PeakUnits>1</PeakUnits>
+            <OverAllocated>0</OverAllocated>
+            <Start>2026-10-02T08:00:00</Start>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <CanLevel>0</CanLevel>
+            <AccrueAt>3</AccrueAt>
+            <StandardRateFormat>8</StandardRateFormat>
+            <OvertimeRateFormat>2</OvertimeRateFormat>
+            <IsGeneric>0</IsGeneric>
+            <IsInactive>0</IsInactive>
+            <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
+            <IsBudget>0</IsBudget>
+        </Resource>
     </Resources>
     <Assignments>
         <Assignment>
             <UID>1</UID>
             <TaskUID>4</TaskUID>
             <ResourceUID>1</ResourceUID>
+            <Cost>151200</Cost>
+            <Finish>2026-07-07T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT0H43M12S</RemainingWork>
+            <Start>2026-07-06T08:00:00</Start>
+            <Units>0.72</Units>
+            <Work>PT0H43M12S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>2</UID>
+            <TaskUID>4</TaskUID>
+            <ResourceUID>2</ResourceUID>
+            <Cost>5616000</Cost>
+            <Finish>2026-07-07T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT14H24M0S</RemainingWork>
+            <Start>2026-07-06T08:00:00</Start>
+            <Units>14.4</Units>
+            <Work>PT14H24M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>3</UID>
+            <TaskUID>4</TaskUID>
+            <ResourceUID>3</ResourceUID>
+            <Cost>93254</Cost>
+            <Finish>2026-07-07T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>93254</RemainingCost>
+            <Start>2026-07-06T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>4</UID>
+            <TaskUID>4</TaskUID>
+            <ResourceUID>4</ResourceUID>
+            <Cost>5040000</Cost>
+            <Finish>2026-07-07T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>5040000</RemainingCost>
+            <Start>2026-07-06T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>5</UID>
+            <TaskUID>4</TaskUID>
+            <ResourceUID>5</ResourceUID>
             <Cost>1865118</Cost>
             <Finish>2026-07-07T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1865118</RemainingCost>
             <RemainingWork>PT0H43M12S</RemainingWork>
             <Start>2026-07-06T08:00:00</Start>
             <Units>0.045</Units>
             <Work>PT0H43M12S</Work>
         </Assignment>
         <Assignment>
-            <UID>2</UID>
+            <UID>6</UID>
             <TaskUID>6</TaskUID>
-            <ResourceUID>2</ResourceUID>
+            <ResourceUID>6</ResourceUID>
+            <Cost>994974</Cost>
+            <Finish>2026-07-09T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>994974</RemainingCost>
+            <Start>2026-07-08T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>7</UID>
+            <TaskUID>6</TaskUID>
+            <ResourceUID>7</ResourceUID>
             <Cost>19899480</Cost>
             <Finish>2026-07-09T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>19899480</RemainingCost>
             <RemainingWork>PT12H48M58S</RemainingWork>
             <Start>2026-07-08T08:00:00</Start>
             <Units>0.801</Units>
             <Work>PT12H48M58S</Work>
         </Assignment>
         <Assignment>
-            <UID>3</UID>
+            <UID>8</UID>
             <TaskUID>7</TaskUID>
-            <ResourceUID>2</ResourceUID>
+            <ResourceUID>8</ResourceUID>
+            <Cost>2303798</Cost>
+            <Finish>2026-07-10T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2303798</RemainingCost>
+            <Start>2026-07-10T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>9</UID>
+            <TaskUID>7</TaskUID>
+            <ResourceUID>7</ResourceUID>
             <Cost>3434586</Cost>
             <Finish>2026-07-10T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3434586</RemainingCost>
             <RemainingWork>PT2H12M43S</RemainingWork>
             <Start>2026-07-10T08:00:00</Start>
             <Units>0.2765</Units>
             <Work>PT2H12M43S</Work>
         </Assignment>
         <Assignment>
-            <UID>4</UID>
+            <UID>10</UID>
+            <TaskUID>7</TaskUID>
+            <ResourceUID>9</ResourceUID>
+            <Cost>3326848</Cost>
+            <Finish>2026-07-10T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3326848</RemainingCost>
+            <Start>2026-07-10T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>11</UID>
+            <TaskUID>7</TaskUID>
+            <ResourceUID>10</ResourceUID>
+            <Cost>171729</Cost>
+            <Finish>2026-07-10T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>171729</RemainingCost>
+            <Start>2026-07-10T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>12</UID>
             <TaskUID>8</TaskUID>
-            <ResourceUID>2</ResourceUID>
+            <ResourceUID>11</ResourceUID>
+            <Cost>39103506</Cost>
+            <Finish>2026-07-16T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT1H24M38S</RemainingWork>
+            <Start>2026-07-13T08:00:00</Start>
+            <Units>1.4107</Units>
+            <Work>PT1H24M38S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>13</UID>
+            <TaskUID>8</TaskUID>
+            <ResourceUID>7</ResourceUID>
             <Cost>12516363</Cost>
             <Finish>2026-07-16T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>12516363</RemainingCost>
             <RemainingWork>PT8H3M40S</RemainingWork>
             <Start>2026-07-13T08:00:00</Start>
             <Units>0.2519</Units>
             <Work>PT8H3M40S</Work>
         </Assignment>
         <Assignment>
-            <UID>5</UID>
+            <UID>14</UID>
+            <TaskUID>8</TaskUID>
+            <ResourceUID>12</ResourceUID>
+            <Cost>625818</Cost>
+            <Finish>2026-07-16T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>625818</RemainingCost>
+            <Start>2026-07-13T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>15</UID>
             <TaskUID>9</TaskUID>
-            <ResourceUID>3</ResourceUID>
+            <ResourceUID>13</ResourceUID>
+            <Cost>7872000</Cost>
+            <Finish>2026-07-21T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT9H50M24S</RemainingWork>
+            <Start>2026-07-17T08:00:00</Start>
+            <Units>9.84</Units>
+            <Work>PT9H50M24S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>16</UID>
+            <TaskUID>9</TaskUID>
+            <ResourceUID>14</ResourceUID>
             <Cost>10660000</Cost>
             <Finish>2026-07-21T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>10660000</RemainingCost>
             <RemainingWork>PT16H24M0S</RemainingWork>
             <Start>2026-07-17T08:00:00</Start>
             <Units>0.6833</Units>
             <Work>PT16H24M0S</Work>
         </Assignment>
         <Assignment>
-            <UID>6</UID>
+            <UID>17</UID>
+            <TaskUID>9</TaskUID>
+            <ResourceUID>15</ResourceUID>
+            <Cost>229600</Cost>
+            <Finish>2026-07-21T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>229600</RemainingCost>
+            <Start>2026-07-17T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>18</UID>
+            <TaskUID>9</TaskUID>
+            <ResourceUID>16</ResourceUID>
+            <Cost>7462000</Cost>
+            <Finish>2026-07-21T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>7462000</RemainingCost>
+            <Start>2026-07-17T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>19</UID>
             <TaskUID>10</TaskUID>
-            <ResourceUID>2</ResourceUID>
+            <ResourceUID>17</ResourceUID>
+            <Cost>176698363</Cost>
+            <Finish>2026-07-29T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT848H9M13S</RemainingWork>
+            <Start>2026-07-22T08:00:00</Start>
+            <Units>848.1535</Units>
+            <Work>PT848H9M13S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>20</UID>
+            <TaskUID>10</TaskUID>
+            <ResourceUID>18</ResourceUID>
+            <Cost>23056600</Cost>
+            <Finish>2026-07-29T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT65H52M34S</RemainingWork>
+            <Start>2026-07-22T08:00:00</Start>
+            <Units>65.876</Units>
+            <Work>PT65H52M34S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>21</UID>
+            <TaskUID>10</TaskUID>
+            <ResourceUID>7</ResourceUID>
             <Cost>76714545</Cost>
             <Finish>2026-07-29T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>76714545</RemainingCost>
             <RemainingWork>PT49H24M25S</RemainingWork>
             <Start>2026-07-22T08:00:00</Start>
             <Units>1.0293</Units>
             <Work>PT49H24M25S</Work>
         </Assignment>
         <Assignment>
-            <UID>7</UID>
+            <UID>22</UID>
+            <TaskUID>10</TaskUID>
+            <ResourceUID>19</ResourceUID>
+            <Cost>11600764</Cost>
+            <Finish>2026-07-29T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT32H56M17S</RemainingWork>
+            <Start>2026-07-22T08:00:00</Start>
+            <Units>32.938</Units>
+            <Work>PT32H56M17S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>23</UID>
+            <TaskUID>10</TaskUID>
+            <ResourceUID>20</ResourceUID>
+            <Cost>3835712</Cost>
+            <Finish>2026-07-29T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3835712</RemainingCost>
+            <Start>2026-07-22T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>24</UID>
             <TaskUID>11</TaskUID>
-            <ResourceUID>4</ResourceUID>
+            <ResourceUID>1</ResourceUID>
+            <Cost>709800</Cost>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT3H22M48S</RemainingWork>
+            <Start>2026-07-30T08:00:00</Start>
+            <Units>3.38</Units>
+            <Work>PT3H22M48S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>25</UID>
+            <TaskUID>11</TaskUID>
+            <ResourceUID>21</ResourceUID>
+            <Cost>19705400</Cost>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT18H35M24S</RemainingWork>
+            <Start>2026-07-30T08:00:00</Start>
+            <Units>18.59</Units>
+            <Work>PT18H35M24S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>26</UID>
+            <TaskUID>11</TaskUID>
+            <ResourceUID>22</ResourceUID>
+            <Cost>2887872</Cost>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT9H1M29S</RemainingWork>
+            <Start>2026-07-30T08:00:00</Start>
+            <Units>9.0246</Units>
+            <Work>PT9H1M29S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>27</UID>
+            <TaskUID>11</TaskUID>
+            <ResourceUID>23</ResourceUID>
+            <Cost>119601300</Cost>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT3H32M56S</RemainingWork>
+            <Start>2026-07-30T08:00:00</Start>
+            <Units>3.549</Units>
+            <Work>PT3H32M56S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>28</UID>
+            <TaskUID>11</TaskUID>
+            <ResourceUID>24</ResourceUID>
             <Cost>41557533</Cost>
             <Finish>2026-07-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>41557533</RemainingCost>
             <RemainingWork>PT19H56M31S</RemainingWork>
             <Start>2026-07-30T08:00:00</Start>
             <Units>2.4928</Units>
             <Work>PT19H56M31S</Work>
         </Assignment>
         <Assignment>
-            <UID>8</UID>
+            <UID>29</UID>
+            <TaskUID>11</TaskUID>
+            <ResourceUID>25</ResourceUID>
+            <Cost>588120</Cost>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>588120</RemainingCost>
+            <Start>2026-07-30T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>30</UID>
+            <TaskUID>11</TaskUID>
+            <ResourceUID>26</ResourceUID>
+            <Cost>2077877</Cost>
+            <Finish>2026-07-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2077877</RemainingCost>
+            <Start>2026-07-30T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>31</UID>
             <TaskUID>12</TaskUID>
-            <ResourceUID>5</ResourceUID>
+            <ResourceUID>27</ResourceUID>
+            <Cost>2880000</Cost>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT14H24M0S</RemainingWork>
+            <Start>2026-07-31T08:00:00</Start>
+            <Units>14.4</Units>
+            <Work>PT14H24M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>32</UID>
+            <TaskUID>12</TaskUID>
+            <ResourceUID>28</ResourceUID>
+            <Cost>61200000</Cost>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT72H0M0S</RemainingWork>
+            <Start>2026-07-31T08:00:00</Start>
+            <Units>72</Units>
+            <Work>PT72H0M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>33</UID>
+            <TaskUID>12</TaskUID>
+            <ResourceUID>29</ResourceUID>
+            <Cost>279036000</Cost>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT8H16M48S</RemainingWork>
+            <Start>2026-07-31T08:00:00</Start>
+            <Units>8.28</Units>
+            <Work>PT8H16M48S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>34</UID>
+            <TaskUID>12</TaskUID>
+            <ResourceUID>30</ResourceUID>
             <Cost>51480000</Cost>
             <Finish>2026-07-31T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>51480000</RemainingCost>
             <RemainingWork>PT18H0M0S</RemainingWork>
             <Start>2026-07-31T08:00:00</Start>
             <Units>2.25</Units>
             <Work>PT18H0M0S</Work>
         </Assignment>
         <Assignment>
-            <UID>9</UID>
+            <UID>35</UID>
+            <TaskUID>12</TaskUID>
+            <ResourceUID>25</ResourceUID>
+            <Cost>5040000</Cost>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>5040000</RemainingCost>
+            <Start>2026-07-31T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>36</UID>
+            <TaskUID>12</TaskUID>
+            <ResourceUID>16</ResourceUID>
+            <Cost>11340000</Cost>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>11340000</RemainingCost>
+            <Start>2026-07-31T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>37</UID>
+            <TaskUID>12</TaskUID>
+            <ResourceUID>31</ResourceUID>
+            <Cost>3326400</Cost>
+            <Finish>2026-07-31T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3326400</RemainingCost>
+            <Start>2026-07-31T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>38</UID>
             <TaskUID>14</TaskUID>
-            <ResourceUID>2</ResourceUID>
+            <ResourceUID>17</ResourceUID>
+            <Cost>96476512</Cost>
+            <Finish>2026-08-06T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT463H5M17S</RemainingWork>
+            <Start>2026-08-03T08:00:00</Start>
+            <Units>463.088</Units>
+            <Work>PT463H5M17S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>39</UID>
+            <TaskUID>14</TaskUID>
+            <ResourceUID>18</ResourceUID>
+            <Cost>12588800</Cost>
+            <Finish>2026-08-06T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT35H58M5S</RemainingWork>
+            <Start>2026-08-03T08:00:00</Start>
+            <Units>35.968</Units>
+            <Work>PT35H58M5S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>40</UID>
+            <TaskUID>14</TaskUID>
+            <ResourceUID>7</ResourceUID>
             <Cost>41885797</Cost>
             <Finish>2026-08-06T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>41885797</RemainingCost>
             <RemainingWork>PT26H58M34S</RemainingWork>
             <Start>2026-08-03T08:00:00</Start>
             <Units>0.843</Units>
             <Work>PT26H58M34S</Work>
         </Assignment>
         <Assignment>
-            <UID>10</UID>
+            <UID>41</UID>
+            <TaskUID>14</TaskUID>
+            <ResourceUID>19</ResourceUID>
+            <Cost>6333965</Cost>
+            <Finish>2026-08-06T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT17H59M2S</RemainingWork>
+            <Start>2026-08-03T08:00:00</Start>
+            <Units>17.984</Units>
+            <Work>PT17H59M2S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>42</UID>
+            <TaskUID>14</TaskUID>
+            <ResourceUID>32</ResourceUID>
+            <Cost>2094282</Cost>
+            <Finish>2026-08-06T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2094282</RemainingCost>
+            <Start>2026-08-03T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>43</UID>
             <TaskUID>15</TaskUID>
-            <ResourceUID>4</ResourceUID>
+            <ResourceUID>33</ResourceUID>
+            <Cost>87818830</Cost>
+            <Finish>2026-08-12T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT2H36M21S</RemainingWork>
+            <Start>2026-08-07T08:00:00</Start>
+            <Units>2.6059</Units>
+            <Work>PT2H36M21S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>44</UID>
+            <TaskUID>15</TaskUID>
+            <ResourceUID>34</ResourceUID>
+            <Cost>10836832</Cost>
+            <Finish>2026-08-12T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>10836832</RemainingCost>
+            <Start>2026-08-07T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>45</UID>
+            <TaskUID>15</TaskUID>
+            <ResourceUID>35</ResourceUID>
+            <Cost>880440</Cost>
+            <Finish>2026-08-12T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>880440</RemainingCost>
+            <Start>2026-08-07T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>46</UID>
+            <TaskUID>15</TaskUID>
+            <ResourceUID>36</ResourceUID>
+            <Cost>1950758</Cost>
+            <Finish>2026-08-12T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1950758</RemainingCost>
+            <Start>2026-08-07T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>47</UID>
+            <TaskUID>15</TaskUID>
+            <ResourceUID>25</ResourceUID>
+            <Cost>352176</Cost>
+            <Finish>2026-08-12T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>352176</RemainingCost>
+            <Start>2026-08-07T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>48</UID>
+            <TaskUID>15</TaskUID>
+            <ResourceUID>24</ResourceUID>
             <Cost>39015150</Cost>
             <Finish>2026-08-12T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>39015150</RemainingCost>
             <RemainingWork>PT18H43M19S</RemainingWork>
             <Start>2026-08-07T08:00:00</Start>
             <Units>0.5851</Units>
             <Work>PT18H43M19S</Work>
         </Assignment>
         <Assignment>
-            <UID>11</UID>
+            <UID>49</UID>
             <TaskUID>16</TaskUID>
-            <ResourceUID>2</ResourceUID>
+            <ResourceUID>17</ResourceUID>
+            <Cost>54229413</Cost>
+            <Finish>2026-08-14T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT260H18M6S</RemainingWork>
+            <Start>2026-08-13T08:00:00</Start>
+            <Units>260.3016</Units>
+            <Work>PT260H18M6S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>50</UID>
+            <TaskUID>16</TaskUID>
+            <ResourceUID>18</ResourceUID>
+            <Cost>7076160</Cost>
+            <Finish>2026-08-14T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT20H13M3S</RemainingWork>
+            <Start>2026-08-13T08:00:00</Start>
+            <Units>20.2176</Units>
+            <Work>PT20H13M3S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>51</UID>
+            <TaskUID>16</TaskUID>
+            <ResourceUID>7</ResourceUID>
             <Cost>23543992</Cost>
             <Finish>2026-08-14T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>23543992</RemainingCost>
             <RemainingWork>PT15H9M48S</RemainingWork>
             <Start>2026-08-13T08:00:00</Start>
             <Units>0.9477</Units>
             <Work>PT15H9M48S</Work>
         </Assignment>
         <Assignment>
-            <UID>12</UID>
+            <UID>52</UID>
+            <TaskUID>16</TaskUID>
+            <ResourceUID>19</ResourceUID>
+            <Cost>3560319</Cost>
+            <Finish>2026-08-14T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT10H6M32S</RemainingWork>
+            <Start>2026-08-13T08:00:00</Start>
+            <Units>10.1088</Units>
+            <Work>PT10H6M32S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>53</UID>
+            <TaskUID>16</TaskUID>
+            <ResourceUID>37</ResourceUID>
+            <Cost>1177195</Cost>
+            <Finish>2026-08-14T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1177195</RemainingCost>
+            <Start>2026-08-13T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>54</UID>
             <TaskUID>17</TaskUID>
-            <ResourceUID>6</ResourceUID>
+            <ResourceUID>33</ResourceUID>
+            <Cost>215346033</Cost>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT6H23M24S</RemainingWork>
+            <Start>2026-08-17T08:00:00</Start>
+            <Units>6.3901</Units>
+            <Work>PT6H23M24S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>55</UID>
+            <TaskUID>17</TaskUID>
+            <ResourceUID>38</ResourceUID>
+            <Cost>42281052</Cost>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT43H28M12S</RemainingWork>
+            <Start>2026-08-17T08:00:00</Start>
+            <Units>43.47</Units>
+            <Work>PT43H28M12S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>56</UID>
+            <TaskUID>17</TaskUID>
+            <ResourceUID>34</ResourceUID>
+            <Cost>18987448</Cost>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>18987448</RemainingCost>
+            <Start>2026-08-17T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>57</UID>
+            <TaskUID>17</TaskUID>
+            <ResourceUID>39</ResourceUID>
+            <Cost>1080540</Cost>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1080540</RemainingCost>
+            <Start>2026-08-17T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>58</UID>
+            <TaskUID>17</TaskUID>
+            <ResourceUID>40</ResourceUID>
+            <Cost>9906388</Cost>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>9906388</RemainingCost>
+            <Start>2026-08-17T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>59</UID>
+            <TaskUID>17</TaskUID>
+            <ResourceUID>25</ResourceUID>
+            <Cost>8644320</Cost>
+            <Finish>2026-08-28T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>8644320</RemainingCost>
+            <Start>2026-08-17T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>60</UID>
+            <TaskUID>17</TaskUID>
+            <ResourceUID>41</ResourceUID>
             <Cost>198127782</Cost>
             <Finish>2026-08-28T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>198127782</RemainingCost>
             <RemainingWork>PT75H45M43S</RemainingWork>
             <Start>2026-08-17T08:00:00</Start>
             <Units>0.947</Units>
             <Work>PT75H45M43S</Work>
         </Assignment>
         <Assignment>
-            <UID>13</UID>
+            <UID>61</UID>
             <TaskUID>19</TaskUID>
-            <ResourceUID>7</ResourceUID>
+            <ResourceUID>42</ResourceUID>
+            <Cost>26092080</Cost>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT42H5M2S</RemainingWork>
+            <Start>2026-08-31T08:00:00</Start>
+            <Units>42.084</Units>
+            <Work>PT42H5M2S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>62</UID>
+            <TaskUID>19</TaskUID>
+            <ResourceUID>43</ResourceUID>
+            <Cost>294756336</Cost>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT4334H39M7S</RemainingWork>
+            <Start>2026-08-31T08:00:00</Start>
+            <Units>4334.652</Units>
+            <Work>PT4334H39M7S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>63</UID>
+            <TaskUID>19</TaskUID>
+            <ResourceUID>44</ResourceUID>
+            <Cost>87534720</Cost>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT2H48M20S</RemainingWork>
+            <Start>2026-08-31T08:00:00</Start>
+            <Units>2.8056</Units>
+            <Work>PT2H48M20S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>64</UID>
+            <TaskUID>19</TaskUID>
+            <ResourceUID>45</ResourceUID>
+            <Cost>8125284</Cost>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>8125284</RemainingCost>
+            <Start>2026-08-31T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>65</UID>
+            <TaskUID>19</TaskUID>
+            <ResourceUID>46</ResourceUID>
+            <Cost>29215554</Cost>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT0H52M1S</RemainingWork>
+            <Start>2026-08-31T08:00:00</Start>
+            <Units>0.8669</Units>
+            <Work>PT0H52M1S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>66</UID>
+            <TaskUID>19</TaskUID>
+            <ResourceUID>39</ResourceUID>
+            <Cost>1708610</Cost>
+            <Finish>2026-09-09T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1708610</RemainingCost>
+            <Start>2026-08-31T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>67</UID>
+            <TaskUID>19</TaskUID>
+            <ResourceUID>47</ResourceUID>
             <Cost>162544540</Cost>
             <Finish>2026-09-09T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>162544540</RemainingCost>
             <RemainingWork>PT140H16M48S</RemainingWork>
             <Start>2026-08-31T08:00:00</Start>
             <Units>2.1919</Units>
             <Work>PT140H16M48S</Work>
         </Assignment>
         <Assignment>
-            <UID>14</UID>
+            <UID>68</UID>
             <TaskUID>20</TaskUID>
-            <ResourceUID>8</ResourceUID>
+            <ResourceUID>44</ResourceUID>
+            <Cost>192127572</Cost>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT6H9M29S</RemainingWork>
+            <Start>2026-09-10T08:00:00</Start>
+            <Units>6.1579</Units>
+            <Work>PT6H9M29S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>69</UID>
+            <TaskUID>20</TaskUID>
+            <ResourceUID>48</ResourceUID>
             <Cost>136592323</Cost>
             <Finish>2026-09-17T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>136592323</RemainingCost>
             <RemainingWork>PT87H58M14S</RemainingWork>
             <Start>2026-09-10T08:00:00</Start>
             <Units>1.8327</Units>
             <Work>PT87H58M14S</Work>
         </Assignment>
         <Assignment>
-            <UID>15</UID>
+            <UID>70</UID>
+            <TaskUID>20</TaskUID>
+            <ResourceUID>49</ResourceUID>
+            <Cost>6829619</Cost>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>6829619</RemainingCost>
+            <Start>2026-09-10T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>71</UID>
+            <TaskUID>20</TaskUID>
+            <ResourceUID>39</ResourceUID>
+            <Cost>2150390</Cost>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2150390</RemainingCost>
+            <Start>2026-09-10T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>72</UID>
+            <TaskUID>20</TaskUID>
+            <ResourceUID>50</ResourceUID>
+            <Cost>22341717</Cost>
+            <Finish>2026-09-17T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>22341717</RemainingCost>
+            <Start>2026-09-10T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>73</UID>
             <TaskUID>22</TaskUID>
-            <ResourceUID>9</ResourceUID>
+            <ResourceUID>51</ResourceUID>
+            <Cost>8184000</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT5H16M48S</RemainingWork>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>5.28</Units>
+            <Work>PT5H16M48S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>74</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>52</ResourceUID>
+            <Cost>20275200</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT8H26M53S</RemainingWork>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>8.448</Units>
+            <Work>PT8H26M53S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>75</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>53</ResourceUID>
+            <Cost>14198976</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT17H31M47S</RemainingWork>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>17.5296</Units>
+            <Work>PT17H31M47S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>76</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>54</ResourceUID>
+            <Cost>204293760</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT35H54M14S</RemainingWork>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>35.904</Units>
+            <Work>PT35H54M14S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>77</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>55</ResourceUID>
             <Cost>5609894</Cost>
             <Finish>2026-09-22T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>5609894</RemainingCost>
             <RemainingWork>PT5H16M48S</RemainingWork>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0.22</Units>
             <Work>PT5H16M48S</Work>
         </Assignment>
         <Assignment>
-            <UID>16</UID>
+            <UID>78</UID>
             <TaskUID>22</TaskUID>
-            <ResourceUID>10</ResourceUID>
+            <ResourceUID>56</ResourceUID>
             <Cost>123393019</Cost>
             <Finish>2026-09-22T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>123393019</RemainingCost>
             <RemainingWork>PT52H48M0S</RemainingWork>
             <Start>2026-09-18T08:00:00</Start>
             <Units>2.2</Units>
             <Work>PT52H48M0S</Work>
         </Assignment>
         <Assignment>
-            <UID>17</UID>
+            <UID>79</UID>
             <TaskUID>22</TaskUID>
-            <ResourceUID>11</ResourceUID>
+            <ResourceUID>57</ResourceUID>
             <Cost>18294038</Cost>
             <Finish>2026-09-22T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>18294038</RemainingCost>
             <RemainingWork>PT10H33M36S</RemainingWork>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0.44</Units>
             <Work>PT10H33M36S</Work>
         </Assignment>
         <Assignment>
-            <UID>18</UID>
+            <UID>80</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>58</ResourceUID>
+            <Cost>21964800</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>21964800</RemainingCost>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>81</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>59</ResourceUID>
+            <Cost>36368640</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>36368640</RemainingCost>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>82</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>60</ResourceUID>
+            <Cost>11616000</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>11616000</RemainingCost>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>83</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>61</ResourceUID>
+            <Cost>1161600</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1161600</RemainingCost>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>84</UID>
+            <TaskUID>22</TaskUID>
+            <ResourceUID>62</ResourceUID>
+            <Cost>7364850</Cost>
+            <Finish>2026-09-22T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>7364850</RemainingCost>
+            <Start>2026-09-18T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>85</UID>
             <TaskUID>23</TaskUID>
-            <ResourceUID>12</ResourceUID>
+            <ResourceUID>63</ResourceUID>
+            <Cost>1643040</Cost>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT65H12M0S</RemainingWork>
+            <Start>2026-09-23T08:00:00</Start>
+            <Units>65.2</Units>
+            <Work>PT65H12M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>86</UID>
+            <TaskUID>23</TaskUID>
+            <ResourceUID>64</ResourceUID>
+            <Cost>298558481</Cost>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT5H24M0S</RemainingWork>
+            <Start>2026-09-23T08:00:00</Start>
+            <Units>5.3999</Units>
+            <Work>PT5H24M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>87</UID>
+            <TaskUID>23</TaskUID>
+            <ResourceUID>65</ResourceUID>
+            <Cost>8842750</Cost>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT10H6M22S</RemainingWork>
+            <Start>2026-09-23T08:00:00</Start>
+            <Units>10.106</Units>
+            <Work>PT10H6M22S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>88</UID>
+            <TaskUID>23</TaskUID>
+            <ResourceUID>66</ResourceUID>
+            <Cost>580280</Cost>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT0H39M7S</RemainingWork>
+            <Start>2026-09-23T08:00:00</Start>
+            <Units>0.652</Units>
+            <Work>PT0H39M7S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>89</UID>
+            <TaskUID>23</TaskUID>
+            <ResourceUID>67</ResourceUID>
+            <Cost>11931600</Cost>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT1H57M22S</RemainingWork>
+            <Start>2026-09-23T08:00:00</Start>
+            <Units>1.956</Units>
+            <Work>PT1H57M22S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>90</UID>
+            <TaskUID>23</TaskUID>
+            <ResourceUID>68</ResourceUID>
             <Cost>88316530</Cost>
             <Finish>2026-09-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>88316530</RemainingCost>
             <RemainingWork>PT42H22M48S</RemainingWork>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0.8829</Units>
             <Work>PT42H22M48S</Work>
         </Assignment>
         <Assignment>
-            <UID>19</UID>
+            <UID>91</UID>
+            <TaskUID>23</TaskUID>
+            <ResourceUID>69</ResourceUID>
+            <Cost>4415826</Cost>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>4415826</RemainingCost>
+            <Start>2026-09-23T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>92</UID>
+            <TaskUID>23</TaskUID>
+            <ResourceUID>61</ResourceUID>
+            <Cost>3586000</Cost>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3586000</RemainingCost>
+            <Start>2026-09-23T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>93</UID>
+            <TaskUID>23</TaskUID>
+            <ResourceUID>70</ResourceUID>
+            <Cost>326000</Cost>
+            <Finish>2026-09-30T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>326000</RemainingCost>
+            <Start>2026-09-23T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>94</UID>
             <TaskUID>24</TaskUID>
-            <ResourceUID>13</ResourceUID>
+            <ResourceUID>71</ResourceUID>
+            <Cost>1886400</Cost>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT1H26M24S</RemainingWork>
+            <Start>2026-10-01T08:00:00</Start>
+            <Units>1.44</Units>
+            <Work>PT1H26M24S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>95</UID>
+            <TaskUID>24</TaskUID>
+            <ResourceUID>72</ResourceUID>
+            <Cost>83383200</Cost>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT7H12M0S</RemainingWork>
+            <Start>2026-10-01T08:00:00</Start>
+            <Units>7.2</Units>
+            <Work>PT7H12M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>96</UID>
+            <TaskUID>24</TaskUID>
+            <ResourceUID>73</ResourceUID>
+            <Cost>1872000</Cost>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT7H12M0S</RemainingWork>
+            <Start>2026-10-01T08:00:00</Start>
+            <Units>7.2</Units>
+            <Work>PT7H12M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>97</UID>
+            <TaskUID>24</TaskUID>
+            <ResourceUID>74</ResourceUID>
             <Cost>6276322</Cost>
             <Finish>2026-10-01T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>6276322</RemainingCost>
             <RemainingWork>PT2H24M0S</RemainingWork>
             <Start>2026-10-01T08:00:00</Start>
             <Units>0.3</Units>
             <Work>PT2H24M0S</Work>
         </Assignment>
         <Assignment>
-            <UID>20</UID>
+            <UID>98</UID>
+            <TaskUID>24</TaskUID>
+            <ResourceUID>75</ResourceUID>
+            <Cost>3138162</Cost>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3138162</RemainingCost>
+            <Start>2026-10-01T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>99</UID>
+            <TaskUID>24</TaskUID>
+            <ResourceUID>61</ResourceUID>
+            <Cost>396000</Cost>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>396000</RemainingCost>
+            <Start>2026-10-01T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>100</UID>
+            <TaskUID>24</TaskUID>
+            <ResourceUID>70</ResourceUID>
+            <Cost>36000</Cost>
+            <Finish>2026-10-01T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>36000</RemainingCost>
+            <Start>2026-10-01T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>101</UID>
             <TaskUID>25</TaskUID>
-            <ResourceUID>14</ResourceUID>
+            <ResourceUID>76</ResourceUID>
+            <Cost>34469336</Cost>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT5H23M41S</RemainingWork>
+            <Start>2026-10-02T08:00:00</Start>
+            <Units>5.3946</Units>
+            <Work>PT5H23M41S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>102</UID>
+            <TaskUID>25</TaskUID>
+            <ResourceUID>77</ResourceUID>
+            <Cost>6561000</Cost>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT24H18M0S</RemainingWork>
+            <Start>2026-10-02T08:00:00</Start>
+            <Units>24.3</Units>
+            <Work>PT24H18M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>103</UID>
+            <TaskUID>25</TaskUID>
+            <ResourceUID>78</ResourceUID>
+            <Cost>1270080</Cost>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT0H9M43S</RemainingWork>
+            <Start>2026-10-02T08:00:00</Start>
+            <Units>0.162</Units>
+            <Work>PT0H9M43S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>104</UID>
+            <TaskUID>25</TaskUID>
+            <ResourceUID>79</ResourceUID>
+            <Cost>140940</Cost>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT48H36M0S</RemainingWork>
+            <Start>2026-10-02T08:00:00</Start>
+            <Units>48.6</Units>
+            <Work>PT48H36M0S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>105</UID>
+            <TaskUID>25</TaskUID>
+            <ResourceUID>80</ResourceUID>
+            <Cost>622080</Cost>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>1</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingWork>PT0H9M43S</RemainingWork>
+            <Start>2026-10-02T08:00:00</Start>
+            <Units>0.162</Units>
+            <Work>PT0H9M43S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>106</UID>
+            <TaskUID>25</TaskUID>
+            <ResourceUID>81</ResourceUID>
             <Cost>7546151</Cost>
             <Finish>2026-10-02T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>7546151</RemainingCost>
             <RemainingWork>PT4H51M36S</RemainingWork>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0.6075</Units>
             <Work>PT4H51M36S</Work>
+        </Assignment>
+        <Assignment>
+            <UID>107</UID>
+            <TaskUID>25</TaskUID>
+            <ResourceUID>82</ResourceUID>
+            <Cost>377308</Cost>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>377308</RemainingCost>
+            <Start>2026-10-02T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>108</UID>
+            <TaskUID>25</TaskUID>
+            <ResourceUID>61</ResourceUID>
+            <Cost>178200</Cost>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>178200</RemainingCost>
+            <Start>2026-10-02T08:00:00</Start>
+            <Units>0</Units>
+        </Assignment>
+        <Assignment>
+            <UID>109</UID>
+            <TaskUID>25</TaskUID>
+            <ResourceUID>70</ResourceUID>
+            <Cost>16200</Cost>
+            <Finish>2026-10-02T17:00:00</Finish>
+            <HasFixedRateUnits>1</HasFixedRateUnits>
+            <FixedMaterial>0</FixedMaterial>
+            <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>16200</RemainingCost>
+            <Start>2026-10-02T08:00:00</Start>
+            <Units>0</Units>
         </Assignment>
     </Assignments>
 </Project>
