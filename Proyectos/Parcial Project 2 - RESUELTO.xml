@@ -39,7 +39,7 @@
     <MoveCompletedEndsForward>0</MoveCompletedEndsForward>
     <BaselineForEarnedValue>0</BaselineForEarnedValue>
     <AutoAddNewResourcesAndTasks>1</AutoAddNewResourcesAndTasks>
-    <CurrentDate>2026-07-11T01:57:50</CurrentDate>
+    <CurrentDate>2026-07-11T02:02:47</CurrentDate>
     <MicrosoftProjectServerURL>1</MicrosoftProjectServerURL>
     <Autolink>1</Autolink>
     <NewTaskStartDate>0</NewTaskStartDate>
@@ -2940,6 +2940,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>151200</RemainingCost>
             <Start>2026-07-06T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -2952,6 +2953,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>5616000</RemainingCost>
             <Start>2026-07-06T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -2964,6 +2966,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>93254</RemainingCost>
             <Start>2026-07-06T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -2976,6 +2979,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>5040000</RemainingCost>
             <Start>2026-07-06T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3002,6 +3006,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>994974</RemainingCost>
             <Start>2026-07-08T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3028,6 +3033,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2303798</RemainingCost>
             <Start>2026-07-10T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3054,6 +3060,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3326848</RemainingCost>
             <Start>2026-07-10T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3066,6 +3073,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>171729</RemainingCost>
             <Start>2026-07-10T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3078,6 +3086,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>39103506</RemainingCost>
             <Start>2026-07-13T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3104,6 +3113,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>625818</RemainingCost>
             <Start>2026-07-13T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3116,6 +3126,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>7872000</RemainingCost>
             <Start>2026-07-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3142,6 +3153,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>229600</RemainingCost>
             <Start>2026-07-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3154,6 +3166,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>7462000</RemainingCost>
             <Start>2026-07-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3166,6 +3179,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>176698363</RemainingCost>
             <Start>2026-07-22T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3178,6 +3192,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>23056600</RemainingCost>
             <Start>2026-07-22T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3204,6 +3219,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>11600764</RemainingCost>
             <Start>2026-07-22T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3216,6 +3232,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3835712</RemainingCost>
             <Start>2026-07-22T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3228,6 +3245,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>709800</RemainingCost>
             <Start>2026-07-30T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3240,6 +3258,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>19705400</RemainingCost>
             <Start>2026-07-30T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3252,6 +3271,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2887872</RemainingCost>
             <Start>2026-07-30T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3264,6 +3284,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>119601300</RemainingCost>
             <Start>2026-07-30T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3290,6 +3311,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>588120</RemainingCost>
             <Start>2026-07-30T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3302,6 +3324,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2077877</RemainingCost>
             <Start>2026-07-30T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3314,6 +3337,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2880000</RemainingCost>
             <Start>2026-07-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3326,6 +3350,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>61200000</RemainingCost>
             <Start>2026-07-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3338,6 +3363,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>279036000</RemainingCost>
             <Start>2026-07-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3364,6 +3390,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>5040000</RemainingCost>
             <Start>2026-07-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3376,6 +3403,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>11340000</RemainingCost>
             <Start>2026-07-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3388,6 +3416,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3326400</RemainingCost>
             <Start>2026-07-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3400,6 +3429,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>96476512</RemainingCost>
             <Start>2026-08-03T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3412,6 +3442,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>12588800</RemainingCost>
             <Start>2026-08-03T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3438,6 +3469,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>6333965</RemainingCost>
             <Start>2026-08-03T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3450,6 +3482,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2094282</RemainingCost>
             <Start>2026-08-03T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3462,6 +3495,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>87818830</RemainingCost>
             <Start>2026-08-07T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3474,6 +3508,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>10836832</RemainingCost>
             <Start>2026-08-07T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3486,6 +3521,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>880440</RemainingCost>
             <Start>2026-08-07T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3498,6 +3534,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1950758</RemainingCost>
             <Start>2026-08-07T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3510,6 +3547,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>352176</RemainingCost>
             <Start>2026-08-07T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3536,6 +3574,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>54229413</RemainingCost>
             <Start>2026-08-13T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3548,6 +3587,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>7076160</RemainingCost>
             <Start>2026-08-13T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3574,6 +3614,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3560319</RemainingCost>
             <Start>2026-08-13T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3586,6 +3627,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1177195</RemainingCost>
             <Start>2026-08-13T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3598,6 +3640,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>215346033</RemainingCost>
             <Start>2026-08-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3610,6 +3653,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>42281052</RemainingCost>
             <Start>2026-08-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3622,6 +3666,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>18987448</RemainingCost>
             <Start>2026-08-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3634,6 +3679,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1080540</RemainingCost>
             <Start>2026-08-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3646,6 +3692,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>9906388</RemainingCost>
             <Start>2026-08-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3658,6 +3705,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>8644320</RemainingCost>
             <Start>2026-08-17T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3684,6 +3732,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>26092080</RemainingCost>
             <Start>2026-08-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3696,6 +3745,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>294756336</RemainingCost>
             <Start>2026-08-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3708,6 +3758,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>87534720</RemainingCost>
             <Start>2026-08-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3720,6 +3771,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>8125284</RemainingCost>
             <Start>2026-08-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3732,6 +3784,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>29215554</RemainingCost>
             <Start>2026-08-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3744,6 +3797,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1708610</RemainingCost>
             <Start>2026-08-31T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3770,6 +3824,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>192127572</RemainingCost>
             <Start>2026-09-10T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3796,6 +3851,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>6829619</RemainingCost>
             <Start>2026-09-10T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3808,6 +3864,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>2150390</RemainingCost>
             <Start>2026-09-10T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3820,6 +3877,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>22341717</RemainingCost>
             <Start>2026-09-10T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3832,6 +3890,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>8184000</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3844,6 +3903,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>20275200</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3856,6 +3916,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>14198976</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3868,6 +3929,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>204293760</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3922,6 +3984,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>21964800</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3934,6 +3997,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>36368640</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3946,6 +4010,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>11616000</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3958,6 +4023,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1161600</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3970,6 +4036,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>7364850</RemainingCost>
             <Start>2026-09-18T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3982,6 +4049,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1643040</RemainingCost>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -3994,6 +4062,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>298558481</RemainingCost>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4006,6 +4075,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>8842750</RemainingCost>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4018,6 +4088,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>580280</RemainingCost>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4030,6 +4101,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>11931600</RemainingCost>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4056,6 +4128,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>4415826</RemainingCost>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4068,6 +4141,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3586000</RemainingCost>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4080,6 +4154,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>326000</RemainingCost>
             <Start>2026-09-23T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4092,6 +4167,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1886400</RemainingCost>
             <Start>2026-10-01T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4104,6 +4180,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>83383200</RemainingCost>
             <Start>2026-10-01T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4116,6 +4193,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1872000</RemainingCost>
             <Start>2026-10-01T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4142,6 +4220,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>3138162</RemainingCost>
             <Start>2026-10-01T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4154,6 +4233,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>396000</RemainingCost>
             <Start>2026-10-01T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4166,6 +4246,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>36000</RemainingCost>
             <Start>2026-10-01T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4178,6 +4259,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>34469336</RemainingCost>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4190,6 +4272,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>6561000</RemainingCost>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4202,6 +4285,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>1270080</RemainingCost>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4214,6 +4298,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>140940</RemainingCost>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4226,6 +4311,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>622080</RemainingCost>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4252,6 +4338,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>377308</RemainingCost>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4264,6 +4351,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>178200</RemainingCost>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
@@ -4276,6 +4364,7 @@
             <HasFixedRateUnits>1</HasFixedRateUnits>
             <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
+            <RemainingCost>16200</RemainingCost>
             <Start>2026-10-02T08:00:00</Start>
             <Units>0</Units>
         </Assignment>
