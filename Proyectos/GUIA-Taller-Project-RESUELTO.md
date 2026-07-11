@@ -10,16 +10,19 @@ Este documento acompaña al archivo **`Parcial Project 2 - RESUELTO.xml`** (form
 4. Acepta importar como **proyecto nuevo**. Verás el Gantt, la Hoja de recursos y las asignaciones ya cargadas.
 5. Verifica el total en **Proyecto → Información del proyecto → Estadísticas**: debe dar **≈ $39.080.104**.
 
-> **Nota importante sobre los materiales en el archivo entregado.**
-> Al importar desde XML, MS Project interpreta mal las *unidades de material*, lo que
-> disparaba el costo. Para que el **total quede exacto**, en este archivo los **materiales y
-> los costos** se cargaron como **costo directo** (tipo *Costo*), y la **mano de obra** se
-> dejó como *Trabajo* (tasa × horas) para conservar el **factor multiplicador**.
-> El monto de cada material es el mismo (*Cantidad × (1+Desperdicio) × V. Unitario × CP*),
-> como se detalla más abajo. Si tu profesor exige que los materiales figuren como tipo
-> *Material* con su tasa, ábrelos en la Hoja de recursos y cambia el tipo a *Material*,
-> poniendo Tasa = *V. Unitario* y en la tarea Unidades = la cantidad indicada en las tablas
-> de la sección 3 (MS Project, ingresando los datos a mano, sí calcula bien).
+> **Nota importante sobre cómo quedaron cargados los costos en el archivo.**
+> Al importar desde XML, MS Project **no respeta el costo de los recursos tipo *Costo/Material***
+> (los importa en $0). Para que el **total quede exacto**, en este archivo:
+> - **Materiales + Costos** (equipos, herramienta, andamios…) se cargaron como **Costo fijo**
+>   (columna *Costo fijo* de cada actividad). MS Project siempre suma el Costo fijo.
+> - **Mano de obra** quedó como recurso de **Trabajo** (tasa × horas), conservando el
+>   **factor multiplicador**.
+>
+> Así, **Costo de cada tarea = Costo fijo (materiales+costos) + mano de obra = valor del ítem**.
+> El detalle de cada material/costo (itemizado) está en el Excel `FORMATO ... - RESUELTO.xlsx`
+> (TABLA PROJECT). Si tu profesor exige ver los materiales como *recursos* en la Hoja de
+> recursos de Project, la forma confiable es ingresarlos a mano dentro de MS Project usando
+> los valores de la sección 3 (al teclear los datos, Project sí calcula bien).
 
 ## 2. Metodología usada (la del formato del profesor)
 
