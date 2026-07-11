@@ -8,6 +8,18 @@ Este documento acompaña al archivo **`Parcial Project 2 - RESUELTO.xml`** (form
 2. `Archivo > Abrir > Examinar`.
 3. En tipo de archivo elige **XML (*.xml)** y selecciona `Parcial Project 2 - RESUELTO.xml`.
 4. Acepta importar como **proyecto nuevo**. Verás el Gantt, la Hoja de recursos y las asignaciones ya cargadas.
+5. Verifica el total en **Proyecto → Información del proyecto → Estadísticas**: debe dar **≈ $39.080.104**.
+
+> **Nota importante sobre los materiales en el archivo entregado.**
+> Al importar desde XML, MS Project interpreta mal las *unidades de material*, lo que
+> disparaba el costo. Para que el **total quede exacto**, en este archivo los **materiales y
+> los costos** se cargaron como **costo directo** (tipo *Costo*), y la **mano de obra** se
+> dejó como *Trabajo* (tasa × horas) para conservar el **factor multiplicador**.
+> El monto de cada material es el mismo (*Cantidad × (1+Desperdicio) × V. Unitario × CP*),
+> como se detalla más abajo. Si tu profesor exige que los materiales figuren como tipo
+> *Material* con su tasa, ábrelos en la Hoja de recursos y cambia el tipo a *Material*,
+> poniendo Tasa = *V. Unitario* y en la tarea Unidades = la cantidad indicada en las tablas
+> de la sección 3 (MS Project, ingresando los datos a mano, sí calcula bien).
 
 ## 2. Metodología usada (la del formato del profesor)
 

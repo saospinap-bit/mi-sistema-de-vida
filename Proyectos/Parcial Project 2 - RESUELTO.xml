@@ -39,7 +39,7 @@
     <MoveCompletedEndsForward>0</MoveCompletedEndsForward>
     <BaselineForEarnedValue>0</BaselineForEarnedValue>
     <AutoAddNewResourcesAndTasks>1</AutoAddNewResourcesAndTasks>
-    <CurrentDate>2026-07-11T01:50:43</CurrentDate>
+    <CurrentDate>2026-07-11T01:57:50</CurrentDate>
     <MicrosoftProjectServerURL>1</MicrosoftProjectServerURL>
     <Autolink>1</Autolink>
     <NewTaskStartDate>0</NewTaskStartDate>
@@ -1301,12 +1301,12 @@
             <Start>2026-07-06T08:00:00</Start>
             <Finish>2026-07-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>2100</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1321,12 +1321,12 @@
             <Start>2026-07-06T08:00:00</Start>
             <Finish>2026-07-07T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>3900</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1501,12 +1501,12 @@
             <Start>2026-07-13T08:00:00</Start>
             <Finish>2026-07-16T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>277197.13</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1541,12 +1541,12 @@
             <Start>2026-07-17T08:00:00</Start>
             <Finish>2026-07-21T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>8000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1621,12 +1621,12 @@
             <Start>2026-07-22T08:00:00</Start>
             <Finish>2026-08-14T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>2083.33</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1641,12 +1641,12 @@
             <Start>2026-07-22T08:00:00</Start>
             <Finish>2026-08-14T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>3500</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1661,12 +1661,12 @@
             <Start>2026-07-22T08:00:00</Start>
             <Finish>2026-08-14T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>3522</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1701,12 +1701,12 @@
             <Start>2026-07-30T08:00:00</Start>
             <Finish>2026-07-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>10600</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1721,12 +1721,12 @@
             <Start>2026-07-30T08:00:00</Start>
             <Finish>2026-07-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>3200</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1741,12 +1741,12 @@
             <Start>2026-07-30T08:00:00</Start>
             <Finish>2026-07-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>337000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1821,12 +1821,12 @@
             <Start>2026-07-31T08:00:00</Start>
             <Finish>2026-07-31T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>2000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1841,12 +1841,12 @@
             <Start>2026-07-31T08:00:00</Start>
             <Finish>2026-07-31T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>8500</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1861,12 +1861,12 @@
             <Start>2026-07-31T08:00:00</Start>
             <Finish>2026-07-31T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>337000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -1941,12 +1941,12 @@
             <Start>2026-08-07T08:00:00</Start>
             <Finish>2026-08-28T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>337000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2041,12 +2041,12 @@
             <Start>2026-08-17T08:00:00</Start>
             <Finish>2026-08-28T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>9726.49</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2121,12 +2121,12 @@
             <Start>2026-08-31T08:00:00</Start>
             <Finish>2026-09-09T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>6200</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2141,12 +2141,12 @@
             <Start>2026-08-31T08:00:00</Start>
             <Finish>2026-09-09T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>680</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2161,12 +2161,12 @@
             <Start>2026-08-31T08:00:00</Start>
             <Finish>2026-09-17T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>312000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2201,12 +2201,12 @@
             <Start>2026-08-31T08:00:00</Start>
             <Finish>2026-09-09T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>337000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2301,12 +2301,12 @@
             <Start>2026-09-18T08:00:00</Start>
             <Finish>2026-09-22T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>15500</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2321,12 +2321,12 @@
             <Start>2026-09-18T08:00:00</Start>
             <Finish>2026-09-22T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>24000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2341,12 +2341,12 @@
             <Start>2026-09-18T08:00:00</Start>
             <Finish>2026-09-22T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>8100</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2361,12 +2361,12 @@
             <Start>2026-09-18T08:00:00</Start>
             <Finish>2026-09-22T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>56900</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2541,12 +2541,12 @@
             <Start>2026-09-23T08:00:00</Start>
             <Finish>2026-09-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>252</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2561,12 +2561,12 @@
             <Start>2026-09-23T08:00:00</Start>
             <Finish>2026-09-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>552900</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2581,12 +2581,12 @@
             <Start>2026-09-23T08:00:00</Start>
             <Finish>2026-09-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>8750</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2601,12 +2601,12 @@
             <Start>2026-09-23T08:00:00</Start>
             <Finish>2026-09-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>8900</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2621,12 +2621,12 @@
             <Start>2026-09-23T08:00:00</Start>
             <Finish>2026-09-30T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>61000</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2701,12 +2701,12 @@
             <Start>2026-10-01T08:00:00</Start>
             <Finish>2026-10-01T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>13100</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2721,12 +2721,12 @@
             <Start>2026-10-01T08:00:00</Start>
             <Finish>2026-10-01T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>115810</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2741,12 +2741,12 @@
             <Start>2026-10-01T08:00:00</Start>
             <Finish>2026-10-01T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>2600</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2801,12 +2801,12 @@
             <Start>2026-10-02T08:00:00</Start>
             <Finish>2026-10-02T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>63896</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2821,12 +2821,12 @@
             <Start>2026-10-02T08:00:00</Start>
             <Finish>2026-10-02T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>2700</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2841,12 +2841,12 @@
             <Start>2026-10-02T08:00:00</Start>
             <Finish>2026-10-02T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>78400</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2861,12 +2861,12 @@
             <Start>2026-10-02T08:00:00</Start>
             <Finish>2026-10-02T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>29</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2881,12 +2881,12 @@
             <Start>2026-10-02T08:00:00</Start>
             <Finish>2026-10-02T17:00:00</Finish>
             <CanLevel>0</CanLevel>
-            <StandardRate>38400</StandardRate>
             <StandardRateFormat>8</StandardRateFormat>
             <OvertimeRateFormat>2</OvertimeRateFormat>
             <IsGeneric>0</IsGeneric>
             <IsInactive>0</IsInactive>
             <IsEnterprise>0</IsEnterprise>
+            <IsCostResource>1</IsCostResource>
             <IsBudget>0</IsBudget>
         </Resource>
         <Resource>
@@ -2938,10 +2938,10 @@
             <Cost>151200</Cost>
             <Finish>2026-07-07T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-06T08:00:00</Start>
-            <Units>0.72</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>2</UID>
@@ -2950,10 +2950,10 @@
             <Cost>5616000</Cost>
             <Finish>2026-07-07T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-06T08:00:00</Start>
-            <Units>14.4</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>3</UID>
@@ -3076,10 +3076,10 @@
             <Cost>39103506</Cost>
             <Finish>2026-07-16T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-13T08:00:00</Start>
-            <Units>1.4107</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>13</UID>
@@ -3114,10 +3114,10 @@
             <Cost>7872000</Cost>
             <Finish>2026-07-21T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-17T08:00:00</Start>
-            <Units>9.84</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>16</UID>
@@ -3164,10 +3164,10 @@
             <Cost>176698363</Cost>
             <Finish>2026-07-29T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-22T08:00:00</Start>
-            <Units>848.1535</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>20</UID>
@@ -3176,10 +3176,10 @@
             <Cost>23056600</Cost>
             <Finish>2026-07-29T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-22T08:00:00</Start>
-            <Units>65.876</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>21</UID>
@@ -3202,10 +3202,10 @@
             <Cost>11600764</Cost>
             <Finish>2026-07-29T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-22T08:00:00</Start>
-            <Units>32.938</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>23</UID>
@@ -3226,10 +3226,10 @@
             <Cost>709800</Cost>
             <Finish>2026-07-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-30T08:00:00</Start>
-            <Units>3.38</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>25</UID>
@@ -3238,10 +3238,10 @@
             <Cost>19705400</Cost>
             <Finish>2026-07-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-30T08:00:00</Start>
-            <Units>18.59</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>26</UID>
@@ -3250,10 +3250,10 @@
             <Cost>2887872</Cost>
             <Finish>2026-07-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-30T08:00:00</Start>
-            <Units>9.0246</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>27</UID>
@@ -3262,10 +3262,10 @@
             <Cost>119601300</Cost>
             <Finish>2026-07-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-30T08:00:00</Start>
-            <Units>3.549</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>28</UID>
@@ -3312,10 +3312,10 @@
             <Cost>2880000</Cost>
             <Finish>2026-07-31T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-31T08:00:00</Start>
-            <Units>14.4</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>32</UID>
@@ -3324,10 +3324,10 @@
             <Cost>61200000</Cost>
             <Finish>2026-07-31T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-31T08:00:00</Start>
-            <Units>72</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>33</UID>
@@ -3336,10 +3336,10 @@
             <Cost>279036000</Cost>
             <Finish>2026-07-31T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-07-31T08:00:00</Start>
-            <Units>8.28</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>34</UID>
@@ -3398,10 +3398,10 @@
             <Cost>96476512</Cost>
             <Finish>2026-08-06T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-03T08:00:00</Start>
-            <Units>463.088</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>39</UID>
@@ -3410,10 +3410,10 @@
             <Cost>12588800</Cost>
             <Finish>2026-08-06T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-03T08:00:00</Start>
-            <Units>35.968</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>40</UID>
@@ -3436,10 +3436,10 @@
             <Cost>6333965</Cost>
             <Finish>2026-08-06T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-03T08:00:00</Start>
-            <Units>17.984</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>42</UID>
@@ -3460,10 +3460,10 @@
             <Cost>87818830</Cost>
             <Finish>2026-08-12T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-07T08:00:00</Start>
-            <Units>2.6059</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>44</UID>
@@ -3534,10 +3534,10 @@
             <Cost>54229413</Cost>
             <Finish>2026-08-14T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-13T08:00:00</Start>
-            <Units>260.3016</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>50</UID>
@@ -3546,10 +3546,10 @@
             <Cost>7076160</Cost>
             <Finish>2026-08-14T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-13T08:00:00</Start>
-            <Units>20.2176</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>51</UID>
@@ -3572,10 +3572,10 @@
             <Cost>3560319</Cost>
             <Finish>2026-08-14T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-13T08:00:00</Start>
-            <Units>10.1088</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>53</UID>
@@ -3596,10 +3596,10 @@
             <Cost>215346033</Cost>
             <Finish>2026-08-28T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-17T08:00:00</Start>
-            <Units>6.3901</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>55</UID>
@@ -3608,10 +3608,10 @@
             <Cost>42281052</Cost>
             <Finish>2026-08-28T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-17T08:00:00</Start>
-            <Units>43.47</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>56</UID>
@@ -3682,10 +3682,10 @@
             <Cost>26092080</Cost>
             <Finish>2026-09-09T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-31T08:00:00</Start>
-            <Units>42.084</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>62</UID>
@@ -3694,10 +3694,10 @@
             <Cost>294756336</Cost>
             <Finish>2026-09-09T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-31T08:00:00</Start>
-            <Units>4334.652</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>63</UID>
@@ -3706,10 +3706,10 @@
             <Cost>87534720</Cost>
             <Finish>2026-09-09T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-31T08:00:00</Start>
-            <Units>2.8056</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>64</UID>
@@ -3730,10 +3730,10 @@
             <Cost>29215554</Cost>
             <Finish>2026-09-09T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-08-31T08:00:00</Start>
-            <Units>0.8669</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>66</UID>
@@ -3768,10 +3768,10 @@
             <Cost>192127572</Cost>
             <Finish>2026-09-17T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-10T08:00:00</Start>
-            <Units>6.1579</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>69</UID>
@@ -3830,10 +3830,10 @@
             <Cost>8184000</Cost>
             <Finish>2026-09-22T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-18T08:00:00</Start>
-            <Units>5.28</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>74</UID>
@@ -3842,10 +3842,10 @@
             <Cost>20275200</Cost>
             <Finish>2026-09-22T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-18T08:00:00</Start>
-            <Units>8.448</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>75</UID>
@@ -3854,10 +3854,10 @@
             <Cost>14198976</Cost>
             <Finish>2026-09-22T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-18T08:00:00</Start>
-            <Units>17.5296</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>76</UID>
@@ -3866,10 +3866,10 @@
             <Cost>204293760</Cost>
             <Finish>2026-09-22T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-18T08:00:00</Start>
-            <Units>35.904</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>77</UID>
@@ -3980,10 +3980,10 @@
             <Cost>1643040</Cost>
             <Finish>2026-09-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-23T08:00:00</Start>
-            <Units>65.2</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>86</UID>
@@ -3992,10 +3992,10 @@
             <Cost>298558481</Cost>
             <Finish>2026-09-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-23T08:00:00</Start>
-            <Units>5.3999</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>87</UID>
@@ -4004,10 +4004,10 @@
             <Cost>8842750</Cost>
             <Finish>2026-09-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-23T08:00:00</Start>
-            <Units>10.106</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>88</UID>
@@ -4016,10 +4016,10 @@
             <Cost>580280</Cost>
             <Finish>2026-09-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-23T08:00:00</Start>
-            <Units>0.652</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>89</UID>
@@ -4028,10 +4028,10 @@
             <Cost>11931600</Cost>
             <Finish>2026-09-30T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-09-23T08:00:00</Start>
-            <Units>1.956</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>90</UID>
@@ -4090,10 +4090,10 @@
             <Cost>1886400</Cost>
             <Finish>2026-10-01T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-10-01T08:00:00</Start>
-            <Units>1.44</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>95</UID>
@@ -4102,10 +4102,10 @@
             <Cost>83383200</Cost>
             <Finish>2026-10-01T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-10-01T08:00:00</Start>
-            <Units>7.2</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>96</UID>
@@ -4114,10 +4114,10 @@
             <Cost>1872000</Cost>
             <Finish>2026-10-01T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-10-01T08:00:00</Start>
-            <Units>7.2</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>97</UID>
@@ -4176,10 +4176,10 @@
             <Cost>34469336</Cost>
             <Finish>2026-10-02T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-10-02T08:00:00</Start>
-            <Units>5.3946</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>102</UID>
@@ -4188,10 +4188,10 @@
             <Cost>6561000</Cost>
             <Finish>2026-10-02T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-10-02T08:00:00</Start>
-            <Units>24.3</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>103</UID>
@@ -4200,10 +4200,10 @@
             <Cost>1270080</Cost>
             <Finish>2026-10-02T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-10-02T08:00:00</Start>
-            <Units>0.162</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>104</UID>
@@ -4212,10 +4212,10 @@
             <Cost>140940</Cost>
             <Finish>2026-10-02T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-10-02T08:00:00</Start>
-            <Units>48.6</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>105</UID>
@@ -4224,10 +4224,10 @@
             <Cost>622080</Cost>
             <Finish>2026-10-02T17:00:00</Finish>
             <HasFixedRateUnits>1</HasFixedRateUnits>
-            <FixedMaterial>1</FixedMaterial>
+            <FixedMaterial>0</FixedMaterial>
             <LevelingDelayFormat>7</LevelingDelayFormat>
             <Start>2026-10-02T08:00:00</Start>
-            <Units>0.162</Units>
+            <Units>0</Units>
         </Assignment>
         <Assignment>
             <UID>106</UID>
