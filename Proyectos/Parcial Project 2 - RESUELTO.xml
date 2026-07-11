@@ -39,7 +39,7 @@
     <MoveCompletedEndsForward>0</MoveCompletedEndsForward>
     <BaselineForEarnedValue>0</BaselineForEarnedValue>
     <AutoAddNewResourcesAndTasks>1</AutoAddNewResourcesAndTasks>
-    <CurrentDate>2026-07-11T01:21:54</CurrentDate>
+    <CurrentDate>2026-07-11T01:38:16</CurrentDate>
     <MicrosoftProjectServerURL>1</MicrosoftProjectServerURL>
     <Autolink>1</Autolink>
     <NewTaskStartDate>0</NewTaskStartDate>
@@ -217,7 +217,7 @@
             <ID>3</ID>
             <Name>Inicio del proyecto</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.1.1</WBS>
@@ -240,6 +240,7 @@
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -247,13 +248,15 @@
             <HideBar>0</HideBar>
             <Rollup>0</Rollup>
             <EarnedValueMethod>0</EarnedValueMethod>
+            <ManualStart>2026-07-06T08:00:00</ManualStart>
+            <ManualFinish>2026-07-06T08:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>4</UID>
             <ID>4</ID>
             <Name>localización y replanteo</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.1.2</WBS>
@@ -277,6 +280,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT16H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -291,6 +295,8 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-07-06T08:00:00</ManualStart>
+            <ManualFinish>2026-07-07T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>5</UID>
@@ -333,7 +339,7 @@
             <ID>6</ID>
             <Name>Excavación en tierra a mano, no incluye retiro</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.1</WBS>
@@ -357,6 +363,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT16H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -371,13 +378,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-07-08T08:00:00</ManualStart>
+            <ManualFinish>2026-07-09T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>7</UID>
             <ID>7</ID>
             <Name>Retiro material sobrante</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.2</WBS>
@@ -401,6 +410,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -415,13 +425,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-07-10T08:00:00</ManualStart>
+            <ManualFinish>2026-07-10T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>8</UID>
             <ID>8</ID>
             <Name>Solado e=0.05m</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.3</WBS>
@@ -445,6 +457,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT32H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -459,13 +472,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-07-13T08:00:00</ManualStart>
+            <ManualFinish>2026-07-16T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>9</UID>
             <ID>9</ID>
             <Name>Relleno y compactación cimientos material importado solado e=0.05 m</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.4</WBS>
@@ -489,6 +504,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT24H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -503,13 +519,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-07-17T08:00:00</ManualStart>
+            <ManualFinish>2026-07-21T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>10</UID>
             <ID>10</ID>
             <Name>Figurado y armada acero 60000 psi vaciado zapatas en concreto de 3000 psi</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.5</WBS>
@@ -533,6 +551,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT48H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -547,13 +566,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-07-22T08:00:00</ManualStart>
+            <ManualFinish>2026-07-29T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>11</UID>
             <ID>11</ID>
             <Name>Viga de cimentación de 3000 psi (0.25x0.25)</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.6</WBS>
@@ -577,6 +598,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -591,13 +613,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-07-30T08:00:00</ManualStart>
+            <ManualFinish>2026-07-30T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>12</UID>
             <ID>12</ID>
             <Name>Losa de contrapiso en concreto 3000 psi, e=0.1m</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.2.7</WBS>
@@ -621,6 +645,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -635,6 +660,8 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-07-31T08:00:00</ManualStart>
+            <ManualFinish>2026-07-31T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>13</UID>
@@ -677,7 +704,7 @@
             <ID>14</ID>
             <Name>Figurado y armada acero de Columnas primer piso</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.3.1</WBS>
@@ -701,6 +728,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT32H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -715,13 +743,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-08-03T08:00:00</ManualStart>
+            <ManualFinish>2026-08-06T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>15</UID>
             <ID>15</ID>
             <Name>Encofrado y vaciado columnas primer piso</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.3.2</WBS>
@@ -745,6 +775,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT32H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -759,13 +790,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-08-07T08:00:00</ManualStart>
+            <ManualFinish>2026-08-12T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>16</UID>
             <ID>16</ID>
             <Name>Figurado y armada acero losa entrepiso</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.3.3</WBS>
@@ -789,6 +822,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT16H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -803,13 +837,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-08-13T08:00:00</ManualStart>
+            <ManualFinish>2026-08-14T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>17</UID>
             <ID>17</ID>
             <Name>Losa de entrepiso concreto de 3000 psi e=0.05m incluye encofrado</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.3.4</WBS>
@@ -833,6 +869,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT80H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -847,6 +884,8 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-08-17T08:00:00</ManualStart>
+            <ManualFinish>2026-08-28T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>18</UID>
@@ -889,7 +928,7 @@
             <ID>19</ID>
             <Name>Muro en bloque cerámico (0.15x0.13x0.24)</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.4.1</WBS>
@@ -913,6 +952,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT64H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -927,13 +967,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-08-31T08:00:00</ManualStart>
+            <ManualFinish>2026-09-09T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>20</UID>
             <ID>20</ID>
             <Name>Pañete en interiores primer piso, e=0.02 m, 1:3</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.4.2</WBS>
@@ -957,6 +999,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT48H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -971,6 +1014,8 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-09-10T08:00:00</ManualStart>
+            <ManualFinish>2026-09-17T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>21</UID>
@@ -1013,7 +1058,7 @@
             <ID>22</ID>
             <Name>Suministro e instalación Perfil cajón HR C 120X60 mm - 1.5 mm C.16</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.1</WBS>
@@ -1037,6 +1082,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT24H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -1051,13 +1097,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-09-18T08:00:00</ManualStart>
+            <ManualFinish>2026-09-22T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>23</UID>
             <ID>23</ID>
             <Name>Suministro e instalación de lámina Policarbonato Alveolar 8mm</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.2</WBS>
@@ -1081,6 +1129,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT48H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -1095,13 +1144,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-09-23T08:00:00</ManualStart>
+            <ManualFinish>2026-09-30T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>24</UID>
             <ID>24</ID>
             <Name>Suministro e instalación de canaletas</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.3</WBS>
@@ -1125,6 +1176,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -1139,13 +1191,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-10-01T08:00:00</ManualStart>
+            <ManualFinish>2026-10-01T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>25</UID>
             <ID>25</ID>
             <Name>Bajante aguas lluvias</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.4</WBS>
@@ -1169,6 +1223,7 @@
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
             <RemainingDuration>PT8H0M0S</RemainingDuration>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -1183,13 +1238,15 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-10-02T08:00:00</ManualStart>
+            <ManualFinish>2026-10-02T17:00:00</ManualFinish>
         </Task>
         <Task>
             <UID>26</UID>
             <ID>26</ID>
             <Name>Final del proyecto</Name>
             <Active>1</Active>
-            <Manual>0</Manual>
+            <Manual>1</Manual>
             <Type>1</Type>
             <IsNull>0</IsNull>
             <WBS>1.5.5</WBS>
@@ -1212,6 +1269,7 @@
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
             <FixedCostAccrual>3</FixedCostAccrual>
+            <ConstraintType>0</ConstraintType>
             <CalendarUID>-1</CalendarUID>
             <LevelAssignments>0</LevelAssignments>
             <LevelingCanSplit>0</LevelingCanSplit>
@@ -1226,6 +1284,8 @@
                 <LinkLag>0</LinkLag>
                 <LagFormat>7</LagFormat>
             </PredecessorLink>
+            <ManualStart>2026-10-05T08:00:00</ManualStart>
+            <ManualFinish>2026-10-05T08:00:00</ManualFinish>
         </Task>
     </Tasks>
     <Resources>
