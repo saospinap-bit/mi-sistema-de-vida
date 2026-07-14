@@ -1,0 +1,123 @@
+########################################################################
+ TI-Nspire - HOJA DE CALCULO (como Excel)  -  Diseño Estructural
+ SIN programar. Metes datos en celdas, las formulas calculan solas.
+########################################################################
+
+COMO CREAR LA HOJA:
+  1. En el documento:  ctrl+doc (o menu Insertar) -> "Listas y hoja de calculo"
+  2. Aparece una cuadricula con columnas A,B,C... y filas 1,2,3...
+  3. Las celdas se llaman con minuscula+numero:  a1, a2, b1 ...
+  4. Para METER UN DATO: te paras en la celda, escribes el numero, Enter.
+  5. Para METER UNA FORMULA: te paras en la celda, escribes "=" y la formula
+     (ej.  =a1+a2 ), Enter.
+  6. Cambias los datos (celdas de arriba) y TODO se recalcula solo.
+
+NOTAS:
+  - La raiz cuadrada la escribo como ^0.5  (evita el simbolo).
+  - $a$5 = referencia fija (para poder "rellenar hacia abajo"). a5 = referencia normal.
+  - Funciones: when( , max( , min( , sum(  (en minuscula).
+
+
+========================================================================
+ HOJA 1:  ZAPATA CUADRADA   (todo en la columna A)
+========================================================================
+ Escribe estos VALORES (los que cambias):
+   a1 = 1700      (PD)
+   a2 = 500       (PL)
+   a3 = 180       (qadm)
+   a4 = 0.40      (c = lado de la columna, en m)
+   a5 = 21        (f'c)
+   a6 = 420       (fy)
+   a7 = 0.70      (h = espesor que propones, en m)
+
+ Escribe estas FORMULAS (empezando con "="):
+   a8  = =a1+a2                                     (P servicio)
+   a9  = =a8/a3                                     (Area)
+   a10 = =a9^0.5                          <-- ESTE ES TU B (m)
+   a11 = =1.2*a1+1.6*a2                             (Pu)
+   a12 = =a11/a10^2                       <-- qu
+   a13 = =a7-0.09                                   (d)
+   a14 = =4*(a4+a13)                                (bo)
+   a15 = =a11-a12*(a4+a13)^2              <-- Vu punzonamiento
+   a16 = =0.75*0.33*a5^0.5*(1000*a14)*(1000*a13)/1000   <-- fiVc (Vu<=fiVc ok)
+   a17 = =(a10-a4)/2                                (voladizo)
+   a18 = =a12*a10*a17^2/2                           (Mu)
+   a19 = =1000000*a18/(0.9*(1000*a10)*(1000*a13)^2) (Rn)
+   a20 = =0.85*a5/a6*(1-(1-2*a19/(0.85*a5))^0.5)    (rho)
+   a21 = =a20*(1000*a10)*(1000*a13)                 (As)
+   a22 = =0.0018*(1000*a10)*(1000*a7)               (As min)
+   a23 = =max(a21,a22)                    <-- As FINAL (mm2)
+
+ PRUEBA (con los valores de arriba): a10=3.5, a12=231.8, a15=2604, a16=2795, a23=4410
+ (As/284 = # de barras #6)
+
+
+========================================================================
+ HOJA 2:  COLUMNA - punto Pn-Mn del diagrama
+========================================================================
+ DATOS (columna A):
+   a1 = 400       (b en mm)
+   a2 = 600       (h en mm)
+   a3 = 21        (f'c)
+   a4 = 420       (fy)
+   a5 = 318       (c = eje neutro en mm)   <- este lo vas cambiando
+   a6 = =when(a3>28,max(0.65,0.85-0.05*(a3-28)/7),0.85)   (beta1)
+   a7 = =min(a6*a5,a2)                                    (a = bloque)
+   a8 = =0.85*a3*a7*a1                                    (Cc en N)
+
+ TABLA DE CAPAS (una fila por capa; columnas C,D,E,F,G,H):
+   Encabeza a mano y escribe los datos As y d:
+     c1 = 1530    d1 = 60      (capa superior)
+     c2 = 1136    d2 = 300     (capa media)
+     c3 = 1530    d3 = 540     (capa inferior)
+   Formulas en la FILA 1 (luego las rellenas hacia abajo a filas 2 y 3):
+     e1 = =0.003*($a$5-d1)/$a$5                            (es)
+     f1 = =max(-$a$4,min($a$4,200000*e1))                 (fs)
+     g1 = =when(d1<$a$7,c1*(f1-0.85*$a$3),c1*f1)           (F en N)
+     h1 = =g1*($a$2/2-d1)                                 (M en N*mm)
+   (repite e,f,g,h en las filas 2 y 3, o usa "Rellenar hacia abajo")
+
+ RESULTADOS (columna A):
+   a10 = =(a8+sum(g1:g3))/1000                  <-- Pn (kN)
+   a11 = =(a8*(a2/2-a7/2)+sum(h1:h3))/1000000   <-- Mn (kN*m)
+
+ PRUEBA (400x600, capas dadas, c=318): a10=1943 kN, a11=620 kN*m  (balanceado)
+ Trucos:  c=100000 -> Po ;  flexion pura -> cambia a5 hasta que a10=0
+
+
+========================================================================
+ HOJA 3:  MAGNIFICACION (esbeltez)   (todo en columna A)
+========================================================================
+ DATOS:
+   a1 = 1450      (Pu)
+   a2 = 40        (M1)
+   a3 = 130       (M2)
+   a4 = 4.8       (lu, m)
+   a5 = 1.2       (k)
+   a6 = 35        (f'c)
+   a7 = 0.45      (h, m)
+   a8 = 0.45      (b, m)
+   a9 = 0.60      (beta_dns)
+ FORMULAS:
+   a10 = =0.3*a7                                      (r)
+   a11 = =a5*a4/a10                        <-- klu/r  (esbelta si >22)
+   a12 = =0.6+0.4*(a2/a3)                             (Cm)
+   a13 = =4700*a6^0.5                                 (Ec)
+   a14 = =(1000*a8)*(1000*a7)^3/12                    (Ig)
+   a15 = =0.4*a13*a14/(1+a9)                          (EI)
+   a16 = =(3.14159265)^2*a15/(1000*a5*a4)^2/1000      <-- Pc (kN)
+   a17 = =max(a12/(1-a1/(0.75*a16)),1)               <-- dns
+   a18 = =a17*a3                           <-- Mc (kN*m)
+
+ PRUEBA: a11=42.7, a12=0.723, a16=7066, a17=1.0, a18=130
+
+
+========================================================================
+ UNIDADES
+========================================================================
+  ZAPATA y MAGNIF: dimensiones en METROS.
+  COLUMNA: b y h en MILIMETROS.
+  As en mm2 -> divide por area de barra: #6=284, #7=387, #8=510.
+
+VENTAJA: en la hoja de calculo NO hay "error de sintaxis" de programa.
+Solo cuida: cada formula empieza con "=", multiplicar con "*", parentesis balanceados.

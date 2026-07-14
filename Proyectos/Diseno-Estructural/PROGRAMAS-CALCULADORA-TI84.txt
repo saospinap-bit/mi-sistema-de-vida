@@ -1,0 +1,122 @@
+========================================================================
+ PROGRAMAS PARA CALCULADORA TEXAS (TI-84 Plus / TI-83)  -  Diseño Estructural
+========================================================================
+UNIDADES:  cargas en kN | dimensiones en m | qadm en kN/m2 | f'c y fy en MPa
+Símbolos de la calculadora:
+   ->  = tecla STO> (guardar)      ² = tecla x²
+   √(  = 2nd + x²                  π = 2nd + ^
+   L1  = 2nd + 1  ,  L2 = 2nd + 2  (listas)
+Para escribir: PRGM > NEW > Create New. Cada renglón que empieza con ":" es
+una línea (Enter). Los comandos Disp/Prompt: PRGM > I/O.
+
+
+========================================================================
+ PROGRAMA 1:  ZAPATA  (zapata cuadrada: B, punzonamiento y acero)
+========================================================================
+:Disp "ZAPATA CUADRADA"
+:Prompt D,V,Q,C,F,Y
+   (D=PD, V=PL, Q=qadm, C=lado columna, F=f'c, Y=fy)
+:D+V->P
+:P/Q->A
+:√(A)->B
+:Disp "B (m)=",B
+:1.2D+1.6V->U
+:U/B²->W
+:Disp "Pu=",U
+:Disp "qu=",W
+:Prompt H
+   (H = espesor h que propones, en m)
+:H-0.09->G
+:4(C+G)->O
+:U-W(C+G)²->S
+:0.75*0.33*√(F)*(1000O)*(1000G)/1000->K
+:Disp "Vu punz=",S
+:Disp "fiVc=",K
+   (si Vu <= fiVc  -> OK ; si no, sube H y corre otra vez)
+:(B-C)/2->L
+:W*B*L²/2->M
+:Disp "Mu=",M
+:1000000*M/(0.9*(1000B)*(1000G)²)->R
+:0.85*F/Y*(1-√(1-2R/(0.85F)))->Z
+:Z*(1000B)*(1000G)->X
+:0.0018*(1000B)*(1000H)->N
+:max(X,N)->X
+:Disp "As mm2=",X
+   (divide As entre el area de tu barra para el # de barras:
+    #6=284, #7=387, #8=510)
+
+
+========================================================================
+ PROGRAMA 2:  COLUMNA  (un punto del diagrama de interacción Pn-Mn)
+========================================================================
+:Disp "PUNTO Pn-Mn"
+:Prompt B,H,F,Y
+   (B=ancho mm, H=alto mm, F=f'c, Y=fy)   << aquí B y H en MILIMETROS
+:0.85->Q
+:If F>28:max(0.65,0.85-0.05(F-28)/7)->Q
+   (Q = beta1)
+:Prompt Z
+   (Z = numero de capas de acero)
+:For(I,1,Z)
+:Disp "CAPA",I
+:Prompt A,D
+   (A=As de la capa mm2 , D=profundidad d mm desde arriba)
+:A->L1(I)
+:D->L2(I)
+:End
+:Prompt C
+   (C = profundidad del eje neutro c, en mm)
+:min(Q*C,H)->W
+:0.85*F*W*B->G
+:G->P
+:G(H/2-W/2)->M
+:For(I,1,Z)
+:200000*0.003*(C-L2(I))/C->S
+:If S>Y:Y->S
+:If S<-Y:-Y->S
+:If L2(I)<W:L1(I)*(S-0.85F)->T
+:If L2(I)>=W:L1(I)*S->T
+:P+T->P
+:M+T*(H/2-L2(I))->M
+:End
+:P/1000->P
+:M/1000000->M
+:Disp "Pn kN=",P
+:Disp "Mn kNm=",M
+   TRUCOS:
+   - Compresion pura: pon C=100000 (te da Po, M=0)
+   - Balanceado:  c = 0.003/(0.003+Y/200000)*dmax   (dmax=capa mas profunda)
+   - Flexion pura: prueba C hasta que Pn=0 (tanteo)
+
+
+========================================================================
+ PROGRAMA 3:  MAGNIF  (esbeltez y magnificacion de momentos)
+========================================================================
+:Prompt U,A,B,L,K,F,H,W,S
+   (U=Pu kN, A=M1, B=M2, L=lu m, K=k, F=f'c, H=h en m, W=b en m, S=beta_dns)
+:0.3H->R
+:K*L/R->I
+:Disp "klu/r=",I
+   (esbelta si klu/r > 22 [no arriostr] o > 34-12(M1/M2) [arriostr])
+:0.6+0.4(A/B)->M
+:Disp "Cm=",M
+:4700√(F)->E
+:(1000W)*(1000H)^3/12->G
+:0.4*E*G/(1+S)->J
+:π²*J/(1000K*L)²/1000->C
+:Disp "Pc kN=",C
+:M/(1-U/(0.75C))->N
+:If N<1:1->N
+:Disp "dns=",N
+:N*B->Z
+:Disp "Mc=",Z
+   (verifica el par (Mc, U) con el PROGRAMA 2 / diagrama de interaccion)
+
+
+========================================================================
+ NOTAS
+========================================================================
+- beta1 = 0.85 para f'c <= 28 MPa (el PROG 2 lo ajusta solo si f'c > 28).
+- Recubrimiento supuesto en zapatas: d = h - 0.09 m (cambia el 0.09 si usas otro).
+- phi: 0.75 cortante, 0.90 flexion (ya van dentro).
+- Estos programas son ayudas de cálculo; siempre revisa unidades y el enunciado.
