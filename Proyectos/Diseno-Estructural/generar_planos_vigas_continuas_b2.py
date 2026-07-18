@@ -294,25 +294,27 @@ def choose_scale(total_length: float, max_width=600.0):
     return math.ceil(total_length / max_width / 25) * 25
 
 
-def draw_info_box(space, chain, detail, x, y, width=43.0, height=44.0):
-    rectangle(space, x, y, width, height, "MARCO", BLACK, 20)
-    add_text(space, f"VIGA {detail['group']}", (x + width / 2, y + height - 5), 2.6,
+def draw_info_box(space, chain, detail, x, y, width=40.0, height=50.0):
+    rectangle(space, x, y, width, height, "MARCO", BLACK, 25)
+    add_text(space, f"VIGA {detail['group']}", (x + width / 2, y + height - 6), 2.8,
              "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, f"EJE {chain['line_axis']}", (x + width / 2, y + height - 11), 2.2,
+    add_text(space, f"EJE {chain['line_axis']}", (x + width / 2, y + height - 13), 2.5,
              "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, f"{int(detail['b'])}x{int(detail['h'])} mm", (x + width / 2, y + height - 17), 1.9,
+    add_text(space, f"{int(detail['b'])}x{int(detail['h'])} mm", (x + width / 2, y + height - 20), 2.2,
              "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, f"SUP {detail['n_sup']}#5", (x + 3, y + height - 24), 1.7)
-    add_text(space, f"INF {detail['n_inf']}#5", (x + 3, y + height - 29), 1.7)
-    add_text(space, f"TOR {detail['n_tor']}#5", (x + 3, y + height - 34), 1.7)
-    add_text(space, f"NIVEL TIPO z={chain['z']:.1f} m", (x + 3, y + 4), 1.45)
+    add_text(space, f"SUP {detail['n_sup']}#5", (x + 3, y + height - 28), 2.0)
+    add_text(space, f"INF {detail['n_inf']}#5", (x + 3, y + height - 34), 2.0)
+    add_text(space, f"TOR {detail['n_tor']}#5", (x + 3, y + height - 40), 2.0)
+    add_text(space, f"z={chain['z']:.1f} m", (x + 3, y + 4), 1.8)
 
 
-def draw_axis(space, x, beam_y, beam_h, label):
-    line(space, (x, beam_y - 11), (x, beam_y + beam_h + 17), "EJES", RED, 9, "DASHED")
-    space.add_circle((x, beam_y + beam_h + 12), 3.5,
+def draw_axis(space, x, beam_y, beam_h, label, bubble_level=0):
+    """Dibuja un eje; bubble_level escalona burbujas cuando los apoyos están muy juntos."""
+    bubble_y = beam_y + beam_h + 12 + bubble_level * 8
+    line(space, (x, beam_y - 11), (x, bubble_y + 4), "EJES", RED, 9, "DASHED")
+    space.add_circle((x, bubble_y), 3.5,
                      dxfattribs={"layer": "EJES", "color": RED, "lineweight": 18})
-    add_text(space, label, (x, beam_y + beam_h + 12), 2.0, "EJES", RED,
+    add_text(space, label, (x, bubble_y), 2.5, "EJES", RED,
              TextEntityAlignment.MIDDLE_CENTER)
 
 
@@ -340,28 +342,38 @@ def clear_span(length_mm):
     return max(length_mm - 600.0, 0.5 * length_mm)
 
 
-def draw_chain(space, chain, detail, row_y, row_height=78.0):
-    info_x = 8.5
-    x0 = 57.0
+def draw_chain(space, chain, detail, row_y, row_height=110.0):
+    info_x, info_width = 10.0, 40.0
+    anchor_gap = 4.0
     total = sum(item["length"] for item in chain["segments"])
-    scale = choose_scale(total, 635.0)
+    # La escala reserva explícitamente los dos desarrollos extremos M2: ningún
+    # gancho puede entrar al cuadro de datos ni al cajetín lateral.
+    available = 530.0 - (info_x + info_width + anchor_gap)
+    scale = choose_scale(total + 2 * LDH, available)
+    x0 = info_x + info_width + anchor_gap + LDH / scale
     drawn = total / scale
     x1 = x0 + drawn
-    beam_h = max(8.0, detail["h"] / 25.0)
-    beam_y = row_y + 27.0
-    draw_info_box(space, chain, detail, info_x, beam_y - 8.0, 43.0, 44.0)
+    vertical_scale = 18.0 if row_height >= 190.0 else 22.0
+    beam_h = max(10.0, detail["h"] / vertical_scale)
+    beam_y = row_y + row_height * 0.48
+    draw_info_box(space, chain, detail, info_x, beam_y - 15.0, info_width, 50.0)
 
     nodes = [x0]
     for segment in chain["segments"]:
         nodes.append(nodes[-1] + segment["length"] / scale)
 
-    # Contorno y apoyos en cada eje.
+    # Contorno y apoyos en cada eje. Las burbujas se escalonan en cadenas
+    # densas para que los identificadores sigan siendo legibles.
     rectangle(space, x0, beam_y, drawn, beam_h, "CONTORNO", BLACK, 22)
-    for x, label in zip(nodes, chain["axes"]):
+    minimum_gap = min((nodes[index + 1] - nodes[index] for index in range(len(nodes) - 1)),
+                      default=999.0)
+    stagger_bubbles = minimum_gap < 18.0
+    for index, (x, label) in enumerate(zip(nodes, chain["axes"])):
         support_width = max(4.0, 500.0 / scale)
         rectangle(space, x - support_width / 2, beam_y - 4.0, support_width,
                   beam_h + 8.0, "APOYOS", LIGHT, 15)
-        draw_axis(space, x, beam_y, beam_h, label)
+        draw_axis(space, x, beam_y, beam_h, label,
+                  bubble_level=index % 2 if stagger_bubbles else 0)
 
     # Estribos reales por cada tramo.
     for idx, segment in enumerate(chain["segments"]):
@@ -371,8 +383,8 @@ def draw_chain(space, chain, detail, row_y, row_height=78.0):
             line(space, (x, beam_y + 1.0), (x, beam_y + beam_h - 1.0),
                  "ESTRIBOS", GRAY, 9)
         add_text(space,
-                 f"{detail['stirrup'].replace(' cerrado','')} {detail['legs']}R @{detail['s_end']} (2h) / @{detail['s_center']} ctr",
-                 ((start + end) / 2, beam_y + beam_h / 2 - 0.8), 1.25,
+                 f"{detail['stirrup'].replace(' cerrado','')} {detail['legs']}R @{detail['s_end']}/@{detail['s_center']}",
+                 ((start + end) / 2, beam_y + beam_h / 2 - 0.8), 1.6,
                  "ESTRIBOS", GRAY, TextEntityAlignment.MIDDLE_CENTER)
 
     # M1: dos barras superiores continuas con ganchos en extremos.
@@ -381,7 +393,7 @@ def draw_chain(space, chain, detail, row_y, row_height=78.0):
              "ACERO_SUP_CONT", CYAN, 35)
     continuous_cut = clear_span(total) + 2 * LDH
     add_text(space, f"M1  2#5 CONT.  Lc={continuous_cut:.0f} mm", ((x0 + x1) / 2, y_top + 3.0),
-             1.55, "ACERO_SUP_CONT", CYAN, TextEntityAlignment.MIDDLE_CENTER)
+             2.2, "ACERO_SUP_CONT", CYAN, TextEntityAlignment.MIDDLE_CENTER)
 
     # M2: barras negativas sobre cada apoyo, alternadas verticalmente para evitar superposición.
     extra = max(detail["n_sup"] - 2, 0)
@@ -411,7 +423,7 @@ def draw_chain(space, chain, detail, row_y, row_height=78.0):
             if index == len(nodes) - 1:
                 points.append((end, y - 5.0))
             polyline(space, points, "ACERO_SUP_APOYO", BLUE, 30)
-            add_text(space, f"M2 {extra}#5 L={cut:.0f}", (x, y + 1.2), 1.15,
+            add_text(space, f"M2 {extra}#5 L={cut:.0f}", (x, y + 1.5), 1.7,
                      "ACERO_SUP_APOYO", BLUE, TextEntityAlignment.MIDDLE_CENTER)
 
     # M3: barras inferiores independientes por tramo, con ganchos en ambas caras.
@@ -423,8 +435,8 @@ def draw_chain(space, chain, detail, row_y, row_height=78.0):
                          (end - support_shift, y), (end - support_shift, y + 5.0)],
                  "ACERO_INF", RED, 35)
         cut = clear_span(segment["length"]) + 2 * LDH
-        add_text(space, f"M3 {detail['n_inf']}#5 L={cut:.0f}", ((start + end) / 2, y - 2.1),
-                 1.2, "ACERO_INF", RED, TextEntityAlignment.MIDDLE_CENTER)
+        add_text(space, f"M3 {detail['n_inf']}#5 L={cut:.0f}", ((start + end) / 2, y - 2.7),
+                 1.7, "ACERO_INF", RED, TextEntityAlignment.MIDDLE_CENTER)
 
     # M4: acero torsional dedicado continuo, separado de flexión.
     if detail["n_tor"]:
@@ -432,27 +444,44 @@ def draw_chain(space, chain, detail, row_y, row_height=78.0):
         polyline(space, [(x0 + 1.0, y_tor), (x1 - 1.0, y_tor)],
                  "ACERO_TORSION", BROWN, 26)
         add_text(space, f"M4 {detail['n_tor']}#5 TORSIÓN DEDICADA", ((x0 + x1) / 2, y_tor + 1.6),
-                 1.15, "ACERO_TORSION", BROWN, TextEntityAlignment.MIDDLE_CENTER)
+                 1.7, "ACERO_TORSION", BROWN, TextEntityAlignment.MIDDLE_CENTER)
 
-    # Cortes y cotas de cada tramo.
-    cut_locations = []
-    if len(nodes) >= 3:
-        cut_locations = [(nodes[1], "A"), ((nodes[1] + nodes[2]) / 2, "B"), (nodes[-2], "C")]
+    # Cortes en el interior de los tramos, nunca sobre el centro de un apoyo.
+    # B se desplaza del centro geométrico para no atravesar los rótulos M1/M3/M4.
+    segment_count = len(chain["segments"])
+    if segment_count == 1:
+        cut_locations = [
+            (x0 + drawn * 0.18, "A"),
+            (x0 + drawn * 0.68, "B"),
+            (x0 + drawn * 0.84, "C"),
+        ]
     else:
-        cut_locations = [(x0 + drawn * 0.15, "A"), (x0 + drawn * 0.50, "B"), (x0 + drawn * 0.85, "C")]
+        middle = segment_count // 2
+        cut_locations = [
+            (nodes[0] + (nodes[1] - nodes[0]) * 0.18, "A"),
+            (nodes[middle] + (nodes[middle + 1] - nodes[middle]) * 0.68, "B"),
+            (nodes[-2] + (nodes[-1] - nodes[-2]) * 0.82, "C"),
+        ]
     for x, label in cut_locations:
         line(space, (x, beam_y - 2.5), (x, beam_y + beam_h + 2.5), "CORTE", MAGENTA, 13)
-        add_text(space, label, (x, beam_y + beam_h + 5.2), 1.5, "CORTE", MAGENTA,
+        add_text(space, label, (x, beam_y + beam_h + 7.5), 2.0, "CORTE", MAGENTA,
                  TextEntityAlignment.MIDDLE_CENTER)
 
+    # En cadenas con tramos cortos, cotas y números de frame alternan en dos
+    # niveles. La cota total queda en un tercer nivel independiente.
     dim_y = beam_y - 10.0
+    dense_dimensions = minimum_gap < 20.0
     for idx, segment in enumerate(chain["segments"]):
-        dimension(space, nodes[idx], nodes[idx + 1], dim_y, f"{segment['length'] / 1000:.3f} m", 1.3)
-        add_text(space, f"F{segment['frame']}", ((nodes[idx] + nodes[idx + 1]) / 2, dim_y - 2.7),
-                 1.1, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
-    dimension(space, x0, x1, dim_y - 6.0, f"TOTAL SAP I-J = {total / 1000:.3f} m", 1.5)
-    add_text(space, f"ESC. H 1:{scale} | V 1:25 | Ejes/tramos obtenidos de SAP",
-             (x1, row_y + 1.0), 1.35, "TEXTO", BLACK, TextEntityAlignment.RIGHT)
+        local_dim_y = dim_y - (idx % 2) * 6.0 if dense_dimensions else dim_y
+        dimension(space, nodes[idx], nodes[idx + 1], local_dim_y,
+                  f"{segment['length'] / 1000:.3f} m", 1.8)
+        add_text(space, f"F{segment['frame']}",
+                 ((nodes[idx] + nodes[idx + 1]) / 2, local_dim_y - 3.2),
+                 1.55, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    total_dim_y = dim_y - (13.0 if dense_dimensions else 7.0)
+    dimension(space, x0, x1, total_dim_y, f"TOTAL SAP I-J = {total / 1000:.3f} m", 2.0)
+    add_text(space, f"ESC. H 1:{scale} | V 1:22 | EJES Y TRAMOS SAP",
+             (x1, row_y + 4.0), 1.9, "TEXTO", BLACK, TextEntityAlignment.RIGHT)
     return {"scale": scale, "total": total, "nodes": nodes, "beam_y": beam_y, "beam_h": beam_h}
 
 
@@ -523,58 +552,95 @@ def draw_section(space, cx, cy, detail, label, center=False):
     for x, y in torsion_positions(detail["n_tor"], detail["b"], detail["h"]):
         space.add_circle((left + x / scale, bottom + y / scale), 0.48,
                          dxfattribs={"layer": "ACERO_TORSION", "color": BROWN})
-    add_text(space, label, (cx, bottom - 3.1), 1.55, "TEXTO", BLACK,
+    add_text(space, label, (cx, bottom - 3.6), 1.9, "TEXTO", BLACK,
              TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, f"{int(detail['b'])}x{int(detail['h'])} | 1:20", (cx, bottom - 5.6), 1.25,
+    add_text(space, f"{int(detail['b'])}x{int(detail['h'])} | 1:20", (cx, bottom - 6.4), 1.55,
              "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
 
 
-def draw_bottom_details(space, detail, sheet_id):
-    y = 48.0
-    draw_section(space, 205, y + 15, detail, "A-A APOYO", False)
-    draw_section(space, 280, y + 15, detail, "B-B CENTRO", True)
-    draw_section(space, 355, y + 15, detail, "C-C APOYO", False)
+def draw_side_details(space, detail, sheet_id, chains):
+    """Cajetín lateral y detalles, como en la lámina guía del usuario."""
+    x0, x1 = 538.0, 697.0
+    rectangle(space, x0, 7.0, x1 - x0, 486.0, "MARCO", BLACK, 30)
+    for y in (458.0, 405.0, 325.0, 230.0, 150.0, 75.0):
+        line(space, (x0, y), (x1, y), "MARCO", BLACK, 20)
 
-    # Detalle de gancho 90° a escala 1:10.
-    hx, hy = 430.0, 65.0
+    # Encabezado del proyecto.
+    add_text(space, "UNIVERSIDAD NACIONAL DE COLOMBIA", ((x0 + x1) / 2, 484), 2.5,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, "DISEÑO ESTRUCTURAL — GRUPO 6", ((x0 + x1) / 2, 476), 2.2,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, "EDIFICIO RESIDENCIAL — SANTA MARTA", ((x0 + x1) / 2, 468), 2.0,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+
+    # Identificación de la lámina.
+    add_text(space, "DESPIECE DE VIGA CONTINUA", ((x0 + x1) / 2, 448), 3.2,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, detail["group"], ((x0 + x1) / 2, 435), 6.0,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, f"SECCIÓN {int(detail['b'])} x {int(detail['h'])} mm", ((x0 + x1) / 2, 423), 2.2,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, f"{detail['count']} FRAMES SAP — NIVEL TIPO", ((x0 + x1) / 2, 414), 2.2,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+
+    # Cortes agrupados y alineados con el detalle longitudinal.
+    add_text(space, "CORTES TRANSVERSALES", ((x0 + x1) / 2, 396), 2.6,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    draw_section(space, 564, 363, detail, "A-A APOYO", False)
+    draw_section(space, 617.5, 363, detail, "B-B CENTRO", True)
+    draw_section(space, 671, 363, detail, "C-C APOYO", False)
+
+    # Gancho de anclaje a 90 grados.
+    add_text(space, "DETALLE DE ANCLAJE #5 — ESC. 1:10", ((x0 + x1) / 2, 315), 2.5,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    hx, hy = 557.0, 285.0
     polyline(space, [(hx, hy - TAIL_90 / 10), (hx, hy), (hx + LDH / 10, hy)],
-             "ACERO_SUP_APOYO", BLUE, 35)
-    dimension(space, hx, hx + LDH / 10, hy + 5.0, f"ldh={LDH:.0f} mm", 1.25)
-    add_text(space, f"cola 90°={TAIL_90:.0f} mm", (hx - 3, hy - TAIL_90 / 10 - 3), 1.3,
+             "ACERO_SUP_APOYO", BLUE, 50)
+    dimension(space, hx, hx + LDH / 10, hy + 7.0, f"ldh = {LDH:.0f} mm", 1.8)
+    add_text(space, f"COLA 90° = {TAIL_90:.0f} mm", (596, 287), 2.0,
              "ACERO_SUP_APOYO", BLUE)
-    add_text(space, f"Dint>={BEND_90:.0f} mm | ESC. 1:10", (hx + 36, hy - 2), 1.3)
-    add_text(space, f"ld recto #5: superior={LD_SUP:.0f} mm | inferior={LD_INF:.0f} mm",
-             (430, 44), 1.45)
-    add_text(space, "Si no cabe ld recto en apoyo, usar gancho estándar 90° con ldh indicado.",
-             (430, 40), 1.25)
+    add_text(space, f"Dint >= {BEND_90:.0f} mm", (596, 278), 2.0)
+    add_text(space, f"ld SUP = {LD_SUP:.0f} mm", (596, 269), 2.0)
+    add_text(space, f"ld INF = {LD_INF:.0f} mm", (596, 260), 2.0)
+    add_text(space, "USAR GANCHO SI NO CABE EL ld RECTO", ((x0 + x1) / 2, 240), 2.2,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
 
-    # Rótulo inferior semejante al formato de referencia.
-    rectangle(space, 7, 7, 690, 30, "MARCO", BLACK, 25)
-    divisions = [118, 250, 390, 520, 610]
-    for x in divisions:
-        line(space, (x, 7), (x, 37), "MARCO", BLACK, 18)
-    add_text(space, "UNIVERSIDAD NACIONAL DE COLOMBIA", (62.5, 28), 2.0, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, "DISEÑO ESTRUCTURAL - GRUPO 6", (62.5, 20), 1.7, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, "EDIFICIO RESIDENCIAL SANTA MARTA", (184, 25), 2.0, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, f"DESPIECE VIGA {detail['group']}", (320, 25), 2.5, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, "ELEVACIÓN, CORTES Y ANCLAJES", (320, 16), 1.7, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, "FORMATO ISO B2 707x500 mm", (455, 26), 1.8, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, "COTAS EN mm | ESCALAS INDICADAS", (455, 17), 1.55, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, "DETALLE ACADÉMICO", (565, 26), 1.8, "TEXTO", RED,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, "NO EMITIR PARA CONSTRUCCIÓN", (565, 17), 1.55, "TEXTO", RED,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, f"LÁMINA {sheet_id}", (653.5, 26), 2.1, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
-    add_text(space, DATE, (653.5, 17), 1.7, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
+    # Cuadro de marcas; evita repetir notas pequeñas sobre el dibujo.
+    add_text(space, "CUADRO DE ARMADURAS", ((x0 + x1) / 2, 220), 2.6,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    rows = [
+        ("M1", "2#5", "SUPERIOR CONTINUA"),
+        ("M2", f"{max(detail['n_sup'] - 2, 0)}#5", "NEGATIVA DE APOYO"),
+        ("M3", f"{detail['n_inf']}#5", "INFERIOR POR TRAMO"),
+        ("M4", f"{detail['n_tor']}#5", "TORSIÓN DEDICADA"),
+        ("E1", detail["stirrup"].replace(" cerrado", ""), f"{detail['legs']}R @{detail['s_end']}/@{detail['s_center']}"),
+    ]
+    for index, (mark, steel, use) in enumerate(rows):
+        y = 208 - index * 10.5
+        add_text(space, mark, (545, y), 2.2)
+        add_text(space, steel, (565, y), 2.2)
+        add_text(space, use, (595, y), 2.2)
+
+    # Localización resumida en el mismo orden descendente usado en el plano SAP.
+    add_text(space, "LOCALIZACIÓN / RECORRIDO SAP", ((x0 + x1) / 2, 140), 2.5,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    for index, chain in enumerate(chains[:4]):
+        axes = "-".join(chain["axes"])
+        add_text(space, f"{index + 1}. EJE {chain['line_axis']} : {axes}", (545, 128 - index * 12), 2.2)
+
+    # Cajetín final lateral.
+    add_text(space, "FORMATO ISO B2 — 707 x 500 mm", ((x0 + x1) / 2, 65), 2.2,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, "COTAS EN mm — ESCALAS INDICADAS", ((x0 + x1) / 2, 55), 2.0,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, f"LÁMINA {sheet_id}", ((x0 + x1) / 2, 42), 3.2,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, DATE, ((x0 + x1) / 2, 31), 2.0,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, "DETALLE ACADÉMICO", ((x0 + x1) / 2, 20), 2.2,
+             "TEXTO", RED, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, "NO EMITIR PARA CONSTRUCCIÓN", ((x0 + x1) / 2, 12), 2.2,
+             "TEXTO", RED, TextEntityAlignment.MIDDLE_CENTER)
 
 
 def configure_layout(layout):
@@ -588,23 +654,26 @@ def draw_group_layout(layout, group, chains, detail, sheet_id):
     configure_layout(layout)
     rectangle(layout, MARGIN, MARGIN, SHEET_W - 2 * MARGIN, SHEET_H - 2 * MARGIN,
               "MARCO", BLACK, 30)
-    add_text(layout, f"DESPIECE DE VIGA COMPLETA {group}", (SHEET_W / 2, SHEET_H - 13),
-             4.0, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    # Encabezado de la zona principal; el cajetín y los cortes quedan a la derecha,
+    # como en la lámina guía adjunta por el usuario.
+    add_text(layout, f"DESPIECE DE VIGAS COMPLETAS — {group}", (272.0, 488.0),
+             5.0, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
     levels = ", ".join(f"{value:.1f}" for value in chains[0]["all_levels"])
-    add_text(layout, f"Continuidad reconstruida de SAP | Niveles z={levels} m | {detail['count']} frames",
-             (SHEET_W / 2, SHEET_H - 20), 1.8, "TEXTO", BLACK,
-             TextEntityAlignment.MIDDLE_CENTER)
+    add_text(layout, f"ORDEN SAP DE ARRIBA HACIA ABAJO | NIVELES z={levels} m",
+             (272.0, 478.0), 2.6, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    line(layout, (10, 470), (530, 470), "MARCO", BLACK, 25)
 
     count = len(chains)
-    top, bottom = SHEET_H - 29.0, 103.0
-    usable = top - bottom
-    row_height = usable / max(count, 1)
-    if row_height < 54:
+    top, bottom = 470.0, 15.0
+    row_height = (top - bottom) / max(count, 1)
+    if row_height < 105:
         raise ValueError(f"No cabe el grupo {group}: {count} cadenas en B2")
     for index, chain in enumerate(chains):
         row_y = top - (index + 1) * row_height
         draw_chain(layout, chain, detail, row_y, row_height)
-    draw_bottom_details(layout, detail, sheet_id)
+        if index < count - 1:
+            line(layout, (10, row_y), (530, row_y), "MARCO", GRAY, 9)
+    draw_side_details(layout, detail, sheet_id, chains)
 
 
 def populate_model_overview(doc, layout_names):
