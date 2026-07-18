@@ -101,6 +101,40 @@ def load_sources():
         raise ValueError("Falta al menos un grupo de vigas en el export SAP")
 
     design = load_workbook(DESIGN, read_only=True, data_only=True)
+    demands = {}
+    detail_ws = design["Todas las Vigas (592)"]
+    detail_headers = [cell.value for cell in detail_ws[3]]
+    for values in detail_ws.iter_rows(min_row=4, values_only=True):
+        if values[0] is None:
+            continue
+        row = dict(zip(detail_headers, values))
+        frame = str(row["Frame"])
+        if frame in demands:
+            raise ValueError(f"Frame duplicado en el Excel de diseño: {frame}")
+        demands[frame] = {
+            "group": normalize_group(row["Grupo"]),
+            "mu_neg": float(row["Mu− ENVFLEX (kN·m)"]),
+            "mu_pos": float(row["Mu+ ENVFLEX (kN·m)"]),
+            "vu_flex": float(row["Vu ENVFLEX (kN)"]),
+            "vu_shear": float(row["Vu ENVCORT (kN)"]),
+            "torsion": float(row["Tu diseño compat. (kN·m)"]),
+            "status": str(row["ESTADO"]),
+        }
+
+    expected_frames = set().union(*(assignments[group] for group in GROUPS))
+    if set(demands) != expected_frames:
+        missing = sorted(expected_frames - set(demands), key=int)
+        extra = sorted(set(demands) - expected_frames, key=int)
+        raise ValueError(f"Excel/SAP no coinciden; faltan={missing[:10]}, sobran={extra[:10]}")
+    for frame, demand in demands.items():
+        expected_group = next(group for group in GROUPS if frame in assignments[group])
+        if demand["group"] != expected_group:
+            raise ValueError(
+                f"Grupo inconsistente para frame {frame}: Excel={demand['group']}, SAP={expected_group}"
+            )
+        if demand["status"] not in {"CUMPLE", "NO CUMPLE"}:
+            raise ValueError(f"Estado no calculado para frame {frame}: {demand['status']}")
+
     details = {}
     for sheet in ("Vigas de Carga (7)", "Vigas de Rigidez (5)"):
         ws = design[sheet]
@@ -110,6 +144,7 @@ def load_sources():
                 continue
             row = dict(zip(headers, values))
             group = normalize_group(row["Grupo"])
+            group_demands = [item for item in demands.values() if item["group"] == group]
             details[group] = {
                 "group": group,
                 "b": float(row["b adopt. (mm)"]),
@@ -123,11 +158,15 @@ def load_sources():
                 "s_center": int(round(float(row["s centro (mm)"]))),
                 "db_st": float(row["db estribo (mm)"]),
                 "count": int(row["N vigas"]),
+                "status": str(row["ESTADO"]),
+                "noncompliant": sum(item["status"] == "NO CUMPLE" for item in group_demands),
             }
     design.close()
+    if len(demands) != 592:
+        raise ValueError(f"El Excel final contiene {len(demands)} demandas; se esperaban 592")
     if set(details) != set(GROUPS):
         raise ValueError(f"Los grupos del Excel final no coinciden: {sorted(details)}")
-    return grids, joints, frames, assignments, details
+    return grids, joints, frames, assignments, details, demands
 
 
 def nearest_axis(grids, direction: str, coordinate: float, tolerance=0.22) -> str:
@@ -141,7 +180,7 @@ def nearest_axis(grids, direction: str, coordinate: float, tolerance=0.22) -> st
     return label if distance <= tolerance else f"{coordinate:.2f}"
 
 
-def frame_components(group, assignments, frames, joints, grids):
+def frame_components(group, assignments, frames, joints, grids, demands):
     ids = [frame for frame in assignments[group] if frame in frames]
     z_values = sorted({round(float(frames[frame]["CentroidZ"]), 3) for frame in ids})
     z = z_values[0]
@@ -193,6 +232,7 @@ def frame_components(group, assignments, frames, joints, grids):
                 "joint_i": current,
                 "joint_j": following,
                 "length": float(frames[frame]["Length"]) * 1000.0,
+                "demand": demands[frame],
             })
             current = following
         coordinates = [joints[ordered[0]["joint_i"]]] + [joints[item["joint_j"]] for item in ordered]
@@ -346,6 +386,20 @@ def clear_span(length_mm):
     return max(length_mm - 600.0, 0.5 * length_mm)
 
 
+def demand_texts(segment):
+    """Rótulos compactos y auditables de demanda/estado para un frame SAP."""
+    demand = segment["demand"]
+    first = (
+        f"F{segment['frame']} | M- {demand['mu_neg']:.2f} | "
+        f"M+ {demand['mu_pos']:.2f} kN·m"
+    )
+    second = (
+        f"VF {demand['vu_flex']:.2f} | VC {demand['vu_shear']:.2f} kN | "
+        f"T {demand['torsion']:.2f} kN·m | {demand['status']}"
+    )
+    return first, second
+
+
 def draw_chain(space, chain, detail, row_y, row_height=110.0):
     info_x, info_width = 10.0, 40.0
     anchor_gap = 4.0
@@ -479,10 +533,14 @@ def draw_chain(space, chain, detail, row_y, row_height=110.0):
         local_dim_y = dim_y - (idx % 2) * 6.0 if dense_dimensions else dim_y
         dimension(space, nodes[idx], nodes[idx + 1], local_dim_y,
                   f"{segment['length'] / 1000:.3f} m", 1.8)
-        add_text(space, f"F{segment['frame']}",
-                 ((nodes[idx] + nodes[idx + 1]) / 2, local_dim_y - 3.2),
-                 1.55, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
-    total_dim_y = dim_y - (13.0 if dense_dimensions else 7.0)
+        first, second = demand_texts(segment)
+        midpoint = (nodes[idx] + nodes[idx + 1]) / 2
+        status_color = RED if segment["demand"]["status"] == "NO CUMPLE" else BLACK
+        add_text(space, first, (midpoint, local_dim_y - 3.0),
+                 1.05, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+        add_text(space, second, (midpoint, local_dim_y - 5.2),
+                 1.05, "TEXTO", status_color, TextEntityAlignment.MIDDLE_CENTER)
+    total_dim_y = dim_y - (18.0 if dense_dimensions else 11.0)
     dimension(space, x0, x1, total_dim_y, f"TOTAL SAP I-J = {total / 1000:.3f} m", 2.0)
     add_text(space, f"ESC. H 1:{scale} | V 1:22 | EJES Y TRAMOS SAP",
              (x1, row_y + 4.0), 1.9, "TEXTO", BLACK, TextEntityAlignment.RIGHT)
@@ -689,10 +747,13 @@ def draw_group_side_panel(space, group, chain, detail, row_y, row_height):
         f"EST: {detail['stirrup'].replace(' cerrado', '')} — {detail['legs']} RAMAS",
         f"s EXT/CENTRO: {detail['s_end']}/{detail['s_center']} mm",
         f"FRAMES SAP: {detail['count']}",
+        f"ESTADO GRUPO: {detail['status']}",
+        f"FRAMES NO CUMPLE: {detail['noncompliant']}",
         f"EJE {chain['line_axis']}: {'-'.join(chain['axes'])}",
     ]
     for index, text in enumerate(lines):
-        add_text(space, text, (text_x, first_y - index * 8.0), 2.0)
+        color = RED if "NO CUMPLE" in text and not text.endswith(": 0") else BLACK
+        add_text(space, text, (text_x, first_y - index * 7.0), 1.8, color=color)
 
 
 def draw_grouped_layout(layout, groups, chains_by_group, details, sheet_id, family_label):
@@ -702,7 +763,7 @@ def draw_grouped_layout(layout, groups, chains_by_group, details, sheet_id, fami
               "MARCO", BLACK, 30)
     add_text(layout, f"DESPIECE DE VIGAS DE {family_label} — {sheet_id}", (353.5, 488.0),
              5.0, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
-    add_text(layout, "UNA VIGA TIPO POR GRUPO | ARMADURAS TOMADAS DEL EXCEL DE DISEÑO",
+    add_text(layout, "UNA VIGA TIPO POR GRUPO | DEMANDAS/ESTADOS POR FRAME DESDE EXCEL RECONCILIADO",
              (353.5, 478.0), 2.5, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
     line(layout, (10, 470), (697, 470), "MARCO", BLACK, 25)
 
@@ -772,7 +833,7 @@ def create_family(path: Path, sheet_groups, chains_by_group, details, prefix, fa
         raise ValueError(f"Auditoría DXF con errores en {path.name}: {len(audit.errors)}")
 
 
-def audit_family_against_design(path, sheet_groups, details):
+def audit_family_against_design(path, sheet_groups, details, chains_by_group):
     """Comprueba que cada sección dibujada reproduce las cantidades del Excel."""
     doc = ezdxf.readfile(path)
     layouts = [layout for layout in doc.layouts if layout.name != "Model"]
@@ -794,7 +855,12 @@ def audit_family_against_design(path, sheet_groups, details):
                 f"TORSIÓN: {detail['n_tor']}#5",
                 f"EST: {detail['stirrup'].replace(' cerrado', '')} — {detail['legs']} RAMAS",
                 f"s EXT/CENTRO: {detail['s_end']}/{detail['s_center']} mm",
+                f"ESTADO GRUPO: {detail['status']}",
+                f"FRAMES NO CUMPLE: {detail['noncompliant']}",
             ]
+            chain = representative_chain(chains_by_group[group])
+            for segment in chain["segments"]:
+                required.extend(demand_texts(segment))
             missing = [text for text in required if text not in texts]
             if missing:
                 raise ValueError(f"{group}: datos Excel ausentes del DXF: {missing}")
@@ -906,9 +972,9 @@ def audit_inputs(chains_by_group, details):
 
 
 def main():
-    grids, joints, frames, assignments, details = load_sources()
+    grids, joints, frames, assignments, details, demands = load_sources()
     chains_by_group = {
-        group: frame_components(group, assignments, frames, joints, grids)
+        group: frame_components(group, assignments, frames, joints, grids, demands)
         for group in GROUPS
     }
     audit_inputs(chains_by_group, details)
@@ -917,8 +983,8 @@ def main():
     vr_path = OUT / "V-02-VIGAS-DE-RIGIDEZ-CONTINUAS-B2.dxf"
     create_family(vc_path, VC_SHEETS, chains_by_group, details, "CARGA", "CARGA")
     create_family(vr_path, VR_SHEETS, chains_by_group, details, "RIGIDEZ", "RIGIDEZ")
-    audit_family_against_design(vc_path, VC_SHEETS, details)
-    audit_family_against_design(vr_path, VR_SHEETS, details)
+    audit_family_against_design(vc_path, VC_SHEETS, details, chains_by_group)
+    audit_family_against_design(vr_path, VR_SHEETS, details, chains_by_group)
     render_previews([vc_path, vr_path])
     preview_files = [
         OUT / "V-01-CARGA-VISTA-PREVIA.pdf",
@@ -939,7 +1005,8 @@ def main():
         print(
             f"{group}: 1 viga tipo dibujada | recorrido {signature} | "
             f"SUP {details[group]['n_sup']}#5, INF {details[group]['n_inf']}#5, "
-            f"TOR {details[group]['n_tor']}#5"
+            f"TOR {details[group]['n_tor']}#5 | ESTADO {details[group]['status']} | "
+            f"{details[group]['noncompliant']} frames NO CUMPLE"
         )
 
 
