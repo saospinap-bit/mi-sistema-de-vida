@@ -15,6 +15,7 @@ from pathlib import Path
 
 import ezdxf
 from ezdxf.enums import TextEntityAlignment
+from ezdxf.math import Matrix44
 from openpyxl import load_workbook
 
 BASE = Path(__file__).resolve().parent
@@ -606,17 +607,46 @@ def draw_group_layout(layout, group, chains, detail, sheet_id):
     draw_bottom_details(layout, detail, sheet_id)
 
 
+def populate_model_overview(doc, layout_names):
+    """Copia todas las láminas al Model para que nunca se abra un espacio vacío."""
+    model = doc.modelspace()
+    gap = 25.0
+    for index, layout_name in enumerate(layout_names):
+        column, row = index % 2, index // 2
+        offset_x = column * (SHEET_W + gap)
+        offset_y = -row * (SHEET_H + gap)
+        transform = Matrix44.translate(offset_x, offset_y, 0.0)
+        for entity in doc.layouts.get(layout_name):
+            if entity.dxftype() == "VIEWPORT":
+                continue
+            duplicate = entity.copy()
+            try:
+                duplicate.transform(transform)
+            except NotImplementedError:
+                continue
+            model.add_entity(duplicate)
+
+
 def create_family(path: Path, family_groups, chains_by_group, details, prefix):
     doc = ezdxf.new("R2018", setup=True)
     add_layers(doc)
+    layout_names = []
     for index, group in enumerate(family_groups, 1):
         layout_name = group.replace(" ", "_")
+        layout_names.append(layout_name)
         if index == 1:
             doc.layouts.rename("Layout1", layout_name)
             layout = doc.layouts.get(layout_name)
         else:
             layout = doc.layouts.new(layout_name)
         draw_group_layout(layout, group, chains_by_group[group], details[group], f"{prefix}-{index:02d}")
+
+    # AutoCAD y otros visores abren directamente la primera presentación. El
+    # Model también contiene una vista general de todas las láminas por si el
+    # visor ignora $TILEMODE.
+    doc.layouts.set_active_layout(layout_names[0])
+    doc.header["$TILEMODE"] = 0
+    populate_model_overview(doc, layout_names)
     doc.units = 4
     doc.header["$INSUNITS"] = 4
     doc.header["$MEASUREMENT"] = 1
@@ -624,6 +654,67 @@ def create_family(path: Path, family_groups, chains_by_group, details, prefix):
     audit = doc.audit()
     if audit.has_errors:
         raise ValueError(f"Auditoría DXF con errores en {path.name}: {len(audit.errors)}")
+
+
+def render_previews(dxf_paths):
+    """Crea PDF y PNG visibles sin necesidad de AutoCAD."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib import font_manager as mpl_font_manager
+    from matplotlib.backends.backend_pdf import PdfPages
+    from PIL import Image, ImageDraw
+    from ezdxf.addons.drawing import Frontend, RenderContext
+    from ezdxf.addons.drawing.matplotlib import MatplotlibBackend
+    from ezdxf.fonts import fonts
+    from ezdxf.fonts.font_manager import get_ttf_font_face
+
+    # ezdxf no descubre siempre las fuentes incluidas con Matplotlib. Se
+    # registra DejaVu Sans explícitamente para que los rótulos sean visibles.
+    font_path = Path(mpl_font_manager.findfont("DejaVu Sans"))
+    font_face = get_ttf_font_face(font_path)
+    fonts.font_manager._font_cache.add_entry(font_path, font_face)
+    fonts.font_manager._fallback_font_name = font_path.name
+
+    preview_dir = OUT / "Vistas-Previas-PNG"
+    preview_dir.mkdir(parents=True, exist_ok=True)
+    rendered = []
+    for dxf_path in dxf_paths:
+        doc = ezdxf.readfile(dxf_path)
+        family = "V-01-CARGA" if dxf_path.name.startswith("V-01") else "V-02-RIGIDEZ"
+        pdf_path = OUT / f"{family}-VISTA-PREVIA.pdf"
+        with PdfPages(pdf_path) as pdf:
+            for layout in doc.layouts:
+                if layout.name == "Model":
+                    continue
+                fig = plt.figure(figsize=(14.14, 10.0), dpi=120, facecolor="white")
+                axis = fig.add_axes([0, 0, 1, 1])
+                axis.set_facecolor("white")
+                Frontend(RenderContext(doc), MatplotlibBackend(axis)).draw_layout(layout, finalize=True)
+                axis.set_xlim(0, SHEET_W)
+                axis.set_ylim(0, SHEET_H)
+                axis.set_aspect("equal", adjustable="box")
+                axis.axis("off")
+                png_path = preview_dir / f"{family}-{layout.name}.png"
+                fig.savefig(png_path, dpi=120, facecolor="white", bbox_inches=None, pad_inches=0)
+                pdf.savefig(fig, facecolor="white", bbox_inches=None, pad_inches=0)
+                plt.close(fig)
+                rendered.append((layout.name, png_path))
+
+    thumb_w, thumb_h, label_h = 707, 500, 28
+    columns = 2
+    rows = math.ceil(len(rendered) / columns)
+    contact = Image.new("RGB", (columns * thumb_w, rows * (thumb_h + label_h)), "white")
+    draw = ImageDraw.Draw(contact)
+    for index, (layout_name, image_path) in enumerate(rendered):
+        image = Image.open(image_path).convert("RGB")
+        image.thumbnail((thumb_w, thumb_h))
+        column, row = index % columns, index // columns
+        x = column * thumb_w + (thumb_w - image.width) // 2
+        y = row * (thumb_h + label_h)
+        contact.paste(image, (x, y))
+        draw.text((column * thumb_w + 8, y + thumb_h + 5), layout_name, fill="black")
+    contact.save(OUT / "VISTA-PREVIA-TODAS-LAS-LAMINAS.png")
 
 
 def audit_inputs(chains_by_group, details):
@@ -656,11 +747,19 @@ def main():
     vr_path = OUT / "V-02-VIGAS-DE-RIGIDEZ-CONTINUAS-B2.dxf"
     create_family(vc_path, VC_GROUPS, chains_by_group, details, "V-01")
     create_family(vr_path, VR_GROUPS, chains_by_group, details, "V-02")
+    render_previews([vc_path, vr_path])
+    preview_files = [
+        OUT / "V-01-CARGA-VISTA-PREVIA.pdf",
+        OUT / "V-02-RIGIDEZ-VISTA-PREVIA.pdf",
+        OUT / "VISTA-PREVIA-TODAS-LAS-LAMINAS.png",
+    ]
     with zipfile.ZipFile(ZIP, "w", zipfile.ZIP_DEFLATED) as archive:
-        archive.write(vc_path, vc_path.name)
-        archive.write(vr_path, vr_path.name)
+        for deliverable in [vc_path, vr_path, *preview_files]:
+            archive.write(deliverable, deliverable.name)
     print(f"OK {vc_path}")
     print(f"OK {vr_path}")
+    for preview in preview_files:
+        print(f"OK {preview}")
     print(f"OK {ZIP}")
     for group in GROUPS:
         signatures = ["-".join(chain["axes"]) for chain in chains_by_group[group]]
