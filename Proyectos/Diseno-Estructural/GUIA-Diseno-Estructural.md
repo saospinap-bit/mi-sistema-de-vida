@@ -1,8 +1,13 @@
 # 🏗️ Guía: Diseño de Viguetas, Vigas y Riostras (NSR-10 / ACI 318)
 
 > Material de estudio para entender el método y aplicarlo a TU proyecto.
-> Acompaña a la herramienta `Herramienta-Diseno-Estructural.xlsx` (10 hojas: una por elemento).
+> Acompaña a `Herramienta-Diseno-Estructural.xlsx` (5 hojas) y al libro reconciliado
+> `Diseño de vigas proyecto diseño DEF.xlsx` (592 frames, 12 grupos y parámetros internos).
 > Unidades SI: f'c, fy en MPa · dimensiones en mm · Mu/Tu en kN·m · Vu en kN · As en mm².
+>
+> **Alcance:** los estados `NO CUMPLE` se mantienen visibles. El libro y los planos son
+> una entrega académica; no equivalen a revisión, firma ni aprobación estructural y no
+> deben emitirse para construcción.
 
 ---
 
@@ -96,21 +101,27 @@ Elementos transversales que arriostran las viguetas. Diseño simple:
 
 ---
 
-## 4) La herramienta de Excel (`Herramienta-Diseno-Viguetas-Vigas.xlsx`)
-3 hojas: **Viguetas**, **Vigas**, **Riostras**.
-- Llena solo las **celdas azules** (datos de entrada).
+## 4) La herramienta de Excel (`Herramienta-Diseno-Estructural.xlsx`)
+5 hojas: **Instrucciones**, **Materiales**, **Viguetas**, **Vigas** y **Riostras**.
+- Llena solo las **celdas azules y amarillas** identificadas como datos de entrada.
 - Todo lo demás se calcula con fórmulas: As, estribos, verificaciones de torsión y deflexión.
-- Los resultados clave salen resaltados (verde = acero adoptado, amarillo = resultado/decisión).
+- Los resultados clave salen resaltados (verde = acero adoptado/cumplimiento, rojo = revisar).
 
-> Esta es tu **herramienta propia** que exige el proyecto. Entiéndela: en la sustentación pueden pedirte explicar cualquier celda.
+El libro de entrega `Diseño de vigas proyecto diseño DEF.xlsx` es distinto: consolida
+las 592 vigas SAP, contiene las hojas resumen por grupo y la hoja detallada por frame.
+Sus demandas A:Q se reconstruyen con `reconciliar_diseno_vigas.py`; las fórmulas se
+recalculan con Apache POI y ya no dependen de vínculos externos `[1]`.
+
+> Esta es una herramienta académica. Entiéndela: en la sustentación pueden pedirte explicar cualquier celda.
 
 
 
 ---
 
-# 🧩 APARTADOS ADICIONALES (herramienta completa)
+# 🧩 APARTADOS ADICIONALES (referencia conceptual)
 
-> La herramienta `Herramienta-Diseno-Estructural.xlsx` ahora tiene **un apartado (hoja) por elemento**: Losa, Viguetas, Vigas, Riostras, Escaleras, Columnas, Cimentación y Muros. Llenas azul (geometría) y amarillo (momentos/fuerzas) y todo se verifica solo.
+> Los apartados siguientes son una guía conceptual para otros elementos; **no son hojas
+> implementadas actualmente** en `Herramienta-Diseno-Estructural.xlsx`.
 
 ## 5) LOSA (nervada)
 - **Espesor mínimo** `h ≥ Ln/factor` (C.9.5).
