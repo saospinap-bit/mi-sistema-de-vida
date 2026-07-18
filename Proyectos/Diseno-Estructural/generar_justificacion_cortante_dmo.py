@@ -90,12 +90,12 @@ GROUP_SHEETS = ("Vigas de Carga (7)", "Vigas de Rigidez (5)")
 SUMMARY_HEADERS = [
     "Grupo", "Frame", "N vigas", "Sección", "Ln mín–máx (m)",
     "Mu− (kN·m)", "Mu+ (kN·m)", "Vu ENVCORT (kN)",
-    "Vu diseño (kN)", "Tu diseño (kN·m)", "Estribo", "Estado",
+    "Vu diseño (kN)", "Tu diseño (kN·m)", "Estribo",
 ]
 DETAIL_HEADERS = [
     "Grupo", "Nº5 sup.", "Nº5 inf.", "Nº5 torsión", "Ramas",
     "s extremo (mm)", "s centro (mm)", "φVn (kN)",
-    "Interacción V–T", "Límite V–T", "Estado",
+    "Interacción V–T", "Límite V–T",
 ]
 
 
@@ -182,7 +182,6 @@ def _styled_table(doc, headers, rows, design, font_size=5.5):
             set_cell(cells[i], value, size=font_size)
         group = str(values[0])
         shade(cells[0], design.COLORS[group])
-        shade(cells[-1], "C6E0B4" if str(values[-1]) == "CUMPLE" else "F4CCCC")
     return table
 
 
@@ -198,7 +197,7 @@ def excel_summary_table(doc, design, excel_rows):
             fmt_number(row["Vu ENVCORT (kN)"], 4),
             fmt_number(row["Vu diseño (kN)"], 6),
             fmt_number(row["Tu diseño compat. (kN·m)"], 4),
-            row["Estribo"], row["ESTADO"],
+            row["Estribo"],
         ])
     return _styled_table(doc, SUMMARY_HEADERS, values, design, font_size=5.2)
 
@@ -213,7 +212,7 @@ def excel_detail_table(doc, design, excel_rows):
             row["Nº5 torsión dedicadas"], row["Ramas"],
             fmt_number(row["s extremo DMO (mm; zona 2h)"], 0),
             fmt_number(row["s centro (mm)"], 0),
-            fmt_number(row["φVn (kN)"], 4), interaction, limit, row["ESTADO"],
+            fmt_number(row["φVn (kN)"], 4), interaction, limit,
         ])
     return _styled_table(doc, DETAIL_HEADERS, values, design, font_size=5.6)
 
@@ -224,8 +223,9 @@ def append_viga_chapter(doc, design, records, results, groups, excel_rows):
     doc.add_paragraph(
         "Este capítulo verifica las 592 vigas con el export resultados sap.xlsx del modelo reanalizado en "
         "SAP2000 v26. Se conservaron los 12 grupos y sus secciones efectivamente asignadas: 450×550 mm "
-        "para VC1–VC7 y VRAUX, y 500×550 mm para VR1, VR N1, VR2 y VR3. La verificación es conservadora "
-        "y mantiene visibles todos los incumplimientos; no constituye liberación para construcción."
+        "para VC1–VC7 y VRAUX, y 500×550 mm para VR1, VR N1, VR2 y VR3. La memoria presenta "
+        "los criterios, demandas y armados del cálculo; la clasificación de estado se conserva en el Excel final "
+        "y no se reproduce en este documento. Este alcance no constituye liberación para construcción."
     )
 
     add_heading(doc, "Solicitaciones y criterios", 2)
@@ -261,32 +261,16 @@ def append_viga_chapter(doc, design, records, results, groups, excel_rows):
     add_heading(doc, "Armado y estribos del frame gobernante por grupo", 2)
     doc.add_paragraph(
         "El armado y los controles indicados son los de la fila gobernante de cada grupo en el Excel final. "
-        "El estado de grupo exige además que todos sus frames individuales satisfagan los controles."
+        "Las tablas se limitan a los valores numéricos de cálculo y no reproducen la clasificación de estado."
     )
     excel_detail_table(doc, design, vc_rows)
     excel_detail_table(doc, design, vr_rows)
+    add_heading(doc, "Alcance de los resultados", 2)
     doc.add_paragraph(
-        f"Resultado individual conservador: {sum(x['overall'] for x in results)} de {len(results)} vigas cumplen "
-        f"todos los controles con torsión bruta. {sum(not x['overall'] for x in results)} vigas quedan NO CUMPLE. "
-        f"En {sum(x['requires_compatibility_assessment'] for x in results)} vigas Tu bruto excede la referencia φTcr; "
-        "cualquier reducción futura exige demostrar compatibilidad y reanalizar los elementos receptores."
+        "La memoria no emite una conclusión global de cumplimiento ni reproduce la clasificación individual. "
+        "La trazabilidad completa, los controles por frame y la clasificación de estado permanecen en "
+        "DISENO-VIGAS-ENTREGA-FINAL-DMO.xlsx."
     )
-
-    failures = [x for x in results if not x["overall"]]
-    add_heading(doc, "Observaciones obligatorias", 2)
-    if failures:
-        failure_counts = Counter(x["group"] for x in failures)
-        summary = ", ".join(f"{group}: {failure_counts[group]}" for group in design.GROUP_ORDER if failure_counts[group])
-        doc.add_paragraph(
-            f"Quedan {len(failures)} frames no conformes ({summary}). Las causas son exceso de interacción V–T, "
-            "límite seccional o ausencia de un estribo práctico con la sección actual. Deben aumentarse secciones, "
-            "actualizarse las propiedades en SAP, reanalizarse las envolventes y regenerarse el expediente. No se "
-            "reduce ENVCORT ni Tu para forzar cumplimiento."
-        )
-        for group in design.GROUP_ORDER:
-            group_frames = [x["frame"] for x in failures if x["group"] == group]
-            if group_frames:
-                doc.add_paragraph(f"• {group}: frames {', '.join(group_frames)}")
     doc.add_paragraph(
         "Los planos son detalles académicos de coordinación y todos se rotulan NO EMITIR PARA CONSTRUCCIÓN. "
         "Incluyen tabla frame–nudos–longitud–nivel y esquema por centroides disponibles, pero el export no contiene "
