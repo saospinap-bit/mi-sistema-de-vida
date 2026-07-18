@@ -16,6 +16,7 @@ import shutil
 import tempfile
 import zipfile
 from collections import defaultdict
+from copy import copy
 from pathlib import Path
 
 from lxml import etree
@@ -65,15 +66,17 @@ COLORS = {
     "VC4": "E2F0D9", "VC5": "C6E0B4", "VC6": "A5A5A5", "VC7": "D9EAD3",
 }
 
-NAVY = "17365D"
-BLUE = "D9EAF7"
-GREEN = "C6E0B4"
+# Paleta sencilla de hoja académica: tonos estándar de Excel, sin apariencia corporativa.
+NAVY = "5B9BD5"
+BLUE = "DDEBF7"
+GREEN = "E2F0D9"
 RED = "F4CCCC"
 YELLOW = "FFF2CC"
 ORANGE = "FCE4D6"
 GRAY = "E7E6E6"
 WHITE = "FFFFFF"
-THIN = Side(style="thin", color="B7B7B7")
+TEXT = "262626"
+THIN = Side(style="thin", color="D9D9D9")
 BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
 LEFT = Alignment(horizontal="left", vertical="center", wrap_text=True)
@@ -498,7 +501,7 @@ def write_design_sheet(wb, name: str, rows, grouped: bool, cache):
     ws = wb.create_sheet(name)
     last_col = get_column_letter(len(HEADERS))
     ws.merge_cells(f"A1:{last_col}1")
-    ws["A1"] = f"DISEÑO DE VIGAS — {name.upper()}"
+    ws["A1"] = f"Diseño de vigas - {name}"
     ws["A1"].font = Font(bold=True, size=14, color=WHITE)
     ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
     ws["A1"].alignment = CENTER
@@ -600,8 +603,8 @@ def write_design_sheet(wb, name: str, rows, grouped: bool, cache):
             cell = ws.cell(r_idx, c_idx)
             cell.border = BORDER
             cell.alignment = CENTER
-            if c_idx in (1, 2, 10, 12, 14, 15, 17):
-                cell.fill = PatternFill("solid", fgColor=color if c_idx <= 2 else BLUE)
+            if c_idx in (1, 2):
+                cell.fill = PatternFill("solid", fgColor=color)
             if c_idx in (8, 9, 19, 26, 40, 41, 50):
                 cell.fill = PatternFill("solid", fgColor=YELLOW)
             if c_idx >= 10 and isinstance(cell.value, (int, float)):
@@ -625,7 +628,7 @@ def write_design_sheet(wb, name: str, rows, grouped: bool, cache):
 
 def write_parameters(wb):
     ws = wb.create_sheet("Parametros")
-    ws["A1"] = "PARÁMETROS GENERALES"
+    ws["A1"] = "Parámetros generales"
     ws["A1"].font = Font(bold=True, size=14, color=WHITE)
     ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
     ws.merge_cells("A1:D1")
@@ -666,10 +669,15 @@ def write_cover(wb, group_results, all_results):
     ws = wb.active
     ws.title = "Portada y criterio"
     ws.merge_cells("A1:H1")
-    ws["A1"] = "VERIFICACIÓN SECCIONAL DE VIGAS — ENVOLVENTES DE FLEXIÓN Y CORTANTE"
+    ws["A1"] = "Verificación de vigas - resumen del cálculo"
     ws["A1"].font = Font(bold=True, size=16, color=WHITE)
     ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
-    ws["A1"].alignment = CENTER
+    ws["A1"].alignment = LEFT
+    ws.merge_cells("A2:H2")
+    ws["A2"] = "Hoja de cálculo del proyecto de Diseño Estructural - Grupo 6"
+    ws["A2"].font = Font(name="Arial", size=10, italic=True, color=TEXT)
+    ws["A2"].fill = PatternFill("solid", fgColor=BLUE)
+    ws["A2"].alignment = LEFT
     lines = [
         (3, "Alcance", "592 vigas de los 12 grupos SAP; diseño individual y resumen por grupo. No incluye viguetas."),
         (4, "Fuente", "resultados sap.xlsx, SAP2000 v26, unidades kN, m, C; ENVFLEX y ENVCORT con máximos y mínimos."),
@@ -688,7 +696,7 @@ def write_cover(wb, group_results, all_results):
         ws.cell(row, 2, text).alignment = LEFT
         for col in range(1, 9):
             ws.cell(row, col).border = BORDER
-    ws["A12"] = "RESULTADOS DE CONTROL"
+    ws["A12"] = "Resultados de control"
     ws["A12"].font = Font(bold=True, color=WHITE)
     ws["A12"].fill = PatternFill("solid", fgColor=NAVY)
     ws.merge_cells("A12:H12")
@@ -714,7 +722,7 @@ def write_cover(wb, group_results, all_results):
 def write_justification(wb, group_results, all_results):
     ws = wb.create_sheet("Justificacion DMO")
     ws.merge_cells("A1:L1")
-    ws["A1"] = "JUSTIFICACIÓN DEL CORTANTE ADOPTADO — SISTEMA DMO, R = 5"
+    ws["A1"] = "Revisión de cortante - sistema DMO (R = 5)"
     ws["A1"].font = Font(bold=True, size=15, color=WHITE)
     ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
     ws["A1"].alignment = CENTER
@@ -779,7 +787,7 @@ def write_torsion_compatibility(wb, all_results):
     """Traza la demanda bruta y señala casos que requieren estudio de compatibilidad."""
     ws = wb.create_sheet("Torsion demanda bruta")
     ws.merge_cells("A1:J1")
-    ws["A1"] = "CONTROL CONSERVADOR DE TORSIÓN — SIN REDISTRIBUCIÓN"
+    ws["A1"] = "Revisión de torsión sin redistribución"
     ws["A1"].font = Font(bold=True, size=14, color=WHITE)
     ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
     ws["A1"].alignment = CENTER
@@ -874,7 +882,7 @@ def write_frame_traceability(wb, all_results):
 def write_audit(wb, group_results, all_results, group_frames):
     ws = wb.create_sheet("Auditoria y fuentes")
     ws.merge_cells("A1:J1")
-    ws["A1"] = "AUDITORÍA DE DATOS Y RESULTADOS"
+    ws["A1"] = "Revisión de datos y resultados"
     ws["A1"].font = Font(bold=True, size=14, color=WHITE)
     ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
     ws["A1"].alignment = CENTER
@@ -919,6 +927,63 @@ def write_audit(wb, group_results, all_results, group_frames):
     for col, width in enumerate([18, 10, 12, 12, 14, 14, 14, 16, 20, 26], 1):
         ws.column_dimensions[get_column_letter(col)].width = width
     ws.sheet_view.showGridLines = False
+
+
+def apply_personal_format(wb):
+    """Unifica un formato académico sencillo sin alterar datos ni fórmulas."""
+    tab_colors = {
+        "Portada y criterio": "70AD47",
+        "Parametros": "A5A5A5",
+        "Justificacion DMO": "ED7D31",
+        "Vigas de Carga (7)": "F4B183",
+        "Vigas de Rigidez (5)": "9DC3E6",
+        "Todas las Vigas (592)": "5B9BD5",
+        "Torsion demanda bruta": "FFC000",
+        "Trazabilidad frames": "70AD47",
+        "Auditoria y fuentes": "A5A5A5",
+    }
+    large_sheets = {"Todas las Vigas (592)", "Torsion demanda bruta", "Trazabilidad frames"}
+    for ws in wb.worksheets:
+        ws.sheet_properties.tabColor = tab_colors.get(ws.title, "5B9BD5")
+        ws.sheet_view.showGridLines = True
+        ws.sheet_view.zoomScale = 80 if ws.title in large_sheets else 90
+        ws.sheet_view.zoomScaleNormal = 100
+        ws.sheet_format.defaultRowHeight = 18
+
+        for row in ws.iter_rows():
+            for cell in row:
+                if cell.value is None:
+                    continue
+                font = copy(cell.font)
+                font.name = "Arial"
+                if font.sz is None:
+                    font.sz = 10
+                cell.font = font
+
+        # Los títulos quedan como una hoja de trabajo normal: azul medio,
+        # alineación a la izquierda y sin estilo de portada corporativa.
+        merged_title = any(rng.min_row == 1 and rng.max_row == 1 and rng.min_col == 1
+                           for rng in ws.merged_cells.ranges)
+        if merged_title:
+            title = ws["A1"]
+            title.font = Font(name="Arial", bold=True, size=14, color=WHITE)
+            title.fill = PatternFill("solid", fgColor=NAVY)
+            title.alignment = LEFT
+            ws.row_dimensions[1].height = 24
+
+        if ws.title in {"Vigas de Carga (7)", "Vigas de Rigidez (5)", "Todas las Vigas (592)"}:
+            ws.row_dimensions[2].height = 30
+            ws.row_dimensions[3].height = 52
+            ws.auto_filter.ref = f"A3:{get_column_letter(ws.max_column)}{ws.max_row}"
+        elif ws.title == "Torsion demanda bruta":
+            ws.row_dimensions[2].height = 30
+            ws.row_dimensions[4].height = 34
+        elif ws.title == "Trazabilidad frames":
+            ws.row_dimensions[1].height = 36
+        elif ws.title == "Portada y criterio":
+            ws.row_dimensions[1].height = 26
+            ws.row_dimensions[2].height = 22
+
 
 
 def inject_cached_values(path: Path, cache: dict):
@@ -989,6 +1054,7 @@ def main():
     write_torsion_compatibility(wb, all_results)
     write_frame_traceability(wb, all_results)
     write_audit(wb, group_results, all_results, group_frames)
+    apply_personal_format(wb)
     wb.calculation.fullCalcOnLoad = True
     wb.calculation.forceFullCalc = True
     wb.calculation.calcMode = "auto"
