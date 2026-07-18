@@ -930,51 +930,59 @@ def write_audit(wb, group_results, all_results, group_frames):
 
 
 def apply_personal_format(wb):
-    """Unifica un formato académico sencillo sin alterar datos ni fórmulas."""
-    tab_colors = {
-        "Portada y criterio": "70AD47",
-        "Parametros": "A5A5A5",
-        "Justificacion DMO": "ED7D31",
-        "Vigas de Carga (7)": "F4B183",
-        "Vigas de Rigidez (5)": "9DC3E6",
-        "Todas las Vigas (592)": "5B9BD5",
-        "Torsion demanda bruta": "FFC000",
-        "Trazabilidad frames": "70AD47",
-        "Auditoria y fuentes": "A5A5A5",
-    }
+    """Deja el libro sin colores decorativos ni filtros; conserva solo colores de grupo."""
+    design_sheets = {"Vigas de Carga (7)", "Vigas de Rigidez (5)", "Todas las Vigas (592)"}
     large_sheets = {"Todas las Vigas (592)", "Torsion demanda bruta", "Trazabilidad frames"}
+
     for ws in wb.worksheets:
-        ws.sheet_properties.tabColor = tab_colors.get(ws.title, "5B9BD5")
+        # Sin colores en pestañas ni flechas desplegables de AutoFilter.
+        ws.sheet_properties.tabColor = None
+        ws.sheet_properties.filterMode = False
+        ws.auto_filter.ref = None
         ws.sheet_view.showGridLines = True
         ws.sheet_view.zoomScale = 80 if ws.title in large_sheets else 90
         ws.sheet_view.zoomScaleNormal = 100
         ws.sheet_format.defaultRowHeight = 18
+        ws.conditional_formatting._cf_rules.clear()
 
+        # Fondo blanco y texto negro en todo el libro. Se conservan bordes,
+        # alineaciones, fórmulas, formatos numéricos y tamaños de columnas.
         for row in ws.iter_rows():
             for cell in row:
+                cell.fill = PatternFill()
                 if cell.value is None:
                     continue
                 font = copy(cell.font)
                 font.name = "Arial"
+                font.color = TEXT
                 if font.sz is None:
                     font.sz = 10
                 cell.font = font
 
-        # Los títulos quedan como una hoja de trabajo normal: azul medio,
-        # alineación a la izquierda y sin estilo de portada corporativa.
-        merged_title = any(rng.min_row == 1 and rng.max_row == 1 and rng.min_col == 1
-                           for rng in ws.merged_cells.ranges)
+        # Títulos y encabezados sencillos: negrita negra sobre fondo blanco.
+        merged_title = any(
+            rng.min_row == 1 and rng.max_row == 1 and rng.min_col == 1
+            for rng in ws.merged_cells.ranges
+        )
         if merged_title:
             title = ws["A1"]
-            title.font = Font(name="Arial", bold=True, size=14, color=WHITE)
-            title.fill = PatternFill("solid", fgColor=NAVY)
+            title.font = Font(name="Arial", bold=True, size=14, color=TEXT)
             title.alignment = LEFT
             ws.row_dimensions[1].height = 24
 
-        if ws.title in {"Vigas de Carga (7)", "Vigas de Rigidez (5)", "Todas las Vigas (592)"}:
+        # Único color permitido: identificación del grupo. En las hojas de
+        # diseño se colorean Grupo y Frame; en las demás, solamente Grupo.
+        for row_index in range(1, ws.max_row + 1):
+            group = ws.cell(row_index, 1).value
+            if group not in COLORS:
+                continue
+            ws.cell(row_index, 1).fill = PatternFill("solid", fgColor=COLORS[group])
+            if ws.title in design_sheets:
+                ws.cell(row_index, 2).fill = PatternFill("solid", fgColor=COLORS[group])
+
+        if ws.title in design_sheets:
             ws.row_dimensions[2].height = 30
             ws.row_dimensions[3].height = 52
-            ws.auto_filter.ref = f"A3:{get_column_letter(ws.max_column)}{ws.max_row}"
         elif ws.title == "Torsion demanda bruta":
             ws.row_dimensions[2].height = 30
             ws.row_dimensions[4].height = 34
