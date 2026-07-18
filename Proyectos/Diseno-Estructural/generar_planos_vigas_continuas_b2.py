@@ -37,6 +37,10 @@ DATE = "18-07-2026"
 VC_GROUPS = ["VC1", "VC2", "VC3", "VC4", "VC5", "VC6", "VC7"]
 VR_GROUPS = ["VR1", "VR N1", "VR2", "VR3", "VRAUX"]
 GROUPS = VC_GROUPS + VR_GROUPS
+# Cuatro láminas conservan la legibilidad B2: cada grupo aparece una sola vez,
+# separado por familia estructural (carga y rigidez).
+VC_SHEETS = [VC_GROUPS[:4], VC_GROUPS[4:]]
+VR_SHEETS = [VR_GROUPS[:3], VR_GROUPS[3:]]
 ALIASES = {"VR1 N1": "VR N1", "VR AUX": "VRAUX"}
 
 # AutoCAD ACI colors.
@@ -650,30 +654,72 @@ def configure_layout(layout):
     layout.dxf.plot_layout_flags = 0
 
 
-def draw_group_layout(layout, group, chains, detail, sheet_id):
+def representative_chain(chains):
+    """Selecciona una sola viga tipo: la continua más larga y con más tramos."""
+    return max(
+        chains,
+        key=lambda chain: (
+            sum(segment["length"] for segment in chain["segments"]),
+            len(chain["segments"]),
+        ),
+    )
+
+
+def draw_group_side_panel(space, group, chain, detail, row_y, row_height):
+    """Resumen de sección y armado leído del Excel para una viga tipo."""
+    x0, x1 = 538.0, 697.0
+    rectangle(space, x0, row_y, x1 - x0, row_height, "MARCO", BLACK, 22)
+    top = row_y + row_height
+    add_text(space, f"VIGA TIPO {group}", ((x0 + x1) / 2, top - 7.0), 3.4,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    add_text(space, f"{int(detail['b'])}x{int(detail['h'])} mm — DATOS EXCEL",
+             ((x0 + x1) / 2, top - 14.0), 2.0,
+             "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+
+    section_x = 562.0
+    section_y = row_y + row_height * 0.48
+    draw_section(space, section_x, section_y, detail, "SECCIÓN APOYO", False)
+
+    text_x = 585.0
+    first_y = top - 27.0
+    lines = [
+        f"SUP: {detail['n_sup']}#5",
+        f"INF: {detail['n_inf']}#5",
+        f"TORSIÓN: {detail['n_tor']}#5",
+        f"EST: {detail['stirrup'].replace(' cerrado', '')} — {detail['legs']} RAMAS",
+        f"s EXT/CENTRO: {detail['s_end']}/{detail['s_center']} mm",
+        f"FRAMES SAP: {detail['count']}",
+        f"EJE {chain['line_axis']}: {'-'.join(chain['axes'])}",
+    ]
+    for index, text in enumerate(lines):
+        add_text(space, text, (text_x, first_y - index * 8.0), 2.0)
+
+
+def draw_grouped_layout(layout, groups, chains_by_group, details, sheet_id, family_label):
+    """Agrupa varias vigas tipo en una lámina, una representación por grupo."""
     configure_layout(layout)
     rectangle(layout, MARGIN, MARGIN, SHEET_W - 2 * MARGIN, SHEET_H - 2 * MARGIN,
               "MARCO", BLACK, 30)
-    # Encabezado de la zona principal; el cajetín y los cortes quedan a la derecha,
-    # como en la lámina guía adjunta por el usuario.
-    add_text(layout, f"DESPIECE DE VIGAS COMPLETAS — {group}", (272.0, 488.0),
+    add_text(layout, f"DESPIECE DE VIGAS DE {family_label} — {sheet_id}", (353.5, 488.0),
              5.0, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
-    levels = ", ".join(f"{value:.1f}" for value in chains[0]["all_levels"])
-    add_text(layout, f"ORDEN SAP DE ARRIBA HACIA ABAJO | NIVELES z={levels} m",
-             (272.0, 478.0), 2.6, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
-    line(layout, (10, 470), (530, 470), "MARCO", BLACK, 25)
+    add_text(layout, "UNA VIGA TIPO POR GRUPO | ARMADURAS TOMADAS DEL EXCEL DE DISEÑO",
+             (353.5, 478.0), 2.5, "TEXTO", BLACK, TextEntityAlignment.MIDDLE_CENTER)
+    line(layout, (10, 470), (697, 470), "MARCO", BLACK, 25)
 
-    count = len(chains)
     top, bottom = 470.0, 15.0
-    row_height = (top - bottom) / max(count, 1)
-    if row_height < 105:
-        raise ValueError(f"No cabe el grupo {group}: {count} cadenas en B2")
-    for index, chain in enumerate(chains):
+    row_height = (top - bottom) / len(groups)
+    if row_height < 105.0:
+        raise ValueError(f"No caben los grupos {groups} en una lámina B2 legible")
+    for index, group in enumerate(groups):
         row_y = top - (index + 1) * row_height
-        draw_chain(layout, chain, detail, row_y, row_height)
-        if index < count - 1:
-            line(layout, (10, row_y), (530, row_y), "MARCO", GRAY, 9)
-    draw_side_details(layout, detail, sheet_id, chains)
+        chain = representative_chain(chains_by_group[group])
+        draw_chain(layout, chain, details[group], row_y, row_height)
+        draw_group_side_panel(layout, group, chain, details[group], row_y, row_height)
+        if index < len(groups) - 1:
+            line(layout, (10, row_y), (697, row_y), "MARCO", GRAY, 12)
+
+    add_text(layout, "DETALLE ACADÉMICO — NO EMITIR PARA CONSTRUCCIÓN",
+             (353.5, 9.5), 1.8, "TEXTO", RED, TextEntityAlignment.MIDDLE_CENTER)
 
 
 def populate_model_overview(doc, layout_names):
@@ -696,23 +742,24 @@ def populate_model_overview(doc, layout_names):
             model.add_entity(duplicate)
 
 
-def create_family(path: Path, family_groups, chains_by_group, details, prefix):
+def create_family(path: Path, sheet_groups, chains_by_group, details, prefix, family_label):
     doc = ezdxf.new("R2018", setup=True)
     add_layers(doc)
     layout_names = []
-    for index, group in enumerate(family_groups, 1):
-        layout_name = group.replace(" ", "_")
+    for index, groups in enumerate(sheet_groups, 1):
+        layout_name = f"{prefix}_{index:02d}"
         layout_names.append(layout_name)
         if index == 1:
             doc.layouts.rename("Layout1", layout_name)
             layout = doc.layouts.get(layout_name)
         else:
             layout = doc.layouts.new(layout_name)
-        draw_group_layout(layout, group, chains_by_group[group], details[group], f"{prefix}-{index:02d}")
+        draw_grouped_layout(
+            layout, groups, chains_by_group, details,
+            f"{prefix}-{index:02d}", family_label,
+        )
 
-    # AutoCAD y otros visores abren directamente la primera presentación. El
-    # Model también contiene una vista general de todas las láminas por si el
-    # visor ignora $TILEMODE.
+    # El Model contiene también las dos láminas para visores que ignoran layouts.
     doc.layouts.set_active_layout(layout_names[0])
     doc.header["$TILEMODE"] = 0
     populate_model_overview(doc, layout_names)
@@ -723,6 +770,56 @@ def create_family(path: Path, family_groups, chains_by_group, details, prefix):
     audit = doc.audit()
     if audit.has_errors:
         raise ValueError(f"Auditoría DXF con errores en {path.name}: {len(audit.errors)}")
+
+
+def audit_family_against_design(path, sheet_groups, details):
+    """Comprueba que cada sección dibujada reproduce las cantidades del Excel."""
+    doc = ezdxf.readfile(path)
+    layouts = [layout for layout in doc.layouts if layout.name != "Model"]
+    if len(layouts) != len(sheet_groups):
+        raise ValueError(f"Cantidad de láminas inesperada en {path.name}")
+
+    seen = []
+    for layout, groups in zip(layouts, sheet_groups):
+        texts = [entity.dxf.text for entity in layout.query("TEXT")]
+        top, bottom = 470.0, 15.0
+        row_height = (top - bottom) / len(groups)
+        for index, group in enumerate(groups):
+            detail = details[group]
+            seen.append(group)
+            required = [
+                f"VIGA TIPO {group}",
+                f"SUP: {detail['n_sup']}#5",
+                f"INF: {detail['n_inf']}#5",
+                f"TORSIÓN: {detail['n_tor']}#5",
+                f"EST: {detail['stirrup'].replace(' cerrado', '')} — {detail['legs']} RAMAS",
+                f"s EXT/CENTRO: {detail['s_end']}/{detail['s_center']} mm",
+            ]
+            missing = [text for text in required if text not in texts]
+            if missing:
+                raise ValueError(f"{group}: datos Excel ausentes del DXF: {missing}")
+
+            row_y = top - (index + 1) * row_height
+            row_top = row_y + row_height
+            section_circles = [
+                entity for entity in layout.query("CIRCLE")
+                if entity.dxf.center.x >= 538.0
+                and row_y <= entity.dxf.center.y <= row_top
+            ]
+            counts = Counter(entity.dxf.layer for entity in section_circles)
+            expected = {
+                "ACERO_SUP_CONT": detail["n_sup"],
+                "ACERO_INF": detail["n_inf"],
+                "ACERO_TORSION": detail["n_tor"],
+            }
+            for layer, quantity in expected.items():
+                if counts[layer] != quantity:
+                    raise ValueError(
+                        f"{group}: {layer} dibujado={counts[layer]}, Excel={quantity}"
+                    )
+    expected_groups = [group for sheet in sheet_groups for group in sheet]
+    if seen != expected_groups or len(seen) != len(set(seen)):
+        raise ValueError(f"Grupos repetidos o faltantes en {path.name}: {seen}")
 
 
 def render_previews(dxf_paths):
@@ -747,6 +844,10 @@ def render_previews(dxf_paths):
 
     preview_dir = OUT / "Vistas-Previas-PNG"
     preview_dir.mkdir(parents=True, exist_ok=True)
+    # Evita mezclar las antiguas doce láminas individuales con las cuatro
+    # láminas agrupadas de esta entrega.
+    for old_preview in preview_dir.glob("*.png"):
+        old_preview.unlink()
     rendered = []
     for dxf_path in dxf_paths:
         doc = ezdxf.readfile(dxf_path)
@@ -814,8 +915,10 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     vc_path = OUT / "V-01-VIGAS-DE-CARGA-CONTINUAS-B2.dxf"
     vr_path = OUT / "V-02-VIGAS-DE-RIGIDEZ-CONTINUAS-B2.dxf"
-    create_family(vc_path, VC_GROUPS, chains_by_group, details, "V-01")
-    create_family(vr_path, VR_GROUPS, chains_by_group, details, "V-02")
+    create_family(vc_path, VC_SHEETS, chains_by_group, details, "CARGA", "CARGA")
+    create_family(vr_path, VR_SHEETS, chains_by_group, details, "RIGIDEZ", "RIGIDEZ")
+    audit_family_against_design(vc_path, VC_SHEETS, details)
+    audit_family_against_design(vr_path, VR_SHEETS, details)
     render_previews([vc_path, vr_path])
     preview_files = [
         OUT / "V-01-CARGA-VISTA-PREVIA.pdf",
@@ -831,8 +934,13 @@ def main():
         print(f"OK {preview}")
     print(f"OK {ZIP}")
     for group in GROUPS:
-        signatures = ["-".join(chain["axes"]) for chain in chains_by_group[group]]
-        print(f"{group}: {len(chains_by_group[group])} vigas completas tipo | {signatures}")
+        chain = representative_chain(chains_by_group[group])
+        signature = "-".join(chain["axes"])
+        print(
+            f"{group}: 1 viga tipo dibujada | recorrido {signature} | "
+            f"SUP {details[group]['n_sup']}#5, INF {details[group]['n_inf']}#5, "
+            f"TOR {details[group]['n_tor']}#5"
+        )
 
 
 if __name__ == "__main__":
