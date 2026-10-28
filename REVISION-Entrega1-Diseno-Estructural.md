@@ -8,12 +8,25 @@ y contra el Título A de la NSR-10.
 
 ## 0. Lo primero al abrir el archivo
 
-El documento quedó con **actualización automática de campos** activada. Al abrirlo,
-Word pregunta si desea actualizar los campos: **responda que sí**. Con eso se
-renumeran de una sola vez la tabla de contenido, la lista de ilustraciones, la
-lista de tablas y los 85 rótulos (`Tabla N` / `Ilustración N`).
+Los 85 rótulos ya traen su número grabado: **Tabla 1 a 50** e **Ilustración 1 a 35**.
+Se ven correctos desde que se abre el archivo, sin tener que actualizar nada.
 
-Si no apareciera el aviso: `Ctrl + E` (seleccionar todo) y luego `F9`.
+Lo único que hay que refrescar son las **tres listas** (tabla de contenido, lista
+de ilustraciones y lista de tablas), porque los números de página los calcula
+Word con su propia paginación:
+
+1. Clic derecho sobre cada lista → **Actualizar campos** → **Actualizar toda la tabla**.
+2. Si algún número de página queda en 1, repetir una vez más: en la primera pasada
+   Word a veces todavía no ha paginado el documento.
+
+También funciona `Ctrl + E` (seleccionar todo) y luego `F9`, que actualiza las tres
+de un golpe. Es seguro hacerlo cuantas veces quieran: los campos `SEQ` devuelven
+exactamente los mismos números que ya están grabados.
+
+> Nota: en la primera versión de esta revisión los 85 rótulos quedaron con el
+> número en caché en «1». Word, al abrir, actualiza los índices pero no los campos
+> del cuerpo, así que las listas se regeneraban copiando ese «1» y salían todas
+> como «Ilustración 1 … 1». Ya está corregido.
 
 A partir de ahora, para citar una tabla o una figura en el texto use
 **Referencias → Referencia cruzada → Tabla / Ilustración**. Cada rótulo quedó con
@@ -128,7 +141,9 @@ y preferí no reordenar el documento sin su visto bueno. Si quieren, lo hago.
 
 ### 3.1 Numeración y referenciación (lo que pedían)
 - **85 rótulos** quedan con campo `SEQ` de Word, estilo «Descripción» y marcador
-  propio: **50 tablas** y **35 ilustraciones**. Numeración automática.
+  propio: **50 tablas** y **35 ilustraciones**. Numeración automática, y con el
+  número correcto ya grabado en el resultado del campo (Tabla 1 a 50,
+  Ilustración 1 a 35) para que no dependa de que alguien actualice los campos.
 - **25 rótulos nuevos** para objetos que no tenían ninguno:
   - 8 tablas: espesores mínimos de losa, predimensionamiento de elementos,
     carga muerta de piso tipo, carga muerta de cubierta, cargas vivas de
