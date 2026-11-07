@@ -67,13 +67,13 @@ wb = Workbook()
 # ===================================================================== MANO DE OBRA
 mo = wb.active
 mo.title = "MANO DE OBRA"
-encabezado(mo, "CÁLCULO DEL COSTO HORA DE MANO DE OBRA – 2026", 4)
+encabezado(mo, f"CÁLCULO DEL COSTO HORA DE MANO DE OBRA – {D.ANIO}", 4)
 r = 7
-mo.cell(r, 1, "Salario mínimo 2026 (SMMLV)"); mo.cell(r, 3, D.SMMLV).number_format = NUM
-mo.cell(r, 4, "Decreto 1469 de 2025")
-mo.cell(r + 1, 1, "Auxilio de transporte 2026"); mo.cell(r + 1, 3, D.AUX_TRANSPORTE).number_format = NUM
-mo.cell(r + 1, 4, "Decreto 1470 de 2025")
-mo.cell(r + 2, 1, "Horas laborables por mes (42 h/sem × 52 / 12)")
+mo.cell(r, 1, f"Salario mínimo {D.ANIO} (SMMLV)"); mo.cell(r, 3, D.SMMLV).number_format = NUM
+mo.cell(r, 4, D.DEC_SMMLV)
+mo.cell(r + 1, 1, f"Auxilio de transporte {D.ANIO}"); mo.cell(r + 1, 3, D.AUX_TRANSPORTE).number_format = NUM
+mo.cell(r + 1, 4, D.DEC_AUX)
+mo.cell(r + 2, 1, f"Horas laborables por mes ({D.HORAS_SEMANA} h/sem × 52 / 12)")
 mo.cell(r + 2, 3, f"={D.HORAS_SEMANA}*52/12").number_format = NUM2
 mo.cell(r + 2, 4, "Ley 2101 de 2021")
 R_SMMLV, R_AUX, R_HMES = r, r + 1, r + 2
@@ -449,4 +449,46 @@ ws.merge_cells(start_row=rr + 11, start_column=1, end_row=rr + 11, end_column=7)
 ws.row_dimensions[rr + 11].height = 45
 ws.cell(rr + 12, 1, "Escriba los valores de las ofertas en las celdas verdes; la fila 1 trae nuestra oferta.")
 sm.save(f"{OUT}/SIMULADOR_CALIFICACION.xlsx")
+
+# ===================================================================== EXPERIENCIA
+ex = Workbook()
+ws = ex.active
+ws.title = "EXPERIENCIA"
+ws["A1"] = "CÁLCULO DE LA EXPERIENCIA ESPECÍFICA (TR 3.1.7 y Anexo 3) – cierre " + D.CIERRE
+ws["A1"].font = Font(bold=True, size=13)
+info = [("Presupuesto oficial (formulario Excel)", D.PRESUPUESTO_OFICIAL, NUM),
+        ("Experiencia mínima = 50 % del presupuesto", "=ROUND(C3*0.5,0)", NUM),
+        (f"SMMLV {D.ANIO}", D.SMMLV, NUM),
+        ("Experiencia mínima en SMMLV (C4 ÷ C5)", "=C4/C5", NUM2),
+        ("Contratos terminados desde", D.EXP_DESDE, None),
+        ("Máximo de contratos", 5, None)]
+for k, (a, v, f) in enumerate(info):
+    ws.cell(3 + k, 1, a); c = ws.cell(3 + k, 3, v)
+    if f: c.number_format = f
+for col, w in zip("ABCDEFGHI", [34, 30, 18, 14, 12, 16, 16, 18, 14]):
+    ws.column_dimensions[col].width = w
+hdr(ws, 10, ["Contratante", "Objeto", "Valor total contrato ($)", "% participación (100 si individual)",
+             "Año de terminación", "Valor que cuenta ($)", "SMMLV del año", "Valor en SMMLV", ""])
+for k in range(5):
+    rr = 11 + k
+    for j in (1, 2, 3, 4, 5):
+        ws.cell(rr, j).fill = IN_FILL; ws.cell(rr, j).border = B
+    ws.cell(rr, 3).number_format = NUM; ws.cell(rr, 4, 100)
+    ws.cell(rr, 6, f'=IF(C{rr}="","",ROUND(C{rr}*D{rr}/100,0))').number_format = NUM
+    ws.cell(rr, 7, f'=IF(E{rr}="","",VLOOKUP(E{rr},$K$11:$L$21,2,FALSE))').number_format = NUM
+    ws.cell(rr, 8, f'=IF(OR(F{rr}="",G{rr}=""),"",F{rr}/G{rr})').number_format = NUM2
+ws.cell(16, 5, "TOTAL").font = BOLD
+ws.cell(16, 8, "=SUM(H11:H15)").number_format = NUM2
+ws.cell(16, 8).font = BOLD
+ws.cell(17, 5, "¿CUMPLE?").font = BOLD
+ws.cell(17, 8, '=IF(H16>=C6,"SÍ CUMPLE","NO CUMPLE")').font = BOLD
+ws.cell(18, 1, "Llene las celdas verdes. El valor de cada contrato se convierte con el SMMLV del año en que "
+        "terminó; la suma debe ser igual o mayor al 50 % del presupuesto expresado en SMMLV 2025.")
+ws.merge_cells("A18:H18"); ws["A18"].alignment = WRAP; ws.row_dimensions[18].height = 30
+hdr(ws, 10, ["Contratante", "Objeto", "Valor total contrato ($)", "% participación (100 si individual)",
+             "Año de terminación", "Valor que cuenta ($)", "SMMLV del año", "Valor en SMMLV", ""])
+ws.cell(10, 11, "Año").font = BOLD; ws.cell(10, 12, "SMMLV").font = BOLD
+for k, (a, v) in enumerate(D.SMMLV_ANIOS):
+    ws.cell(11 + k, 11, a); ws.cell(11 + k, 12, v).number_format = NUM
+ex.save(f"{OUT}/EXPERIENCIA_CALCULO.xlsx")
 print("ok", R_TOT)

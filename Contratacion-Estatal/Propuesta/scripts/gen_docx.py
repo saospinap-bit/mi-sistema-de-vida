@@ -130,7 +130,7 @@ doc.add_paragraph(
     f"cuyo objeto es “{D.OBJETO}”, y por lo tanto expresamos lo siguiente:")
 for t in [
     "1. La duración del (CONSORCIO / UNIÓN TEMPORAL) será igual al plazo de ejecución del contrato (5 meses) y "
-    "dos (2) años más (numeral 3.1.3).",
+    f"dos (2) años más, es decir, como mínimo hasta el {D.DURACION_CONSORCIO} (numeral 3.1.3).",
     "2. El (CONSORCIO / UNIÓN TEMPORAL) está integrado por:",
 ]:
     doc.add_paragraph(t)
@@ -146,7 +146,7 @@ for t in [
     "facultado para firmar y presentar la oferta y, en caso de adjudicación, firmar el contrato y tomar todas "
     "las determinaciones necesarias para su ejecución y liquidación, con amplias y suficientes facultades.",
     "6. Sede: dirección ______________, correo ______________, teléfono ______________.",
-    "En constancia se firma en ________, a los ___ días del mes de ________ de 2026.",
+    "En constancia se firma en ________, a los ___ días del mes de ________ de 2025.",
     "\n\n__________________________          __________________________\nFirma integrante 1"
     "                                  Firma integrante 2\n\n__________________________\nFirma representante",
 ]:

@@ -12,9 +12,9 @@ NIT = "[NIT / C.C.]"
 DIRECCION = "[DIRECCIÓN]"
 TELEFONO = "[TELÉFONO]"
 CORREO = "[CORREO ELECTRÓNICO]"
-CIUDAD_FECHA = "Bogotá D.C., 7 de noviembre de 2026"
+CIUDAD_FECHA = "Bogotá D.C., 7 de noviembre de 2025"
 
-LICITACION = "LICITACIÓN PÚBLICA No. L02-2009 (ejercicio académico 2026)"
+LICITACION = "LICITACIÓN PÚBLICA No. L02-2009 (ejercicio académico 2025)"
 ENTIDAD = "MUNICIPIO DE SANDONÁ – NARIÑO"
 OBJETO = "CONSTRUCCIÓN POLIDEPORTIVO CUBIERTO CABECERA MUNICIPAL DE SANDONÁ – DEPARTAMENTO DE NARIÑO"
 
@@ -51,10 +51,25 @@ ITEMS = [f for f in FORMATO if f[0] == "item"]
 assert len(ITEMS) == 85, len(ITEMS)
 
 # ---------------------------------------------------------------- mano de obra
-SMMLV = 1_750_905          # Decreto 1469 de 2025 (ratificado Dto. 0159 de 2026)
-AUX_TRANSPORTE = 249_095   # Decreto 1470 de 2025
-HORAS_SEMANA = 42          # Ley 2101 de 2021: 42 h/semana desde el 15-jul-2026
-HORAS_MES = Decimal(HORAS_SEMANA) * 52 / 12  # 182 h
+ANIO = 2025
+SMMLV = 1_423_500          # Decreto 1572 de 2024
+DEC_SMMLV = "Decreto 1572 de 2024"
+AUX_TRANSPORTE = 200_000   # Decreto 1573 de 2024
+DEC_AUX = "Decreto 1573 de 2024"
+HORAS_SEMANA = 44          # Ley 2101 de 2021: 44 h/semana desde el 15-jul-2025
+HORAS_MES = Decimal(HORAS_SEMANA) * 52 / 12  # 190,67 h
+
+# Fechas del proceso (cierre 2025-NOV-07)
+CIERRE = "7 de noviembre de 2025"
+POLIZA_DESDE = "7 de noviembre de 2025"
+POLIZA_HASTA = "7 de mayo de 2026"          # 6 meses desde el cierre
+CAMARA_DESDE = "8 de octubre de 2025"       # máximo 30 días antes del cierre
+EXP_DESDE = "7 de noviembre de 2015"        # últimos 10 años
+DURACION_SOCIEDAD = "7 de abril de 2027"    # cierre + 5 meses de plazo + 1 año
+DURACION_CONSORCIO = "7 de abril de 2028"   # cierre + 5 meses de plazo + 2 años
+SMMLV_ANIOS = [(2025, 1_423_500), (2024, 1_300_000), (2023, 1_160_000), (2022, 1_000_000),
+               (2021, 908_526), (2020, 877_803), (2019, 828_116), (2018, 781_242),
+               (2017, 737_717), (2016, 689_455), (2015, 644_350)]
 
 PRESTACIONES = [  # % sobre el salario
     ("Cesantías", Decimal("0.0833")),
@@ -313,8 +328,9 @@ PROG = {
 }
 DIAS = 147
 SEMANAS = 21
-JORNADA = ("Lunes a sábado de 7:00 a.m. a 12:00 m. y de 1:00 p.m. a 3:00 p.m. "
-           "(7 horas diarias, 42 horas semanales, Ley 2101 de 2021). Domingos y festivos no se trabaja, "
+JORNADA = ("Lunes a viernes de 7:00 a.m. a 12:00 m. y de 1:00 p.m. a 4:00 p.m. (8 horas diarias); "
+           "sábados de 7:00 a.m. a 11:00 a.m. (4 horas). Total 44 horas semanales (Ley 2101 de 2021). "
+           "Domingos y festivos no se trabaja, "
            "salvo autorización de la interventoría.")
 
 assert set(PROG) == {c for _, c, *_ in ITEMS}
@@ -378,3 +394,8 @@ if __name__ == "__main__":
     print("factor", FACTOR, "CD", CD, "A", VA, "I", VI, "U", VU_, "TOTAL", TOTAL,
           f"{TOTAL/PRESUPUESTO_OFICIAL:.4%}")
     print(letras(TOTAL))
+
+
+EXP_PESOS = r0(Decimal(PRESUPUESTO_OFICIAL) * Decimal("0.5"))
+EXP_SMMLV = Decimal(EXP_PESOS) / SMMLV
+POLIZA_VALOR = r0(Decimal(PRESUPUESTO_OFICIAL) * Decimal("0.10"))

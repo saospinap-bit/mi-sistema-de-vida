@@ -50,17 +50,19 @@ def n2(x):
 
 
 class Doc(BaseDocTemplate):
-    def __init__(self, path, marca="", **kw):
+    def __init__(self, path, marca="", first="P", **kw):
         super().__init__(path, pagesize=letter, leftMargin=1.6 * cm, rightMargin=1.6 * cm,
                          topMargin=2.2 * cm, bottomMargin=1.6 * cm, **kw)
         self.marca = marca
         fp = Frame(self.leftMargin, self.bottomMargin, self.width, self.height, id="p")
         lw, lh = landscape(letter)
         fl = Frame(1.2 * cm, 1.4 * cm, lw - 2.4 * cm, lh - 3.4 * cm, id="l")
-        self.addPageTemplates([
-            PageTemplate("P", [fp], onPage=self.deco, pagesize=letter),
-            PageTemplate("L", [fl], onPage=self.deco, pagesize=landscape(letter)),
-        ])
+        tp = [PageTemplate("P", [fp], onPage=self.deco, pagesize=letter),
+              PageTemplate("L", [fl], onPage=self.deco, pagesize=landscape(letter))]
+        if first == "L":
+            tp.reverse()
+            self.pagesize = landscape(letter)
+        self.addPageTemplates(tp)
 
     def deco(self, c, doc):
         w, h = c._pagesize
@@ -211,8 +213,9 @@ def carta():
         "residente de tiempo completo y maestro de obra) y a contratar la mano de obra no calificada en el "
         "Municipio de Sandoná (numeral 6.1).",
         f"Adjunto garantía de seriedad de la oferta a favor del Municipio de Sandoná: aseguradora "
-        f"_______________, póliza No. ________, valor asegurado <b>{pesos(r10())}</b> (10 % del presupuesto "
-        "oficial), vigencia de seis (6) meses contados desde la fecha de cierre.",
+        f"_______________, póliza No. ________, valor asegurado <b>{pesos(D.POLIZA_VALOR)}</b> (10 % del "
+        f"presupuesto oficial de {pesos(D.PRESUPUESTO_OFICIAL)}), vigencia de seis (6) meses: desde el "
+        f"<b>{D.POLIZA_DESDE}</b> (fecha de cierre) hasta el <b>{D.POLIZA_HASTA}</b>.",
         "La oferta económica se presenta en sobre independiente (Sobre No. 2), en original y copia, en el "
         "formato de presupuesto suministrado por la entidad. La presente oferta consta de ______ folios "
         "debidamente numerados.",
@@ -229,7 +232,7 @@ def r10():
 
 # ------------------------------------------------------------------ ANEXO 3
 def anexo3():
-    smmlv_req = Decimal(D.PRESUPUESTO_OFICIAL) * Decimal("0.5") / D.SMMLV
+    smmlv_req = D.EXP_SMMLV
     s = [P("ANEXO 3 – EXPERIENCIA ESPECÍFICA", size=12, bold=True, align=TA_CENTER), Spacer(1, 6),
          P(f"Proponente: <b>{D.PROPONENTE}</b>", size=9), Spacer(1, 6)]
     head = ["No.", "Contratista", "Contrato No.", "Objeto", "Forma de ejecución (I / C / UT) y %",
@@ -246,20 +249,20 @@ def anexo3():
                            ("ALIGN", (0, 1), (0, -1), "CENTER")]))
     s += [t, Spacer(1, 8)]
     req = [
-        "Máximo 5 contratos con entidades estatales, ejecutados y terminados en los últimos 10 años, "
-        "en edificaciones clasificables en la especialidad 04 del RUP.",
-        f"La suma de los valores, expresada en SMMLV del año de terminación, debe ser igual o superior al "
-        f"50 % del presupuesto oficial: 0,5 × {pesos(D.PRESUPUESTO_OFICIAL)} ÷ {pesos(D.SMMLV)} = "
-        f"<b>{n2(smmlv_req)} SMMLV</b> (con el SMMLV 2026).",
+        f"Máximo 5 contratos con entidades estatales, ejecutados y terminados en los últimos 10 años "
+        f"(entre el <b>{D.EXP_DESDE}</b> y el <b>{D.CIERRE}</b>, fecha de cierre), en edificaciones "
+        "clasificables en la especialidad 04 del RUP.",
+        f"Valor mínimo: 50 % del presupuesto oficial = 0,5 × {pesos(D.PRESUPUESTO_OFICIAL)} = "
+        f"<b>{pesos(D.EXP_PESOS)}</b>.",
+        f"En SMMLV 2025: {pesos(D.EXP_PESOS)} ÷ {pesos(D.SMMLV)} = <b>{n2(smmlv_req)} SMMLV</b>. La suma de "
+        "los contratos, cada uno convertido con el SMMLV del año en que terminó, debe ser igual o mayor.",
         "Contratos en consorcio o unión temporal: se informa únicamente el valor correspondiente al "
         "porcentaje de participación y se adjunta el documento de conformación.",
         "Soporte: acta final de obra, acta de liquidación, o contrato con certificación de cumplimiento "
         "de la entidad, donde consten el tipo de obra, las cantidades y las fechas de inicio y terminación.",
     ]
     s += [P("• " + x, size=8, align=TA_JUSTIFY) for x in req]
-    smm = [["Año", "SMMLV"], ["2026", "1.750.905"], ["2025", "1.423.500"], ["2024", "1.300.000"],
-           ["2023", "1.160.000"], ["2022", "1.000.000"], ["2021", "908.526"], ["2020", "877.803"],
-           ["2019", "828.116"], ["2018", "781.242"], ["2017", "737.717"], ["2016", "689.455"]]
+    smm = [["Año", "SMMLV"]] + [[str(y), n0(v)] for y, v in D.SMMLV_ANIOS]
     s += [Spacer(1, 6), tabla(smm, [2 * cm, 3 * cm], hdr_style() + [("ALIGN", (0, 0), (-1, -1), "CENTER")])]
     s += bloque_firma()
     return s
@@ -367,15 +370,16 @@ def anexo7():
 def apus():
     s = []
     # Mano de obra
-    s += titulo("CÁLCULO DEL COSTO DE MANO DE OBRA – 2026")
+    s += titulo(f"CÁLCULO DEL COSTO DE MANO DE OBRA – {D.ANIO}")
     rows = [["Concepto", "% sobre salario"]] + [[n, f"{float(p)*100:.2f} %"] for n, p in D.PRESTACIONES]
     rows.append(["FACTOR PRESTACIONAL TOTAL", f"{float(D.PREST_TOTAL)*100:.2f} %"])
     s.append(tabla(rows, [9 * cm, 4 * cm], hdr_style() + [("FONT", (0, -1), (-1, -1), "VB", 7),
                                                            ("ALIGN", (1, 0), (1, -1), "RIGHT")]))
     s.append(Spacer(1, 6))
-    s.append(P(f"SMMLV 2026 = {pesos(D.SMMLV)} (Decreto 1469/2025). Auxilio de transporte = "
-               f"{pesos(D.AUX_TRANSPORTE)} (Decreto 1470/2025), con cesantías, intereses y prima "
-               f"(factor {float(D.AUX_FACTOR):.4f}). Horas por mes = 42 × 52 / 12 = {float(D.HORAS_MES):.2f} h "
+    s.append(P(f"SMMLV {D.ANIO} = {pesos(D.SMMLV)} ({D.DEC_SMMLV}). Auxilio de transporte = "
+               f"{pesos(D.AUX_TRANSPORTE)} ({D.DEC_AUX}), con cesantías, intereses y prima "
+               f"(factor {float(D.AUX_FACTOR):.4f}). Horas por mes = {D.HORAS_SEMANA} × 52 / 12 = "
+               f"{float(D.HORAS_MES):.2f} h "
                "(Ley 2101 de 2021).", size=8, align=TA_JUSTIFY))
     s.append(Spacer(1, 4))
     s.append(P("Costo mensual = salario × (1 + factor prestacional) + auxilio de transporte × 1,1766. "
@@ -423,50 +427,190 @@ def apus():
               P("<b>Notas:</b> " + a["nota"] + " Herramienta menor = 5 % del costo de la mano de obra. "
                 "El precio unitario no incluye AIU: Administración (15 %), Imprevistos (7 %) y Utilidad "
                 "(2 %) se aplican sobre el costo directo total de la oferta. Costo de mano de obra según "
-                "hoja de cálculo de prestaciones 2026.", size=7.5, align=TA_JUSTIFY)]
+                f"hoja de cálculo de prestaciones {D.ANIO}.", size=7.5, align=TA_JUSTIFY)]
         s += bloque_firma()
     return s
 
 
-# ------------------------------------------------------------------ índice sobre 1
+# ------------------------------------------------------------------ SOBRE 1
+SECCIONES = [
+    ("1", "Carta de presentación (Anexo 1)", "3.1.1"),
+    ("2", "Carta de conformación de consorcio o unión temporal (Anexo 2)", "3.1.3"),
+    ("3", "Garantía de seriedad de la oferta", "3.1.4"),
+    ("4", "Cédulas de ciudadanía", "3.1.6"),
+    ("5", "Certificado de Cámara de Comercio (existencia y representación legal)", "3.1.6"),
+    ("6", "Experiencia específica (Anexo 3) y certificaciones", "3.1.7"),
+    ("7", "Antecedentes disciplinarios (Procuraduría) y fiscales (Contraloría)", "3.1.12 y 3.1.13"),
+]
+
+
 def indice():
-    items = [
-        ("Carta de presentación (Anexo 1)", "3.1.1", "Incluida"),
-        ("Documento de conformación de consorcio o UT (Anexo 2) – solo si aplica; NO subsanable", "3.1.3", "Adjuntar si aplica"),
-        ("Garantía de seriedad: 10 % del presupuesto = " + pesos(r10()) + ", vigencia 6 meses", "3.1.4", "Adjuntar"),
-        ("Idoneidad: matrícula profesional y certificado de vigencia (COPNIA)", "3.1.5", "Adjuntar"),
-        ("Certificado de existencia y representación (máximo 30 días) o cédula", "3.1.6", "Adjuntar"),
-        ("Experiencia específica (Anexo 3) con certificaciones", "3.1.7", "Incluido formato"),
-        ("Capacidad financiera: patrimonio líquido mínimo 20 % = " + pesos(D.r0(Decimal(D.PRESUPUESTO_OFICIAL) * Decimal('0.2'))), "3.1.8", "Adjuntar"),
-        ("RUP: Constructor, especialidad 04, grupo 08", "3.1.9", "Adjuntar"),
-        ("RUT (DIAN), firmado", "3.1.11", "Adjuntar"),
-        ("Antecedentes disciplinarios (Procuraduría)", "3.1.12", "Adjuntar"),
-        ("Antecedentes fiscales (Contraloría)", "3.1.13", "Adjuntar"),
-        ("Antecedentes judiciales (Policía Nacional; el TR dice DAS)", "3.1.14", "Adjuntar"),
-        ("Programa de ejecución de los trabajos (Anexo 6)", "3.2.2 / 4.1.1.2", "Incluido"),
-        ("Cronograma de actividades (Anexo 7)", "3.2.2 / 4.1.1.2", "Incluido"),
-    ]
-    data = [["No.", "Documento", "Numeral TR", "Estado", "Folios"]]
-    for k, (a, b, c) in enumerate(items, 1):
-        data.append([str(k), P(a, size=8), b, c, ""])
-    s = [P("SOBRE No. 1 – ÍNDICE DE DOCUMENTOS", size=12, bold=True, align=TA_CENTER), Spacer(1, 8),
-         tabla(data, [0.9 * cm, 10.2 * cm, 2.4 * cm, 2.8 * cm, 1.5 * cm],
-               hdr_style() + [("FONT", (0, 1), (-1, -1), "V", 8), ("ALIGN", (2, 1), (-1, -1), "CENTER")]),
-         Spacer(1, 8),
+    data = [["No.", "Documento", "Numeral TR", "Folios"]]
+    for n, d, t in SECCIONES:
+        data.append([n, P(d, size=9), t, ""])
+    s = [P("SOBRE No. 1 – ÍNDICE DE DOCUMENTOS", size=12, bold=True, align=TA_CENTER), Spacer(1, 4),
+         P(f"Fecha de cierre: <b>{D.CIERRE}</b>", size=9, align=TA_CENTER), Spacer(1, 10),
+         tabla(data, [1 * cm, 11.3 * cm, 3 * cm, 2.5 * cm],
+               hdr_style() + [("FONT", (0, 1), (-1, -1), "V", 9), ("ALIGN", (2, 1), (-1, -1), "CENTER"),
+                              ("ALIGN", (0, 1), (0, -1), "CENTER"), ("TOPPADDING", (0, 1), (-1, -1), 6),
+                              ("BOTTOMPADDING", (0, 1), (-1, -1), 6)]),
+         Spacer(1, 10),
          P("La oferta económica (Anexo 4) va en el Sobre No. 2, en original y copia. Los APU y las hojas de vida "
            "del personal se entregan si el proponente queda en primer orden de elegibilidad (numeral 4.3).",
            size=8, italic=True)]
     return s
 
 
-def build(path, story, marca=""):
-    doc = Doc(path, marca=marca)
+def separador(num, titulo_, filas, nota=None):
+    s = [Spacer(1, 1.5 * cm), P(f"SECCIÓN {num}", size=14, bold=True, align=TA_CENTER), Spacer(1, 4),
+         P(titulo_.upper(), size=16, bold=True, align=TA_CENTER), Spacer(1, 1 * cm)]
+    t = Table([[P(a, size=9, bold=True), P(b, size=9)] for a, b in filas], colWidths=[5 * cm, 12.8 * cm])
+    t.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.4, colors.black), ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                           ("BACKGROUND", (0, 0), (0, -1), CAP), ("TOPPADDING", (0, 0), (-1, -1), 5),
+                           ("BOTTOMPADDING", (0, 0), (-1, -1), 5)]))
+    s.append(t)
+    if nota:
+        s += [Spacer(1, 10), P(nota, size=8, italic=True, align=TA_JUSTIFY)]
+    s += [Spacer(1, 1 * cm), P("A continuación se adjuntan los documentos de esta sección.", size=9,
+                                align=TA_CENTER, italic=True)]
+    return s
+
+
+def anexo2():
+    j = dict(size=9.5, align=TA_JUSTIFY, lead=13)
+    s = [P("ANEXO 2 – CARTA DE CONFORMACIÓN DE CONSORCIO O UNIÓN TEMPORAL", size=12, bold=True,
+           align=TA_CENTER), Spacer(1, 4),
+         P("Diligenciar solo si el proponente es plural. Si es persona natural o jurídica individual, "
+           "escribir NO APLICA y firmar. Su falta o sus errores NO son subsanables (numeral 3.1.3).",
+           size=8, italic=True, align=TA_CENTER), Spacer(1, 10),
+         P(D.CIUDAD_FECHA, size=9.5), Spacer(1, 6),
+         P("Señores<br/><b>ALCALDÍA DE SANDONÁ</b><br/>Sandoná – Nariño", size=9.5), Spacer(1, 6),
+         P(f"<b>REFERENCIA:</b> {D.LICITACION}", size=9.5), Spacer(1, 6),
+         P("Los suscritos, ______________________ identificado con C.C. No. __________ de __________, en nombre "
+           "propio / en representación de ______________________, y ______________________ identificado con "
+           "C.C. No. __________ de __________, en nombre propio / en representación de ______________________, "
+           "manifestamos que hemos convenido asociarnos en (CONSORCIO / UNIÓN TEMPORAL) para participar en la "
+           f"licitación de la referencia, cuyo objeto es “{D.OBJETO}”, y expresamos lo siguiente:", **j),
+         Spacer(1, 6),
+         P(f"1. La duración del (CONSORCIO / UNIÓN TEMPORAL) será igual al plazo de ejecución del contrato "
+           f"(5 meses) y dos (2) años más, es decir, como mínimo hasta el <b>{D.DURACION_CONSORCIO}</b>.", **j),
+         P("2. Está integrado por:", **j), Spacer(1, 4)]
+    t = tabla([["Nombre del integrante", "NIT / C.C.", "Participación (%)", "Actividades a cargo (solo UT)"],
+               ["", "", "", ""], ["", "", "", ""], ["TOTAL", "", "100 %", ""]],
+              [5.5 * cm, 3.2 * cm, 3 * cm, 6.1 * cm], hdr_style())
+    t.setStyle(TableStyle([("ROWHEIGHT", (0, 1), (-1, 2), 22), ("FONT", (0, 3), (-1, 3), "VB", 8)]))
+    s += [t, Spacer(1, 6)]
+    for x in [
+        "3. Se denomina: ______________________________________.",
+        "4. La responsabilidad de los integrantes es solidaria (artículo 7 de la Ley 80 de 1993). En la unión "
+        "temporal, las sanciones por incumplimiento se impondrán según la participación de cada integrante en la "
+        "ejecución; los términos y la extensión de la participación no podrán modificarse sin el consentimiento "
+        "previo de la entidad.",
+        "5. El representante es ______________________, identificado con C.C. No. __________ de __________, "
+        "expresamente facultado para firmar y presentar la oferta y, en caso de adjudicación, firmar el contrato "
+        "y tomar todas las determinaciones necesarias para su ejecución y liquidación.",
+        "6. Sede: dirección ____________________, correo ____________________, teléfono ______________.",
+        "En constancia se firma en ______________, a los ___ días del mes de noviembre de 2025.",
+    ]:
+        s += [P(x, **j), Spacer(1, 3)]
+    f = Table([["______________________", "______________________", "______________________"],
+               ["Integrante 1", "Integrante 2", "Representante"]], colWidths=[5.9 * cm] * 3)
+    f.setStyle(TableStyle([("FONT", (0, 0), (-1, -1), "V", 9), ("ALIGN", (0, 0), (-1, -1), "CENTER")]))
+    s += [Spacer(1, 26), f]
+    return s
+
+
+def garantia():
+    s = [P("SECCIÓN 3 – GARANTÍA DE SERIEDAD DE LA OFERTA", size=12, bold=True, align=TA_CENTER), Spacer(1, 4),
+         P("Numeral 3.1.4 de los TR", size=9, align=TA_CENTER), Spacer(1, 10)]
+    filas = [
+        ("Tipo", "Póliza de seriedad de la oferta (compañía de seguros vigilada por la Superintendencia "
+                 "Financiera) o garantía bancaria"),
+        ("Tomador / afianzado", f"{D.PROPONENTE} – {D.NIT}. Si es consorcio o UT: a nombre del consorcio o UT "
+                                "con la indicación de todos sus integrantes y su porcentaje"),
+        ("Asegurado / beneficiario", "MUNICIPIO DE SANDONÁ – NARIÑO"),
+        ("Proceso y objeto", f"{D.LICITACION} – {D.OBJETO}"),
+        ("Base de cálculo", f"Presupuesto oficial (formulario Excel): {pesos(D.PRESUPUESTO_OFICIAL)}"),
+        ("VALOR ASEGURADO", f"<b>10 % × {pesos(D.PRESUPUESTO_OFICIAL)} = {pesos(D.POLIZA_VALOR)}</b>"),
+        ("VIGENCIA", f"<b>Seis (6) meses: desde el {D.POLIZA_DESDE} (fecha de cierre) hasta el "
+                     f"{D.POLIZA_HASTA}</b>"),
+        ("Riesgos amparados", "Retiro de la oferta después del cierre; no firma del contrato dentro de los 5 días "
+                              "hábiles siguientes a la adjudicación; documentos falsos u ocultamiento de "
+                              "información o de inhabilidades"),
+        ("Cláusula de indemnidad", "Artículo 6 del Decreto 4828 de 2008 (el pliego dice 4820 de 2004), "
+                                   "modificado por el Decreto 931 de 2009"),
+        ("Aseguradora", "______________________________"),
+        ("Póliza No.", "______________________________"),
+        ("Fecha de expedición", "______________________________ (no posterior al cierre)"),
+    ]
+    t = Table([[P(a, size=9, bold=True), P(b, size=9)] for a, b in filas], colWidths=[4.5 * cm, 13.3 * cm])
+    t.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.4, colors.black), ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                           ("BACKGROUND", (0, 0), (0, -1), CAP), ("BACKGROUND", (0, 5), (-1, 6), AMA),
+                           ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4)]))
+    s += [t, Spacer(1, 10),
+          P("Adjuntar a continuación: póliza original firmada por el tomador, sus condiciones generales y el "
+            "recibo o certificado de pago de la prima. Revisar que el valor, la vigencia, el beneficiario y el "
+            "número del proceso coincidan exactamente con este cuadro.", size=8.5, align=TA_JUSTIFY)]
+    return s
+
+
+def sobre1():
+    st_ = rotulo("SOBRE No. 1") + [PageBreak()] + indice() + [PageBreak()]
+    st_ += separador("1", "Carta de presentación", [("Numeral TR", "3.1.1 – Anexo 1"),
+                                                     ("Firma", "Representante legal del proponente")])
+    st_ += [PageBreak()] + carta() + [PageBreak()]
+    st_ += separador("2", "Carta de consorcio / unión temporal",
+                     [("Numeral TR", "3.1.3 – Anexo 2"),
+                      ("Duración mínima", f"Plazo del contrato + 2 años: hasta el {D.DURACION_CONSORCIO}"),
+                      ("Ojo", "No es subsanable. Si el proponente es individual, se marca NO APLICA")])
+    st_ += [PageBreak()] + anexo2() + [PageBreak()] + garantia() + [PageBreak()]
+    st_ += separador("4", "Cédulas de ciudadanía", [
+        ("Numeral TR", "3.1.6"),
+        ("De quién", "Persona natural: el proponente. Persona jurídica: el representante legal. "
+                     "Consorcio o UT: cada integrante persona natural y cada representante legal, y el "
+                     "representante del consorcio o UT"),
+        ("Cómo", "Fotocopia ampliada al 150 %, por ambas caras, legible"),
+    ])
+    st_ += [PageBreak()] + separador("5", "Certificado de Cámara de Comercio", [
+        ("Numeral TR", "3.1.6"),
+        ("Fecha de expedición", f"No mayor a 30 días antes del cierre: expedido entre el {D.CAMARA_DESDE} y "
+                                f"el {D.CIERRE}"),
+        ("Objeto social", "Debe incluir la construcción de obras civiles / edificaciones"),
+        ("Duración de la sociedad", f"Como mínimo el plazo del contrato + 1 año: hasta el {D.DURACION_SOCIEDAD} "
+                                    "o después"),
+        ("Representante legal", "Si tiene límites para contratar, adjuntar la autorización de la junta o asamblea"),
+        ("Consorcio o UT", "Un certificado por cada integrante que sea persona jurídica"),
+    ], "Si el proponente es persona natural no aplica el certificado de existencia y representación; basta la "
+       "cédula (sección 4).")
+    st_ += [NextPageTemplate("L"), PageBreak()] + anexo3()
+    st_ += [NextPageTemplate("P"), PageBreak()] + separador("6", "Certificaciones de experiencia", [
+        ("Qué adjuntar", "Por cada contrato del Anexo 3: acta final de obra, acta de liquidación, o copia del "
+                         "contrato con certificación de cumplimiento de la entidad contratante"),
+        ("Deben decir", "Tipo de obra, cantidades de obra, fechas de inicio y terminación y valor"),
+        ("Periodo", f"Contratos terminados entre el {D.EXP_DESDE} y el {D.CIERRE}"),
+        ("Valor mínimo", f"{pesos(D.EXP_PESOS)} = {n2(D.EXP_SMMLV)} SMMLV de 2025"),
+        ("Consorcio o UT", "Adjuntar el documento de conformación para acreditar el porcentaje de participación"),
+    ])
+    st_ += [PageBreak()] + separador("7", "Antecedentes disciplinarios y fiscales", [
+        ("Disciplinarios", "Certificado de la Procuraduría General de la Nación (www.procuraduria.gov.co), "
+                           "numeral 3.1.12"),
+        ("Fiscales", "Certificado de la Contraloría General de la República de no figurar en el Boletín de "
+                     "Responsables Fiscales (www.contraloria.gov.co), numeral 3.1.13"),
+        ("De quién", "Persona natural: el proponente. Persona jurídica: la empresa (NIT) y su representante "
+                     "legal. Consorcio o UT: cada integrante"),
+        ("Vigencia", f"Vigentes a la fecha de cierre ({D.CIERRE}). Se recomienda descargarlos en la semana "
+                     "del cierre"),
+    ], "Ambos certificados son gratuitos y se descargan en línea con el número de cédula o NIT.")
+    return st_
+
+
+def build(path, story, marca="", first="P"):
+    doc = Doc(path, marca=marca, first=first)
     doc.build(story)
 
 
-s1 = rotulo("SOBRE No. 1") + [PageBreak()] + indice() + [PageBreak()] + carta() + \
-     [NextPageTemplate("L"), PageBreak()] + anexo3() + [PageBreak()] + anexo6() + [PageBreak()] + anexo7()
-build(f"{OUT}/SOBRE_1_Habilitantes_y_Programa.pdf", s1)
+build(f"{OUT}/SOBRE_1_Documentos_Habilitantes.pdf", sobre1())
+build(f"{OUT}/PROGRAMA_DE_OBRA_Anexos_6_y_7.pdf", anexo6() + [PageBreak()] + anexo7(), first="L")
 for m in ("ORIGINAL", "COPIA"):
     build(f"{OUT}/SOBRE_2_Oferta_Economica_{m}.pdf",
           rotulo(f"SOBRE No. 2 – {m}") + [PageBreak()] + oferta(), marca=m)
