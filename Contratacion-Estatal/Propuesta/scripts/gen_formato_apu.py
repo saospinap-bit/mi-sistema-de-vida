@@ -31,78 +31,9 @@ AZUL, CAP, AMA = "#1F4E78", "#D9E1F2", "#FFF2CC"
 H = dict(bold=True, font_color="#FFFFFF", bg_color=AZUL, border=1, align="center", text_wrap=True)
 CELL = dict(border=1)
 
-# ======================================================================= PRESUPUESTO
-rb = xlrd.open_workbook(D.XLS, formatting_info=True)
-rs = rb.sheet_by_index(0)
+# ======================================================================= hojas (orden)
 ps = wb.add_worksheet("PRESUPUESTO")
-APU_PRECIO_CELL = {}  # se llena después; se usan nombres fijos de celda
-CMAP = rb.colour_map
-
-
-def color(idx):
-    c = CMAP.get(idx)
-    return "#%02X%02X%02X" % c if c else None
-
-
-def xf_format(r, c):
-    xf = rb.xf_list[rs.cell_xf_index(r, c)]
-    f = rb.font_list[xf.font_index]
-    k = {"font_name": f.name, "font_size": f.height / 20, "bold": bool(f.bold), "italic": bool(f.italic),
-         "num_format": rb.format_map[xf.format_key].format_str,
-         "left": xf.border.left_line_style, "right": xf.border.right_line_style,
-         "top": xf.border.top_line_style, "bottom": xf.border.bottom_line_style,
-         "text_wrap": bool(xf.alignment.text_wrapped)}
-    fc = color(f.colour_index)
-    if fc and fc != "#000000":
-        k["font_color"] = fc
-    ha = {1: "left", 2: "center", 3: "right", 5: "justify", 6: "center_across"}.get(xf.alignment.hor_align)
-    if ha:
-        k["align"] = ha
-    k["valign"] = {0: "top", 1: "vcenter", 2: "bottom"}.get(xf.alignment.vert_align, "bottom")
-    if xf.background.fill_pattern == 1:
-        bg = color(xf.background.pattern_colour_index)
-        if bg:
-            k["bg_color"] = bg
-    return fmt(**k)
-
-
-for c in range(rs.ncols):
-    ci = rs.colinfo_map.get(c)
-    if ci:
-        ps.set_column(c, c, ci.width / 256)
-for r, ri in rs.rowinfo_map.items():
-    if not ri.height_mismatch or True:
-        ps.set_row(r, ri.height / 20)
-merged = {(a, c1): (b, c2) for a, b, c1, c2 in rs.merged_cells}
-skip = {(r, c) for a, b, c1, c2 in rs.merged_cells for r in range(a, b) for c in range(c1, c2)
-        if (r, c) != (a, c1)}
-
-ROWS = {}
-for r in range(rs.nrows):
-    for c in range(rs.ncols):
-        if (r, c) in skip:
-            continue
-        v = rs.cell_value(r, c)
-        fm = xf_format(r, c)
-        if (r, c) in merged:
-            b, c2 = merged[(r, c)]
-            ps.merge_range(r, c, b - 1, c2 - 1, v, fm)
-        elif v != "":
-            ps.write(r, c, v, fm)
-        else:
-            ps.write_blank(r, c, None, fm)
-    cod = rs.cell_value(r, 0)
-    if isinstance(cod, str) and cod.strip().rstrip(".") in D.PRECIOS and isinstance(rs.cell_value(r, 3), float):
-        ROWS[cod.strip().rstrip(".")] = r
-    for lab, key in [("VALOR TOTAL COSTO DIRECTO", "CD"), ("VALOR TOTAL COSTO INDIRECTO", "CI")]:
-        if rs.cell_value(r, 3) == lab:
-            ROWS[key] = r
-    for lab in ("A", "I", "U"):
-        if rs.cell_value(r, 1) == lab:
-            ROWS[lab] = r
-    if rs.cell_value(r, 1) == "VALOR TOTAL DEL PROYECTO":
-        ROWS["TOT"] = r
-assert len([k for k in ROWS if k in D.PRECIOS]) == 85
+rsm = wb.add_worksheet("RESUMEN")
 
 # ======================================================================= MANO DE OBRA
 mo = wb.add_worksheet("MANO DE OBRA")
@@ -239,32 +170,140 @@ for cod, a in D.APUS.items():
     ws.write(r + 4, 0, D.REPRESENTANTE + " – Representante legal", fmt(bold=True))
     ws.fit_to_pages(1, 1); ws.set_paper(1); ws.center_horizontally()
 
-# ======================================================================= fórmulas del presupuesto
-bold_num = xf_format(ROWS["TOT"], 5)
-for cod, r in ROWS.items():
-    if cod not in D.PRECIOS:
-        continue
-    fe, ff = xf_format(r, 4), xf_format(r, 5)
-    if cod in APU_CELL:
-        ref, val = APU_CELL[cod]
-        ps.write_formula(r, 4, "=" + ref, fmt(num_format=NUM, bold=True, font_color="#C00000", border=1), val)
-    else:
-        ps.write(r, 4, D.PRECIOS[cod], fe)
-    ps.write_formula(r, 5, f"=ROUND(D{r+1}*E{r+1},0)", ff, D.total_item(cod))
-first, last = min(ROWS[c] for c in D.PRECIOS) + 1, max(ROWS[c] for c in D.PRECIOS) + 1
-ps.write_formula(ROWS["CD"], 5, f"=SUM(F{first}:F{last})", xf_format(ROWS["CD"], 5), D.CD)
-for k, v in (("A", D.VA), ("I", D.VI), ("U", D.VU_)):
-    ps.write_formula(ROWS[k], 5, f"=ROUND($F${ROWS['CD']+1}*E{ROWS[k]+1},0)", xf_format(ROWS[k], 5), v)
-ps.write_formula(ROWS["CI"], 5, f"=SUM(F{ROWS['A']+1}:F{ROWS['U']+1})", xf_format(ROWS["CI"], 5),
-                 D.VA + D.VI + D.VU_)
-ps.write_formula(ROWS["TOT"], 5, f"=F{ROWS['CD']+1}+F{ROWS['CI']+1}", bold_num, D.TOTAL)
-ps.write(1, 1, "PROPONENTE: " + D.PROPONENTE, fmt(bold=True, font_size=11))
-n = rs.nrows
-ps.write(n + 1, 1, "SON: " + D.letras(D.TOTAL) + " PESOS M/CTE.", fmt(bold=True, font_size=10))
-ps.write(n + 2, 1, "Los valores unitarios en rojo (3.06, 4.05, 7.01 y 12.02) salen de su APU (hojas APU). "
-         "Los demás precios incluyen materiales, mano de obra, equipo y transporte.", fmt(italic=True, font_size=8))
-ps.write(n + 5, 1, "______________________________________")
-ps.write(n + 6, 1, D.REPRESENTANTE + " – Representante legal", fmt(bold=True))
-ps.fit_to_pages(1, 0); ps.set_paper(1); ps.center_horizontally(); ps.repeat_rows(5)
+# ======================================================================= PRESUPUESTO organizado
+ACC = '_(* #,##0_);_(* (#,##0);_(* "-"??_);_(@_)'
+B9 = dict(font_size=9, border=1)
+ps.set_column(0, 0, 8); ps.set_column(1, 1, 52); ps.set_column(2, 3, 11); ps.set_column(4, 4, 15)
+ps.set_column(5, 5, 18)
+hdr_lines = [(D.ENTIDAD, 12), (D.LICITACION, 10), ("OBJETO: " + D.OBJETO, 9),
+             ("PROPONENTE: " + D.PROPONENTE, 10),
+             ("FORMATO DE CANTIDADES Y PRESUPUESTO – OFERTA ECONÓMICA", 12)]
+for i, (t, sz) in enumerate(hdr_lines):
+    ps.merge_range(i, 0, i, 5, t, fmt(bold=True, font_size=sz, align="center", text_wrap=True))
+ps.set_row(2, 26)
+r = 6
+ps.merge_range(r, 0, r, 5, "COSTOS DIRECTOS", fmt(bold=True, font_size=11, align="center"))
+r += 1
+ps.write_row(r, 0, ["COD.", "ITEM", "UNIDAD", "CANTIDAD", "VR. UNITARIO", "VR. TOTAL"], fmt(**H))
+HEAD_ROW = r
+r += 1
+sub_cells = []
+cap_ref = {}
+for cc, nombre, its in D.CAPITULOS:
+    ps.write(r, 0, cc + ".", fmt(bold=True, bg_color=CAP, **B9))
+    ps.merge_range(r, 1, r, 5, nombre, fmt(bold=True, bg_color=CAP, **B9))
+    r += 1
+    r0 = r
+    for cod in its:
+        _, _, desc, und, q, vu = next(x for x in D.ITEMS if x[1] == cod)
+        ps.write(r, 0, cod, fmt(align="left", **B9))
+        ps.write(r, 1, desc, fmt(text_wrap=True, **B9))
+        ps.write(r, 2, und, fmt(align="center", **B9))
+        ps.write(r, 3, q, fmt(num_format='#,##0.00', **B9))
+        if cod in APU_CELL:
+            ref, val = APU_CELL[cod]
+            ps.write_formula(r, 4, "=" + ref, fmt(num_format=ACC, bold=True, font_color="#C00000", **B9), val)
+        else:
+            ps.write(r, 4, D.PRECIOS[cod], fmt(num_format=ACC, **B9))
+        ps.write_formula(r, 5, f"=ROUND(D{r+1}*E{r+1},0)", fmt(num_format=ACC, **B9), D.total_item(cod))
+        if len(desc) > 55:
+            ps.set_row(r, 12.5 * (len(desc) // 52 + 1))
+        r += 1
+    ps.merge_range(r, 0, r, 4, f"SUBTOTAL {cc}. {nombre}", fmt(bold=True, align="right", bg_color="#F2F2F2", **B9))
+    ps.write_formula(r, 5, f"=SUM(F{r0+1}:F{r})", fmt(bold=True, num_format=ACC, bg_color="#F2F2F2", **B9),
+                     D.SUBTOTAL[cc])
+    sub_cells.append(f"F{r+1}")
+    cap_ref[cc] = f"PRESUPUESTO!$F${r+1}"
+    r += 2
+ps.merge_range(r, 0, r, 4, "VALOR TOTAL COSTO DIRECTO", fmt(bold=True, font_size=10, bg_color=AMA, border=1))
+ps.write_formula(r, 5, "=" + "+".join(sub_cells), fmt(bold=True, font_size=10, num_format=ACC, bg_color=AMA, border=1),
+                 D.CD)
+R_CD = r + 1
+r += 2
+ps.merge_range(r, 0, r, 5, "COSTOS INDIRECTOS", fmt(bold=True, font_size=11, align="center"))
+r += 1
+ps.write(r, 0, "", fmt(**H)); ps.merge_range(r, 1, r, 3, "DESCRIPCIÓN", fmt(**H))
+ps.write(r, 4, "PORCENTAJE", fmt(**H)); ps.write(r, 5, "VR. TOTAL", fmt(**H))
+r += 1
+ra = r
+for sig, nom, pct, val in (("A", "Administración", D.A_PCT, D.VA), ("I", "Imprevistos", D.I_PCT, D.VI),
+                           ("U", "Utilidad", D.U_PCT, D.VU_)):
+    ps.write(r, 0, sig, fmt(bold=True, align="center", **B9))
+    ps.merge_range(r, 1, r, 3, nom, fmt(**B9))
+    ps.write(r, 4, F(pct), fmt(num_format='0.00%', align="center", **B9))
+    ps.write_formula(r, 5, f"=ROUND($F${R_CD}*E{r+1},0)", fmt(num_format=ACC, **B9), val)
+    r += 1
+ps.merge_range(r, 0, r, 3, "VALOR TOTAL COSTO INDIRECTO (AIU)", fmt(bold=True, **B9))
+ps.write_formula(r, 4, f"=SUM(E{ra+1}:E{r})", fmt(bold=True, num_format='0.00%', align="center", **B9), F(D.AIU))
+ps.write_formula(r, 5, f"=SUM(F{ra+1}:F{r})", fmt(bold=True, num_format=ACC, **B9), D.VA + D.VI + D.VU_)
+R_CI = r + 1
+r += 2
+ps.merge_range(r, 0, r, 4, "VALOR TOTAL DEL PROYECTO (costo directo + AIU)",
+               fmt(bold=True, font_size=12, bg_color=AMA, border=2))
+ps.write_formula(r, 5, f"=F{R_CD}+F{R_CI}", fmt(bold=True, font_size=12, num_format=ACC, bg_color=AMA, border=2),
+                 D.TOTAL)
+R_TOT = r + 1
+r += 1
+ps.merge_range(r, 0, r, 5, "SON: " + D.letras(D.TOTAL) + " PESOS M/CTE.",
+               fmt(bold=True, font_size=10, text_wrap=True))
+ps.set_row(r, 28)
+r += 2
+notas = [
+    "Cantidades y unidades del formato oficial sin modificación. Precios ajustados al peso y fijos, sin reajuste "
+    "durante el plazo (numeral 3.2.1 de los TR).",
+    "Los valores unitarios en rojo (3.06, 4.05, 7.01 y 12.02) salen por fórmula de su APU (hojas APU), y la mano "
+    "de obra de cada APU sale de la hoja MANO DE OBRA (salario mínimo 2025).",
+    "Los precios unitarios cubren materiales, mano de obra con prestaciones, herramienta, equipo y transporte. "
+    "Personal directivo, señalización, seguridad, limpieza, impuestos y contribuciones van en el AIU "
+    "(numerales 3.2.1.1, 6.1, 6.10, 6.12 y 6.13).",
+]
+for t in notas:
+    ps.merge_range(r, 0, r, 5, "• " + t, fmt(italic=True, font_size=8, text_wrap=True, valign="top"))
+    ps.set_row(r, 24)
+    r += 1
+ps.write(r + 2, 1, "______________________________________")
+ps.write(r + 3, 1, D.REPRESENTANTE + " – Representante legal", fmt(bold=True))
+ps.write(r + 4, 1, D.CEDULA_REP)
+ps.fit_to_pages(1, 0); ps.set_paper(1); ps.center_horizontally(); ps.repeat_rows(HEAD_ROW)
+ps.set_margins(left=0.4, right=0.4, top=0.5, bottom=0.5)
+ps.freeze_panes(HEAD_ROW + 1, 0)
+
+# ======================================================================= RESUMEN
+for c, w in enumerate([8, 44, 18, 12]):
+    rsm.set_column(c, c, w)
+titulo(rsm, "RESUMEN DEL PRESUPUESTO POR CAPÍTULOS", 4)
+r = 6
+rsm.write_row(r, 0, ["CAP.", "CAPÍTULO", "VALOR", "% DEL C.D."], fmt(**H))
+r += 1
+r0 = r
+for cc, nombre, its in D.CAPITULOS:
+    rsm.write(r, 0, cc, fmt(align="center", **CELL)); rsm.write(r, 1, nombre, fmt(**CELL))
+    rsm.write_formula(r, 2, "=" + cap_ref[cc], fmt(num_format=ACC, **CELL), D.SUBTOTAL[cc])
+    rsm.write_formula(r, 3, f"=C{r+1}/$C${r0+len(D.CAPITULOS)+1}", fmt(num_format='0.0%', **CELL),
+                      D.SUBTOTAL[cc] / D.CD)
+    r += 1
+rsm.merge_range(r, 0, r, 1, "COSTO DIRECTO", fmt(bold=True, bg_color=AMA, **CELL))
+rsm.write_formula(r, 2, f"=SUM(C{r0+1}:C{r})", fmt(bold=True, num_format=ACC, bg_color=AMA, **CELL), D.CD)
+rsm.write_formula(r, 3, f"=SUM(D{r0+1}:D{r})", fmt(bold=True, num_format='0.0%', bg_color=AMA, **CELL), 1.0)
+r += 1
+for lab, ref, val in (("A – Administración (15 %)", ra + 1, D.VA), ("I – Imprevistos (7 %)", ra + 2, D.VI),
+                      ("U – Utilidad (2 %)", ra + 3, D.VU_)):
+    rsm.merge_range(r, 0, r, 1, lab, fmt(**CELL))
+    rsm.write_formula(r, 2, f"=PRESUPUESTO!F{ref}", fmt(num_format=ACC, **CELL), val)
+    rsm.write_blank(r, 3, None, fmt(**CELL))
+    r += 1
+rsm.merge_range(r, 0, r, 1, "VALOR TOTAL DE LA PROPUESTA", fmt(bold=True, font_size=11, bg_color=AMA, **CELL))
+rsm.write_formula(r, 2, f"=PRESUPUESTO!F{R_TOT}", fmt(bold=True, font_size=11, num_format=ACC, bg_color=AMA, **CELL),
+                  D.TOTAL)
+rsm.write_blank(r, 3, None, fmt(bg_color=AMA, **CELL))
+r += 2
+rsm.merge_range(r, 0, r, 1, "Presupuesto oficial", fmt(**CELL))
+rsm.write(r, 2, D.PRESUPUESTO_OFICIAL, fmt(num_format=ACC, **CELL)); rsm.write_blank(r, 3, None, fmt(**CELL))
+rsm.merge_range(r + 1, 0, r + 1, 1, "Oferta / presupuesto oficial (debe estar entre 90 % y 100 %)", fmt(**CELL))
+rsm.write_formula(r + 1, 2, f"=C{r-1}/C{r+1}", fmt(num_format="0.00%", bold=True, **CELL),
+                  D.TOTAL / D.PRESUPUESTO_OFICIAL)
+rsm.write_blank(r + 1, 3, None, fmt(**CELL))
+rsm.fit_to_pages(1, 1); rsm.set_paper(1); rsm.center_horizontally()
+
 wb.close()
 print("ok")

@@ -1,7 +1,7 @@
 # Propuesta – Ejercicio de licitación (cierre: 7 de noviembre de 2025)
 
 Licitación L02-2009, Municipio de Sandoná: construcción del polideportivo cubierto.
-Presupuesto oficial (formulario Excel): **$872.826.612**. **Nuestra oferta: $820.442.412 (94,00 %)**.
+Presupuesto oficial (formulario Excel): **$872.826.612**. **Nuestra oferta: $820.422.110 (94,00 %)**.
 
 ## Datos que salen de la fecha de cierre y del presupuesto
 
@@ -44,7 +44,8 @@ Antes de imprimir hay que llenar los datos entre corchetes: nombre del proponent
 
 - Cantidades y unidades del formato sin cambios (85 ítems verificados).
 - Mano de obra con valores de 2025: SMMLV $1.423.500 (Decreto 1572 de 2024), auxilio de transporte $200.000 (Decreto 1573 de 2024) y jornada de 44 horas semanales (Ley 2101 de 2021).
-- Ítems con APU: 3.06 $550.868, 4.05 $69.223, 7.01 $80.609 y 12.02 $415.603. Los demás: precio del formato × 0,948, ajustado al peso.
+- Ítems con APU: 3.06 $583.361, 4.05 $70.473, 7.01 $91.237 y 12.02 $441.839, con rendimientos de mano de obra de 8 m3/día, 40 m2/día, 11,4 m2/día y 4 und/día. Los demás: precio del formato × 0,9432, ajustado al peso.
+- El presupuesto está organizado por capítulos con su subtotal, como el Anexo 4 del pliego, y la hoja RESUMEN muestra el peso de cada capítulo.
 - AIU: A 15 %, I 7 %, U 2 %. Se corrigieron los totales de 12.01 y 12.02 del formato.
 
 ## Preguntas para el profesor

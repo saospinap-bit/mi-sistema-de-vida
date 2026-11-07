@@ -123,10 +123,10 @@ APUS = {
             ("M", "Puntilla 2\" a 3\"", "lb", 0.30, 0.00, 6000),
             ("M", "Desmoldante para formaleta", "gal", 0.03, 0.00, 38000),
             ("M", "Curador de concreto (membrana)", "kg", 0.40, 0.05, 9500),
-            ("E", "Vibrador de concreto a gasolina", "día", 0.08, 0.00, 55000),
-            ("E", "Bomba o carretillas y canaletas de vaciado", "día", 0.08, 0.00, 30000),
+            ("E", "Vibrador de concreto a gasolina (8 m3/día)", "día", 0.125, 0.00, 55000),
+            ("E", "Carretillas, canaletas y elementos de vaciado (8 m3/día)", "día", 0.125, 0.00, 30000),
             ("H", "Herramienta menor", "%MO", 0.05, 0.00, None),
-            ("O", "Cuadrilla 1 oficial + 3 ayudantes", "hc", 0.55, 0.00, "C13"),
+            ("O", "Cuadrilla 1 oficial + 3 ayudantes (rendimiento 8 m3/día = 1,0 hc/m3)", "hc", 1.00, 0.00, "C13"),
         ],
     },
     "4.05": {
@@ -140,10 +140,10 @@ APUS = {
             ("M", "Tornillo autoperforante 14x3/4\" con arandela de neopreno", "und", 6.00, 0.05, 450),
             ("M", "Cinta butílica de sello para traslapos", "ml", 0.50, 0.05, 3200),
             ("E", "Andamio tubular certificado (alquiler)", "módulo-día", 0.08, 0.00, 6000),
-            ("E", "Kit de trabajo en alturas (arnés, eslinga, línea de vida)", "día", 0.03, 0.00, 25000),
-            ("E", "Atornillador eléctrico", "día", 0.02, 0.00, 25000),
+            ("E", "Kit de trabajo en alturas por persona (3 personas, 40 m2/día)", "día", 0.075, 0.00, 25000),
+            ("E", "Atornillador eléctrico (40 m2/día)", "día", 0.025, 0.00, 25000),
             ("H", "Herramienta menor", "%MO", 0.05, 0.00, None),
-            ("O", "Cuadrilla 1 oficial + 2 ayudantes (certificados en alturas)", "hc", 0.20, 0.00, "C12"),
+            ("O", "Cuadrilla 1 oficial + 2 ayudantes certificados en alturas (rendimiento 40 m2/día = 0,20 hc/m2)", "hc", 0.20, 0.00, "C12"),
             ("T", "Izaje de tejas a cubierta (equipo y elementos de izaje)", "m2", 1.00, 0.00, 1200),
         ],
     },
@@ -157,9 +157,9 @@ APUS = {
             ("M", "Pegante para porcelanato (bulto 25 kg)", "bulto", 0.25, 0.00, 38000),
             ("M", "Boquilla para porcelanato", "kg", 0.40, 0.00, 6500),
             ("M", "Separadores / crucetas plásticas", "und", 8.00, 0.10, 60),
-            ("E", "Cortadora de porcelanato (alquiler)", "día", 0.05, 0.00, 45000),
+            ("E", "Cortadora de porcelanato (alquiler, 11,4 m2/día)", "día", 0.088, 0.00, 45000),
             ("H", "Herramienta menor", "%MO", 0.05, 0.00, None),
-            ("O", "Cuadrilla 1 oficial + 1 ayudante", "hc", 0.45, 0.00, "C11"),
+            ("O", "Cuadrilla 1 oficial enchapador + 1 ayudante (rendimiento 11,4 m2/día = 0,70 hc/m2)", "hc", 0.70, 0.00, "C11"),
         ],
     },
     "12.02": {
@@ -169,12 +169,12 @@ APUS = {
                 "instalado y probado. Los puntos hidráulico y sanitario se pagan en los capítulos 5.",
         "rec": [
             ("M", "Orinal institucional en porcelana sanitaria, blanco", "und", 1.00, 0.00, 240000),
-            ("M", "Llave push temporizada antivandálica para orinal", "und", 1.00, 0.00, 105000),
+            ("M", "Llave push temporizada antivandálica para orinal", "und", 1.00, 0.00, 92000),
             ("M", "Kit de instalación (spud, acoples, tubo de abasto, chazos y tornillos)", "und", 1.00, 0.00, 32000),
             ("M", "Silicona antihongos", "und", 0.25, 0.00, 18000),
             ("M", "Soldadura y limpiador PVC", "und", 0.05, 0.00, 40000),
             ("H", "Herramienta menor", "%MO", 0.05, 0.00, None),
-            ("O", "Cuadrilla 1 oficial plomero + 1 ayudante", "hc", 0.90, 0.00, "C11"),
+            ("O", "Cuadrilla 1 oficial plomero + 1 ayudante (rendimiento 4 und/día = 2,0 hc/und)", "hc", 2.00, 0.00, "C11"),
         ],
     },
 }
@@ -399,3 +399,19 @@ if __name__ == "__main__":
 EXP_PESOS = r0(Decimal(PRESUPUESTO_OFICIAL) * Decimal("0.5"))
 EXP_SMMLV = Decimal(EXP_PESOS) / SMMLV
 POLIZA_VALOR = r0(Decimal(PRESUPUESTO_OFICIAL) * Decimal("0.10"))
+
+
+def capitulos():
+    """[(cod, nombre, [códigos de ítems])] en el orden del formato."""
+    out = []
+    for f in FORMATO:
+        if f[0] == "cap":
+            out.append((f[1], f[2], []))
+        else:
+            out[-1][2].append(f[1])
+    return out
+
+
+CAPITULOS = capitulos()
+SUBTOTAL = {c: sum(total_item(i) for i in its) for c, n, its in CAPITULOS}
+assert sum(SUBTOTAL.values()) == CD

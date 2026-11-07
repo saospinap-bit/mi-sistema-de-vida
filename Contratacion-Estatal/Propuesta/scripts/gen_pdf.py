@@ -132,16 +132,19 @@ def oferta():
                "OFERTA ECONÓMICA – SOBRE No. 2")
     data = [["COD.", "ITEM", "UNIDAD", "CANTIDAD", "VR. UNITARIO", "VR. TOTAL"]]
     sty = hdr_style()
-    for f in D.FORMATO:
-        if f[0] == "cap":
-            data.append([f[1] + ".", f[2], "", "", "", ""])
-            i = len(data) - 1
-            sty += [("BACKGROUND", (0, i), (-1, i), CAP), ("FONT", (0, i), (-1, i), "VB", 7)]
-        else:
-            _, cod, desc, und, q, vu = f
-            pu = D.PRECIOS[cod]
-            data.append([cod, P(desc, size=7), und, n2(q), n0(pu), n0(D.total_item(cod))])
-    sty += [("ALIGN", (3, 1), (-1, -1), "RIGHT"), ("ALIGN", (2, 1), (2, -1), "CENTER")]
+    for cc, nombre, its in D.CAPITULOS:
+        data.append([cc + ".", nombre, "", "", "", ""])
+        i = len(data) - 1
+        sty += [("BACKGROUND", (0, i), (-1, i), CAP), ("FONT", (0, i), (-1, i), "VB", 7),
+                ("SPAN", (1, i), (-1, i))]
+        for cod in its:
+            _, _, desc, und, q, vu = next(x for x in D.ITEMS if x[1] == cod)
+            data.append([cod, P(desc, size=7), und, n2(q), n0(D.PRECIOS[cod]), n0(D.total_item(cod))])
+        data.append([f"SUBTOTAL {cc}. {nombre}", "", "", "", "", n0(D.SUBTOTAL[cc])])
+        i = len(data) - 1
+        sty += [("SPAN", (0, i), (4, i)), ("ALIGN", (0, i), (4, i), "RIGHT"), ("FONT", (0, i), (-1, i), "VB", 7),
+                ("BACKGROUND", (0, i), (-1, i), colors.HexColor("#F2F2F2"))]
+    sty = [("ALIGN", (3, 1), (-1, -1), "RIGHT"), ("ALIGN", (2, 1), (2, -1), "CENTER")] + sty
     s.append(tabla(data, [1.2 * cm, 8.6 * cm, 1.5 * cm, 1.8 * cm, 2.2 * cm, 2.9 * cm], sty))
     s.append(Spacer(1, 6))
     tot = [["VALOR TOTAL COSTO DIRECTO", "", n0(D.CD)],
