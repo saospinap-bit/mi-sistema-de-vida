@@ -27,7 +27,7 @@ def fmt(**k):
 
 NUM = '#,##0'
 NUM2 = '#,##0.00'
-AZUL, CAP, AMA = "#1F4E78", "#D9E1F2", "#FFF2CC"
+AZUL, CAP, AMA = "#1F4E78", "#D9E1F2", "#BDD7EE"
 H = dict(bold=True, font_color="#FFFFFF", bg_color=AZUL, border=1, align="center", text_wrap=True)
 CELL = dict(border=1)
 
@@ -202,15 +202,15 @@ for cc, nombre, its in D.CAPITULOS:
         ps.write(r, 3, q, fmt(num_format='#,##0.00', **B9))
         if cod in APU_CELL:
             ref, val = APU_CELL[cod]
-            ps.write_formula(r, 4, "=" + ref, fmt(num_format=ACC, bold=True, font_color="#C00000", **B9), val)
+            ps.write_formula(r, 4, "=" + ref, fmt(num_format=ACC, bold=True, font_color="#1F4E78", **B9), val)
         else:
             ps.write(r, 4, D.PRECIOS[cod], fmt(num_format=ACC, **B9))
         ps.write_formula(r, 5, f"=ROUND(D{r+1}*E{r+1},0)", fmt(num_format=ACC, **B9), D.total_item(cod))
         if len(desc) > 55:
             ps.set_row(r, 12.5 * (len(desc) // 52 + 1))
         r += 1
-    ps.merge_range(r, 0, r, 4, f"SUBTOTAL {cc}. {nombre}", fmt(bold=True, align="right", bg_color="#F2F2F2", **B9))
-    ps.write_formula(r, 5, f"=SUM(F{r0+1}:F{r})", fmt(bold=True, num_format=ACC, bg_color="#F2F2F2", **B9),
+    ps.merge_range(r, 0, r, 4, f"SUBTOTAL {cc}. {nombre}", fmt(bold=True, align="right", bg_color="#DEEAF6", **B9))
+    ps.write_formula(r, 5, f"=SUM(F{r0+1}:F{r})", fmt(bold=True, num_format=ACC, bg_color="#DEEAF6", **B9),
                      D.SUBTOTAL[cc])
     sub_cells.append(f"F{r+1}")
     cap_ref[cc] = f"PRESUPUESTO!$F${r+1}"
@@ -251,7 +251,7 @@ r += 2
 notas = [
     "Cantidades y unidades del formato oficial sin modificación. Precios ajustados al peso y fijos, sin reajuste "
     "durante el plazo (numeral 3.2.1 de los TR).",
-    "Los valores unitarios en rojo (3.06, 4.05, 7.01 y 12.02) salen por fórmula de su APU (hojas APU), y la mano "
+    "Los valores unitarios en azul y negrilla (3.06, 4.05, 7.01 y 12.02) salen por fórmula de su APU (hojas APU), y la mano "
     "de obra de cada APU sale de la hoja MANO DE OBRA (salario mínimo 2025).",
     "Los precios unitarios cubren materiales, mano de obra con prestaciones, herramienta, equipo y transporte. "
     "Personal directivo, señalización, seguridad, limpieza, impuestos y contribuciones van en el AIU "
@@ -266,7 +266,6 @@ ps.write(r + 3, 1, D.REPRESENTANTE + " – Representante legal", fmt(bold=True))
 ps.write(r + 4, 1, D.CEDULA_REP)
 ps.fit_to_pages(1, 0); ps.set_paper(1); ps.center_horizontally(); ps.repeat_rows(HEAD_ROW)
 ps.set_margins(left=0.4, right=0.4, top=0.5, bottom=0.5)
-ps.freeze_panes(HEAD_ROW + 1, 0)
 
 # ======================================================================= RESUMEN
 for c, w in enumerate([8, 44, 18, 12]):

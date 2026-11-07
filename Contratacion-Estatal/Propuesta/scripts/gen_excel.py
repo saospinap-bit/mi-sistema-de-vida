@@ -17,9 +17,9 @@ BOLD = Font(bold=True)
 H_FILL = PatternFill("solid", fgColor="1F4E78")
 H_FONT = Font(bold=True, color="FFFFFF")
 CAP_FILL = PatternFill("solid", fgColor="D9E1F2")
-TOT_FILL = PatternFill("solid", fgColor="FFF2CC")
+TOT_FILL = PatternFill("solid", fgColor="BDD7EE")
 BAR_FILL = PatternFill("solid", fgColor="2E75B6")
-IN_FILL = PatternFill("solid", fgColor="E2EFDA")
+IN_FILL = PatternFill("solid", fgColor="DEEAF6")
 NUM = '#,##0'
 NUM2 = '#,##0.00'
 CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
@@ -187,7 +187,7 @@ for cod, a in D.APUS.items():
 # ===================================================================== AJUSTE (hoja de trabajo)
 aj = wb.create_sheet("AJUSTE", 0)
 aj["A1"] = "HOJA DE TRABAJO – NO SE IMPRIME NI SE ENTREGA"
-aj["A1"].font = Font(bold=True, size=13, color="C00000")
+aj["A1"].font = Font(bold=True, size=13, color="1F4E78")
 aj["A3"] = "Presupuesto oficial"; aj["C3"] = D.PRESUPUESTO_OFICIAL; aj["C3"].number_format = NUM
 aj["A4"] = "FACTOR sobre precios del formato (cambie esta celda)"
 aj["C4"] = float(D.FACTOR); aj["C4"].fill = IN_FILL; aj["C4"].font = Font(bold=True, size=12)
@@ -389,7 +389,6 @@ for t in ["Semanas de 7 días calendario. S1 = días 1 a 7 desde el acta de inic
     r += 1
 firma(cr, r, nc)
 cr.print_title_rows = "7:7"
-cr.freeze_panes = "E8"
 imprimir(cr, landscape=True)
 
 wb.save(f"{OUT}/PROPUESTA_ECONOMICA.xlsx")
@@ -447,7 +446,7 @@ ws.cell(rr + 11, 1, "Puntaje A: 800 × (1 − |P − M| / M). Puntaje B: lineal,
         "\"proporcional\": confirmar en clase cuál se usa.").alignment = WRAP
 ws.merge_cells(start_row=rr + 11, start_column=1, end_row=rr + 11, end_column=7)
 ws.row_dimensions[rr + 11].height = 45
-ws.cell(rr + 12, 1, "Escriba los valores de las ofertas en las celdas verdes; la fila 1 trae nuestra oferta.")
+ws.cell(rr + 12, 1, "Escriba los valores de las ofertas en las celdas azul claro; la fila 1 trae nuestra oferta.")
 sm.save(f"{OUT}/SIMULADOR_CALIFICACION.xlsx")
 
 # ===================================================================== EXPERIENCIA
@@ -482,7 +481,7 @@ ws.cell(16, 8, "=SUM(H11:H15)").number_format = NUM2
 ws.cell(16, 8).font = BOLD
 ws.cell(17, 5, "¿CUMPLE?").font = BOLD
 ws.cell(17, 8, '=IF(H16>=C6,"SÍ CUMPLE","NO CUMPLE")').font = BOLD
-ws.cell(18, 1, "Llene las celdas verdes. El valor de cada contrato se convierte con el SMMLV del año en que "
+ws.cell(18, 1, "Llene las celdas azul claro. El valor de cada contrato se convierte con el SMMLV del año en que "
         "terminó; la suma debe ser igual o mayor al 50 % del presupuesto expresado en SMMLV 2025.")
 ws.merge_cells("A18:H18"); ws["A18"].alignment = WRAP; ws.row_dimensions[18].height = 30
 hdr(ws, 10, ["Contratante", "Objeto", "Valor total contrato ($)", "% participación (100 si individual)",

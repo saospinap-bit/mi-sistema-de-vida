@@ -24,7 +24,7 @@ registerFontFamily("V", normal="V", bold="VB", italic="VI", boldItalic="VB")
 
 AZUL = colors.HexColor("#1F4E78")
 CAP = colors.HexColor("#D9E1F2")
-AMA = colors.HexColor("#FFF2CC")
+AMA = colors.HexColor("#BDD7EE")
 BAR = colors.HexColor("#2E75B6")
 
 
@@ -73,7 +73,7 @@ class Doc(BaseDocTemplate):
         c.drawString(1.2 * cm, h - 1.4 * cm, "Proponente: " + D.PROPONENTE)
         if self.marca:
             c.setFont("VB", 11)
-            c.setFillColor(colors.HexColor("#C00000"))
+            c.setFillColor(colors.HexColor("#1F4E78"))
             c.drawRightString(w - 1.2 * cm, h - 1.2 * cm, self.marca)
             c.setFillColor(colors.black)
         c.setFont("V", 7)
@@ -143,7 +143,7 @@ def oferta():
         data.append([f"SUBTOTAL {cc}. {nombre}", "", "", "", "", n0(D.SUBTOTAL[cc])])
         i = len(data) - 1
         sty += [("SPAN", (0, i), (4, i)), ("ALIGN", (0, i), (4, i), "RIGHT"), ("FONT", (0, i), (-1, i), "VB", 7),
-                ("BACKGROUND", (0, i), (-1, i), colors.HexColor("#F2F2F2"))]
+                ("BACKGROUND", (0, i), (-1, i), colors.HexColor("#DEEAF6"))]
     sty = [("ALIGN", (3, 1), (-1, -1), "RIGHT"), ("ALIGN", (2, 1), (2, -1), "CENTER")] + sty
     s.append(tabla(data, [1.2 * cm, 8.6 * cm, 1.5 * cm, 1.8 * cm, 2.2 * cm, 2.9 * cm], sty))
     s.append(Spacer(1, 6))
