@@ -50,5 +50,8 @@ ws.write(1, 1, "PROPONENTE: " + D.PROPONENTE, CAL)
 ws.write(rs.nrows + 1, 1, "SON: " + D.letras(D.TOTAL) + " PESOS M/CTE.", CAL)
 ws.write(rs.nrows + 4, 1, "______________________________", CALN)
 ws.write(rs.nrows + 5, 1, D.REPRESENTANTE + " – Representante legal", CALN)
+# El formato trae resaltadas en amarillo (índice de paleta 34) las filas 3.10, 3.11 y 4.05: se pasan a azul claro
+usa34 = [x for x in rb.xf_list if x.background.pattern_colour_index == 34 or rb.font_list[x.font_index].colour_index == 34]
+wb.set_colour_RGB(34, 189, 215, 238)
 wb.save(f"{OUT}/EJERCICIO_OFERTA.xls")
 print("xls ok", n)
