@@ -444,6 +444,7 @@ SECCIONES = [
     ("5", "Certificado de Cámara de Comercio (existencia y representación legal)", "3.1.6"),
     ("6", "Experiencia específica (Anexo 3) y certificaciones", "3.1.7"),
     ("7", "Antecedentes disciplinarios (Procuraduría) y fiscales (Contraloría)", "3.1.12 y 3.1.13"),
+    ("8", "Programa de ejecución de los trabajos (Anexo 6) y cronograma (Anexo 7)", "3.2.2 y 4.1.1.2"),
 ]
 
 
@@ -604,6 +605,15 @@ def sobre1():
         ("Vigencia", f"Vigentes a la fecha de cierre ({D.CIERRE}). Se recomienda descargarlos en la semana "
                      "del cierre"),
     ], "Ambos certificados son gratuitos y se descargan en línea con el número de cédula o NIT.")
+    st_ += [PageBreak()] + separador("8", "Programa de ejecución de los trabajos", [
+        ("Numeral TR", "3.2.2 y 4.1.1.2 – evaluación de calidad, hasta 200 puntos"),
+        ("a. Secuencia y duración", "Las 85 actividades del presupuesto oficial con su duración"),
+        ("b. Inicio y fin", "Día de inicio y día de terminación de cada actividad"),
+        ("c. Duración total", "5 meses: 21 semanas = 147 días + 3 días para la entrega"),
+        ("d. Jornada de trabajo", D.JORNADA),
+        ("Formatos", "Anexo 6 (programación de obra) y Anexo 7 (cronograma)"),
+    ])
+    st_ += [NextPageTemplate("L"), PageBreak()] + anexo6() + [PageBreak()] + anexo7()
     return st_
 
 

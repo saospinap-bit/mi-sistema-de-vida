@@ -22,13 +22,13 @@ Presupuesto oficial (formulario Excel): **$872.826.612**. **Nuestra oferta: $820
 
 | Sobre | Archivo | Contenido |
 |---|---|---|
-| **Sobre No. 1** | `SOBRE_1_Documentos_Habilitantes.pdf` | Rótulo, índice y las 7 secciones del profesor: carta de presentación, carta de consorcio/UT, garantía, cédulas, Cámara de Comercio, experiencia (Anexo 3) y antecedentes disciplinarios y fiscales. Cada sección trae una hoja separadora con lo que hay que adjuntar |
+| **Sobre No. 1** | `SOBRE_1_Documentos_Habilitantes.pdf` | Rótulo, índice, las 7 secciones del profesor (carta de presentación, carta de consorcio/UT, garantía, cédulas, Cámara de Comercio, experiencia y antecedentes) y, como sección 8, el programa de obra (Anexos 6 y 7), que según el pliego vale 200 puntos. Cada sección trae una hoja separadora con lo que hay que adjuntar |
 | **Sobre No. 2** | `SOBRE_2_Oferta_Economica_ORIGINAL.pdf` + `..._COPIA.pdf` | Rótulo + oferta económica (Anexo 4) |
 | **Excel para entregar** | `PRESUPUESTO_CON_APU.xlsx` | Presupuesto en el formato del profesor + hoja MANO DE OBRA + APU de 3.06, 4.05, 7.01 y 12.02. Los precios de esos 4 ítems salen por fórmula de su APU, y cada APU toma la cuadrilla de MANO DE OBRA |
 | Sobre No. 2 (archivo) | `EJERCICIO_OFERTA.xls` | La oferta en el mismo formato Excel del profesor (EJERCICIO.xls), con nuestros precios |
 | Si quedamos primeros | `APU_3.06_4.05_7.01_12.02.pdf` | Costo de la mano de obra 2025 + los 4 APU |
 | Si quedamos primeros | `HOJAS_DE_VIDA_Director_Residente_Maestro.docx` | Formatos de hoja de vida (numeral 4.3) |
-| Solo si lo piden | `PROGRAMA_DE_OBRA_Anexos_6_y_7.pdf` | Programa de obra y cronograma (no está en la lista del Sobre 1 del profesor) |
+| Copia suelta | `PROGRAMA_DE_OBRA_Anexos_6_y_7.pdf` | El mismo programa de obra de la sección 8, por si se necesita aparte |
 
 Antes de imprimir hay que llenar los datos entre corchetes: nombre del proponente, representante, cédula, NIT, dirección, teléfono y correo.
 
@@ -50,7 +50,7 @@ Antes de imprimir hay que llenar los datos entre corchetes: nombre del proponent
 
 ## Preguntas para el profesor
 
-1. ¿El programa de obra (Anexos 6 y 7, 200 puntos de calidad) va en el Sobre 1 o ya no se califica?
+1. El programa de obra (200 puntos) va en el Sobre 1 aunque no está en la lista del profesor. Su columna "costo actividad" la exige el formato del Anexo 6 y deja ver el costo directo: confirmar que no hay problema.
 2. ¿Cómo se calcula el puntaje "proporcional"? El simulador trae dos opciones.
 3. ¿Se pueden cambiar los porcentajes del AIU? ¿Hay que incluir IVA sobre la utilidad?
 4. Zapatas: el formato dice 24 m³ y el pliego 23 m³. Se usaron los 24 m³ del formato.
