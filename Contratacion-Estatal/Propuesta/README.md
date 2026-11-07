@@ -24,6 +24,7 @@ Presupuesto oficial (formulario Excel): **$872.826.612**. **Nuestra oferta: $820
 |---|---|---|
 | **Sobre No. 1** | `SOBRE_1_Documentos_Habilitantes.pdf` | Rótulo, índice y las 7 secciones del profesor: carta de presentación, carta de consorcio/UT, garantía, cédulas, Cámara de Comercio, experiencia (Anexo 3) y antecedentes disciplinarios y fiscales. Cada sección trae una hoja separadora con lo que hay que adjuntar |
 | **Sobre No. 2** | `SOBRE_2_Oferta_Economica_ORIGINAL.pdf` + `..._COPIA.pdf` | Rótulo + oferta económica (Anexo 4) |
+| **Excel para entregar** | `PRESUPUESTO_CON_APU.xlsx` | Presupuesto en el formato del profesor + hoja MANO DE OBRA + APU de 3.06, 4.05, 7.01 y 12.02. Los precios de esos 4 ítems salen por fórmula de su APU, y cada APU toma la cuadrilla de MANO DE OBRA |
 | Sobre No. 2 (archivo) | `EJERCICIO_OFERTA.xls` | La oferta en el mismo formato Excel del profesor (EJERCICIO.xls), con nuestros precios |
 | Si quedamos primeros | `APU_3.06_4.05_7.01_12.02.pdf` | Costo de la mano de obra 2025 + los 4 APU |
 | Si quedamos primeros | `HOJAS_DE_VIDA_Director_Residente_Maestro.docx` | Formatos de hoja de vida (numeral 4.3) |
