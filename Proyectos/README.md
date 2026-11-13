@@ -14,6 +14,7 @@ Aquí organizamos tus proyectos. **Una carpeta por materia.**
 
 ## Carpetas
 - `Diseno-Estructural/`
+- `Diseno-Estructural-2/`
 - `PEPI/`
 - `Saneamiento-Ambiental/`
 - `Alcantarillados/`
