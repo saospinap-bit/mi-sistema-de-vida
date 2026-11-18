@@ -18,16 +18,10 @@ Pendiente en esta carpeta:
 - Subir los modelos corregidos (`Taller1_Esc1cor.wtg`, `Taller1_Esc2cor.wtg`, `Taller1_Esc3cor.wtg`) con sus `.wtg.sqlite`. Los `.wtg` que están ahora son los de antes de corregir las PRV, y sin el `.sqlite` no se pueden abrir.
 - `Taller1_Esc3_b.wtg` es una copia exacta de `Taller1_Esc1.wtg`; se puede borrar.
 
-## Pantallazos que faltan (solo EPANET)
+## Pantallazos de EPANET
 
-Abran cada archivo y corran el cálculo (*Project → Run Analysis*).
+Los cinco pantallazos de EPANET (carpeta `EPANET/capturas/`) se revisaron contra los resultados: caudales y presiones de los mapas de los Escenarios 1 y 2, y las gráficas del tanque, la bomba y las presiones del Escenario 3 coinciden con las tablas del informe. Se tomaron en EPANET 2.2, que da los mismos resultados que la versión 2.0; el informe lo aclara en la sección 4.1.
 
-| Figura | Archivo | Qué capturar |
-|---|---|---|
-| 3 | `Escenario1_Estatico_sin_P16.inp` | Mapa con *Nodes* = Pressure y *Links* = Flow, valores visibles (*View → Options → Notation*: Display Node Values y Display Link Values) y leyendas |
-| 4 | `Escenario2_Estatico_con_tanque.inp` | Igual que la Figura 3 |
-| 5 | `Escenario3_Periodo_extendido_24h.inp` | *Report → Graph* → Time Series → Nodes → Head → T-1 |
-| 6 | Mismo archivo | *Report → Graph* → Time Series → Links → Flow → PMP-1 |
-| 7 | Mismo archivo | *Report → Graph* → Time Series → Nodes → Pressure → J-1, J-3 y J-7 |
+## Estado del informe
 
-Con esos cinco el informe queda completo. Falta también escribir los nombres y códigos en la portada.
+Todas las figuras están puestas. Solo falta escribir los nombres y códigos de los integrantes en la portada.
