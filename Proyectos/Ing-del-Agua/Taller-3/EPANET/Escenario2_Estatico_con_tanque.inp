@@ -1,0 +1,168 @@
+[TITLE]
+Taller 1 - Escenario 2: estado estatico, tanque T-1 en funcionamiento
+UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
+
+[JUNCTIONS]
+;ID              	Elev   	Demand 	Pattern
+ J-1             	250    	3.2    		;
+ J-2             	265    	3.2    		;
+ J-3             	235    	4.7    		;
+ J-4             	235    	3.2    		;
+ J-5             	270    	4.7    		;
+ J-6             	270    	5.0    		;
+ J-7             	277    	0.0    		;
+ J-8             	276    	3.2    		;
+ PMP-1-S         	288.0  	0      		;
+ PMP-1-D         	288.0  	0      		;
+ PRV-1-A         	250.0  	0      		;
+ PRV-1-B         	250.0  	0      		;
+ PRV-2-A         	253.0  	0      		;
+ PRV-2-B         	253.0  	0      		;
+ PRV-3-A         	253.0  	0      		;
+ PRV-3-B         	253.0  	0      		;
+
+[RESERVOIRS]
+;ID              	Head   	Pattern
+ R-1             	290.0  		;
+
+[TANKS]
+;ID              	Elevation	InitLevel	MinLevel	MaxLevel	Diameter	MinVol	VolCurve
+ T-1             	308.0    	12.0     	6.0     	18.0    	15.0    	0		;
+
+[PIPES]
+;ID              	Node1           	Node2           	Length	Diameter	Roughness	MinorLoss	Status
+ P-1             	R-1             	PMP-1-S         	3     	300     	100      	0        	Open	;
+ P-2             	PMP-1-D         	J-1             	1525  	300     	100      	0        	Open	;
+ P-3             	J-1             	J-2             	300   	200     	100      	0        	Open	;
+ P-4             	J-2             	PRV-1-A         	30    	200     	100      	0        	Open	;
+ P-5             	PRV-1-B         	J-3             	460   	200     	100      	0        	Open	;
+ P-6             	J-3             	J-4             	460   	200     	100      	0        	Open	;
+ P-7             	PRV-2-B         	J-4             	300   	200     	100      	0        	Open	;
+ P-8             	J-5             	PRV-2-A         	30    	200     	100      	0        	Open	;
+ P-9             	J-6             	J-5             	460   	200     	100      	0        	Open	;
+ P-10            	J-1             	J-6             	460   	200     	100      	0        	Open	;
+ P-11            	J-1             	J-7             	550   	200     	100      	0        	Open	;
+ P-12            	J-7             	J-8             	460   	250     	100      	0        	Open	;
+ P-13            	J-8             	J-5             	300   	250     	100      	0        	Open	;
+ P-14            	J-6             	PRV-3-A         	30    	200     	100      	0        	Open	;
+ P-15            	PRV-3-B         	J-3             	300   	200     	100      	0        	Open	;
+ P-16            	J-7             	T-1             	460   	300     	100      	0        	Open	;
+
+[PUMPS]
+;ID              	Node1           	Node2           	Parameters
+ PMP-1           	PMP-1-S         	PMP-1-D         	HEAD BOMBA-1	;
+
+[VALVES]
+;ID              	Node1           	Node2           	Diameter	Type	Setting	MinorLoss
+ PRV-1           	PRV-1-A         	PRV-1-B         	200     	PRV 	35.0   	0	;
+ PRV-2           	PRV-2-A         	PRV-2-B         	200     	PRV 	33.5   	0	;
+ PRV-3           	PRV-3-A         	PRV-3-B         	200     	PRV 	33.5   	0	;
+
+[TAGS]
+
+[DEMANDS]
+
+[STATUS]
+
+[PATTERNS]
+
+[CURVES]
+;ID              	X-Value     	Y-Value
+;PUMP: Curva caracteristica PMP-1 (Q en L/s, H en m)
+ BOMBA-1         	0.0         	48.8
+ BOMBA-1         	63.2        	39.6
+ BOMBA-1         	88.4        	33.8
+
+[CONTROLS]
+
+[RULES]
+
+[ENERGY]
+ Global Efficiency  	75
+ Global Price       	0
+ Demand Charge      	0
+
+[EMITTERS]
+
+[QUALITY]
+
+[SOURCES]
+
+[REACTIONS]
+ Order Bulk            	1
+ Order Tank            	1
+ Order Wall            	1
+ Global Bulk           	0
+ Global Wall           	0
+ Limiting Potential    	0
+ Roughness Correlation 	0
+
+[MIXING]
+ T-1             	MIXED
+
+[TIMES]
+ Duration           	0:00
+ Hydraulic Timestep 	1:00
+ Quality Timestep   	0:05
+ Pattern Timestep   	1:00
+ Pattern Start      	0:00
+ Report Timestep    	1:00
+ Report Start       	0:00
+ Start ClockTime    	12 am
+ Statistic          	NONE
+
+[REPORT]
+ Status             	Yes
+ Summary            	No
+ Nodes              	All
+ Links              	All
+
+[OPTIONS]
+ Units              	LPS
+ Headloss           	H-W
+ Specific Gravity   	1.0
+ Viscosity          	1.0
+ Trials             	40
+ Accuracy           	0.001
+ CHECKFREQ          	2
+ MAXCHECK           	10
+ DAMPLIMIT          	0
+ Unbalanced         	Continue 10
+ Demand Multiplier  	1.0
+ Emitter Exponent   	0.5
+ Quality            	None mg/L
+ Diffusivity        	1.0
+ Tolerance          	0.01
+
+[COORDINATES]
+;Node            	X-Coord         	Y-Coord
+ R-1             	118             	335
+ PMP-1-S         	300             	335
+ PMP-1-D         	330             	335
+ J-1             	505             	335
+ J-2             	505             	32
+ J-3             	965             	32
+ J-4             	1398            	32
+ J-5             	1398            	333
+ J-6             	965             	333
+ J-7             	650             	567
+ J-8             	1237            	565
+ T-1             	397             	710
+ PRV-1-A         	705             	32
+ PRV-1-B         	730             	32
+ PRV-2-A         	1398            	200
+ PRV-2-B         	1398            	175
+ PRV-3-A         	965             	195
+ PRV-3-B         	965             	170
+
+[VERTICES]
+
+[LABELS]
+
+[BACKDROP]
+ DIMENSIONS     	0.00	0.00	1500.00	750.00
+ UNITS          	None
+ FILE           	
+ OFFSET         	0.00	0.00
+
+[END]
