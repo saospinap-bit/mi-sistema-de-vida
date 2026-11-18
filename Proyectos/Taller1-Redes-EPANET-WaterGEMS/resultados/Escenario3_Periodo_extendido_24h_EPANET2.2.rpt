@@ -1,0 +1,1640 @@
+  Page 1                                    Wed Nov 18 21:17:00 2026
+
+  ******************************************************************
+  *                           E P A N E T                          *
+  *                   Hydraulic and Water Quality                  *
+  *                   Analysis for Pipe Networks                   *
+  *                         Version 2.2                            *
+  ******************************************************************
+  
+  Taller 1 - Escenario 3: periodo extendido 24 h con curvas de consumo
+  UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
+   
+      Input Data File ................... /tmp/Escenario3_Periodo_extendido_24h_22.inp
+      Number of Junctions................ 16
+      Number of Reservoirs............... 1
+      Number of Tanks ................... 1
+      Number of Pipes ................... 16
+      Number of Pumps ................... 1
+      Number of Valves .................. 3
+      Headloss Formula .................. Hazen-Williams
+      Nodal Demand Model ................ DDA
+      Hydraulic Timestep ................ 1.00 hrs
+      Hydraulic Accuracy ................ 0.000100
+      Status Check Frequency ............ 2
+      Maximum Trials Checked ............ 10
+      Damping Limit Threshold ........... 0.000000
+      Maximum Trials .................... 200
+      Quality Analysis .................. None
+      Specific Gravity .................. 1.00
+      Relative Kinematic Viscosity ...... 1.00
+      Relative Chemical Diffusivity ..... 1.00
+      Demand Multiplier ................. 1.00
+      Total Duration .................... 24.00 hrs
+      Reporting Criteria:
+         All Nodes
+         All Links
+   
+  Analysis begun Wed Nov 18 21:17:00 2026
+
+   
+  Hydraulic Status:
+  -----------------------------------------------------------------------
+     0:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.564214
+              Trial  2: relative flow change = 0.407127
+              PRV PRV-1 switched from active to closed
+              Trial  3: relative flow change = 0.320396
+              Trial  4: relative flow change = 0.285541
+              PRV PRV-3 switched from active to closed
+              Trial  5: relative flow change = 0.049178
+              Trial  6: relative flow change = 0.017359
+              PRV PRV-3 switched from closed to active
+              Trial  7: relative flow change = 0.002407
+              Trial  8: relative flow change = 0.005092
+              Trial  9: relative flow change = 0.000713
+              Trial 10: relative flow change = 0.000024
+                        maximum  flow change = 0.0013 for Link PRV-3
+                        maximum  head error  = 0.0000 for Link P-9
+
+     0:00:00: Balanced after 10 trials
+     0:00:00: Reservoir R-1 is emptying
+     0:00:00: Tank T-1 is filling at 12.00 m
+     0:00:00: PRV PRV-1 closed
+   
+     1:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.033077
+              Trial  2: relative flow change = 0.000387
+              Trial  3: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link P-16
+                        maximum  head error  = 0.0000 for Link P-11
+
+     1:00:00: Balanced after 3 trials
+   
+     2:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.033806
+              Trial  2: relative flow change = 0.000404
+              Trial  3: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link P-1
+                        maximum  head error  = 0.0000 for Link P-2
+
+     2:00:00: Balanced after 3 trials
+   
+     3:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.034563
+              Trial  2: relative flow change = 0.000421
+              Trial  3: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link P-1
+                        maximum  head error  = 0.0000 for Link P-2
+
+     3:00:00: Balanced after 3 trials
+   
+     4:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.046445
+              Trial  2: relative flow change = 0.018071
+              Trial  3: relative flow change = 0.000070
+                        maximum  flow change = 0.0029 for Link P-12
+                        maximum  head error  = 0.0000 for Link P-9
+
+     4:00:00: Balanced after 3 trials
+   
+     5:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.069632
+              Trial  2: relative flow change = 0.052739
+              Trial  3: relative flow change = 0.000699
+              Trial  4: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+     5:00:00: Balanced after 4 trials
+   
+     6:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.136643
+              Trial  2: relative flow change = 0.116858
+              Trial  3: relative flow change = 0.004495
+              Trial  4: relative flow change = 0.000020
+                        maximum  flow change = 0.0008 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+     6:00:00: Balanced after 4 trials
+   
+     7:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.052418
+              Trial  2: relative flow change = 0.033331
+              Trial  3: relative flow change = 0.000130
+              Trial  4: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link P-9
+                        maximum  head error  = 0.0000 for Link PMP-1
+
+     7:00:00: Balanced after 4 trials
+   
+     7:46:27: Balancing the network:
+
+              Trial  1: relative flow change = 0.013388
+              Trial  2: relative flow change = 0.000056
+                        maximum  flow change = 0.0024 for Link P-16
+                        maximum  head error  = 0.0000 for Link P-11
+
+              Pipe P-16 switched from open to closed
+              Trial  3: relative flow change = 0.545950
+              Trial  4: relative flow change = 0.008949
+              Trial  5: relative flow change = 0.000037
+                        maximum  flow change = 0.0013 for Link P-13
+                        maximum  head error  = 0.0000 for Link P-9
+
+     7:46:27: Balanced after 5 trials
+     7:46:27: Tank T-1 is closed at 18.00 m
+     7:46:27: Pipe P-16 changed from open to temporarily closed
+   
+     8:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.091505
+              Trial  2: relative flow change = 0.041501
+              Trial  3: relative flow change = 0.003288
+              Trial  4: relative flow change = 0.000025
+                        maximum  flow change = 0.0009 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+     8:00:00: Balanced after 4 trials
+   
+     9:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.053939
+              Trial  2: relative flow change = 0.050371
+              Trial  3: relative flow change = 0.002217
+              Trial  4: relative flow change = 0.000017
+                        maximum  flow change = 0.0006 for Link P-14
+                        maximum  head error  = 0.0000 for Link P-9
+
+     9:00:00: Balanced after 4 trials
+   
+    10:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.016915
+              Trial  2: relative flow change = 0.005882
+              Trial  3: relative flow change = 0.000009
+                        maximum  flow change = 0.0003 for Link P-14
+                        maximum  head error  = 0.0000 for Link P-9
+
+    10:00:00: Balanced after 3 trials
+   
+    11:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.101091
+              Trial  2: relative flow change = 0.066918
+              Trial  3: relative flow change = 0.000177
+              Trial  4: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link P-14
+                        maximum  head error  = 0.0000 for Link P-9
+
+    11:00:00: Balanced after 4 trials
+   
+    12:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.073284
+              Trial  2: relative flow change = 0.021929
+              Trial  3: relative flow change = 0.001731
+              Trial  4: relative flow change = 0.000008
+                        maximum  flow change = 0.0002 for Link P-14
+                        maximum  head error  = 0.0000 for Link P-9
+
+    12:00:00: Balanced after 4 trials
+   
+    13:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.069090
+              Trial  2: relative flow change = 0.046777
+              Trial  3: relative flow change = 0.003334
+              Trial  4: relative flow change = 0.000025
+                        maximum  flow change = 0.0008 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+    13:00:00: Balanced after 4 trials
+   
+    14:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.056844
+              Trial  2: relative flow change = 0.046901
+              Trial  3: relative flow change = 0.000033
+                        maximum  flow change = 0.0012 for Link P-14
+                        maximum  head error  = 0.0000 for Link P-9
+
+    14:00:00: Balanced after 3 trials
+   
+    15:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.162440
+              Trial  2: relative flow change = 0.176192
+              Trial  3: relative flow change = 0.001140
+              Trial  4: relative flow change = 0.000004
+                        maximum  flow change = 0.0001 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+    15:00:00: Balanced after 4 trials
+   
+    16:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.055516
+              Trial  2: relative flow change = 0.044491
+              Trial  3: relative flow change = 0.000010
+                        maximum  flow change = 0.0002 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+    16:00:00: Balanced after 3 trials
+   
+    17:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.130587
+              Trial  2: relative flow change = 0.085306
+              Trial  3: relative flow change = 0.000042
+                        maximum  flow change = 0.0010 for Link P-10
+                        maximum  head error  = 0.0000 for Link P-11
+
+    17:00:00: Balanced after 3 trials
+   
+    18:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.019276
+              Trial  2: relative flow change = 0.006980
+              Trial  3: relative flow change = 0.000487
+              Trial  4: relative flow change = 0.000001
+                        maximum  flow change = 0.0000 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+    18:00:00: Balanced after 4 trials
+   
+    19:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.099304
+              Trial  2: relative flow change = 0.019265
+              Trial  3: relative flow change = 0.002855
+              Trial  4: relative flow change = 0.000019
+                        maximum  flow change = 0.0005 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+    19:00:00: Balanced after 4 trials
+   
+    20:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.042038
+              Trial  2: relative flow change = 0.017568
+              Trial  3: relative flow change = 0.000703
+              Trial  4: relative flow change = 0.000001
+                        maximum  flow change = 0.0000 for Link P-9
+                        maximum  head error  = 0.0000 for Link P-9
+
+    20:00:00: Balanced after 4 trials
+   
+    21:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.176514
+              Trial  2: relative flow change = 0.157854
+              Trial  3: relative flow change = 0.000706
+              Trial  4: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link PRV-3
+                        maximum  head error  = 0.0000 for Link P-9
+
+    21:00:00: Balanced after 4 trials
+   
+    22:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.124304
+              Trial  2: relative flow change = 0.162184
+              Trial  3: relative flow change = 0.000172
+              Trial  4: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link P-8
+                        maximum  head error  = 0.0000 for Link P-9
+
+    22:00:00: Balanced after 4 trials
+   
+    23:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.141870
+              Trial  2: relative flow change = 0.140277
+              Trial  3: relative flow change = 0.000301
+              Trial  4: relative flow change = 0.000000
+                        maximum  flow change = 0.0000 for Link P-10
+                        maximum  head error  = 0.0000 for Link P-11
+
+    23:00:00: Balanced after 4 trials
+   
+    24:00:00: Balancing the network:
+
+              Trial  1: relative flow change = 0.337431
+              Trial  2: relative flow change = 0.480221
+              Trial  3: relative flow change = 0.002728
+              Trial  4: relative flow change = 0.000004
+                        maximum  flow change = 0.0000 for Link P-10
+                        maximum  head error  = 0.0000 for Link P-11
+
+    24:00:00: Balanced after 4 trials
+   
+   
+  Node Results at 0:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  0.32    325.98     75.98
+  J-2                  0.32    325.97     60.97
+  J-3                  0.47    286.50     51.50
+  J-4                  0.00    286.50     51.50
+  J-5                  0.00    322.10     52.10
+  J-6                  5.00    323.59     53.59
+  J-7                  0.00    321.28     44.28
+  J-8                  0.00    321.78     45.78
+  PMP-1-S              0.00    289.99      1.99
+  PMP-1-D              0.00    331.26     43.26
+  PRV-1-A              0.00    325.97     75.97
+  PRV-1-B              0.00    286.50     36.50
+  PRV-2-A              0.00    322.10     69.10
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    323.59     70.59
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -55.09    290.00     -0.00  Reservoir
+  T-1                 48.98    320.00     12.00  Tank
+   
+   
+  Link Results at 0:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 55.09      0.78      3.46
+  P-2                 55.09      0.78      3.46
+  P-3                  0.32      0.01      0.00
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.18      0.01      0.00
+  P-7                  0.18      0.01      0.00
+  P-8                  0.18      0.01      0.00
+  P-9                 18.30      0.58      3.24
+  P-10                23.59      0.75      5.19
+  P-11                30.86      0.98      8.53
+  P-12               -18.12      0.37      1.07
+  P-13               -18.12      0.37      1.07
+  P-14                 0.29      0.01      0.00
+  P-15                 0.29      0.01      0.00
+  P-16                48.98      0.69      2.79
+  PMP-1               55.09      0.00    -41.27  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                0.18      0.01     35.60  PRV
+  PRV-3                0.29      0.01     37.09  PRV
+   
+   
+  Node Results at 1:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  0.32    326.61     76.61
+  J-2                  0.32    326.61     61.61
+  J-3                  0.47    286.50     51.50
+  J-4                  0.00    286.50     51.50
+  J-5                  0.00    322.96     52.96
+  J-6                  5.00    324.35     54.35
+  J-7                  0.00    322.20     45.20
+  J-8                  0.00    322.66     46.66
+  PMP-1-S              0.00    289.99      1.99
+  PMP-1-D              0.00    331.59     43.59
+  PRV-1-A              0.00    326.61     76.61
+  PRV-1-B              0.00    286.50     36.50
+  PRV-2-A              0.00    322.96     69.96
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    324.35     71.35
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -53.40    290.00     -0.00  Reservoir
+  T-1                 47.29    321.00     13.00  Tank
+   
+   
+  Link Results at 1:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 53.40      0.76      3.27
+  P-2                 53.40      0.76      3.27
+  P-3                  0.32      0.01      0.00
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.18      0.01      0.00
+  P-7                  0.18      0.01      0.00
+  P-8                  0.18      0.01      0.00
+  P-9                 17.62      0.56      3.02
+  P-10                22.91      0.73      4.91
+  P-11                29.84      0.95      8.02
+  P-12               -17.44      0.36      1.00
+  P-13               -17.44      0.36      1.00
+  P-14                 0.29      0.01      0.00
+  P-15                 0.29      0.01      0.00
+  P-16                47.29      0.67      2.61
+  PMP-1               53.40      0.00    -41.60  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                0.18      0.01     36.46  PRV
+  PRV-3                0.29      0.01     37.85  PRV
+   
+   
+  Node Results at 2:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  0.32    327.22     77.22
+  J-2                  0.32    327.22     62.22
+  J-3                  0.47    286.50     51.50
+  J-4                  0.00    286.50     51.50
+  J-5                  0.00    323.79     53.79
+  J-6                  5.00    325.08     55.08
+  J-7                  0.00    323.08     46.08
+  J-8                  0.00    323.51     47.51
+  PMP-1-S              0.00    289.99      1.99
+  PMP-1-D              0.00    331.92     43.92
+  PRV-1-A              0.00    327.22     77.22
+  PRV-1-B              0.00    286.50     36.50
+  PRV-2-A              0.00    323.79     70.79
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    325.08     72.08
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -51.72    290.00     -0.00  Reservoir
+  T-1                 45.61    321.96     13.96  Tank
+   
+   
+  Link Results at 2:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 51.72      0.73      3.08
+  P-2                 51.72      0.73      3.08
+  P-3                  0.32      0.01      0.00
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.18      0.01      0.00
+  P-7                  0.18      0.01      0.00
+  P-8                  0.18      0.01      0.00
+  P-9                 16.95      0.54      2.81
+  P-10                22.24      0.71      4.65
+  P-11                28.84      0.92      7.53
+  P-12               -16.77      0.34      0.93
+  P-13               -16.77      0.34      0.93
+  P-14                 0.29      0.01      0.00
+  P-15                 0.29      0.01      0.00
+  P-16                45.61      0.65      2.44
+  PMP-1               51.72      0.00    -41.93  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                0.18      0.01     37.29  PRV
+  PRV-3                0.29      0.01     38.58  PRV
+   
+   
+  Node Results at 3:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  0.32    327.82     77.82
+  J-2                  0.32    327.82     62.82
+  J-3                  0.47    286.50     51.50
+  J-4                  0.00    286.50     51.50
+  J-5                  0.00    324.59     54.59
+  J-6                  5.00    325.80     55.80
+  J-7                  0.00    323.94     46.94
+  J-8                  0.00    324.34     48.34
+  PMP-1-S              0.00    289.99      1.99
+  PMP-1-D              0.00    332.24     44.24
+  PRV-1-A              0.00    327.82     77.82
+  PRV-1-B              0.00    286.50     36.50
+  PRV-2-A              0.00    324.59     71.59
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    325.80     72.80
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -50.06    290.00     -0.00  Reservoir
+  T-1                 43.95    322.89     14.89  Tank
+   
+   
+  Link Results at 3:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 50.06      0.71      2.90
+  P-2                 50.06      0.71      2.90
+  P-3                  0.32      0.01      0.00
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.18      0.01      0.00
+  P-7                  0.18      0.01      0.00
+  P-8                  0.18      0.01      0.00
+  P-9                 16.28      0.52      2.61
+  P-10                21.57      0.69      4.40
+  P-11                27.84      0.89      7.05
+  P-12               -16.10      0.33      0.86
+  P-13               -16.10      0.33      0.86
+  P-14                 0.29      0.01      0.00
+  P-15                 0.29      0.01      0.00
+  P-16                43.95      0.62      2.28
+  PMP-1               50.06      0.00    -42.25  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                0.18      0.01     38.09  PRV
+  PRV-3                0.29      0.01     39.30  PRV
+   
+   
+  Node Results at 4:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  0.96    328.17     78.17
+  J-2                  0.96    328.17     63.17
+  J-3                  1.41    286.50     51.50
+  J-4                  0.00    286.50     51.50
+  J-5                  0.00    325.23     55.23
+  J-6                  5.00    326.27     56.27
+  J-7                  0.00    324.70     47.70
+  J-8                  0.00    325.02     49.02
+  PMP-1-S              0.00    289.99      1.99
+  PMP-1-D              0.00    332.43     44.43
+  PRV-1-A              0.00    328.17     78.17
+  PRV-1-B              0.00    286.50     36.50
+  PRV-2-A              0.00    325.23     72.23
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    326.27     73.27
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -49.05    290.00     -0.00  Reservoir
+  T-1                 40.72    323.79     15.79  Tank
+   
+   
+  Link Results at 4:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 49.05      0.69      2.79
+  P-2                 49.05      0.69      2.79
+  P-3                  0.96      0.03      0.01
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.53      0.02      0.00
+  P-7                  0.53      0.02      0.00
+  P-8                  0.53      0.02      0.00
+  P-9                 15.01      0.48      2.25
+  P-10                20.89      0.66      4.14
+  P-11                26.24      0.84      6.32
+  P-12               -14.48      0.29      0.71
+  P-13               -14.48      0.29      0.71
+  P-14                 0.88      0.03      0.01
+  P-15                 0.88      0.03      0.01
+  P-16                40.72      0.58      1.98
+  PMP-1               49.05      0.00    -42.44  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                0.53      0.02     38.73  PRV
+  PRV-3                0.88      0.03     39.77  PRV
+   
+   
+  Node Results at 5:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  2.56    328.15     78.15
+  J-2                  2.56    328.13     63.13
+  J-3                  3.76    286.48     51.48
+  J-4                  0.32    286.49     51.49
+  J-5                  0.47    325.57     55.57
+  J-6                  5.00    326.35     56.35
+  J-7                  0.00    325.27     48.27
+  J-8                  0.32    325.45     49.45
+  PMP-1-S              0.00    289.99      1.99
+  PMP-1-D              0.00    332.42     44.42
+  PRV-1-A              0.00    328.13     78.13
+  PRV-1-B              0.00    286.48     36.48
+  PRV-2-A              0.00    325.57     72.57
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    326.34     73.34
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -49.11    290.00     -0.00  Reservoir
+  T-1                 34.12    324.62     16.62  Tank
+   
+   
+  Link Results at 5:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 49.11      0.69      2.80
+  P-2                 49.11      0.69      2.80
+  P-3                  2.56      0.08      0.08
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -1.33      0.04      0.03
+  P-7                  1.65      0.05      0.04
+  P-8                  1.65      0.05      0.04
+  P-9                 12.86      0.41      1.69
+  P-10                20.29      0.65      3.92
+  P-11                23.71      0.75      5.24
+  P-12               -10.42      0.21      0.38
+  P-13               -10.74      0.22      0.41
+  P-14                 2.43      0.08      0.08
+  P-15                 2.43      0.08      0.08
+  P-16                34.12      0.48      1.43
+  PMP-1               49.11      0.00    -42.43  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                1.65      0.05     39.07  PRV
+  PRV-3                2.43      0.08     39.84  PRV
+   
+   
+  Node Results at 6:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  5.76    327.63     77.63
+  J-2                  5.76    327.51     62.51
+  J-3                  8.46    286.39     51.39
+  J-4                  1.28    286.44     51.44
+  J-5                  1.88    325.60     55.60
+  J-6                  5.00    325.97     55.97
+  J-7                  0.00    325.58     48.58
+  J-8                  1.28    325.59     49.59
+  PMP-1-S              0.00    289.99      1.99
+  PMP-1-D              0.00    332.14     44.14
+  PRV-1-A              0.00    327.51     77.51
+  PRV-1-B              0.00    286.39     36.39
+  PRV-2-A              0.00    325.59     72.59
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    325.96     72.96
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -50.59    290.00     -0.00  Reservoir
+  T-1                 21.17    325.31     17.31  Tank
+   
+   
+  Link Results at 6:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 50.59      0.72      2.95
+  P-2                 50.59      0.72      2.96
+  P-3                  5.76      0.18      0.38
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -2.84      0.09      0.10
+  P-7                  4.12      0.13      0.21
+  P-8                  4.12      0.13      0.20
+  P-9                  8.74      0.28      0.82
+  P-10                19.35      0.62      3.60
+  P-11                19.72      0.63      3.72
+  P-12                -1.45      0.03      0.01
+  P-13                -2.73      0.06      0.03
+  P-14                 5.62      0.18      0.36
+  P-15                 5.62      0.18      0.36
+  P-16                21.17      0.30      0.59
+  PMP-1               50.59      0.00    -42.15  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                4.12      0.13     39.09  PRV
+  PRV-3                5.62      0.18     39.46  PRV
+   
+   
+  Node Results at 7:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  6.40    327.75     77.75
+  J-2                  6.40    327.61     62.61
+  J-3                  9.40    286.36     51.36
+  J-4                  1.92    286.41     51.41
+  J-5                  2.82    325.90     55.90
+  J-6                  5.00    326.18     56.18
+  J-7                  0.00    325.91     48.91
+  J-8                  1.92    325.90     49.90
+  PMP-1-S              0.00    289.99      1.99
+  PMP-1-D              0.00    332.20     44.20
+  PRV-1-A              0.00    327.61     77.61
+  PRV-1-B              0.00    286.36     36.36
+  PRV-2-A              0.00    325.89     72.89
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    326.17     73.17
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -50.24    290.00     -0.00  Reservoir
+  T-1                 16.38    325.74     17.74  Tank
+   
+   
+  Link Results at 7:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 50.24      0.71      2.91
+  P-2                 50.24      0.71      2.92
+  P-3                  6.40      0.20      0.46
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -3.01      0.10      0.11
+  P-7                  4.93      0.16      0.29
+  P-8                  4.93      0.16      0.29
+  P-9                  7.43      0.24      0.61
+  P-10                18.82      0.60      3.41
+  P-11                18.62      0.59      3.35
+  P-12                 2.24      0.05      0.02
+  P-13                 0.32      0.01      0.00
+  P-14                 6.39      0.20      0.46
+  P-15                 6.39      0.20      0.46
+  P-16                16.38      0.23      0.37
+  PMP-1               50.24      0.00    -42.21  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                4.93      0.16     39.39  PRV
+  PRV-3                6.39      0.20     39.67  PRV
+   
+   
+  Node Results at 8:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  4.48    332.95     82.95
+  J-2                  4.48    332.87     67.87
+  J-3                  6.58    286.40     51.40
+  J-4                  3.84    286.41     51.41
+  J-5                  5.64    331.99     61.99
+  J-6                  5.00    332.06     62.06
+  J-7                  0.00    332.24     55.24
+  J-8                  3.84    332.05     56.05
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    335.09     47.09
+  PRV-1-A              0.00    332.87     82.87
+  PRV-1-B              0.00    286.40     36.40
+  PRV-2-A              0.00    331.98     78.98
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    332.05     79.05
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -33.86    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 8:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 33.86      0.48      1.40
+  P-2                 33.86      0.48      1.41
+  P-3                  4.48      0.14      0.24
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -1.22      0.04      0.02
+  P-7                  5.06      0.16      0.30
+  P-8                  5.06      0.16      0.30
+  P-9                  3.48      0.11      0.15
+  P-10                13.84      0.44      1.93
+  P-11                11.06      0.35      1.28
+  P-12                11.06      0.23      0.43
+  P-13                 7.22      0.15      0.20
+  P-14                 5.36      0.17      0.33
+  P-15                 5.36      0.17      0.33
+  P-16                 0.00      0.00      0.00
+  PMP-1               33.86      0.00    -45.09  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                5.06      0.16     45.48  PRV
+  PRV-3                5.36      0.17     45.55  PRV
+   
+   
+  Node Results at 9:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  3.20    333.55     83.55
+  J-2                  3.20    333.51     68.51
+  J-3                  4.70    286.42     51.42
+  J-4                  4.48    286.42     51.42
+  J-5                  6.58    332.55     62.55
+  J-6                  5.00    332.65     62.65
+  J-7                  0.00    332.81     55.81
+  J-8                  4.48    332.60     56.60
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    335.44     47.44
+  PRV-1-A              0.00    333.51     83.51
+  PRV-1-B              0.00    286.42     36.42
+  PRV-2-A              0.00    332.54     79.54
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    332.65     79.65
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -31.64    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 9:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 31.64      0.45      1.24
+  P-2                 31.64      0.45      1.24
+  P-3                  3.20      0.10      0.13
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.11      0.00      0.00
+  P-7                  4.59      0.15      0.25
+  P-8                  4.59      0.15      0.25
+  P-9                  4.30      0.14      0.22
+  P-10                13.89      0.44      1.95
+  P-11                11.35      0.36      1.34
+  P-12                11.35      0.23      0.45
+  P-13                 6.87      0.14      0.18
+  P-14                 4.59      0.15      0.25
+  P-15                 4.59      0.15      0.25
+  P-16                 0.00      0.00      0.00
+  PMP-1               31.64      0.00    -45.44  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                4.59      0.15     46.04  PRV
+  PRV-3                4.59      0.15     46.15  PRV
+   
+   
+  Node Results at 10:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  2.88    333.55     83.55
+  J-2                  2.88    333.52     68.52
+  J-3                  4.23    286.43     51.43
+  J-4                  4.80    286.43     51.43
+  J-5                  7.05    332.50     62.50
+  J-6                  5.00    332.62     62.62
+  J-7                  0.00    332.77     55.77
+  J-8                  4.80    332.55     56.55
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    335.44     47.44
+  PRV-1-A              0.00    333.52     83.52
+  PRV-1-B              0.00    286.43     36.43
+  PRV-2-A              0.00    332.49     79.49
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    332.61     79.61
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -31.64    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 10:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 31.64      0.45      1.24
+  P-2                 31.64      0.45      1.24
+  P-3                  2.88      0.09      0.11
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                  0.27      0.01      0.00
+  P-7                  4.53      0.14      0.24
+  P-8                  4.53      0.14      0.24
+  P-9                  4.69      0.15      0.26
+  P-10                14.19      0.45      2.02
+  P-11                11.69      0.37      1.41
+  P-12                11.69      0.24      0.48
+  P-13                 6.89      0.14      0.18
+  P-14                 4.50      0.14      0.24
+  P-15                 4.50      0.14      0.24
+  P-16                 0.00      0.00      0.00
+  PMP-1               31.64      0.00    -45.44  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                4.53      0.14     45.99  PRV
+  PRV-3                4.50      0.14     46.11  PRV
+   
+   
+  Node Results at 11:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  2.56    334.67     84.67
+  J-2                  2.56    334.65     69.65
+  J-3                  3.76    286.45     51.45
+  J-4                  3.84    286.45     51.45
+  J-5                  5.64    333.90     63.90
+  J-6                  5.00    333.97     63.97
+  J-7                  0.00    334.11     57.11
+  J-8                  3.84    333.95     57.95
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    336.10     48.10
+  PRV-1-A              0.00    334.65     84.65
+  PRV-1-B              0.00    286.45     36.45
+  PRV-2-A              0.00    333.90     80.90
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    333.96     80.96
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -27.20    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 11:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 27.20      0.38      0.94
+  P-2                 27.20      0.38      0.94
+  P-3                  2.56      0.08      0.08
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                  0.04      0.00      0.00
+  P-7                  3.80      0.12      0.18
+  P-8                  3.80      0.12      0.18
+  P-9                  3.41      0.11      0.14
+  P-10                12.21      0.39      1.53
+  P-11                 9.87      0.31      1.03
+  P-12                 9.87      0.20      0.35
+  P-13                 6.03      0.12      0.14
+  P-14                 3.80      0.12      0.18
+  P-15                 3.80      0.12      0.18
+  P-16                 0.00      0.00      0.00
+  PMP-1               27.20      0.00    -46.11  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                3.80      0.12     47.40  PRV
+  PRV-3                3.80      0.12     47.46  PRV
+   
+   
+  Node Results at 12:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  2.24    334.12     84.12
+  J-2                  2.24    334.10     69.10
+  J-3                  3.29    286.44     51.44
+  J-4                  4.80    286.44     51.44
+  J-5                  7.05    333.14     63.14
+  J-6                  5.00    333.26     63.26
+  J-7                  0.00    333.39     56.39
+  J-8                  4.80    333.19     57.19
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    335.78     47.78
+  PRV-1-A              0.00    334.10     84.10
+  PRV-1-B              0.00    286.44     36.44
+  PRV-2-A              0.00    333.13     80.13
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    333.25     80.25
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -29.42    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 12:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 29.42      0.42      1.08
+  P-2                 29.42      0.42      1.08
+  P-3                  2.24      0.07      0.07
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                  0.69      0.02      0.01
+  P-7                  4.11      0.13      0.20
+  P-8                  4.11      0.13      0.20
+  P-9                  4.66      0.15      0.26
+  P-10                13.64      0.43      1.88
+  P-11                11.30      0.36      1.33
+  P-12                11.30      0.23      0.45
+  P-13                 6.50      0.13      0.16
+  P-14                 3.98      0.13      0.19
+  P-15                 3.98      0.13      0.19
+  P-16                 0.00      0.00      0.00
+  PMP-1               29.42      0.00    -45.78  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                4.11      0.13     46.63  PRV
+  PRV-3                3.98      0.13     46.75  PRV
+   
+   
+  Node Results at 13:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  3.84    333.84     83.84
+  J-2                  3.84    333.79     68.79
+  J-3                  5.64    286.42     51.42
+  J-4                  3.52    286.43     51.43
+  J-5                  5.17    333.02     63.02
+  J-6                  5.00    333.08     63.08
+  J-7                  0.00    333.24     56.24
+  J-8                  3.52    333.07     57.07
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    335.61     47.61
+  PRV-1-A              0.00    333.79     83.79
+  PRV-1-B              0.00    286.42     36.42
+  PRV-2-A              0.00    333.02     80.02
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    333.07     80.07
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -30.53    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 13:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 30.53      0.43      1.16
+  P-2                 30.53      0.43      1.16
+  P-3                  3.84      0.12      0.18
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.96      0.03      0.01
+  P-7                  4.48      0.14      0.24
+  P-8                  4.48      0.14      0.24
+  P-9                  3.04      0.10      0.12
+  P-10                12.72      0.40      1.65
+  P-11                10.13      0.32      1.08
+  P-12                10.13      0.21      0.37
+  P-13                 6.61      0.13      0.17
+  P-14                 4.68      0.15      0.26
+  P-15                 4.68      0.15      0.26
+  P-16                 0.00      0.00      0.00
+  PMP-1               30.53      0.00    -45.61  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                4.48      0.14     46.52  PRV
+  PRV-3                4.68      0.15     46.57  PRV
+   
+   
+  Node Results at 14:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  4.48    332.95     82.95
+  J-2                  4.48    332.87     67.87
+  J-3                  6.58    286.40     51.40
+  J-4                  3.84    286.41     51.41
+  J-5                  5.64    331.99     61.99
+  J-6                  5.00    332.06     62.06
+  J-7                  0.00    332.24     55.24
+  J-8                  3.84    332.05     56.05
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    335.09     47.09
+  PRV-1-A              0.00    332.87     82.87
+  PRV-1-B              0.00    286.40     36.40
+  PRV-2-A              0.00    331.98     78.98
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    332.05     79.05
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -33.86    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 14:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 33.86      0.48      1.40
+  P-2                 33.86      0.48      1.41
+  P-3                  4.48      0.14      0.24
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -1.22      0.04      0.02
+  P-7                  5.06      0.16      0.30
+  P-8                  5.06      0.16      0.30
+  P-9                  3.48      0.11      0.15
+  P-10                13.84      0.44      1.93
+  P-11                11.06      0.35      1.28
+  P-12                11.06      0.23      0.43
+  P-13                 7.22      0.15      0.20
+  P-14                 5.36      0.17      0.33
+  P-15                 5.36      0.17      0.33
+  P-16                 0.00      0.00      0.00
+  PMP-1               33.86      0.00    -45.09  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                5.06      0.16     45.48  PRV
+  PRV-3                5.36      0.17     45.55  PRV
+   
+   
+  Node Results at 15:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  2.56    335.20     85.20
+  J-2                  2.56    335.17     70.17
+  J-3                  3.76    286.45     51.45
+  J-4                  3.20    286.46     51.46
+  J-5                  4.70    334.57     64.57
+  J-6                  5.00    334.61     64.61
+  J-7                  0.00    334.74     57.74
+  J-8                  3.20    334.61     58.61
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    336.42     48.42
+  PRV-1-A              0.00    335.17     85.17
+  PRV-1-B              0.00    286.45     36.45
+  PRV-2-A              0.00    334.57     81.57
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    334.61     81.61
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -24.98    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 15:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 24.98      0.35      0.80
+  P-2                 24.98      0.35      0.80
+  P-3                  2.56      0.08      0.08
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.27      0.01      0.00
+  P-7                  3.47      0.11      0.15
+  P-8                  3.47      0.11      0.15
+  P-9                  2.57      0.08      0.09
+  P-10                11.06      0.35      1.28
+  P-11                 8.80      0.28      0.84
+  P-12                 8.80      0.18      0.28
+  P-13                 5.60      0.11      0.12
+  P-14                 3.49      0.11      0.15
+  P-15                 3.49      0.11      0.15
+  P-16                 0.00      0.00      0.00
+  PMP-1               24.98      0.00    -46.42  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                3.47      0.11     48.07  PRV
+  PRV-3                3.49      0.11     48.11  PRV
+   
+   
+  Node Results at 16:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  2.24    335.69     85.69
+  J-2                  2.24    335.67     70.67
+  J-3                  3.29    286.46     51.46
+  J-4                  2.88    286.46     51.46
+  J-5                  4.23    335.16     65.16
+  J-6                  5.00    335.19     65.19
+  J-7                  0.00    335.30     58.30
+  J-8                  2.88    335.19     59.19
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    336.72     48.72
+  PRV-1-A              0.00    335.67     85.67
+  PRV-1-B              0.00    286.46     36.46
+  PRV-2-A              0.00    335.16     82.16
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    335.18     82.18
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -22.76    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 16:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 22.76      0.32      0.67
+  P-2                 22.76      0.32      0.67
+  P-3                  2.24      0.07      0.07
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.20      0.01      0.00
+  P-7                  3.08      0.10      0.12
+  P-8                  3.08      0.10      0.12
+  P-9                  2.12      0.07      0.06
+  P-10                10.21      0.33      1.10
+  P-11                 8.07      0.26      0.71
+  P-12                 8.07      0.16      0.24
+  P-13                 5.19      0.11      0.11
+  P-14                 3.09      0.10      0.12
+  P-15                 3.09      0.10      0.12
+  P-16                 0.00      0.00      0.00
+  PMP-1               22.76      0.00    -46.72  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                3.08      0.10     48.66  PRV
+  PRV-3                3.09      0.10     48.68  PRV
+   
+   
+  Node Results at 17:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  2.88    334.40     84.40
+  J-2                  2.88    334.37     69.37
+  J-3                  4.23    286.44     51.44
+  J-4                  3.84    286.44     51.44
+  J-5                  5.64    333.60     63.60
+  J-6                  5.00    333.67     63.67
+  J-7                  0.00    333.81     56.81
+  J-8                  3.84    333.65     57.65
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    335.94     47.94
+  PRV-1-A              0.00    334.37     84.37
+  PRV-1-B              0.00    286.44     36.44
+  PRV-2-A              0.00    333.60     80.60
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    333.66     80.66
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -28.31    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 17:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 28.31      0.40      1.00
+  P-2                 28.31      0.40      1.01
+  P-3                  2.88      0.09      0.11
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.19      0.01      0.00
+  P-7                  4.03      0.13      0.20
+  P-8                  4.03      0.13      0.20
+  P-9                  3.44      0.11      0.15
+  P-10                12.48      0.40      1.59
+  P-11                10.07      0.32      1.07
+  P-12                10.07      0.21      0.36
+  P-13                 6.23      0.13      0.15
+  P-14                 4.04      0.13      0.20
+  P-15                 4.04      0.13      0.20
+  P-16                 0.00      0.00      0.00
+  PMP-1               28.31      0.00    -45.94  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                4.03      0.13     47.10  PRV
+  PRV-3                4.04      0.13     47.16  PRV
+   
+   
+  Node Results at 18:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  3.20    334.40     84.40
+  J-2                  3.20    334.36     69.36
+  J-3                  4.70    286.44     51.44
+  J-4                  3.52    286.44     51.44
+  J-5                  5.17    333.65     63.65
+  J-6                  5.00    333.70     63.70
+  J-7                  0.00    333.85     56.85
+  J-8                  3.52    333.69     57.69
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    335.94     47.94
+  PRV-1-A              0.00    334.36     84.36
+  PRV-1-B              0.00    286.44     36.44
+  PRV-2-A              0.00    333.64     80.64
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    333.69     80.69
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -28.31    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 18:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 28.31      0.40      1.00
+  P-2                 28.31      0.40      1.01
+  P-3                  3.20      0.10      0.13
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.55      0.02      0.00
+  P-7                  4.07      0.13      0.20
+  P-8                  4.07      0.13      0.20
+  P-9                  3.03      0.10      0.12
+  P-10                12.18      0.39      1.52
+  P-11                 9.73      0.31      1.01
+  P-12                 9.73      0.20      0.34
+  P-13                 6.21      0.13      0.15
+  P-14                 4.15      0.13      0.21
+  P-15                 4.15      0.13      0.21
+  P-16                 0.00      0.00      0.00
+  PMP-1               28.31      0.00    -45.94  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                4.07      0.13     47.14  PRV
+  PRV-3                4.15      0.13     47.19  PRV
+   
+   
+  Node Results at 19:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  3.84    334.94     84.94
+  J-2                  3.84    334.89     69.89
+  J-3                  5.64    286.44     51.44
+  J-4                  2.24    286.45     51.45
+  J-5                  3.29    334.41     64.41
+  J-6                  5.00    334.42     64.42
+  J-7                  0.00    334.55     57.55
+  J-8                  2.24    334.44     58.44
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    336.26     48.26
+  PRV-1-A              0.00    334.89     84.89
+  PRV-1-B              0.00    286.44     36.44
+  PRV-2-A              0.00    334.40     81.40
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    334.41     81.41
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -26.09    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 19:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 26.09      0.37      0.86
+  P-2                 26.09      0.37      0.87
+  P-3                  3.84      0.12      0.18
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -1.45      0.05      0.03
+  P-7                  3.69      0.12      0.17
+  P-8                  3.69      0.12      0.17
+  P-9                  1.21      0.04      0.02
+  P-10                10.40      0.33      1.14
+  P-11                 8.01      0.25      0.70
+  P-12                 8.01      0.16      0.24
+  P-13                 5.77      0.12      0.13
+  P-14                 4.19      0.13      0.21
+  P-15                 4.19      0.13      0.21
+  P-16                 0.00      0.00      0.00
+  PMP-1               26.09      0.00    -46.26  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                3.69      0.12     47.90  PRV
+  PRV-3                4.19      0.13     47.91  PRV
+   
+   
+  Node Results at 20:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  4.48    334.94     84.94
+  J-2                  4.48    334.87     69.87
+  J-3                  6.58    286.43     51.43
+  J-4                  1.60    286.45     51.45
+  J-5                  2.35    334.47     64.47
+  J-6                  5.00    334.47     64.47
+  J-7                  0.00    334.61     57.61
+  J-8                  1.60    334.51     58.51
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    336.26     48.26
+  PRV-1-A              0.00    334.87     84.87
+  PRV-1-B              0.00    286.43     36.43
+  PRV-2-A              0.00    334.47     81.47
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    334.47     81.47
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -26.09    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 20:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 26.09      0.37      0.86
+  P-2                 26.09      0.37      0.87
+  P-3                  4.48      0.14      0.24
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -2.03      0.06      0.06
+  P-7                  3.63      0.12      0.16
+  P-8                  3.63      0.12      0.16
+  P-9                  0.19      0.01      0.00
+  P-10                 9.75      0.31      1.01
+  P-11                 7.38      0.24      0.60
+  P-12                 7.38      0.15      0.20
+  P-13                 5.78      0.12      0.13
+  P-14                 4.55      0.14      0.25
+  P-15                 4.55      0.14      0.25
+  P-16                 0.00      0.00      0.00
+  PMP-1               26.09      0.00    -46.26  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                3.63      0.12     47.97  PRV
+  PRV-3                4.55      0.14     47.97  PRV
+   
+   
+  Node Results at 21:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  3.52    336.38     86.38
+  J-2                  3.52    336.34     71.34
+  J-3                  5.17    286.46     51.46
+  J-4                  0.64    286.48     51.48
+  J-5                  0.94    336.13     66.13
+  J-6                  5.00    336.12     66.12
+  J-7                  0.00    336.21     59.21
+  J-8                  0.64    336.16     60.16
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    337.15     49.15
+  PRV-1-A              0.00    336.34     86.34
+  PRV-1-B              0.00    286.46     36.46
+  PRV-2-A              0.00    336.13     83.13
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    336.12     83.12
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -19.43    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 21:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 19.43      0.27      0.50
+  P-2                 19.43      0.27      0.50
+  P-3                  3.52      0.11      0.15
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -1.78      0.06      0.04
+  P-7                  2.42      0.08      0.08
+  P-8                  2.42      0.08      0.08
+  P-9                 -1.24      0.04      0.02
+  P-10                 7.15      0.23      0.57
+  P-11                 5.24      0.17      0.32
+  P-12                 5.24      0.11      0.11
+  P-13                 4.60      0.09      0.08
+  P-14                 3.39      0.11      0.14
+  P-15                 3.39      0.11      0.14
+  P-16                 0.00      0.00      0.00
+  PMP-1               19.43      0.00    -47.15  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                2.42      0.08     49.63  PRV
+  PRV-3                3.39      0.11     49.62  PRV
+   
+   
+  Node Results at 22:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  2.24    337.19     87.19
+  J-2                  2.24    337.17     72.17
+  J-3                  3.29    286.48     51.48
+  J-4                  0.64    286.49     51.49
+  J-5                  0.94    337.01     67.01
+  J-6                  5.00    337.00     67.00
+  J-7                  0.00    337.06     60.06
+  J-8                  0.64    337.03     61.03
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    337.67     49.67
+  PRV-1-A              0.00    337.17     87.17
+  PRV-1-B              0.00    286.48     36.48
+  PRV-2-A              0.00    337.01     84.01
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    337.00     84.00
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -14.99    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 22:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 14.99      0.21      0.31
+  P-2                 14.99      0.21      0.31
+  P-3                  2.24      0.07      0.07
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -1.06      0.03      0.02
+  P-7                  1.70      0.05      0.04
+  P-8                  1.70      0.05      0.04
+  P-9                 -1.16      0.04      0.02
+  P-10                 6.07      0.19      0.42
+  P-11                 4.44      0.14      0.24
+  P-12                 4.44      0.09      0.08
+  P-13                 3.80      0.08      0.06
+  P-14                 2.23      0.07      0.07
+  P-15                 2.23      0.07      0.07
+  P-16                 0.00      0.00      0.00
+  PMP-1               14.99      0.00    -47.67  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                1.70      0.05     50.51  PRV
+  PRV-3                2.23      0.07     50.50  PRV
+   
+   
+  Node Results at 23:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  1.60    337.72     87.72
+  J-2                  1.60    337.71     72.71
+  J-3                  2.35    286.49     51.49
+  J-4                  0.32    286.49     51.49
+  J-5                  0.47    337.60     67.60
+  J-6                  5.00    337.58     67.58
+  J-7                  0.00    337.64     60.64
+  J-8                  0.32    337.61     61.61
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    338.02     50.02
+  PRV-1-A              0.00    337.71     87.71
+  PRV-1-B              0.00    286.49     36.49
+  PRV-2-A              0.00    337.60     84.60
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    337.58     84.58
+  PRV-3-B              0.00    286.50     33.50
+  R-1                -11.66    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 23:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                 11.66      0.16      0.19
+  P-2                 11.66      0.16      0.20
+  P-3                  1.60      0.05      0.04
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.80      0.03      0.01
+  P-7                  1.12      0.04      0.02
+  P-8                  1.12      0.04      0.02
+  P-9                 -1.57      0.05      0.03
+  P-10                 4.98      0.16      0.29
+  P-11                 3.48      0.11      0.15
+  P-12                 3.48      0.07      0.05
+  P-13                 3.16      0.06      0.04
+  P-14                 1.55      0.05      0.03
+  P-15                 1.55      0.05      0.03
+  P-16                 0.00      0.00      0.00
+  PMP-1               11.66      0.00    -48.02  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                1.12      0.04     51.10  PRV
+  PRV-3                1.55      0.05     51.08  PRV
+   
+   
+  Node Results at 24:00:00 hrs:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  J-1                  0.32    338.40     88.40
+  J-2                  0.32    338.40     73.40
+  J-3                  0.47    286.50     51.50
+  J-4                  0.00    286.50     51.50
+  J-5                  0.00    338.36     68.36
+  J-6                  5.00    338.34     68.34
+  J-7                  0.00    338.37     61.37
+  J-8                  0.00    338.36     62.36
+  PMP-1-S              0.00    290.00      2.00
+  PMP-1-D              0.00    338.49     50.49
+  PRV-1-A              0.00    338.40     88.40
+  PRV-1-B              0.00    286.50     36.50
+  PRV-2-A              0.00    338.36     85.36
+  PRV-2-B              0.00    286.50     33.50
+  PRV-3-A              0.00    338.34     85.34
+  PRV-3-B              0.00    286.50     33.50
+  R-1                 -6.11    290.00     -0.00  Reservoir
+  T-1                  0.00    326.00     18.00  Tank
+   
+   
+  Link Results at 24:00:00 hrs:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  P-1                  6.11      0.09      0.06
+  P-2                  6.11      0.09      0.06
+  P-3                  0.32      0.01      0.00
+  P-4                  0.00      0.00      0.00
+  P-5                  0.00      0.00      0.00
+  P-6                 -0.18      0.01      0.00
+  P-7                  0.18      0.01      0.00
+  P-8                  0.18      0.01      0.00
+  P-9                 -1.87      0.06      0.05
+  P-10                 3.42      0.11      0.15
+  P-11                 2.05      0.07      0.06
+  P-12                 2.05      0.04      0.02
+  P-13                 2.05      0.04      0.02
+  P-14                 0.29      0.01      0.00
+  P-15                 0.29      0.01      0.00
+  P-16                 0.00      0.00      0.00
+  PMP-1                6.11      0.00    -48.49  Pump
+  PRV-1                0.00      0.00      0.00  PRV
+  PRV-2                0.18      0.01     51.86  PRV
+  PRV-3                0.29      0.01     51.84  PRV
+   
+  Analysis ended Wed Nov 18 21:17:00 2026

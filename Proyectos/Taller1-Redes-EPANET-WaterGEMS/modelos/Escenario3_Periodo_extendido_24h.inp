@@ -1,0 +1,130 @@
+[TITLE]
+Taller 1 - Escenario 3: periodo extendido 24 h con curvas de consumo
+UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
+
+[JUNCTIONS]
+;ID	Elev	Demand	Pattern
+J-1	250	3.2	RESIDENCIAL
+J-2	265	3.2	RESIDENCIAL
+J-3	235	4.7	RESIDENCIAL
+J-4	235	3.2	COMERCIAL
+J-5	270	4.7	COMERCIAL
+J-6	270	5.0	
+J-7	277	0.0	RESIDENCIAL
+J-8	276	3.2	COMERCIAL
+PMP-1-S	288	0	
+PMP-1-D	288	0	
+PRV-1-A	250	0	
+PRV-1-B	250	0	
+PRV-2-A	253	0	
+PRV-2-B	253	0	
+PRV-3-A	253	0	
+PRV-3-B	253	0	
+
+[RESERVOIRS]
+;ID	Head	Pattern
+R-1	290	
+
+[TANKS]
+;ID	Elev	InitLvl	MinLvl	MaxLvl	Diam	MinVol	VolCurve
+T-1	308	12	6	18	15	0	
+
+[PIPES]
+;ID	Node1	Node2	Length	Diam	Rough	MLoss	Status
+P-1	R-1	PMP-1-S	3	300	100	0	Open
+P-2	PMP-1-D	J-1	1525	300	100	0	Open
+P-3	J-1	J-2	300	200	100	0	Open
+P-4	J-2	PRV-1-A	30	200	100	0	Open
+P-5	PRV-1-B	J-3	460	200	100	0	Open
+P-6	J-3	J-4	460	200	100	0	Open
+P-7	PRV-2-B	J-4	300	200	100	0	Open
+P-8	J-5	PRV-2-A	30	200	100	0	Open
+P-9	J-6	J-5	460	200	100	0	Open
+P-10	J-1	J-6	460	200	100	0	Open
+P-11	J-1	J-7	550	200	100	0	Open
+P-12	J-7	J-8	460	250	100	0	Open
+P-13	J-8	J-5	300	250	100	0	Open
+P-14	J-6	PRV-3-A	30	200	100	0	Open
+P-15	PRV-3-B	J-3	300	200	100	0	Open
+P-16	J-7	T-1	460	300	100	0	Open
+
+[PUMPS]
+;ID	Node1	Node2	Parameters
+PMP-1	PMP-1-S	PMP-1-D	HEAD BOMBA-1
+
+[VALVES]
+;ID	Node1	Node2	Diam	Type	Setting	MLoss
+PRV-1	PRV-1-A	PRV-1-B	200	PRV	35.00	0
+PRV-2	PRV-2-A	PRV-2-B	200	PRV	33.50	0
+PRV-3	PRV-3-A	PRV-3-B	200	PRV	33.50	0
+
+[PATTERNS]
+;ID	Multipliers
+;Curva de consumo uso residencial (horas 0 a 23; la hora 24 = hora 0)
+RESIDENCIAL	0.10	0.10	0.10	0.10	0.30	0.80
+RESIDENCIAL	1.80	2.00	1.40	1.00	0.90	0.80
+RESIDENCIAL	0.70	1.20	1.40	0.80	0.70	0.90
+RESIDENCIAL	1.00	1.20	1.40	1.10	0.70	0.50
+;Curva de consumo uso comercial (horas 0 a 23; la hora 24 = hora 0)
+COMERCIAL	0.00	0.00	0.00	0.00	0.00	0.10
+COMERCIAL	0.40	0.60	1.20	1.40	1.50	1.20
+COMERCIAL	1.50	1.10	1.20	1.00	0.90	1.20
+COMERCIAL	1.10	0.70	0.50	0.20	0.20	0.10
+
+[CURVES]
+;ID	X-Value(L/s)	Y-Value(m)
+;PUMP: Curva caracteristica PMP-1 (Q en L/s, H en m)
+BOMBA-1	0.0	48.8
+BOMBA-1	63.2	39.6
+BOMBA-1	88.4	33.8
+
+[CONTROLS]
+
+[TIMES]
+Duration	24:00
+Hydraulic Timestep	1:00
+Pattern Timestep	1:00
+Pattern Start	0:00
+Report Timestep	1:00
+Report Start	0:00
+Start ClockTime	12 am
+
+[REPORT]
+Status	Full
+Summary	Yes
+Nodes	All
+Links	All
+
+[OPTIONS]
+Units	LPS
+Headloss	H-W
+Specific Gravity	1.0
+Viscosity	1.0
+Trials	200
+Accuracy	0.0001
+Unbalanced	Continue 10
+Demand Multiplier	1.0
+Emitter Exponent	0.5
+
+[COORDINATES]
+;Node	X	Y
+R-1	115	335
+PMP-1-S	300	335
+PMP-1-D	320	335
+J-1	505	335
+J-6	965	335
+J-5	1398	335
+J-7	648	567
+J-8	1235	567
+T-1	398	710
+J-2	505	32
+J-3	965	32
+J-4	1398	32
+PRV-1-A	708	32
+PRV-1-B	728	32
+PRV-3-A	965	192
+PRV-3-B	965	172
+PRV-2-A	1398	197
+PRV-2-B	1398	177
+
+[END]
