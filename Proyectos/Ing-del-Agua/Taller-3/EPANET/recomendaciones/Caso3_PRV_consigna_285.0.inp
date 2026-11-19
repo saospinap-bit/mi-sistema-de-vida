@@ -1,5 +1,5 @@
 [TITLE]
-Taller 1 - Escenario 1: estado estatico, sin tuberia P-16 (tanque fuera de servicio)
+Caso 3: consigna de las tres PRV = 285.0 m (Escenario 2)
 UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
 
 [JUNCTIONS]
@@ -46,7 +46,7 @@ UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
  P-13            	J-8             	J-5             	300   	250     	100      	0        	Open	;
  P-14            	J-6             	PRV-3-A         	30    	200     	100      	0        	Open	;
  P-15            	PRV-3-B         	J-3             	300   	200     	100      	0        	Open	;
- P-16            	J-7             	T-1             	460   	300     	100      	0        	Closed	;
+ P-16            	J-7             	T-1             	460   	300     	100      	0        	Open	;
 
 [PUMPS]
 ;ID              	Node1           	Node2           	Parameters
@@ -55,8 +55,8 @@ UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
 [VALVES]
 ;ID              	Node1           	Node2           	Diameter	Type	Setting	MinorLoss
  PRV-1           	PRV-1-A         	PRV-1-B         	200     	PRV 	35.0   	0	;
- PRV-2           	PRV-2-A         	PRV-2-B         	200     	PRV 	33.5   	0	;
- PRV-3           	PRV-3-A         	PRV-3-B         	200     	PRV 	33.5   	0	;
+ PRV-2           	PRV-2-A         	PRV-2-B         	200     	PRV 	32.0   	0	;
+ PRV-3           	PRV-3-A         	PRV-3-B         	200     	PRV 	32.0   	0	;
 
 [TAGS]
 

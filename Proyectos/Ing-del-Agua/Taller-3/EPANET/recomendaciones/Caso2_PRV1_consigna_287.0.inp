@@ -1,17 +1,17 @@
 [TITLE]
-Taller 1 - Escenario 3: periodo extendido 24 h con curvas de consumo (sensibilidad: J-6 residencial)
+Caso 2: consigna de PRV-1 = 287.0 m (Escenario 2)
 UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
 
 [JUNCTIONS]
 ;ID              	Elev   	Demand 	Pattern
- J-1             	250    	3.2    	RESIDENCIAL	;
- J-2             	265    	3.2    	RESIDENCIAL	;
- J-3             	235    	4.7    	RESIDENCIAL	;
- J-4             	235    	3.2    	COMERCIAL	;
- J-5             	270    	4.7    	COMERCIAL	;
- J-6             	270    	5.0    	RESIDENCIAL	;
- J-7             	277    	0.0    	RESIDENCIAL	;
- J-8             	276    	3.2    	COMERCIAL	;
+ J-1             	250    	3.2    		;
+ J-2             	265    	3.2    		;
+ J-3             	235    	4.7    		;
+ J-4             	235    	3.2    		;
+ J-5             	270    	4.7    		;
+ J-6             	270    	5.0    		;
+ J-7             	277    	0.0    		;
+ J-8             	276    	3.2    		;
  PMP-1-S         	288.0  	0      		;
  PMP-1-D         	288.0  	0      		;
  PRV-1-A         	250.0  	0      		;
@@ -54,7 +54,7 @@ UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
 
 [VALVES]
 ;ID              	Node1           	Node2           	Diameter	Type	Setting	MinorLoss
- PRV-1           	PRV-1-A         	PRV-1-B         	200     	PRV 	35.0   	0	;
+ PRV-1           	PRV-1-A         	PRV-1-B         	200     	PRV 	37.0   	0	;
  PRV-2           	PRV-2-A         	PRV-2-B         	200     	PRV 	33.5   	0	;
  PRV-3           	PRV-3-A         	PRV-3-B         	200     	PRV 	33.5   	0	;
 
@@ -65,16 +65,6 @@ UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
 [STATUS]
 
 [PATTERNS]
-;Curva de consumo uso residencial (horas 0 a 23; la hora 24 = hora 0)
- RESIDENCIAL     	0.1	0.1	0.1	0.1	0.3	0.8
- RESIDENCIAL     	1.8	2.0	1.4	1.0	0.9	0.8
- RESIDENCIAL     	0.7	1.2	1.4	0.8	0.7	0.9
- RESIDENCIAL     	1.0	1.2	1.4	1.1	0.7	0.5
-;Curva de consumo uso comercial (horas 0 a 23; la hora 24 = hora 0)
- COMERCIAL       	0.0	0.0	0.0	0.0	0.0	0.1
- COMERCIAL       	0.4	0.6	1.2	1.4	1.5	1.2
- COMERCIAL       	1.5	1.1	1.2	1.0	0.9	1.2
- COMERCIAL       	1.1	0.7	0.5	0.2	0.2	0.1
 
 [CURVES]
 ;ID              	X-Value     	Y-Value
@@ -111,7 +101,7 @@ UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
  T-1             	MIXED
 
 [TIMES]
- Duration           	24:00
+ Duration           	0:00
  Hydraulic Timestep 	1:00
  Quality Timestep   	0:05
  Pattern Timestep   	1:00

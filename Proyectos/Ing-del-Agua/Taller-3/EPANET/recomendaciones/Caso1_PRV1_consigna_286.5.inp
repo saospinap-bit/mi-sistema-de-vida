@@ -1,5 +1,5 @@
 [TITLE]
-Taller 1 - Escenario 2: estado estatico, tanque T-1 en funcionamiento
+Caso 1: consigna de PRV-1 = 286.5 m (Escenario 2)
 UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
 
 [JUNCTIONS]
@@ -54,7 +54,7 @@ UNAL - Facultad de Ingenieria - Depto. Ingenieria Civil - 2026-2
 
 [VALVES]
 ;ID              	Node1           	Node2           	Diameter	Type	Setting	MinorLoss
- PRV-1           	PRV-1-A         	PRV-1-B         	200     	PRV 	35.0   	0	;
+ PRV-1           	PRV-1-A         	PRV-1-B         	200     	PRV 	36.5   	0	;
  PRV-2           	PRV-2-A         	PRV-2-B         	200     	PRV 	33.5   	0	;
  PRV-3           	PRV-3-A         	PRV-3-B         	200     	PRV 	33.5   	0	;
 
