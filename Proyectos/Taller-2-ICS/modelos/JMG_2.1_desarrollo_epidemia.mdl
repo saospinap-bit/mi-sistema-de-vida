@@ -1,0 +1,218 @@
+{UTF-8}
+Susceptibles= INTEG (
+	expuestos-enferman-vacunados,
+		900)
+	~	
+	~	
+	|
+
+Infectados= INTEG (
+	enferman-curan-muertes,
+		100)
+	~	[50,150]
+	~	Rango [50,150]: Vensim avisa (warning) cuando Infectados sale de este rango.
+	|
+
+Recuperados= INTEG (
+	curan+vacunados-expuestos,
+		0)
+	~	
+	~	
+	|
+
+enferman=
+	Susceptibles*tasa de contagio*Infectados
+	~	
+	~	Fórmula de Kermack y McKendrick: beta*S*I.
+	|
+
+curan=
+	Infectados*tasa de curación
+	~	
+	~	
+	|
+
+expuestos=
+	Recuperados*tasa de exposición
+	~	
+	~	Recuperados que pierden la inmunidad y vuelven a ser susceptibles.
+	|
+
+vacunados=
+	Susceptibles*tensión
+	~	
+	~	
+	|
+
+muertes=
+	Infectados*tasa de mortalidad
+	~	
+	~	
+	|
+
+tasa de contagio=
+	0.001
+	~	
+	~	
+	|
+
+tasa de curación=
+	0.4
+	~	
+	~	
+	|
+
+tasa de exposición=
+	0.05
+	~	
+	~	
+	|
+
+tensión=
+	(enferman/Susceptibles)*tasa de vacunacion
+	~	
+	~	Riesgo percibido: fracción de susceptibles que enferma, por la tasa de vacunación.
+	|
+
+tasa de vacunacion=
+	0.5
+	~	
+	~	
+	|
+
+tasa de mortalidad=
+	0.1
+	~	
+	~	
+	|
+
+Total poblacion=
+	Infectados+Recuperados+Susceptibles
+	~	
+	~	Variable de control: no influye en el resto del modelo.
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Parametros de control de la simulacion
+	|
+
+FINAL TIME  = 20
+	~	Mes
+	~	El tiempo final de la simulacion.
+	|
+
+INITIAL TIME  = 0
+	~	Mes
+	~	El tiempo inicial de la simulacion.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Mes [0,?]
+	~	Frecuencia con la que se guarda la salida.
+	|
+
+TIME STEP  = 1
+	~	Mes [0,?]
+	~	Paso de tiempo de la simulacion.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Epidemia
+$192-192-192,0,Arial|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,Susceptibles,200,250,50,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,Infectados,520,250,50,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,Recuperados,850,250,50,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,4,48,520,445,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,5,tasa de contagio,330,175,40,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,6,tasa de curación,650,175,40,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,tasa de exposición,720,55,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,8,tensión,400,400,25,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,9,tasa de vacunacion,430,470,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,10,tasa de mortalidad,660,410,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,11,Total poblacion,860,630,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,12,Susceptibles,660,590,45,16,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128,0,0,0,0,0,0
+10,13,Infectados,660,630,40,16,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128,0,0,0,0,0,0
+10,14,Recuperados,660,670,45,16,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128,0,0,0,0,0,0
+11,15,0,360,250,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,16,enferman,360,272,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,17,15,1,100,0,0,22,0,192,0,-1--1--1,,1|(280,250)|
+1,18,15,2,4,0,0,22,0,192,0,-1--1--1,,1|(440,250)|
+11,19,0,690,250,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,20,curan,690,272,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,21,19,2,100,0,0,22,0,192,0,-1--1--1,,1|(605,250)|
+1,22,19,3,4,0,0,22,0,192,0,-1--1--1,,1|(770,250)|
+11,23,0,520,120,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,24,expuestos,520,100,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,25,23,3,100,0,0,22,0,192,0,-1--1--1,,1|(850,120)|
+1,26,23,1,4,0,0,22,0,192,0,-1--1--1,,1|(200,120)|
+11,27,0,360,520,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,28,vacunados,360,542,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,29,27,1,100,0,0,22,0,192,0,-1--1--1,,1|(200,520)|
+1,30,27,3,4,0,0,22,0,192,0,-1--1--1,,1|(850,520)|
+11,31,0,520,360,8,6,33,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,32,muertes,562,360,28,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,33,31,2,100,0,0,22,0,192,0,-1--1--1,,1|(520,305)|
+1,34,31,4,4,0,0,22,0,192,0,-1--1--1,,1|(520,402)|
+1,35,1,16,1,0,0,0,0,192,0,-1--1--1,,1|(285,300)|
+1,36,2,16,1,0,0,0,0,192,0,-1--1--1,,1|(445,305)|
+1,37,5,16,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,38,2,20,1,0,0,0,0,192,0,-1--1--1,,1|(600,205)|
+1,39,6,20,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,40,3,24,1,0,0,0,0,192,0,-1--1--1,,1|(720,165)|
+1,41,7,24,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,42,2,32,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,43,10,32,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,44,16,8,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,45,1,8,1,0,0,0,0,192,0,-1--1--1,,1|(270,390)|
+1,46,9,8,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,47,1,28,1,0,0,0,0,192,0,-1--1--1,,1|(245,470)|
+1,48,8,28,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,49,12,11,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,50,13,11,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,51,14,11,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,52,0,440,215,15,15,4,7,0,0,-1,0,0,0,0,0,0,0,0,0
+R
+12,53,0,280,210,15,15,5,7,0,0,-1,0,0,0,0,0,0,0,0,0
+B
+///---\\\
+:GRAPH XY_enferman_muertes
+:TITLE muertes frente a enferman (XY)
+:X-AXIS enferman
+:X-MIN 0
+:X-MAX 110
+:X-DIV 11
+:SCALE
+:VAR muertes
+:DATASET 
+:LINE-WIDTH 4
+:GRAPH muertes_y_enferman
+:TITLE muertes y enferman
+:SCALE
+:VAR muertes
+:DATASET 
+:LINE-WIDTH 2
+:SCALE
+:VAR enferman
+:DATASET 
+:LINE-WIDTH 2
+:GRAPH Estados_SIR
+:TITLE Susceptibles, Infectados y Recuperados
+:SCALE
+:VAR Susceptibles
+:DATASET 
+:LINE-WIDTH 2
+:VAR Infectados
+:DATASET 
+:LINE-WIDTH 2
+:VAR Recuperados
+:DATASET 
+:LINE-WIDTH 2
+:VAR Total poblacion
+:DATASET 
+:LINE-WIDTH 1
+:L<%^E!@
+4:Time

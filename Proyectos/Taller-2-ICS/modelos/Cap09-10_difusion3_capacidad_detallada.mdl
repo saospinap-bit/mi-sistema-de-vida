@@ -1,0 +1,302 @@
+{UTF-8}
+Clientes Potenciales= INTEG (
+	-nuevos clientes,
+		1e+06)
+	~	persona
+	~	Personas que aún no tienen el producto pero podrían comprarlo.
+	|
+
+Clientes= INTEG (
+	nuevos clientes,
+		1000)
+	~	persona
+	~	Personas que ya poseen el producto.
+	|
+
+nuevos clientes=
+	MIN(demanda boca a boca, producción/unidades por persona)
+	~	persona/Mes
+	~	Personas que compran el producto cada mes.
+	|
+
+demanda boca a boca=
+	contactos de no clientes con clientes * fructuosidad
+	~	persona/Mes
+	~	Compras que generaría el boca a boca si no hubiera restricciones.
+	|
+
+fructuosidad=
+	0.01
+	~	persona/contactos
+	~	Fracción de contactos con clientes que termina en una compra.
+	|
+
+contactos de no clientes con clientes=
+	contactos con clientes * concentración de clientes potenciales
+	~	contactos/Mes
+	~	
+	|
+
+contactos con clientes=
+	Clientes * sociabilidad
+	~	contactos/Mes
+	~	
+	|
+
+sociabilidad=
+	20
+	~	contactos/persona/Mes
+	~	Contactos que hace cada cliente por mes.
+	|
+
+concentración de clientes potenciales=
+	Clientes Potenciales / mercado total
+	~	Dmnl
+	~	Probabilidad de que un contacto de un cliente sea con un no cliente.
+	|
+
+mercado total=
+	Clientes + Clientes Potenciales
+	~	persona
+	~	
+	|
+
+Capacidad= INTEG (
+	inversión-reducciones,
+		capacidad objetivo)
+	~	Aparato/Mes
+	~	Capacidad instalada; crece con la inversión y se deprecia con su vida útil.
+	|
+
+inversión=
+	ajuste de capacidad
+	~	Aparato/Mes/Mes
+	~	
+	|
+
+reducciones=
+	Capacidad / vida de la capacidad
+	~	Aparato/(Mes*Mes)
+	~	
+	|
+
+ajuste de capacidad=
+	(capacidad objetivo - Capacidad) / tiempo para ajustar la capacidad
+	~	Aparato/Mes/Mes
+	~	
+	|
+
+tiempo para ajustar la capacidad=
+	12
+	~	Mes
+	~	
+	|
+
+capacidad objetivo=
+	producción deseada
+	~	Aparato/Mes
+	~	
+	|
+
+vida de la capacidad=
+	20
+	~	Mes
+	~	
+	|
+
+producción potencial=
+	Capacidad
+	~	Aparato/Mes
+	~	
+	|
+
+producción=
+	MIN(producción deseada, producción potencial)
+	~	Aparato/Mes
+	~	
+	|
+
+producción deseada=
+	demanda boca a boca * unidades por persona
+	~	Aparato/Mes
+	~	
+	|
+
+unidades por persona=
+	1
+	~	Unidad/persona
+	~	
+	|
+
+ventas=
+	nuevos clientes * unidades por persona
+	~	Unidad/Mes
+	~	
+	|
+
+precio=
+	50
+	~	dólar/Unidad
+	~	
+	|
+
+Ingresos Acumulados= INTEG (
+	ingresos por ventas,
+		0)
+	~	dólar
+	~	Ingresos totales recibidos por la venta del producto.		:SUPPLEMENTARY 
+	|
+
+ingresos por ventas=
+	ventas * precio
+	~	dólar/Mes
+	~	
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Parametros de control de la simulacion
+	|
+
+FINAL TIME  = 100
+	~	Mes
+	~	El tiempo final de la simulacion.
+	|
+
+INITIAL TIME  = 0
+	~	Mes
+	~	El tiempo inicial de la simulacion.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Mes [0,?]
+	~	Frecuencia con la que se guarda la salida.
+	|
+
+TIME STEP  = 1
+	~	Mes [0,?]
+	~	Paso de tiempo de la simulacion.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Clientes
+$192-192-192,0,Arial|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,Clientes Potenciales,150,150,55,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,Clientes,650,150,50,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,demanda boca a boca,400,250,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,4,fructuosidad,225,290,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,5,contactos de no clientes con clientes,400,345,62,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,6,contactos con clientes,650,345,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,sociabilidad,800,290,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,8,concentración de clientes potenciales,150,345,58,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,9,mercado total,400,55,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,10,producción,545,205,35,16,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128,0,0,0,0,0,0
+10,11,unidades por persona,285,218,55,16,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128,0,0,0,0,0,0
+11,12,0,400,150,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,13,nuevos clientes,400,172,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,14,12,1,100,0,0,22,0,192,0,-1--1--1,,1|(275,150)|
+1,15,12,2,4,0,0,22,0,192,0,-1--1--1,,1|(525,150)|
+1,16,2,6,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,17,7,6,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,18,6,5,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,19,8,5,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,20,1,8,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,21,9,8,1,0,0,0,0,192,0,-1--1--1,,1|(70,250)|
+1,22,1,9,1,0,0,0,0,192,0,-1--1--1,,1|(255,75)|
+1,23,2,9,1,0,0,0,0,192,0,-1--1--1,,1|(545,75)|
+1,24,5,3,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,25,4,3,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,26,3,13,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,27,0,560,255,18,18,4,7,0,0,-1,0,0,0,0,0,0,0,0,0
+R
+12,28,0,205,245,18,18,5,7,0,0,-1,0,0,0,0,0,0,0,0,0
+B
+1,29,10,13,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,30,11,13,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+*Capacidad
+$192-192-192,0,Arial|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+12,1,48,130,150,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,Capacidad,400,150,50,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,3,48,680,150,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,4,ajuste de capacidad,260,250,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,5,tiempo para ajustar la capacidad,110,300,55,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,6,capacidad objetivo,400,300,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,vida de la capacidad,690,250,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,8,producción potencial,560,330,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,9,producción,560,440,35,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,10,producción deseada,300,420,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,11,unidades por persona,140,480,55,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,12,demanda boca a boca,330,510,55,16,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128,0,0,0,0,0,0
+11,13,0,260,150,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,14,inversión,260,172,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,15,13,1,100,0,0,22,0,192,0,-1--1--1,,1|(195,150)|
+1,16,13,2,4,0,0,22,0,192,0,-1--1--1,,1|(330,150)|
+11,17,0,550,150,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,18,reducciones,550,172,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,19,17,2,100,0,0,22,0,192,0,-1--1--1,,1|(475,150)|
+1,20,17,3,4,0,0,22,0,192,0,-1--1--1,,1|(615,150)|
+1,21,2,4,1,0,0,0,0,192,0,-1--1--1,,1|(345,210)|
+1,22,6,4,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,23,5,4,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,24,4,14,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,25,2,18,1,0,0,0,0,192,0,-1--1--1,,1|(470,105)|
+1,26,7,18,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,27,2,8,1,0,0,0,0,192,0,-1--1--1,,1|(500,240)|
+1,28,8,9,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,29,10,9,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,30,10,6,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,31,12,10,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,32,11,10,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,33,6,2,1,0,0,0,0,192,1,-1--1--1,,1|(445,225)|
+*Ingresos por Ventas
+$192-192-192,0,Arial|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,nuevos clientes,140,250,45,16,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128,0,0,0,0,0,0
+10,2,unidades por persona,140,340,55,16,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128,0,0,0,0,0,0
+10,3,ventas,320,295,25,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,4,precio,490,300,25,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,5,48,330,150,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,6,Ingresos Acumulados,650,150,55,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+11,7,0,490,150,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,8,ingresos por ventas,490,172,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,9,7,5,100,0,0,22,0,192,0,-1--1--1,,1|(410,150)|
+1,10,7,6,4,0,0,22,0,192,0,-1--1--1,,1|(570,150)|
+1,11,1,3,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,12,2,3,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,13,3,8,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,14,4,8,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+///---\\\
+:GRAPH Difusion_de_clientes
+:TITLE Difusión de clientes
+:SCALE
+:VAR Clientes
+:DATASET clientes2
+:LINE-WIDTH 2
+:VAR Clientes
+:DATASET clientes4
+:LINE-WIDTH 2
+:SCALE
+:VAR Capacidad
+:DATASET clientes2
+:VAR Capacidad
+:DATASET clientes4
+:GRAPH nuevos_clientes_4_corridas
+:TITLE nuevos clientes en las 4 corridas
+:SCALE
+:VAR nuevos clientes
+:DATASET clientes1
+:LINE-WIDTH 2
+:VAR nuevos clientes
+:DATASET clientes2
+:LINE-WIDTH 2
+:VAR nuevos clientes
+:DATASET clientes3
+:LINE-WIDTH 2
+:VAR nuevos clientes
+:DATASET clientes4
+:LINE-WIDTH 2
+:L<%^E!@
+4:Time
+22:Aparato,Aparatos,Unidad,Unidades
