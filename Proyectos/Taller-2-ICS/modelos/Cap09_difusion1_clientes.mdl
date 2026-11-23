@@ -1,0 +1,125 @@
+{UTF-8}
+Clientes Potenciales= INTEG (
+	-nuevos clientes,
+		1e+06)
+	~	persona
+	~	Personas que aún no tienen el producto pero podrían comprarlo.
+	|
+
+Clientes= INTEG (
+	nuevos clientes,
+		1000)
+	~	persona
+	~	Personas que ya poseen el producto.
+	|
+
+nuevos clientes=
+	demanda boca a boca
+	~	persona/Mes
+	~	Personas que compran el producto cada mes.
+	|
+
+demanda boca a boca=
+	contactos de no clientes con clientes * fructuosidad
+	~	persona/Mes
+	~	Compras que generaría el boca a boca si no hubiera restricciones.
+	|
+
+fructuosidad=
+	0.01
+	~	persona/contactos
+	~	Fracción de contactos con clientes que termina en una compra.
+	|
+
+contactos de no clientes con clientes=
+	contactos con clientes * concentración de clientes potenciales
+	~	contactos/Mes
+	~	
+	|
+
+contactos con clientes=
+	Clientes * sociabilidad
+	~	contactos/Mes
+	~	
+	|
+
+sociabilidad=
+	20
+	~	contactos/persona/Mes
+	~	Contactos que hace cada cliente por mes.
+	|
+
+concentración de clientes potenciales=
+	Clientes Potenciales / mercado total
+	~	Dmnl
+	~	Probabilidad de que un contacto de un cliente sea con un no cliente.
+	|
+
+mercado total=
+	Clientes + Clientes Potenciales
+	~	persona
+	~	
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Parametros de control de la simulacion
+	|
+
+FINAL TIME  = 100
+	~	Mes
+	~	El tiempo final de la simulacion.
+	|
+
+INITIAL TIME  = 0
+	~	Mes
+	~	El tiempo inicial de la simulacion.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Mes [0,?]
+	~	Frecuencia con la que se guarda la salida.
+	|
+
+TIME STEP  = 1
+	~	Mes [0,?]
+	~	Paso de tiempo de la simulacion.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Clientes
+$192-192-192,0,Arial|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,Clientes Potenciales,150,150,55,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,Clientes,650,150,50,24,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,demanda boca a boca,400,250,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,4,fructuosidad,225,290,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,5,contactos de no clientes con clientes,400,345,62,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,6,contactos con clientes,650,345,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,sociabilidad,800,290,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,8,concentración de clientes potenciales,150,345,58,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,9,mercado total,400,55,45,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+11,10,0,400,150,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,11,nuevos clientes,400,172,40,14,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,12,10,1,100,0,0,22,0,192,0,-1--1--1,,1|(275,150)|
+1,13,10,2,4,0,0,22,0,192,0,-1--1--1,,1|(525,150)|
+1,14,2,6,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,15,7,6,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,16,6,5,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,17,8,5,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,18,1,8,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,19,9,8,1,0,0,0,0,192,0,-1--1--1,,1|(70,250)|
+1,20,1,9,1,0,0,0,0,192,0,-1--1--1,,1|(255,75)|
+1,21,2,9,1,0,0,0,0,192,0,-1--1--1,,1|(545,75)|
+1,22,5,3,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,23,4,3,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,24,3,11,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,25,0,560,255,18,18,4,7,0,0,-1,0,0,0,0,0,0,0,0,0
+R
+12,26,0,205,245,18,18,5,7,0,0,-1,0,0,0,0,0,0,0,0,0
+B
+///---\\\
+:L<%^E!@
+4:Time
