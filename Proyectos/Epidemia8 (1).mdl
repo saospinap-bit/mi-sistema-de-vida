@@ -1,0 +1,155 @@
+{UTF-8}
+Infecciones por mes=Infecciones potenciales por mes * Probabilidad de contacto de un contagiado con un no contagiado
+	~	persona/Mes
+	~		|
+
+Infecciones potenciales por mes=Saludos de infectos por mes * Infecciosidad
+	~	persona/Mes
+	~		|
+
+Infecciosidad=0.5
+	~	persona/persona
+	~		|
+
+Probabilidad de contacto de un contagiado con un no contagiado=No infectados/Población total
+	~	persona/persona
+	~		|
+
+Saludos de infectos por mes=Infectados * Saludos por infectado por mes
+	~	persona/Mes
+	~		|
+
+Saludos por infectado por mes=Infectados/2/Infectados
+	~	1/Mes
+	~		|
+
+Infectados= INTEG (Infecciones por mes,
+		Infectados inicial)
+	~	persona
+	~		|
+
+Infectados inicial=1
+	~	persona
+	~		|
+
+No infectados= INTEG (-Infecciones por mes,
+		No infectados inicial)
+	~	persona
+	~		|
+
+No infectados inicial=Población total - Infectados inicial
+	~	persona
+	~		|
+
+Población total=66
+	~	persona
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Parametros de control de simulacion
+	|
+
+FINAL TIME  = 20
+	~	Mes
+	~	El periodo final de la simulacion.
+	|
+
+INITIAL TIME  = 0
+	~	Mes
+	~	El periodo inicial de la simulacion.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Mes [0,?]
+	~	La frecuencia con la que se almacena la salida.
+	|
+
+TIME STEP  = 0.125
+	~	Mes [0,?]
+	~	El "Incremento de tiempo" para la simulacion.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Pantalla 1
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,2
+10,1,Infectados,744,434,46,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,No infectados,373,432,53,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,Población total,260,262,56,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,4,Infectados inicial,743,352,63,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,5,4,1,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+10,6,No infectados inicial,366,352,53,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,7,6,2,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,8,3,6,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,9,4,6,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,10,12,2,100,0,0,22,0,192,0,-1--1--1,,1|(491,433)|
+1,11,12,1,4,0,0,22,0,192,0,-1--1--1,,1|(633,433)|
+11,12,0,562,433,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,13,Infecciones por mes,562,467,58,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,14,0,1245,347,300,200,0,15,0,0,1,0,0,0,0,0,0,0,0,0
+Población
+10,15,Infecciosidad,744,687,71,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,16,0,667,510,25,25,4,7,0,0,-1,0,0,0,0,0,0,0,0,0
+R
+10,17,Infecciones potenciales por mes,628,592,74,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,18,Probabilidad de contacto de un contagiado con un no contagiado,396,603,90,36,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,19,18,13,1,0,0,0,0,192,0,-1--1--1,,1|(520,564)|
+1,20,17,13,1,0,0,0,0,192,0,-1--1--1,,1|(585,545)|
+1,21,3,18,1,0,0,0,0,192,0,-1--1--1,,1|(282,561)|
+1,22,2,18,1,0,0,0,0,192,0,-1--1--1,,1|(330,503)|
+10,23,Saludos de infectos por mes,801,536,62,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,24,23,17,1,0,0,0,0,192,0,-1--1--1,,1|(765,583)|
+1,25,15,17,1,0,0,0,0,192,0,-1--1--1,,1|(640,642)|
+1,26,1,23,1,0,0,0,0,192,0,-1--1--1,,1|(791,480)|
+10,27,Saludos por infectado por mes,933,625,67,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,28,27,23,1,0,0,0,0,192,0,-1--1--1,,1|(851,585)|
+1,29,1,27,1,0,0,0,0,192,0,-1--1--1,,1|(865,477)|
+12,30,0,451,519,26,26,5,7,0,0,-1,0,0,0,0,0,0,0,0,0
+B
+///---\\\
+:GRAPH Población
+:SCALE
+:VAR Infectados
+:DATASET 
+:LINE-WIDTH 1
+:SCALE
+:VAR No infectados
+:DATASET 
+:LINE-WIDTH 1
+:L<%^E!@
+1:epidemiasensi.vdfx
+1:epidemia.vdfx
+4:Time
+5:Infecciosidad
+9:epidemiasensi
+19:100,0
+24:0
+25:20
+26:20
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Vensim Sans|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1
